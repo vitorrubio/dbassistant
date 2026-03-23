@@ -1,5 +1,6 @@
 using System.Text;
 using DBAssistant.Data.Configuration;
+using DBAssistant.Data.Services;
 using DBAssistant.Domain.Repositories;
 using Microsoft.Extensions.Options;
 using MySqlConnector;
@@ -37,13 +38,12 @@ public sealed class InformationSchemaReader : IInformationSchemaReader
             """;
 
         var builder = new StringBuilder();
-        var connectionString = _databaseOptions.GetConnectionString();
-
-        await using var connection = new MySqlConnection(connectionString);
+        await using var connection = new MySqlConnection(_databaseOptions.GetServerConnectionString());
         await connection.OpenAsync(cancellationToken);
+        var resolvedSchemaName = await MySqlSchemaResolver.ResolveAndChangeDatabaseAsync(connection, _databaseOptions, cancellationToken);
 
         await using var command = new MySqlCommand(sql, connection);
-        command.Parameters.AddWithValue("@schemaName", _databaseOptions.SchemaName);
+        command.Parameters.AddWithValue("@schemaName", resolvedSchemaName);
 
         await using var reader = await command.ExecuteReaderAsync(cancellationToken);
 

@@ -43,4 +43,13 @@ public sealed class DatabaseOptions
     {
         return $"Server={Host};Port={Port};Database={Database};User ID={Username};Password={Password};";
     }
+
+    /// <summary>
+    /// Builds a server-level MySQL connection string without selecting a default database.
+    /// </summary>
+    /// <returns>A connection string that connects to the server only.</returns>
+    public string GetServerConnectionString()
+    {
+        return $"Server={Host};Port={Port};User ID={Username};Password={Password};";
+    }
 }

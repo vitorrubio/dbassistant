@@ -12,8 +12,11 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="FluentAssertions" Version="6.12.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.5" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="10.0.5" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+    <PackageReference Include="MySqlConnector" Version="2.4.0" />
     <PackageReference Include="xunit" Version="2.9.2" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2">
       <PrivateAssets>all</PrivateAssets>
@@ -22,5 +25,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Api\DBAssistant.Api\DBAssistant.Api.csproj" />
+    <ProjectReference Include="..\..\..\src\Data\DBAssistant.Data\DBAssistant.Data.csproj" />
+    <ProjectReference Include="..\..\..\src\Services\DBAssistant.Services\DBAssistant.Services.csproj" />
+    <ProjectReference Include="..\..\..\src\UseCases\DBAssistant.UseCases\DBAssistant.UseCases.csproj" />
   </ItemGroup>
 </Project>
