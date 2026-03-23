@@ -1,5 +1,6 @@
 using System.Text.Json;
 using DBAssistant.Services.Configuration;
+using DBAssistant.Services.SchemaKnowledge;
 using DBAssistant.UseCases.Models;
 using DBAssistant.UseCases.Ports;
 using Microsoft.Extensions.Options;
@@ -37,12 +38,14 @@ public sealed class JsonSchemaKnowledgeSearchGateway : ISchemaKnowledgeSearchGat
         }
 
         await using var stream = File.OpenRead(_schemaKnowledgeOptions.FilePath);
-        var documents = await JsonSerializer.DeserializeAsync<List<SchemaKnowledgeDocument>>(
+        var artifact = await JsonSerializer.DeserializeAsync<SchemaKnowledgeArtifact>(
             stream,
             JsonSerializerOptions,
             cancellationToken);
 
-        if (documents is null || documents.Count == 0)
+        var documents = artifact?.Documents?.ToArray();
+
+        if (documents is null || documents.Length == 0)
         {
             return [];
         }
@@ -86,6 +89,11 @@ public sealed class JsonSchemaKnowledgeSearchGateway : ISchemaKnowledgeSearchGat
             if (document.Content.Contains(keyword, StringComparison.OrdinalIgnoreCase))
             {
                 score += 2;
+            }
+
+            if (document.Keywords.Any(documentKeyword => documentKeyword.Contains(keyword, StringComparison.OrdinalIgnoreCase)))
+            {
+                score += 5;
             }
 
             if (document.TableNames.Any(tableName => tableName.Contains(keyword, StringComparison.OrdinalIgnoreCase)))
