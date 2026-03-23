@@ -12,7 +12,7 @@ namespace DBAssistant.Services.OpenAI;
 public sealed class OpenAiSqlGenerationGateway : ISqlGenerationGateway
 {
     private const string SYSTEM_INSTRUCTIONS = """
-        You are a MySQL SQL assistant for the FinTechX Northwind database.
+        You are a MySQL SQL assistant for a connected business database.
         Convert the user question into a single read-only SQL statement.
         Rules:
         - Use MySQL syntax.

@@ -8,13 +8,13 @@ public sealed class DatabaseOptions
 
     public int Port { get; set; } = 3306;
 
-    public string Database { get; set; } = "Northwind";
+    public string Database { get; set; } = string.Empty;
 
     public string Username { get; set; } = string.Empty;
 
     public string Password { get; set; } = string.Empty;
 
-    public string SchemaName { get; set; } = "Northwind";
+    public string SchemaName { get; set; } = string.Empty;
 
     public string GetConnectionString()
     {

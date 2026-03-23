@@ -16,7 +16,7 @@ flowchart LR
     UseCases --> Domain[Domain Layer]
     UseCases --> Services[Services Layer]
     UseCases --> Data[Data Layer]
-    Data --> MySql[(MySQL / Northwind)]
+    Data --> MySql[(Connected MySQL Database)]
     Services --> OpenAI[OpenAI API]
 ```
 

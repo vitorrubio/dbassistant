@@ -2,9 +2,9 @@ using DBAssistant.Domain.Repositories;
 
 namespace DBAssistant.UseCases.IntegrationTests.Fakes;
 
-public sealed class FakeSchemaMetadataRepository : ISchemaMetadataRepository
+public sealed class FakeInformationSchemaReader : IInformationSchemaReader
 {
-    public Task<string> GetReadableSchemaAsync(CancellationToken cancellationToken)
+    public Task<string> ReadSchemaAsync(CancellationToken cancellationToken)
     {
         return Task.FromResult(
             """

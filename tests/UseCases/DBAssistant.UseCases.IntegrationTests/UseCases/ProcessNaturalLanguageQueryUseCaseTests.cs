@@ -13,7 +13,7 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
     public async Task ExecuteAsync_ShouldReturnRowsWhenExecutionIsEnabled()
     {
         var schemaContextAssembler = new SchemaContextAssembler(
-            new FakeSchemaMetadataRepository(),
+            new FakeInformationSchemaReader(),
             new FakeSchemaKnowledgeSearchGateway(
                 new SchemaKnowledgeDocument
                 {
@@ -45,7 +45,7 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
     public async Task ExecuteAsync_ShouldRejectEmptyQuestion()
     {
         var schemaContextAssembler = new SchemaContextAssembler(
-            new FakeSchemaMetadataRepository(),
+            new FakeInformationSchemaReader(),
             new FakeSchemaKnowledgeSearchGateway());
 
         var useCase = new ProcessNaturalLanguageQueryUseCase(
@@ -67,7 +67,7 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
     public async Task ExecuteAsync_ShouldFallbackToInformationSchemaWhenRagHasNoMatch()
     {
         var schemaContextAssembler = new SchemaContextAssembler(
-            new FakeSchemaMetadataRepository(),
+            new FakeInformationSchemaReader(),
             new FakeSchemaKnowledgeSearchGateway());
 
         var useCase = new ProcessNaturalLanguageQueryUseCase(

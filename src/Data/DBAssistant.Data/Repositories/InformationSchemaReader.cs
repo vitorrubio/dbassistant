@@ -6,16 +6,16 @@ using MySqlConnector;
 
 namespace DBAssistant.Data.Repositories;
 
-public sealed class SchemaMetadataRepository : ISchemaMetadataRepository
+public sealed class InformationSchemaReader : IInformationSchemaReader
 {
     private readonly DatabaseOptions _databaseOptions;
 
-    public SchemaMetadataRepository(IOptions<DatabaseOptions> databaseOptions)
+    public InformationSchemaReader(IOptions<DatabaseOptions> databaseOptions)
     {
         _databaseOptions = databaseOptions.Value;
     }
 
-    public async Task<string> GetReadableSchemaAsync(CancellationToken cancellationToken)
+    public async Task<string> ReadSchemaAsync(CancellationToken cancellationToken)
     {
         const string sql = """
             SELECT TABLE_NAME, COLUMN_NAME, DATA_TYPE

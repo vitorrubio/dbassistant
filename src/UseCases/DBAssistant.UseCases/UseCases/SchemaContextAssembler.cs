@@ -9,21 +9,21 @@ public sealed class SchemaContextAssembler : ISchemaContextAssembler
 {
     private const string RAG_AND_INFORMATION_SCHEMA = "rag+information_schema";
     private const string INFORMATION_SCHEMA_ONLY = "information_schema";
-    private readonly ISchemaMetadataRepository _schemaMetadataRepository;
+    private readonly IInformationSchemaReader _informationSchemaReader;
     private readonly ISchemaKnowledgeSearchGateway _schemaKnowledgeSearchGateway;
 
     public SchemaContextAssembler(
-        ISchemaMetadataRepository schemaMetadataRepository,
+        IInformationSchemaReader informationSchemaReader,
         ISchemaKnowledgeSearchGateway schemaKnowledgeSearchGateway)
     {
-        _schemaMetadataRepository = schemaMetadataRepository;
+        _informationSchemaReader = informationSchemaReader;
         _schemaKnowledgeSearchGateway = schemaKnowledgeSearchGateway;
     }
 
     public async Task<SchemaContextEnvelope> BuildAsync(string question, CancellationToken cancellationToken)
     {
         var schemaKnowledgeDocuments = await _schemaKnowledgeSearchGateway.SearchAsync(question, cancellationToken);
-        var readableSchema = await _schemaMetadataRepository.GetReadableSchemaAsync(cancellationToken);
+        var readableSchema = await _informationSchemaReader.ReadSchemaAsync(cancellationToken);
 
         if (schemaKnowledgeDocuments.Count == 0)
         {
