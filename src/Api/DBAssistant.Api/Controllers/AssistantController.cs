@@ -40,6 +40,7 @@ public sealed class AssistantController : ControllerBase
             {
                 Sql = response.Sql,
                 Explanation = response.Explanation,
+                SchemaContextSource = response.SchemaContextSource,
                 Executed = response.Executed,
                 Columns = response.Columns,
                 Rows = response.Rows

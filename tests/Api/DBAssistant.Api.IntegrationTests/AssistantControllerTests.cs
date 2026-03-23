@@ -51,6 +51,7 @@ public sealed class AssistantControllerTests : IClassFixture<WebApplicationFacto
             {
                 Sql = "SELECT * FROM Orders",
                 Explanation = "Fake response",
+                SchemaContextSource = "information_schema",
                 Executed = false
             });
         }

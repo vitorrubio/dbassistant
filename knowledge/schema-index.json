@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Orders analytical overview",
+    "content": "Orders stores the commercial transactions. Use OrderDate for temporal filters, CustomerID to link to customers, EmployeeID to link to employees, and ShipVia to link to shippers.",
+    "tableNames": ["Orders", "Customers", "Employees", "Shippers"]
+  },
+  {
+    "title": "Order details revenue metrics",
+    "content": "Order Details stores line items. Join Orders by OrderID and Products by ProductID. Revenue can be derived from UnitPrice * Quantity * (1 - Discount).",
+    "tableNames": ["Order Details", "Orders", "Products"]
+  },
+  {
+    "title": "Products and categories catalog",
+    "content": "Products links to Categories by CategoryID and Suppliers by SupplierID. Useful for pricing, inventory, and category-level summaries.",
+    "tableNames": ["Products", "Categories", "Suppliers"]
+  }
+]

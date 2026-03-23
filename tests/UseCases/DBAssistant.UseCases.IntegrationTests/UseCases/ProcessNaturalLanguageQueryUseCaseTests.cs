@@ -11,8 +11,18 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
     [Fact]
     public async Task ExecuteAsync_ShouldReturnRowsWhenExecutionIsEnabled()
     {
-        var useCase = new ProcessNaturalLanguageQueryUseCase(
+        var schemaContextAssembler = new SchemaContextAssembler(
             new FakeSchemaMetadataRepository(),
+            new FakeSchemaKnowledgeSearchGateway(
+                new SchemaKnowledgeDocument
+                {
+                    Title = "Orders document",
+                    Content = "Orders can be joined with customers.",
+                    TableNames = ["Orders", "Customers"]
+                }));
+
+        var useCase = new ProcessNaturalLanguageQueryUseCase(
+            schemaContextAssembler,
             new FakeSqlGenerationGateway(),
             new FakeSqlQueryExecutor());
 
@@ -27,13 +37,18 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
         result.Executed.Should().BeTrue();
         result.Rows.Should().HaveCount(1);
         result.Sql.Should().Be("SELECT Id, Total FROM Orders");
+        result.SchemaContextSource.Should().Be("rag+information_schema");
     }
 
     [Fact]
     public async Task ExecuteAsync_ShouldRejectEmptyQuestion()
     {
-        var useCase = new ProcessNaturalLanguageQueryUseCase(
+        var schemaContextAssembler = new SchemaContextAssembler(
             new FakeSchemaMetadataRepository(),
+            new FakeSchemaKnowledgeSearchGateway());
+
+        var useCase = new ProcessNaturalLanguageQueryUseCase(
+            schemaContextAssembler,
             new FakeSqlGenerationGateway(),
             new FakeSqlQueryExecutor());
 
@@ -45,5 +60,29 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
             CancellationToken.None);
 
         await action.Should().ThrowAsync<ApplicationValidationException>();
+    }
+
+    [Fact]
+    public async Task ExecuteAsync_ShouldFallbackToInformationSchemaWhenRagHasNoMatch()
+    {
+        var schemaContextAssembler = new SchemaContextAssembler(
+            new FakeSchemaMetadataRepository(),
+            new FakeSchemaKnowledgeSearchGateway());
+
+        var useCase = new ProcessNaturalLanguageQueryUseCase(
+            schemaContextAssembler,
+            new FakeSqlGenerationGateway(),
+            new FakeSqlQueryExecutor());
+
+        var result = await useCase.ExecuteAsync(
+            new NaturalLanguageQueryRequest
+            {
+                Question = "List orders",
+                ExecuteSql = false
+            },
+            CancellationToken.None);
+
+        result.Executed.Should().BeFalse();
+        result.SchemaContextSource.Should().Be("information_schema");
     }
 }

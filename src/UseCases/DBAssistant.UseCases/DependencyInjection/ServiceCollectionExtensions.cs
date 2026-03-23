@@ -8,6 +8,7 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddUseCases(this IServiceCollection services)
     {
+        services.AddScoped<ISchemaContextAssembler, SchemaContextAssembler>();
         services.AddScoped<IProcessNaturalLanguageQueryUseCase, ProcessNaturalLanguageQueryUseCase>();
         return services;
     }

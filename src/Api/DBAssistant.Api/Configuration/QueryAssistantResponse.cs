@@ -6,6 +6,8 @@ public sealed class QueryAssistantResponse
 
     public string Explanation { get; init; } = string.Empty;
 
+    public string SchemaContextSource { get; init; } = string.Empty;
+
     public bool Executed { get; init; }
 
     public IReadOnlyCollection<string> Columns { get; init; } = [];

@@ -22,7 +22,8 @@ flowchart LR
 
 ## First Flow
 1. The client sends a natural language question to the API.
-2. The use case retrieves a readable schema snapshot from MySQL.
-3. The OpenAI gateway converts the question into read-only MySQL SQL.
-4. The domain guard validates that only `SELECT` or CTE-based read-only SQL is accepted.
-5. When requested, the data layer executes the SQL and returns tabular data.
+2. The use case searches the schema knowledge index (RAG) for relevant business hints, joins, and table guidance.
+3. The use case appends the live `INFORMATION_SCHEMA` snapshot as authoritative fallback context, covering tables that are not yet indexed.
+4. The OpenAI gateway converts the question into read-only MySQL SQL using the hybrid context.
+5. The domain guard validates that only `SELECT` or CTE-based read-only SQL is accepted.
+6. When requested, the data layer executes the SQL and returns tabular data.

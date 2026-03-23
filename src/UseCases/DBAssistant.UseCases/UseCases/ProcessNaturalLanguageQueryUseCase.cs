@@ -1,5 +1,4 @@
 using DBAssistant.Domain.Entities;
-using DBAssistant.Domain.Repositories;
 using DBAssistant.UseCases.Abstractions;
 using DBAssistant.UseCases.Exceptions;
 using DBAssistant.UseCases.Models;
@@ -8,16 +7,16 @@ namespace DBAssistant.UseCases.UseCases;
 
 public sealed class ProcessNaturalLanguageQueryUseCase : IProcessNaturalLanguageQueryUseCase
 {
-    private readonly ISchemaMetadataRepository _schemaMetadataRepository;
+    private readonly ISchemaContextAssembler _schemaContextAssembler;
     private readonly ISqlGenerationGateway _sqlGenerationGateway;
     private readonly ISqlQueryExecutor _sqlQueryExecutor;
 
     public ProcessNaturalLanguageQueryUseCase(
-        ISchemaMetadataRepository schemaMetadataRepository,
+        ISchemaContextAssembler schemaContextAssembler,
         ISqlGenerationGateway sqlGenerationGateway,
         ISqlQueryExecutor sqlQueryExecutor)
     {
-        _schemaMetadataRepository = schemaMetadataRepository;
+        _schemaContextAssembler = schemaContextAssembler;
         _sqlGenerationGateway = sqlGenerationGateway;
         _sqlQueryExecutor = sqlQueryExecutor;
     }
@@ -31,8 +30,11 @@ public sealed class ProcessNaturalLanguageQueryUseCase : IProcessNaturalLanguage
             throw new ApplicationValidationException("The question is required.");
         }
 
-        var schemaContext = await _schemaMetadataRepository.GetReadableSchemaAsync(cancellationToken);
-        var generatedSql = await _sqlGenerationGateway.GenerateSqlAsync(request.Question.Trim(), schemaContext, cancellationToken);
+        var schemaContextEnvelope = await _schemaContextAssembler.BuildAsync(request.Question.Trim(), cancellationToken);
+        var generatedSql = await _sqlGenerationGateway.GenerateSqlAsync(
+            request.Question.Trim(),
+            schemaContextEnvelope.Context,
+            cancellationToken);
         var sqlStatement = SqlStatement.CreateReadOnly(generatedSql.Sql);
 
         if (request.ExecuteSql is false)
@@ -41,6 +43,7 @@ public sealed class ProcessNaturalLanguageQueryUseCase : IProcessNaturalLanguage
             {
                 Sql = sqlStatement.Value,
                 Explanation = generatedSql.Explanation,
+                SchemaContextSource = schemaContextEnvelope.Source,
                 Executed = false
             };
         }
@@ -51,6 +54,7 @@ public sealed class ProcessNaturalLanguageQueryUseCase : IProcessNaturalLanguage
         {
             Sql = sqlStatement.Value,
             Explanation = generatedSql.Explanation,
+            SchemaContextSource = schemaContextEnvelope.Source,
             Executed = true,
             Columns = executionResult.Columns,
             Rows = executionResult.Rows

@@ -15,6 +15,7 @@
 - [x] Wire references, dependency injection, configuration and Swagger.
 - [x] Implement an initial vertical slice for a read-only natural language query contract.
 - [x] Add Docker and Docker Compose files for API and MySQL integration.
+- [x] Add hybrid schema context assembly with RAG-first lookup and `INFORMATION_SCHEMA` fallback.
 - [ ] Run build and tests. Blocked: local .NET runtime is missing, so `dotnet new/build/test` cannot execute in this environment yet.
 - [ ] Summarize pending architecture/business decisions that require user confirmation.
 
@@ -23,6 +24,7 @@
 - Bootstrap a REST API with a minimal first endpoint and placeholders for OpenAI/MySQL integration.
 - Enforce read-only query intent in the application contracts and validation layer from the start.
 - Use the OpenAI Responses API shape for the first gateway implementation, keeping the model configurable in `.env`.
+- Default the OpenAI model to `gpt-5.4` unless the user changes it later.
 
 ## Pending User Decisions
 - Exact API contract for the first business endpoint beyond the bootstrap version.
