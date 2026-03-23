@@ -5,8 +5,14 @@ using Xunit;
 
 namespace DBAssistant.Domain.UnitTests.Guards;
 
+/// <summary>
+/// Verifies the behavior of the read-only SQL guard.
+/// </summary>
 public sealed class SqlStatementTests
 {
+    /// <summary>
+    /// Ensures that a simple <c>SELECT</c> statement is accepted by the domain guard.
+    /// </summary>
     [Fact]
     public void CreateReadOnly_ShouldAcceptValidSelectStatement()
     {
@@ -15,6 +21,9 @@ public sealed class SqlStatementTests
         sqlStatement.Value.Should().Be("SELECT * FROM Orders");
     }
 
+    /// <summary>
+    /// Ensures that a read-only statement starting with a CTE is accepted by the domain guard.
+    /// </summary>
     [Fact]
     public void CreateReadOnly_ShouldAcceptValidCteStatement()
     {
@@ -29,6 +38,9 @@ public sealed class SqlStatementTests
         sqlStatement.Value.Should().StartWith("WITH");
     }
 
+    /// <summary>
+    /// Ensures that mutation statements embedded in the SQL text are rejected by the domain guard.
+    /// </summary>
     [Fact]
     public void CreateReadOnly_ShouldRejectMutationStatement()
     {

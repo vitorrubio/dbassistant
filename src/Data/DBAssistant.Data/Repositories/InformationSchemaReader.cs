@@ -6,15 +6,27 @@ using MySqlConnector;
 
 namespace DBAssistant.Data.Repositories;
 
+/// <summary>
+/// Reads the authoritative schema metadata directly from MySQL <c>INFORMATION_SCHEMA</c> tables.
+/// </summary>
 public sealed class InformationSchemaReader : IInformationSchemaReader
 {
     private readonly DatabaseOptions _databaseOptions;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="InformationSchemaReader"/> class.
+    /// </summary>
+    /// <param name="databaseOptions">The database connection settings.</param>
     public InformationSchemaReader(IOptions<DatabaseOptions> databaseOptions)
     {
         _databaseOptions = databaseOptions.Value;
     }
 
+    /// <summary>
+    /// Reads the current schema definition and formats it for prompt consumption.
+    /// </summary>
+    /// <param name="cancellationToken">The cancellation token used to stop the metadata query.</param>
+    /// <returns>A text representation of tables, columns, and data types available in the target schema.</returns>
     public async Task<string> ReadSchemaAsync(CancellationToken cancellationToken)
     {
         const string sql = """

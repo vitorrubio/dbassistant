@@ -1,16 +1,25 @@
 using DBAssistant.Domain.Entities;
-using DBAssistant.UseCases.Abstractions;
 using DBAssistant.UseCases.Exceptions;
 using DBAssistant.UseCases.Models;
+using DBAssistant.UseCases.Ports;
 
 namespace DBAssistant.UseCases.UseCases;
 
+/// <summary>
+/// Implements the application flow that assembles schema context, generates SQL, validates it, and optionally executes it.
+/// </summary>
 public sealed class ProcessNaturalLanguageQueryUseCase : IProcessNaturalLanguageQueryUseCase
 {
     private readonly ISchemaContextAssembler _schemaContextAssembler;
     private readonly ISqlGenerationGateway _sqlGenerationGateway;
     private readonly ISqlQueryExecutor _sqlQueryExecutor;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ProcessNaturalLanguageQueryUseCase"/> class.
+    /// </summary>
+    /// <param name="schemaContextAssembler">The service that prepares schema context for the model.</param>
+    /// <param name="sqlGenerationGateway">The gateway that generates SQL from a natural-language question.</param>
+    /// <param name="sqlQueryExecutor">The executor that runs validated read-only SQL against the database.</param>
     public ProcessNaturalLanguageQueryUseCase(
         ISchemaContextAssembler schemaContextAssembler,
         ISqlGenerationGateway sqlGenerationGateway,
@@ -21,8 +30,15 @@ public sealed class ProcessNaturalLanguageQueryUseCase : IProcessNaturalLanguage
         _sqlQueryExecutor = sqlQueryExecutor;
     }
 
-    public async Task<NaturalLanguageQueryResponse> ExecuteAsync(
-        NaturalLanguageQueryRequest request,
+    /// <summary>
+    /// Executes the natural-language query workflow from question validation to optional database execution.
+    /// </summary>
+    /// <param name="request">The incoming request containing the user question and execution preference.</param>
+    /// <param name="cancellationToken">The cancellation token used to stop the workflow.</param>
+    /// <returns>The generated SQL, schema context origin, and optional execution output.</returns>
+    /// <exception cref="ApplicationValidationException">Thrown when the question is missing.</exception>
+    public async Task<QueryAssistantResponse> ExecuteAsync(
+        QueryAssistantRequest request,
         CancellationToken cancellationToken)
     {
         if (string.IsNullOrWhiteSpace(request.Question))
@@ -39,7 +55,7 @@ public sealed class ProcessNaturalLanguageQueryUseCase : IProcessNaturalLanguage
 
         if (request.ExecuteSql is false)
         {
-            return new NaturalLanguageQueryResponse
+            return new QueryAssistantResponse
             {
                 Sql = sqlStatement.Value,
                 Explanation = generatedSql.Explanation,
@@ -50,7 +66,7 @@ public sealed class ProcessNaturalLanguageQueryUseCase : IProcessNaturalLanguage
 
         var executionResult = await _sqlQueryExecutor.ExecuteReadOnlyAsync(sqlStatement, cancellationToken);
 
-        return new NaturalLanguageQueryResponse
+        return new QueryAssistantResponse
         {
             Sql = sqlStatement.Value,
             Explanation = generatedSql.Explanation,

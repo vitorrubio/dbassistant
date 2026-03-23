@@ -2,8 +2,16 @@ using Microsoft.OpenApi.Models;
 
 namespace DBAssistant.Api.Extensions;
 
+/// <summary>
+/// Provides service-registration extensions for the API layer.
+/// </summary>
 public static class ServiceCollectionExtensions
 {
+    /// <summary>
+    /// Adds controllers and Swagger services required by the API layer.
+    /// </summary>
+    /// <param name="services">The service collection being configured.</param>
+    /// <returns>The same service collection for chaining.</returns>
     public static IServiceCollection AddApiConfiguration(this IServiceCollection services)
     {
         services.AddControllers();

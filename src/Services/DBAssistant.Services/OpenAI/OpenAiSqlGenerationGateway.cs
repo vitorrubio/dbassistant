@@ -2,13 +2,16 @@ using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text.Json;
 using DBAssistant.Services.Configuration;
-using DBAssistant.UseCases.Abstractions;
 using DBAssistant.UseCases.Exceptions;
 using DBAssistant.UseCases.Models;
+using DBAssistant.UseCases.Ports;
 using Microsoft.Extensions.Options;
 
 namespace DBAssistant.Services.OpenAI;
 
+/// <summary>
+/// Calls the OpenAI Responses API to transform a natural-language question into structured SQL output.
+/// </summary>
 public sealed class OpenAiSqlGenerationGateway : ISqlGenerationGateway
 {
     private const string SYSTEM_INSTRUCTIONS = """
@@ -27,12 +30,25 @@ public sealed class OpenAiSqlGenerationGateway : ISqlGenerationGateway
     private readonly HttpClient _httpClient;
     private readonly OpenAiOptions _openAiOptions;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="OpenAiSqlGenerationGateway"/> class.
+    /// </summary>
+    /// <param name="httpClient">The HTTP client configured for the OpenAI endpoint.</param>
+    /// <param name="openAiOptions">The OpenAI settings used by the gateway.</param>
     public OpenAiSqlGenerationGateway(HttpClient httpClient, IOptions<OpenAiOptions> openAiOptions)
     {
         _httpClient = httpClient;
         _openAiOptions = openAiOptions.Value;
     }
 
+    /// <summary>
+    /// Sends the question and schema context to OpenAI and parses the generated SQL response.
+    /// </summary>
+    /// <param name="question">The user question expressed in natural language.</param>
+    /// <param name="schemaContext">The schema context injected into the prompt.</param>
+    /// <param name="cancellationToken">The cancellation token used to stop the HTTP request.</param>
+    /// <returns>The SQL and explanation returned by the model.</returns>
+    /// <exception cref="ExternalServiceUnavailableException">Thrown when configuration is incomplete or the OpenAI response is invalid.</exception>
     public async Task<GeneratedSqlResult> GenerateSqlAsync(
         string question,
         string schemaContext,
@@ -91,6 +107,10 @@ public sealed class OpenAiSqlGenerationGateway : ISqlGenerationGateway
         return result;
     }
 
+    /// <summary>
+    /// Validates that the mandatory OpenAI configuration values were provided.
+    /// </summary>
+    /// <exception cref="ExternalServiceUnavailableException">Thrown when one or more required settings are missing.</exception>
     private void ValidateConfiguration()
     {
         if (string.IsNullOrWhiteSpace(_openAiOptions.ApiKey) ||
@@ -101,6 +121,12 @@ public sealed class OpenAiSqlGenerationGateway : ISqlGenerationGateway
         }
     }
 
+    /// <summary>
+    /// Builds the user-facing prompt block containing the question and assembled schema context.
+    /// </summary>
+    /// <param name="question">The natural-language question asked by the user.</param>
+    /// <param name="schemaContext">The prompt-friendly schema context assembled by the application.</param>
+    /// <returns>A formatted prompt string for the OpenAI request body.</returns>
     private static string BuildUserPrompt(string question, string schemaContext)
     {
         return $"""

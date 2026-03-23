@@ -1,10 +1,13 @@
 using System.Text;
 using DBAssistant.Domain.Repositories;
-using DBAssistant.UseCases.Abstractions;
 using DBAssistant.UseCases.Models;
+using DBAssistant.UseCases.Ports;
 
 namespace DBAssistant.UseCases.UseCases;
 
+/// <summary>
+/// Combines indexed schema knowledge and live information-schema metadata into a prompt-friendly context payload.
+/// </summary>
 public sealed class SchemaContextAssembler : ISchemaContextAssembler
 {
     private const string RAG_AND_INFORMATION_SCHEMA = "rag+information_schema";
@@ -12,6 +15,11 @@ public sealed class SchemaContextAssembler : ISchemaContextAssembler
     private readonly IInformationSchemaReader _informationSchemaReader;
     private readonly ISchemaKnowledgeSearchGateway _schemaKnowledgeSearchGateway;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="SchemaContextAssembler"/> class.
+    /// </summary>
+    /// <param name="informationSchemaReader">The reader that returns live metadata from the connected database.</param>
+    /// <param name="schemaKnowledgeSearchGateway">The gateway that retrieves indexed schema knowledge.</param>
     public SchemaContextAssembler(
         IInformationSchemaReader informationSchemaReader,
         ISchemaKnowledgeSearchGateway schemaKnowledgeSearchGateway)
@@ -20,6 +28,12 @@ public sealed class SchemaContextAssembler : ISchemaContextAssembler
         _schemaKnowledgeSearchGateway = schemaKnowledgeSearchGateway;
     }
 
+    /// <summary>
+    /// Builds schema context for a user question by prioritizing indexed knowledge and appending live metadata as fallback.
+    /// </summary>
+    /// <param name="question">The natural-language question used to retrieve schema context.</param>
+    /// <param name="cancellationToken">The cancellation token used to stop the operation.</param>
+    /// <returns>A schema context envelope that identifies whether RAG and/or live metadata were used.</returns>
     public async Task<SchemaContextEnvelope> BuildAsync(string question, CancellationToken cancellationToken)
     {
         var schemaKnowledgeDocuments = await _schemaKnowledgeSearchGateway.SearchAsync(question, cancellationToken);

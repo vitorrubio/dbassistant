@@ -7,8 +7,14 @@ using Xunit;
 
 namespace DBAssistant.UseCases.IntegrationTests.UseCases;
 
+/// <summary>
+/// Verifies the orchestration behavior of the natural-language query use case.
+/// </summary>
 public sealed class ProcessNaturalLanguageQueryUseCaseTests
 {
+    /// <summary>
+    /// Ensures the use case returns rows and reports hybrid schema context when execution is enabled.
+    /// </summary>
     [Fact]
     public async Task ExecuteAsync_ShouldReturnRowsWhenExecutionIsEnabled()
     {
@@ -28,7 +34,7 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
             new FakeSqlQueryExecutor());
 
         var result = await useCase.ExecuteAsync(
-            new NaturalLanguageQueryRequest
+            new QueryAssistantRequest
             {
                 Question = "Show order totals",
                 ExecuteSql = true
@@ -41,6 +47,9 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
         result.SchemaContextSource.Should().Be("rag+information_schema");
     }
 
+    /// <summary>
+    /// Ensures the use case rejects requests without a question.
+    /// </summary>
     [Fact]
     public async Task ExecuteAsync_ShouldRejectEmptyQuestion()
     {
@@ -54,7 +63,7 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
             new FakeSqlQueryExecutor());
 
         var action = async () => await useCase.ExecuteAsync(
-            new NaturalLanguageQueryRequest
+            new QueryAssistantRequest
             {
                 Question = string.Empty
             },
@@ -63,6 +72,9 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
         await action.Should().ThrowAsync<ApplicationValidationException>();
     }
 
+    /// <summary>
+    /// Ensures the use case falls back to information-schema metadata when the RAG layer has no match.
+    /// </summary>
     [Fact]
     public async Task ExecuteAsync_ShouldFallbackToInformationSchemaWhenRagHasNoMatch()
     {
@@ -76,7 +88,7 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
             new FakeSqlQueryExecutor());
 
         var result = await useCase.ExecuteAsync(
-            new NaturalLanguageQueryRequest
+            new QueryAssistantRequest
             {
                 Question = "List orders",
                 ExecuteSql = false

@@ -1,21 +1,34 @@
 using System.Text.Json;
 using DBAssistant.Services.Configuration;
-using DBAssistant.UseCases.Abstractions;
 using DBAssistant.UseCases.Models;
+using DBAssistant.UseCases.Ports;
 using Microsoft.Extensions.Options;
 
 namespace DBAssistant.Services.SchemaKnowledge;
 
+/// <summary>
+/// Provides a lightweight JSON-backed schema knowledge search implementation used as the bootstrap RAG source.
+/// </summary>
 public sealed class JsonSchemaKnowledgeSearchGateway : ISchemaKnowledgeSearchGateway
 {
     private static readonly JsonSerializerOptions JsonSerializerOptions = new(JsonSerializerDefaults.Web);
     private readonly SchemaKnowledgeOptions _schemaKnowledgeOptions;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="JsonSchemaKnowledgeSearchGateway"/> class.
+    /// </summary>
+    /// <param name="schemaKnowledgeOptions">The configuration that points to the JSON knowledge index.</param>
     public JsonSchemaKnowledgeSearchGateway(IOptions<SchemaKnowledgeOptions> schemaKnowledgeOptions)
     {
         _schemaKnowledgeOptions = schemaKnowledgeOptions.Value;
     }
 
+    /// <summary>
+    /// Searches the JSON knowledge index and returns the highest-scoring schema documents for the supplied question.
+    /// </summary>
+    /// <param name="question">The natural-language question used to score indexed schema documents.</param>
+    /// <param name="cancellationToken">The cancellation token used to stop the file read.</param>
+    /// <returns>A collection of the most relevant schema knowledge documents.</returns>
     public async Task<IReadOnlyCollection<SchemaKnowledgeDocument>> SearchAsync(string question, CancellationToken cancellationToken)
     {
         if (File.Exists(_schemaKnowledgeOptions.FilePath) is false)
@@ -53,6 +66,12 @@ public sealed class JsonSchemaKnowledgeSearchGateway : ISchemaKnowledgeSearchGat
             .ToArray();
     }
 
+    /// <summary>
+    /// Computes a naive relevance score based on keyword matches against the indexed schema document.
+    /// </summary>
+    /// <param name="document">The indexed schema document being evaluated.</param>
+    /// <param name="keywords">The extracted keywords from the user question.</param>
+    /// <returns>An integer score used to rank the document.</returns>
     private static int CalculateScore(SchemaKnowledgeDocument document, IReadOnlyCollection<string> keywords)
     {
         var score = 0;

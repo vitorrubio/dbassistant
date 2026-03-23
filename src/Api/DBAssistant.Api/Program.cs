@@ -18,4 +18,7 @@ app.UseApiConfiguration();
 
 app.Run();
 
+/// <summary>
+/// Exposes the application entry point type so integration tests can bootstrap the API host.
+/// </summary>
 public partial class Program;
