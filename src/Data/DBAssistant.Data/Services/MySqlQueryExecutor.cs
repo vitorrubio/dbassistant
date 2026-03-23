@@ -20,8 +20,9 @@ public sealed class MySqlQueryExecutor : ISqlQueryExecutor
     {
         var columns = new List<string>();
         var rows = new List<IReadOnlyDictionary<string, object?>>();
+        var connectionString = _databaseOptions.GetConnectionString();
 
-        await using var connection = new MySqlConnection(_databaseOptions.ConnectionString);
+        await using var connection = new MySqlConnection(connectionString);
         await connection.OpenAsync(cancellationToken);
 
         await using var command = new MySqlCommand(sqlStatement.Value, connection);

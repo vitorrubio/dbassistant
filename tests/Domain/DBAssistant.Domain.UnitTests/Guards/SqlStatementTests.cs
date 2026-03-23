@@ -1,6 +1,7 @@
 using DBAssistant.Domain.Entities;
 using DBAssistant.Domain.Exceptions;
 using FluentAssertions;
+using Xunit;
 
 namespace DBAssistant.Domain.UnitTests.Guards;
 

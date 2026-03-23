@@ -1,16 +1,16 @@
 # DB Assistant
 
 ## Overview
-DB Assistant is a layered .NET 8 solution that exposes a REST API for translating natural language questions into safe read-only MySQL queries for the FinTechX Northwind database. The current implementation uses a hybrid schema-context strategy: it searches an indexed schema knowledge base first and then falls back to live metadata from `INFORMATION_SCHEMA`, so newly created tables remain discoverable even when they are not yet indexed in the RAG layer.
+DB Assistant is a layered .NET 10 solution that exposes a REST API for translating natural language questions into safe read-only MySQL queries for the FinTechX Northwind database. The current implementation uses a hybrid schema-context strategy: it searches an indexed schema knowledge base first and then falls back to live metadata from `INFORMATION_SCHEMA`, so newly created tables remain discoverable even when they are not yet indexed in the RAG layer.
 
 ## Local Development
-Clone the repository and create your local environment file from `.env_copy-me`. Fill the placeholders in `.env` with your MySQL and OpenAI credentials before running the API.
+Clone the repository and create your local environment file from `.env_copy-me`. Fill the placeholders in `.env` with your MySQL and OpenAI credentials before running the API. MySQL configuration uses individual environment variables (`MYSQL_HOST`, `MYSQL_PORT`, `MYSQL_DATABASE`, `MYSQL_USERNAME`, `MYSQL_PASSWORD`), and the application composes the connection string internally.
 
 ```bash
 git clone <repository-url>
 cd dbassistant
 cp .env_copy-me .env
-docker compose up -d mysql
+docker compose up --build api
 dotnet restore DBAssistant.sln
 dotnet build DBAssistant.sln
 dotnet test DBAssistant.sln
@@ -43,3 +43,5 @@ The response JSON currently contains:
 ### 2026-03-23
 - Bootstrapped the solution structure, environment templates, Docker assets, CI workflow, Swagger API, and the first read-only SQL assistant flow.
 - Added hybrid schema context assembly with RAG-first lookup and `INFORMATION_SCHEMA` fallback, and fixed the default OpenAI model to `gpt-5.4`.
+- Simplified Docker Compose to run only the API container because the Northwind MySQL database is externally hosted.
+- Migrated the solution, CI workflow, and Docker images to .NET 10.

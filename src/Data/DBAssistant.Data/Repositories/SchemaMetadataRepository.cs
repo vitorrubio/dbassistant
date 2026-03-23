@@ -25,8 +25,9 @@ public sealed class SchemaMetadataRepository : ISchemaMetadataRepository
             """;
 
         var builder = new StringBuilder();
+        var connectionString = _databaseOptions.GetConnectionString();
 
-        await using var connection = new MySqlConnection(_databaseOptions.ConnectionString);
+        await using var connection = new MySqlConnection(connectionString);
         await connection.OpenAsync(cancellationToken);
 
         await using var command = new MySqlCommand(sql, connection);

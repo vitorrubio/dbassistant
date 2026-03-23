@@ -16,8 +16,17 @@ public static class ServiceCollectionExtensions
     {
         services.Configure<DatabaseOptions>(options =>
         {
-            options.ConnectionString = configuration["MYSQL_CONNECTION_STRING"] ?? string.Empty;
-            options.SchemaName = configuration["MYSQL_DATABASE"] ?? "Northwind";
+            options.Host = configuration["MYSQL_HOST"] ?? "localhost";
+
+            if (int.TryParse(configuration["MYSQL_PORT"], out var port))
+            {
+                options.Port = port;
+            }
+
+            options.Database = configuration["MYSQL_DATABASE"] ?? "Northwind";
+            options.Username = configuration["MYSQL_USERNAME"] ?? string.Empty;
+            options.Password = configuration["MYSQL_PASSWORD"] ?? string.Empty;
+            options.SchemaName = options.Database;
         });
 
         services.AddDbContext<FinTechXDbContext>((serviceProvider, options) =>
@@ -25,10 +34,11 @@ public static class ServiceCollectionExtensions
             var databaseOptions = serviceProvider
                 .GetRequiredService<Microsoft.Extensions.Options.IOptions<DatabaseOptions>>()
                 .Value;
+            var connectionString = databaseOptions.GetConnectionString();
 
             options.UseMySql(
-                databaseOptions.ConnectionString,
-                ServerVersion.AutoDetect(databaseOptions.ConnectionString));
+                connectionString,
+                ServerVersion.AutoDetect(connectionString));
         });
 
         services.AddScoped<ISchemaMetadataRepository, SchemaMetadataRepository>();

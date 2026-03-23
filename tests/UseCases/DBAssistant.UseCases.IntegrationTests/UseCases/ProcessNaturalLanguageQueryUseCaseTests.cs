@@ -3,6 +3,7 @@ using DBAssistant.UseCases.IntegrationTests.Fakes;
 using DBAssistant.UseCases.Models;
 using DBAssistant.UseCases.UseCases;
 using FluentAssertions;
+using Xunit;
 
 namespace DBAssistant.UseCases.IntegrationTests.UseCases;
 

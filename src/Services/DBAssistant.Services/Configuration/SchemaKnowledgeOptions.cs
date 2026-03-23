@@ -2,7 +2,7 @@ namespace DBAssistant.Services.Configuration;
 
 public sealed class SchemaKnowledgeOptions
 {
-    public string FilePath { get; init; } = "knowledge/schema-index.json";
+    public string FilePath { get; set; } = "knowledge/schema-index.json";
 
-    public int MaxDocuments { get; init; } = 3;
+    public int MaxDocuments { get; set; } = 3;
 }
