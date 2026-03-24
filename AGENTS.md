@@ -38,7 +38,9 @@ Você é um programador Sr. desenvolvendo um sistema.
  - Planeje primeiro, salvando o .md com seu planejamento na pasta da sua memória .md
  - Crie prompts para si mesmo ou para outros agentes na pasta .agents para sua memória
  - a cada iteração faça um commit bem explicado e formatado (em inglês) e um PR igualmente bem formatado em inglês, para a main. Adicione também no changelog do readme, em inglês.
- - o PR precisa de duas aprovações para que seja feito o merge. Inicie um sub agente para fazer o code review e a primeira aprovação. Só eu posso fazer a segunda aprovação e o merge, a não ser que te autorize especificamente.
+ - Você deve fazer um code review desse PR e fazer o merge se estiver tudo correto ou fazer mais alguns commits se existir algo errado.
+ - Depois do merge feito você pode excluir a branch de trabalho (fix ou feature), tanto a local como a remota.
+
 
 
 ## Rules
