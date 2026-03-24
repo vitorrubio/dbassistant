@@ -41,12 +41,21 @@ public sealed class ApiKeyAuthenticationMiddleware
 
         if (string.IsNullOrWhiteSpace(providedValue) || MatchesExpectedValue(providedValue) is false)
         {
+            var observedHeaders = string.Join(
+                ", ",
+                [
+                    $"{_options.HeaderName}={RequestContainsHeader(context.Request, _options.HeaderName)}",
+                    $"apiKey={RequestContainsHeader(context.Request, "apiKey")}",
+                    $"x-api-key={RequestContainsHeader(context.Request, "x-api-key")}",
+                    $"authorization={RequestContainsHeader(context.Request, "Authorization")}"
+                ]);
+
             context.Response.StatusCode = StatusCodes.Status401Unauthorized;
             await context.Response.WriteAsJsonAsync(new ProblemDetails
             {
                 Status = StatusCodes.Status401Unauthorized,
                 Title = "Unauthorized",
-                Detail = $"Provide the '{_options.HeaderName}' header with a valid API key."
+                Detail = $"Provide the '{_options.HeaderName}' header with a valid API key. Observed headers: {observedHeaders}."
             });
 
             return;
@@ -103,5 +112,11 @@ public sealed class ApiKeyAuthenticationMiddleware
 
         value = null;
         return false;
+    }
+
+    private static bool RequestContainsHeader(HttpRequest request, string headerName)
+    {
+        return request.Headers.TryGetValue(headerName, out var headerValues) &&
+               string.IsNullOrWhiteSpace(headerValues.ToString()) is false;
     }
 }
