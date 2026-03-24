@@ -13,6 +13,7 @@ LABEL org.opencontainers.image.description="DBAssistant API for natural-language
 LABEL org.opencontainers.image.licenses="MIT"
 
 COPY --from=build /app/publish .
+COPY --from=build /src/knowledge ./knowledge
 
 ENV ASPNETCORE_URLS=http://+:8080
 EXPOSE 8080

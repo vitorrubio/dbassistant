@@ -11,6 +11,12 @@ public static class DotEnvLoader
     public static void LoadFromRepositoryRoot()
     {
         var repositoryRoot = ResolveRepositoryRoot();
+
+        if (repositoryRoot is null)
+        {
+            return;
+        }
+
         var envPath = Path.Combine(repositoryRoot, ".env");
 
         if (File.Exists(envPath) is false)
@@ -41,7 +47,7 @@ public static class DotEnvLoader
         }
     }
 
-    private static string ResolveRepositoryRoot()
+    private static string? ResolveRepositoryRoot()
     {
         var directory = new DirectoryInfo(AppContext.BaseDirectory);
 
@@ -55,6 +61,6 @@ public static class DotEnvLoader
             directory = directory.Parent;
         }
 
-        throw new InvalidOperationException("Unable to locate the repository root from the API application.");
+        return null;
     }
 }
