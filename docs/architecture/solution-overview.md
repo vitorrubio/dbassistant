@@ -18,8 +18,12 @@ DB Assistant is a layered .NET 10 solution that turns natural-language questions
 6. When execution is enabled, the data layer returns tabular results from MySQL.
 
 ## Documentation Set
-- `architecture-diagrams.md`: rendered architecture diagrams and Mermaid source links.
-- `technical-document.md`: request flow, architectural decisions, scalability, and security.
-- `technical-decisions.md`: rationale for cache, RAG, deployment, secrets, and costs.
+- [Architecture Diagrams](architecture-diagrams.md): rendered architecture diagrams and Mermaid source links.
+- [Technical Document](technical-document.md): request flow, architectural decisions, scalability, and security.
+- [Technical Decisions](technical-decisions.md): rationale for cache, RAG, deployment, secrets, and costs.
+- [Assessment Compliance](assessment-compliance.md): mapping between the delivered solution and the original assessment requirements.
 
 The Mermaid source files are stored alongside the English documentation so the diagrams can be reviewed and regenerated when the architecture changes.
+
+## Low Level Tech Docs
+- [GitHub Pages Documentation Site](https://vitorrubio.github.io/dbassistant/): published static technical documentation generated with DocFX, including the low-level .NET API reference and REST API reference.
