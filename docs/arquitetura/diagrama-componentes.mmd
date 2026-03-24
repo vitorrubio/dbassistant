@@ -1,0 +1,16 @@
+flowchart LR
+    Client[Cliente / Consumidor da API] --> Api[API\nController + Middleware API Key]
+    Api --> UseCases[UseCases\nProcessNaturalLanguageQueryUseCase]
+    UseCases --> Domain[Domain\nEntidades e Contratos]
+    UseCases --> Services[Services\nOpenAI + Busca de Conhecimento]
+    UseCases --> Data[Data\nINFORMATION_SCHEMA + Executor SQL]
+
+    Data --> MySql[(MySQL)]
+    Services --> OpenAI[(OpenAI API)]
+    Services --> Knowledge[(knowledge/schema-index.json)]
+
+    subgraph CI/CD
+        GH[GitHub Actions] --> GHCR[GitHub Container Registry]
+        GH --> Azure[Azure Container Apps]
+        GHCR --> Azure
+    end
