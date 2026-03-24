@@ -1,0 +1,86 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.UseCases.Ports
+  commentId: N:DBAssistant.UseCases.Ports
+  id: DBAssistant.UseCases.Ports
+  children:
+  - DBAssistant.UseCases.Ports.IProcessNaturalLanguageQueryUseCase
+  - DBAssistant.UseCases.Ports.ISchemaContextAssembler
+  - DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway
+  - DBAssistant.UseCases.Ports.ISqlGenerationGateway
+  - DBAssistant.UseCases.Ports.ISqlQueryExecutor
+  langs:
+  - csharp
+  - vb
+  name: DBAssistant.UseCases.Ports
+  nameWithType: DBAssistant.UseCases.Ports
+  fullName: DBAssistant.UseCases.Ports
+  type: Namespace
+  assemblies:
+  - DBAssistant.UseCases
+references:
+- uid: DBAssistant.UseCases.Ports.IProcessNaturalLanguageQueryUseCase
+  commentId: T:DBAssistant.UseCases.Ports.IProcessNaturalLanguageQueryUseCase
+  parent: DBAssistant.UseCases.Ports
+  href: DBAssistant.UseCases.Ports.IProcessNaturalLanguageQueryUseCase.html
+  name: IProcessNaturalLanguageQueryUseCase
+  nameWithType: IProcessNaturalLanguageQueryUseCase
+  fullName: DBAssistant.UseCases.Ports.IProcessNaturalLanguageQueryUseCase
+- uid: DBAssistant.UseCases.Ports.ISchemaContextAssembler
+  commentId: T:DBAssistant.UseCases.Ports.ISchemaContextAssembler
+  parent: DBAssistant.UseCases.Ports
+  href: DBAssistant.UseCases.Ports.ISchemaContextAssembler.html
+  name: ISchemaContextAssembler
+  nameWithType: ISchemaContextAssembler
+  fullName: DBAssistant.UseCases.Ports.ISchemaContextAssembler
+- uid: DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway
+  commentId: T:DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway
+  parent: DBAssistant.UseCases.Ports
+  href: DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway.html
+  name: ISchemaKnowledgeSearchGateway
+  nameWithType: ISchemaKnowledgeSearchGateway
+  fullName: DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway
+- uid: DBAssistant.UseCases.Ports.ISqlGenerationGateway
+  commentId: T:DBAssistant.UseCases.Ports.ISqlGenerationGateway
+  parent: DBAssistant.UseCases.Ports
+  href: DBAssistant.UseCases.Ports.ISqlGenerationGateway.html
+  name: ISqlGenerationGateway
+  nameWithType: ISqlGenerationGateway
+  fullName: DBAssistant.UseCases.Ports.ISqlGenerationGateway
+- uid: DBAssistant.UseCases.Ports.ISqlQueryExecutor
+  commentId: T:DBAssistant.UseCases.Ports.ISqlQueryExecutor
+  parent: DBAssistant.UseCases.Ports
+  href: DBAssistant.UseCases.Ports.ISqlQueryExecutor.html
+  name: ISqlQueryExecutor
+  nameWithType: ISqlQueryExecutor
+  fullName: DBAssistant.UseCases.Ports.ISqlQueryExecutor
+- uid: DBAssistant.UseCases.Ports
+  commentId: N:DBAssistant.UseCases.Ports
+  href: DBAssistant.html
+  name: DBAssistant.UseCases.Ports
+  nameWithType: DBAssistant.UseCases.Ports
+  fullName: DBAssistant.UseCases.Ports
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.UseCases
+    name: UseCases
+    href: DBAssistant.UseCases.html
+  - name: .
+  - uid: DBAssistant.UseCases.Ports
+    name: Ports
+    href: DBAssistant.UseCases.Ports.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.UseCases
+    name: UseCases
+    href: DBAssistant.UseCases.html
+  - name: .
+  - uid: DBAssistant.UseCases.Ports
+    name: Ports
+    href: DBAssistant.UseCases.Ports.html

@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.Domain.Exceptions
+  commentId: N:DBAssistant.Domain.Exceptions
+  id: DBAssistant.Domain.Exceptions
+  children:
+  - DBAssistant.Domain.Exceptions.DomainValidationException
+  langs:
+  - csharp
+  - vb
+  name: DBAssistant.Domain.Exceptions
+  nameWithType: DBAssistant.Domain.Exceptions
+  fullName: DBAssistant.Domain.Exceptions
+  type: Namespace
+  assemblies:
+  - DBAssistant.Domain
+references:
+- uid: DBAssistant.Domain.Exceptions.DomainValidationException
+  commentId: T:DBAssistant.Domain.Exceptions.DomainValidationException
+  href: DBAssistant.Domain.Exceptions.DomainValidationException.html
+  name: DomainValidationException
+  nameWithType: DomainValidationException
+  fullName: DBAssistant.Domain.Exceptions.DomainValidationException

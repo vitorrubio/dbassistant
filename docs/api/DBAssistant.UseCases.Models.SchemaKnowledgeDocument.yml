@@ -1,0 +1,584 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.UseCases.Models.SchemaKnowledgeDocument
+  commentId: T:DBAssistant.UseCases.Models.SchemaKnowledgeDocument
+  id: SchemaKnowledgeDocument
+  parent: DBAssistant.UseCases.Models
+  children:
+  - DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Content
+  - DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Id
+  - DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Keywords
+  - DBAssistant.UseCases.Models.SchemaKnowledgeDocument.TableNames
+  - DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Title
+  langs:
+  - csharp
+  - vb
+  name: SchemaKnowledgeDocument
+  nameWithType: SchemaKnowledgeDocument
+  fullName: DBAssistant.UseCases.Models.SchemaKnowledgeDocument
+  type: Class
+  source:
+    remote:
+      path: src/UseCases/DBAssistant.UseCases/Models/SchemaKnowledgeDocument.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: SchemaKnowledgeDocument
+    path: ../src/UseCases/DBAssistant.UseCases/Models/SchemaKnowledgeDocument.cs
+    startLine: 5
+  assemblies:
+  - DBAssistant.UseCases
+  namespace: DBAssistant.UseCases.Models
+  summary: Represents one indexed schema knowledge document that can enrich prompt context before live metadata fallback.
+  example: []
+  syntax:
+    content: public sealed class SchemaKnowledgeDocument
+    content.vb: Public NotInheritable Class SchemaKnowledgeDocument
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Id
+  commentId: P:DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Id
+  id: Id
+  parent: DBAssistant.UseCases.Models.SchemaKnowledgeDocument
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: SchemaKnowledgeDocument.Id
+  fullName: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Id
+  type: Property
+  source:
+    remote:
+      path: src/UseCases/DBAssistant.UseCases/Models/SchemaKnowledgeDocument.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: Id
+    path: ../src/UseCases/DBAssistant.UseCases/Models/SchemaKnowledgeDocument.cs
+    startLine: 10
+  assemblies:
+  - DBAssistant.UseCases
+  namespace: DBAssistant.UseCases.Models
+  summary: Gets or sets the stable document identifier stored in the knowledge artifact.
+  example: []
+  syntax:
+    content: public string Id { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Id As String
+  overload: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Id*
+- uid: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Title
+  commentId: P:DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Title
+  id: Title
+  parent: DBAssistant.UseCases.Models.SchemaKnowledgeDocument
+  langs:
+  - csharp
+  - vb
+  name: Title
+  nameWithType: SchemaKnowledgeDocument.Title
+  fullName: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Title
+  type: Property
+  source:
+    remote:
+      path: src/UseCases/DBAssistant.UseCases/Models/SchemaKnowledgeDocument.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: Title
+    path: ../src/UseCases/DBAssistant.UseCases/Models/SchemaKnowledgeDocument.cs
+    startLine: 15
+  assemblies:
+  - DBAssistant.UseCases
+  namespace: DBAssistant.UseCases.Models
+  summary: Gets or sets the human-readable title that identifies the indexed schema knowledge document.
+  example: []
+  syntax:
+    content: public string Title { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Title As String
+  overload: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Title*
+- uid: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Content
+  commentId: P:DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Content
+  id: Content
+  parent: DBAssistant.UseCases.Models.SchemaKnowledgeDocument
+  langs:
+  - csharp
+  - vb
+  name: Content
+  nameWithType: SchemaKnowledgeDocument.Content
+  fullName: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Content
+  type: Property
+  source:
+    remote:
+      path: src/UseCases/DBAssistant.UseCases/Models/SchemaKnowledgeDocument.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: Content
+    path: ../src/UseCases/DBAssistant.UseCases/Models/SchemaKnowledgeDocument.cs
+    startLine: 20
+  assemblies:
+  - DBAssistant.UseCases
+  namespace: DBAssistant.UseCases.Models
+  summary: Gets or sets the descriptive content stored in the schema knowledge index.
+  example: []
+  syntax:
+    content: public string Content { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Content As String
+  overload: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Content*
+- uid: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.TableNames
+  commentId: P:DBAssistant.UseCases.Models.SchemaKnowledgeDocument.TableNames
+  id: TableNames
+  parent: DBAssistant.UseCases.Models.SchemaKnowledgeDocument
+  langs:
+  - csharp
+  - vb
+  name: TableNames
+  nameWithType: SchemaKnowledgeDocument.TableNames
+  fullName: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.TableNames
+  type: Property
+  source:
+    remote:
+      path: src/UseCases/DBAssistant.UseCases/Models/SchemaKnowledgeDocument.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: TableNames
+    path: ../src/UseCases/DBAssistant.UseCases/Models/SchemaKnowledgeDocument.cs
+    startLine: 25
+  assemblies:
+  - DBAssistant.UseCases
+  namespace: DBAssistant.UseCases.Models
+  summary: Gets or sets the related table names represented by the indexed document.
+  example: []
+  syntax:
+    content: public IReadOnlyCollection<string> TableNames { get; init; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyCollection{System.String}
+    content.vb: Public Property TableNames As IReadOnlyCollection(Of String)
+  overload: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.TableNames*
+- uid: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Keywords
+  commentId: P:DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Keywords
+  id: Keywords
+  parent: DBAssistant.UseCases.Models.SchemaKnowledgeDocument
+  langs:
+  - csharp
+  - vb
+  name: Keywords
+  nameWithType: SchemaKnowledgeDocument.Keywords
+  fullName: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Keywords
+  type: Property
+  source:
+    remote:
+      path: src/UseCases/DBAssistant.UseCases/Models/SchemaKnowledgeDocument.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: Keywords
+    path: ../src/UseCases/DBAssistant.UseCases/Models/SchemaKnowledgeDocument.cs
+    startLine: 30
+  assemblies:
+  - DBAssistant.UseCases
+  namespace: DBAssistant.UseCases.Models
+  summary: Gets or sets the normalized keywords extracted from the document for retrieval scoring.
+  example: []
+  syntax:
+    content: public IReadOnlyCollection<string> Keywords { get; init; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyCollection{System.String}
+    content.vb: Public Property Keywords As IReadOnlyCollection(Of String)
+  overload: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Keywords*
+references:
+- uid: DBAssistant.UseCases.Models
+  commentId: N:DBAssistant.UseCases.Models
+  href: DBAssistant.html
+  name: DBAssistant.UseCases.Models
+  nameWithType: DBAssistant.UseCases.Models
+  fullName: DBAssistant.UseCases.Models
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.UseCases
+    name: UseCases
+    href: DBAssistant.UseCases.html
+  - name: .
+  - uid: DBAssistant.UseCases.Models
+    name: Models
+    href: DBAssistant.UseCases.Models.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.UseCases
+    name: UseCases
+    href: DBAssistant.UseCases.html
+  - name: .
+  - uid: DBAssistant.UseCases.Models
+    name: Models
+    href: DBAssistant.UseCases.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Id*
+  commentId: Overload:DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Id
+  href: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.html#DBAssistant_UseCases_Models_SchemaKnowledgeDocument_Id
+  name: Id
+  nameWithType: SchemaKnowledgeDocument.Id
+  fullName: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Id
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Title*
+  commentId: Overload:DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Title
+  href: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.html#DBAssistant_UseCases_Models_SchemaKnowledgeDocument_Title
+  name: Title
+  nameWithType: SchemaKnowledgeDocument.Title
+  fullName: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Title
+- uid: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Content*
+  commentId: Overload:DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Content
+  href: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.html#DBAssistant_UseCases_Models_SchemaKnowledgeDocument_Content
+  name: Content
+  nameWithType: SchemaKnowledgeDocument.Content
+  fullName: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Content
+- uid: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.TableNames*
+  commentId: Overload:DBAssistant.UseCases.Models.SchemaKnowledgeDocument.TableNames
+  href: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.html#DBAssistant_UseCases_Models_SchemaKnowledgeDocument_TableNames
+  name: TableNames
+  nameWithType: SchemaKnowledgeDocument.TableNames
+  fullName: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.TableNames
+- uid: System.Collections.Generic.IReadOnlyCollection{System.String}
+  commentId: T:System.Collections.Generic.IReadOnlyCollection{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyCollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  name: IReadOnlyCollection<string>
+  nameWithType: IReadOnlyCollection<string>
+  fullName: System.Collections.Generic.IReadOnlyCollection<string>
+  nameWithType.vb: IReadOnlyCollection(Of String)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of String)
+  name.vb: IReadOnlyCollection(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyCollection`1
+  commentId: T:System.Collections.Generic.IReadOnlyCollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  name: IReadOnlyCollection<T>
+  nameWithType: IReadOnlyCollection<T>
+  fullName: System.Collections.Generic.IReadOnlyCollection<T>
+  nameWithType.vb: IReadOnlyCollection(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of T)
+  name.vb: IReadOnlyCollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Keywords*
+  commentId: Overload:DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Keywords
+  href: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.html#DBAssistant_UseCases_Models_SchemaKnowledgeDocument_Keywords
+  name: Keywords
+  nameWithType: SchemaKnowledgeDocument.Keywords
+  fullName: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.Keywords

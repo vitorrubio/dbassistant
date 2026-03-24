@@ -1,0 +1,370 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.UseCases.Models.SchemaContextEnvelope
+  commentId: T:DBAssistant.UseCases.Models.SchemaContextEnvelope
+  id: SchemaContextEnvelope
+  parent: DBAssistant.UseCases.Models
+  children:
+  - DBAssistant.UseCases.Models.SchemaContextEnvelope.Context
+  - DBAssistant.UseCases.Models.SchemaContextEnvelope.Source
+  langs:
+  - csharp
+  - vb
+  name: SchemaContextEnvelope
+  nameWithType: SchemaContextEnvelope
+  fullName: DBAssistant.UseCases.Models.SchemaContextEnvelope
+  type: Class
+  source:
+    remote:
+      path: src/UseCases/DBAssistant.UseCases/Models/SchemaContextEnvelope.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: SchemaContextEnvelope
+    path: ../src/UseCases/DBAssistant.UseCases/Models/SchemaContextEnvelope.cs
+    startLine: 5
+  assemblies:
+  - DBAssistant.UseCases
+  namespace: DBAssistant.UseCases.Models
+  summary: Represents the assembled schema context together with the metadata that identifies its origin.
+  example: []
+  syntax:
+    content: public sealed class SchemaContextEnvelope
+    content.vb: Public NotInheritable Class SchemaContextEnvelope
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: DBAssistant.UseCases.Models.SchemaContextEnvelope.Context
+  commentId: P:DBAssistant.UseCases.Models.SchemaContextEnvelope.Context
+  id: Context
+  parent: DBAssistant.UseCases.Models.SchemaContextEnvelope
+  langs:
+  - csharp
+  - vb
+  name: Context
+  nameWithType: SchemaContextEnvelope.Context
+  fullName: DBAssistant.UseCases.Models.SchemaContextEnvelope.Context
+  type: Property
+  source:
+    remote:
+      path: src/UseCases/DBAssistant.UseCases/Models/SchemaContextEnvelope.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: Context
+    path: ../src/UseCases/DBAssistant.UseCases/Models/SchemaContextEnvelope.cs
+    startLine: 10
+  assemblies:
+  - DBAssistant.UseCases
+  namespace: DBAssistant.UseCases.Models
+  summary: Gets or sets the schema context text that will be injected into the language-model prompt.
+  example: []
+  syntax:
+    content: public string Context { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Context As String
+  overload: DBAssistant.UseCases.Models.SchemaContextEnvelope.Context*
+- uid: DBAssistant.UseCases.Models.SchemaContextEnvelope.Source
+  commentId: P:DBAssistant.UseCases.Models.SchemaContextEnvelope.Source
+  id: Source
+  parent: DBAssistant.UseCases.Models.SchemaContextEnvelope
+  langs:
+  - csharp
+  - vb
+  name: Source
+  nameWithType: SchemaContextEnvelope.Source
+  fullName: DBAssistant.UseCases.Models.SchemaContextEnvelope.Source
+  type: Property
+  source:
+    remote:
+      path: src/UseCases/DBAssistant.UseCases/Models/SchemaContextEnvelope.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: Source
+    path: ../src/UseCases/DBAssistant.UseCases/Models/SchemaContextEnvelope.cs
+    startLine: 15
+  assemblies:
+  - DBAssistant.UseCases
+  namespace: DBAssistant.UseCases.Models
+  summary: Gets or sets the identifier that describes which schema sources were used to build the context.
+  example: []
+  syntax:
+    content: public string Source { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Source As String
+  overload: DBAssistant.UseCases.Models.SchemaContextEnvelope.Source*
+references:
+- uid: DBAssistant.UseCases.Models
+  commentId: N:DBAssistant.UseCases.Models
+  href: DBAssistant.html
+  name: DBAssistant.UseCases.Models
+  nameWithType: DBAssistant.UseCases.Models
+  fullName: DBAssistant.UseCases.Models
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.UseCases
+    name: UseCases
+    href: DBAssistant.UseCases.html
+  - name: .
+  - uid: DBAssistant.UseCases.Models
+    name: Models
+    href: DBAssistant.UseCases.Models.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.UseCases
+    name: UseCases
+    href: DBAssistant.UseCases.html
+  - name: .
+  - uid: DBAssistant.UseCases.Models
+    name: Models
+    href: DBAssistant.UseCases.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DBAssistant.UseCases.Models.SchemaContextEnvelope.Context*
+  commentId: Overload:DBAssistant.UseCases.Models.SchemaContextEnvelope.Context
+  href: DBAssistant.UseCases.Models.SchemaContextEnvelope.html#DBAssistant_UseCases_Models_SchemaContextEnvelope_Context
+  name: Context
+  nameWithType: SchemaContextEnvelope.Context
+  fullName: DBAssistant.UseCases.Models.SchemaContextEnvelope.Context
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: DBAssistant.UseCases.Models.SchemaContextEnvelope.Source*
+  commentId: Overload:DBAssistant.UseCases.Models.SchemaContextEnvelope.Source
+  href: DBAssistant.UseCases.Models.SchemaContextEnvelope.html#DBAssistant_UseCases_Models_SchemaContextEnvelope_Source
+  name: Source
+  nameWithType: SchemaContextEnvelope.Source
+  fullName: DBAssistant.UseCases.Models.SchemaContextEnvelope.Source

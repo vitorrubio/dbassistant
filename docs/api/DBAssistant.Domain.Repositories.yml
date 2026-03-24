@@ -1,0 +1,54 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.Domain.Repositories
+  commentId: N:DBAssistant.Domain.Repositories
+  id: DBAssistant.Domain.Repositories
+  children:
+  - DBAssistant.Domain.Repositories.IInformationSchemaReader
+  langs:
+  - csharp
+  - vb
+  name: DBAssistant.Domain.Repositories
+  nameWithType: DBAssistant.Domain.Repositories
+  fullName: DBAssistant.Domain.Repositories
+  type: Namespace
+  assemblies:
+  - DBAssistant.Domain
+references:
+- uid: DBAssistant.Domain.Repositories.IInformationSchemaReader
+  commentId: T:DBAssistant.Domain.Repositories.IInformationSchemaReader
+  parent: DBAssistant.Domain.Repositories
+  href: DBAssistant.Domain.Repositories.IInformationSchemaReader.html
+  name: IInformationSchemaReader
+  nameWithType: IInformationSchemaReader
+  fullName: DBAssistant.Domain.Repositories.IInformationSchemaReader
+- uid: DBAssistant.Domain.Repositories
+  commentId: N:DBAssistant.Domain.Repositories
+  href: DBAssistant.html
+  name: DBAssistant.Domain.Repositories
+  nameWithType: DBAssistant.Domain.Repositories
+  fullName: DBAssistant.Domain.Repositories
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Domain
+    name: Domain
+    href: DBAssistant.Domain.html
+  - name: .
+  - uid: DBAssistant.Domain.Repositories
+    name: Repositories
+    href: DBAssistant.Domain.Repositories.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Domain
+    name: Domain
+    href: DBAssistant.Domain.html
+  - name: .
+  - uid: DBAssistant.Domain.Repositories
+    name: Repositories
+    href: DBAssistant.Domain.Repositories.html

@@ -1,0 +1,141 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.Services.OpenAI.Contracts
+  commentId: N:DBAssistant.Services.OpenAI.Contracts
+  id: DBAssistant.Services.OpenAI.Contracts
+  children:
+  - DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingItem
+  - DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingsRequest
+  - DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingsResponse
+  - DBAssistant.Services.OpenAI.Contracts.OpenAiInputContent
+  - DBAssistant.Services.OpenAI.Contracts.OpenAiInputMessage
+  - DBAssistant.Services.OpenAI.Contracts.OpenAiJsonSchemaFormat
+  - DBAssistant.Services.OpenAI.Contracts.OpenAiResponseContentItem
+  - DBAssistant.Services.OpenAI.Contracts.OpenAiResponseOutputItem
+  - DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesRequest
+  - DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesResponse
+  - DBAssistant.Services.OpenAI.Contracts.OpenAiTextOptions
+  - DBAssistant.Services.OpenAI.Contracts.OpenAiToolDefinition
+  langs:
+  - csharp
+  - vb
+  name: DBAssistant.Services.OpenAI.Contracts
+  nameWithType: DBAssistant.Services.OpenAI.Contracts
+  fullName: DBAssistant.Services.OpenAI.Contracts
+  type: Namespace
+  assemblies:
+  - DBAssistant.Services
+references:
+- uid: DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingsRequest
+  commentId: T:DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingsRequest
+  href: DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingsRequest.html
+  name: OpenAiEmbeddingsRequest
+  nameWithType: OpenAiEmbeddingsRequest
+  fullName: DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingsRequest
+- uid: DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingsResponse
+  commentId: T:DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingsResponse
+  href: DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingsResponse.html
+  name: OpenAiEmbeddingsResponse
+  nameWithType: OpenAiEmbeddingsResponse
+  fullName: DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingsResponse
+- uid: DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingItem
+  commentId: T:DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingItem
+  href: DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingItem.html
+  name: OpenAiEmbeddingItem
+  nameWithType: OpenAiEmbeddingItem
+  fullName: DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingItem
+- uid: DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesRequest
+  commentId: T:DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesRequest
+  parent: DBAssistant.Services.OpenAI.Contracts
+  href: DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesRequest.html
+  name: OpenAiResponsesRequest
+  nameWithType: OpenAiResponsesRequest
+  fullName: DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesRequest
+- uid: DBAssistant.Services.OpenAI.Contracts.OpenAiInputMessage
+  commentId: T:DBAssistant.Services.OpenAI.Contracts.OpenAiInputMessage
+  href: DBAssistant.Services.OpenAI.Contracts.OpenAiInputMessage.html
+  name: OpenAiInputMessage
+  nameWithType: OpenAiInputMessage
+  fullName: DBAssistant.Services.OpenAI.Contracts.OpenAiInputMessage
+- uid: DBAssistant.Services.OpenAI.Contracts.OpenAiInputContent
+  commentId: T:DBAssistant.Services.OpenAI.Contracts.OpenAiInputContent
+  href: DBAssistant.Services.OpenAI.Contracts.OpenAiInputContent.html
+  name: OpenAiInputContent
+  nameWithType: OpenAiInputContent
+  fullName: DBAssistant.Services.OpenAI.Contracts.OpenAiInputContent
+- uid: DBAssistant.Services.OpenAI.Contracts.OpenAiTextOptions
+  commentId: T:DBAssistant.Services.OpenAI.Contracts.OpenAiTextOptions
+  parent: DBAssistant.Services.OpenAI.Contracts
+  href: DBAssistant.Services.OpenAI.Contracts.OpenAiTextOptions.html
+  name: OpenAiTextOptions
+  nameWithType: OpenAiTextOptions
+  fullName: DBAssistant.Services.OpenAI.Contracts.OpenAiTextOptions
+- uid: DBAssistant.Services.OpenAI.Contracts.OpenAiJsonSchemaFormat
+  commentId: T:DBAssistant.Services.OpenAI.Contracts.OpenAiJsonSchemaFormat
+  parent: DBAssistant.Services.OpenAI.Contracts
+  href: DBAssistant.Services.OpenAI.Contracts.OpenAiJsonSchemaFormat.html
+  name: OpenAiJsonSchemaFormat
+  nameWithType: OpenAiJsonSchemaFormat
+  fullName: DBAssistant.Services.OpenAI.Contracts.OpenAiJsonSchemaFormat
+- uid: DBAssistant.Services.OpenAI.Contracts.OpenAiToolDefinition
+  commentId: T:DBAssistant.Services.OpenAI.Contracts.OpenAiToolDefinition
+  href: DBAssistant.Services.OpenAI.Contracts.OpenAiToolDefinition.html
+  name: OpenAiToolDefinition
+  nameWithType: OpenAiToolDefinition
+  fullName: DBAssistant.Services.OpenAI.Contracts.OpenAiToolDefinition
+- uid: DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesResponse
+  commentId: T:DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesResponse
+  href: DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesResponse.html
+  name: OpenAiResponsesResponse
+  nameWithType: OpenAiResponsesResponse
+  fullName: DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesResponse
+- uid: DBAssistant.Services.OpenAI.Contracts.OpenAiResponseOutputItem
+  commentId: T:DBAssistant.Services.OpenAI.Contracts.OpenAiResponseOutputItem
+  href: DBAssistant.Services.OpenAI.Contracts.OpenAiResponseOutputItem.html
+  name: OpenAiResponseOutputItem
+  nameWithType: OpenAiResponseOutputItem
+  fullName: DBAssistant.Services.OpenAI.Contracts.OpenAiResponseOutputItem
+- uid: DBAssistant.Services.OpenAI.Contracts.OpenAiResponseContentItem
+  commentId: T:DBAssistant.Services.OpenAI.Contracts.OpenAiResponseContentItem
+  href: DBAssistant.Services.OpenAI.Contracts.OpenAiResponseContentItem.html
+  name: OpenAiResponseContentItem
+  nameWithType: OpenAiResponseContentItem
+  fullName: DBAssistant.Services.OpenAI.Contracts.OpenAiResponseContentItem
+- uid: DBAssistant.Services.OpenAI.Contracts
+  commentId: N:DBAssistant.Services.OpenAI.Contracts
+  href: DBAssistant.html
+  name: DBAssistant.Services.OpenAI.Contracts
+  nameWithType: DBAssistant.Services.OpenAI.Contracts
+  fullName: DBAssistant.Services.OpenAI.Contracts
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Services
+    name: Services
+    href: DBAssistant.Services.html
+  - name: .
+  - uid: DBAssistant.Services.OpenAI
+    name: OpenAI
+    href: DBAssistant.Services.OpenAI.html
+  - name: .
+  - uid: DBAssistant.Services.OpenAI.Contracts
+    name: Contracts
+    href: DBAssistant.Services.OpenAI.Contracts.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Services
+    name: Services
+    href: DBAssistant.Services.html
+  - name: .
+  - uid: DBAssistant.Services.OpenAI
+    name: OpenAI
+    href: DBAssistant.Services.OpenAI.html
+  - name: .
+  - uid: DBAssistant.Services.OpenAI.Contracts
+    name: Contracts
+    href: DBAssistant.Services.OpenAI.Contracts.html

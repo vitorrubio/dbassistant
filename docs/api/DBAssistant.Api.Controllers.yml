@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.Api.Controllers
+  commentId: N:DBAssistant.Api.Controllers
+  id: DBAssistant.Api.Controllers
+  children:
+  - DBAssistant.Api.Controllers.AssistantController
+  langs:
+  - csharp
+  - vb
+  name: DBAssistant.Api.Controllers
+  nameWithType: DBAssistant.Api.Controllers
+  fullName: DBAssistant.Api.Controllers
+  type: Namespace
+  assemblies:
+  - DBAssistant.Api
+references:
+- uid: DBAssistant.Api.Controllers.AssistantController
+  commentId: T:DBAssistant.Api.Controllers.AssistantController
+  href: DBAssistant.Api.Controllers.AssistantController.html
+  name: AssistantController
+  nameWithType: AssistantController
+  fullName: DBAssistant.Api.Controllers.AssistantController

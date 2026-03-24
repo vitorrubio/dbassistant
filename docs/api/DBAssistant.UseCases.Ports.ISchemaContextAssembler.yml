@@ -1,0 +1,262 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.UseCases.Ports.ISchemaContextAssembler
+  commentId: T:DBAssistant.UseCases.Ports.ISchemaContextAssembler
+  id: ISchemaContextAssembler
+  parent: DBAssistant.UseCases.Ports
+  children:
+  - DBAssistant.UseCases.Ports.ISchemaContextAssembler.BuildAsync(System.String,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: ISchemaContextAssembler
+  nameWithType: ISchemaContextAssembler
+  fullName: DBAssistant.UseCases.Ports.ISchemaContextAssembler
+  type: Interface
+  source:
+    remote:
+      path: src/UseCases/DBAssistant.UseCases/Ports/ISchemaContextAssembler.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: ISchemaContextAssembler
+    path: ../src/UseCases/DBAssistant.UseCases/Ports/ISchemaContextAssembler.cs
+    startLine: 7
+  assemblies:
+  - DBAssistant.UseCases
+  namespace: DBAssistant.UseCases.Ports
+  summary: Defines the orchestration contract for building the schema context delivered to the language model.
+  example: []
+  syntax:
+    content: public interface ISchemaContextAssembler
+    content.vb: Public Interface ISchemaContextAssembler
+  derivedClasses:
+  - DBAssistant.UseCases.UseCases.SchemaContextAssembler
+- uid: DBAssistant.UseCases.Ports.ISchemaContextAssembler.BuildAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:DBAssistant.UseCases.Ports.ISchemaContextAssembler.BuildAsync(System.String,System.Threading.CancellationToken)
+  id: BuildAsync(System.String,System.Threading.CancellationToken)
+  parent: DBAssistant.UseCases.Ports.ISchemaContextAssembler
+  langs:
+  - csharp
+  - vb
+  name: BuildAsync(string, CancellationToken)
+  nameWithType: ISchemaContextAssembler.BuildAsync(string, CancellationToken)
+  fullName: DBAssistant.UseCases.Ports.ISchemaContextAssembler.BuildAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/UseCases/DBAssistant.UseCases/Ports/ISchemaContextAssembler.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: BuildAsync
+    path: ../src/UseCases/DBAssistant.UseCases/Ports/ISchemaContextAssembler.cs
+    startLine: 15
+  assemblies:
+  - DBAssistant.UseCases
+  namespace: DBAssistant.UseCases.Ports
+  summary: Builds a schema context tailored to the supplied question by combining indexed knowledge and live metadata.
+  example: []
+  syntax:
+    content: Task<SchemaContextEnvelope> BuildAsync(string question, CancellationToken cancellationToken)
+    parameters:
+    - id: question
+      type: System.String
+      description: The user question that drives context retrieval.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token used to stop the operation.
+    return:
+      type: System.Threading.Tasks.Task{DBAssistant.UseCases.Models.SchemaContextEnvelope}
+      description: A schema context envelope that contains the assembled text and the source metadata.
+    content.vb: Function BuildAsync(question As String, cancellationToken As CancellationToken) As Task(Of SchemaContextEnvelope)
+  overload: DBAssistant.UseCases.Ports.ISchemaContextAssembler.BuildAsync*
+  nameWithType.vb: ISchemaContextAssembler.BuildAsync(String, CancellationToken)
+  fullName.vb: DBAssistant.UseCases.Ports.ISchemaContextAssembler.BuildAsync(String, System.Threading.CancellationToken)
+  name.vb: BuildAsync(String, CancellationToken)
+references:
+- uid: DBAssistant.UseCases.Ports
+  commentId: N:DBAssistant.UseCases.Ports
+  href: DBAssistant.html
+  name: DBAssistant.UseCases.Ports
+  nameWithType: DBAssistant.UseCases.Ports
+  fullName: DBAssistant.UseCases.Ports
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.UseCases
+    name: UseCases
+    href: DBAssistant.UseCases.html
+  - name: .
+  - uid: DBAssistant.UseCases.Ports
+    name: Ports
+    href: DBAssistant.UseCases.Ports.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.UseCases
+    name: UseCases
+    href: DBAssistant.UseCases.html
+  - name: .
+  - uid: DBAssistant.UseCases.Ports
+    name: Ports
+    href: DBAssistant.UseCases.Ports.html
+- uid: DBAssistant.UseCases.Ports.ISchemaContextAssembler.BuildAsync*
+  commentId: Overload:DBAssistant.UseCases.Ports.ISchemaContextAssembler.BuildAsync
+  href: DBAssistant.UseCases.Ports.ISchemaContextAssembler.html#DBAssistant_UseCases_Ports_ISchemaContextAssembler_BuildAsync_System_String_System_Threading_CancellationToken_
+  name: BuildAsync
+  nameWithType: ISchemaContextAssembler.BuildAsync
+  fullName: DBAssistant.UseCases.Ports.ISchemaContextAssembler.BuildAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{DBAssistant.UseCases.Models.SchemaContextEnvelope}
+  commentId: T:System.Threading.Tasks.Task{DBAssistant.UseCases.Models.SchemaContextEnvelope}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SchemaContextEnvelope>
+  nameWithType: Task<SchemaContextEnvelope>
+  fullName: System.Threading.Tasks.Task<DBAssistant.UseCases.Models.SchemaContextEnvelope>
+  nameWithType.vb: Task(Of SchemaContextEnvelope)
+  fullName.vb: System.Threading.Tasks.Task(Of DBAssistant.UseCases.Models.SchemaContextEnvelope)
+  name.vb: Task(Of SchemaContextEnvelope)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: DBAssistant.UseCases.Models.SchemaContextEnvelope
+    name: SchemaContextEnvelope
+    href: DBAssistant.UseCases.Models.SchemaContextEnvelope.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: DBAssistant.UseCases.Models.SchemaContextEnvelope
+    name: SchemaContextEnvelope
+    href: DBAssistant.UseCases.Models.SchemaContextEnvelope.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

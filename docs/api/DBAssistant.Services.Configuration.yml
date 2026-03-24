@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.Services.Configuration
+  commentId: N:DBAssistant.Services.Configuration
+  id: DBAssistant.Services.Configuration
+  children:
+  - DBAssistant.Services.Configuration.CacheOptions
+  - DBAssistant.Services.Configuration.OpenAiOptions
+  - DBAssistant.Services.Configuration.SchemaKnowledgeOptions
+  langs:
+  - csharp
+  - vb
+  name: DBAssistant.Services.Configuration
+  nameWithType: DBAssistant.Services.Configuration
+  fullName: DBAssistant.Services.Configuration
+  type: Namespace
+  assemblies:
+  - DBAssistant.Services
+references:
+- uid: DBAssistant.Services.Configuration.CacheOptions
+  commentId: T:DBAssistant.Services.Configuration.CacheOptions
+  href: DBAssistant.Services.Configuration.CacheOptions.html
+  name: CacheOptions
+  nameWithType: CacheOptions
+  fullName: DBAssistant.Services.Configuration.CacheOptions
+- uid: DBAssistant.Services.Configuration.OpenAiOptions
+  commentId: T:DBAssistant.Services.Configuration.OpenAiOptions
+  href: DBAssistant.Services.Configuration.OpenAiOptions.html
+  name: OpenAiOptions
+  nameWithType: OpenAiOptions
+  fullName: DBAssistant.Services.Configuration.OpenAiOptions
+- uid: DBAssistant.Services.Configuration.SchemaKnowledgeOptions
+  commentId: T:DBAssistant.Services.Configuration.SchemaKnowledgeOptions
+  href: DBAssistant.Services.Configuration.SchemaKnowledgeOptions.html
+  name: SchemaKnowledgeOptions
+  nameWithType: SchemaKnowledgeOptions
+  fullName: DBAssistant.Services.Configuration.SchemaKnowledgeOptions

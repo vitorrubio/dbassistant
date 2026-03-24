@@ -1,0 +1,552 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact
+  commentId: T:DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact
+  id: SchemaKnowledgeArtifact
+  parent: DBAssistant.Services.SchemaKnowledge
+  children:
+  - DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.DatabaseName
+  - DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.Documents
+  - DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.FormatVersion
+  - DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.GeneratedAtUtc
+  langs:
+  - csharp
+  - vb
+  name: SchemaKnowledgeArtifact
+  nameWithType: SchemaKnowledgeArtifact
+  fullName: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact
+  type: Class
+  source:
+    remote:
+      path: src/Services/DBAssistant.Services/SchemaKnowledge/SchemaKnowledgeArtifact.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: SchemaKnowledgeArtifact
+    path: ../src/Services/DBAssistant.Services/SchemaKnowledge/SchemaKnowledgeArtifact.cs
+    startLine: 7
+  assemblies:
+  - DBAssistant.Services
+  namespace: DBAssistant.Services.SchemaKnowledge
+  summary: Represents the serialized schema knowledge artifact consumed by the runtime retriever.
+  example: []
+  syntax:
+    content: public sealed class SchemaKnowledgeArtifact
+    content.vb: Public NotInheritable Class SchemaKnowledgeArtifact
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.DatabaseName
+  commentId: P:DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.DatabaseName
+  id: DatabaseName
+  parent: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact
+  langs:
+  - csharp
+  - vb
+  name: DatabaseName
+  nameWithType: SchemaKnowledgeArtifact.DatabaseName
+  fullName: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.DatabaseName
+  type: Property
+  source:
+    remote:
+      path: src/Services/DBAssistant.Services/SchemaKnowledge/SchemaKnowledgeArtifact.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: DatabaseName
+    path: ../src/Services/DBAssistant.Services/SchemaKnowledge/SchemaKnowledgeArtifact.cs
+    startLine: 12
+  assemblies:
+  - DBAssistant.Services
+  namespace: DBAssistant.Services.SchemaKnowledge
+  summary: Gets or sets the logical database name represented by the artifact.
+  example: []
+  syntax:
+    content: public string DatabaseName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property DatabaseName As String
+  overload: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.DatabaseName*
+- uid: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.GeneratedAtUtc
+  commentId: P:DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.GeneratedAtUtc
+  id: GeneratedAtUtc
+  parent: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact
+  langs:
+  - csharp
+  - vb
+  name: GeneratedAtUtc
+  nameWithType: SchemaKnowledgeArtifact.GeneratedAtUtc
+  fullName: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.GeneratedAtUtc
+  type: Property
+  source:
+    remote:
+      path: src/Services/DBAssistant.Services/SchemaKnowledge/SchemaKnowledgeArtifact.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: GeneratedAtUtc
+    path: ../src/Services/DBAssistant.Services/SchemaKnowledge/SchemaKnowledgeArtifact.cs
+    startLine: 17
+  assemblies:
+  - DBAssistant.Services
+  namespace: DBAssistant.Services.SchemaKnowledge
+  summary: Gets or sets the UTC timestamp at which the artifact was generated.
+  example: []
+  syntax:
+    content: public DateTimeOffset GeneratedAtUtc { get; set; }
+    parameters: []
+    return:
+      type: System.DateTimeOffset
+    content.vb: Public Property GeneratedAtUtc As DateTimeOffset
+  overload: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.GeneratedAtUtc*
+- uid: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.FormatVersion
+  commentId: P:DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.FormatVersion
+  id: FormatVersion
+  parent: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact
+  langs:
+  - csharp
+  - vb
+  name: FormatVersion
+  nameWithType: SchemaKnowledgeArtifact.FormatVersion
+  fullName: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.FormatVersion
+  type: Property
+  source:
+    remote:
+      path: src/Services/DBAssistant.Services/SchemaKnowledge/SchemaKnowledgeArtifact.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: FormatVersion
+    path: ../src/Services/DBAssistant.Services/SchemaKnowledge/SchemaKnowledgeArtifact.cs
+    startLine: 22
+  assemblies:
+  - DBAssistant.Services
+  namespace: DBAssistant.Services.SchemaKnowledge
+  summary: Gets or sets the artifact format version.
+  example: []
+  syntax:
+    content: public string FormatVersion { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property FormatVersion As String
+  overload: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.FormatVersion*
+- uid: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.Documents
+  commentId: P:DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.Documents
+  id: Documents
+  parent: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact
+  langs:
+  - csharp
+  - vb
+  name: Documents
+  nameWithType: SchemaKnowledgeArtifact.Documents
+  fullName: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.Documents
+  type: Property
+  source:
+    remote:
+      path: src/Services/DBAssistant.Services/SchemaKnowledge/SchemaKnowledgeArtifact.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: Documents
+    path: ../src/Services/DBAssistant.Services/SchemaKnowledge/SchemaKnowledgeArtifact.cs
+    startLine: 27
+  assemblies:
+  - DBAssistant.Services
+  namespace: DBAssistant.Services.SchemaKnowledge
+  summary: Gets or sets the generated schema knowledge documents.
+  example: []
+  syntax:
+    content: public IReadOnlyCollection<SchemaKnowledgeDocument> Documents { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyCollection{DBAssistant.UseCases.Models.SchemaKnowledgeDocument}
+    content.vb: Public Property Documents As IReadOnlyCollection(Of SchemaKnowledgeDocument)
+  overload: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.Documents*
+references:
+- uid: DBAssistant.Services.SchemaKnowledge
+  commentId: N:DBAssistant.Services.SchemaKnowledge
+  href: DBAssistant.html
+  name: DBAssistant.Services.SchemaKnowledge
+  nameWithType: DBAssistant.Services.SchemaKnowledge
+  fullName: DBAssistant.Services.SchemaKnowledge
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Services
+    name: Services
+    href: DBAssistant.Services.html
+  - name: .
+  - uid: DBAssistant.Services.SchemaKnowledge
+    name: SchemaKnowledge
+    href: DBAssistant.Services.SchemaKnowledge.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Services
+    name: Services
+    href: DBAssistant.Services.html
+  - name: .
+  - uid: DBAssistant.Services.SchemaKnowledge
+    name: SchemaKnowledge
+    href: DBAssistant.Services.SchemaKnowledge.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.DatabaseName*
+  commentId: Overload:DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.DatabaseName
+  href: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.html#DBAssistant_Services_SchemaKnowledge_SchemaKnowledgeArtifact_DatabaseName
+  name: DatabaseName
+  nameWithType: SchemaKnowledgeArtifact.DatabaseName
+  fullName: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.DatabaseName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.GeneratedAtUtc*
+  commentId: Overload:DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.GeneratedAtUtc
+  href: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.html#DBAssistant_Services_SchemaKnowledge_SchemaKnowledgeArtifact_GeneratedAtUtc
+  name: GeneratedAtUtc
+  nameWithType: SchemaKnowledgeArtifact.GeneratedAtUtc
+  fullName: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.GeneratedAtUtc
+- uid: System.DateTimeOffset
+  commentId: T:System.DateTimeOffset
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetimeoffset
+  name: DateTimeOffset
+  nameWithType: DateTimeOffset
+  fullName: System.DateTimeOffset
+- uid: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.FormatVersion*
+  commentId: Overload:DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.FormatVersion
+  href: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.html#DBAssistant_Services_SchemaKnowledge_SchemaKnowledgeArtifact_FormatVersion
+  name: FormatVersion
+  nameWithType: SchemaKnowledgeArtifact.FormatVersion
+  fullName: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.FormatVersion
+- uid: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.Documents*
+  commentId: Overload:DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.Documents
+  href: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.html#DBAssistant_Services_SchemaKnowledge_SchemaKnowledgeArtifact_Documents
+  name: Documents
+  nameWithType: SchemaKnowledgeArtifact.Documents
+  fullName: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.Documents
+- uid: System.Collections.Generic.IReadOnlyCollection{DBAssistant.UseCases.Models.SchemaKnowledgeDocument}
+  commentId: T:System.Collections.Generic.IReadOnlyCollection{DBAssistant.UseCases.Models.SchemaKnowledgeDocument}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyCollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  name: IReadOnlyCollection<SchemaKnowledgeDocument>
+  nameWithType: IReadOnlyCollection<SchemaKnowledgeDocument>
+  fullName: System.Collections.Generic.IReadOnlyCollection<DBAssistant.UseCases.Models.SchemaKnowledgeDocument>
+  nameWithType.vb: IReadOnlyCollection(Of SchemaKnowledgeDocument)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of DBAssistant.UseCases.Models.SchemaKnowledgeDocument)
+  name.vb: IReadOnlyCollection(Of SchemaKnowledgeDocument)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: <
+  - uid: DBAssistant.UseCases.Models.SchemaKnowledgeDocument
+    name: SchemaKnowledgeDocument
+    href: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: DBAssistant.UseCases.Models.SchemaKnowledgeDocument
+    name: SchemaKnowledgeDocument
+    href: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyCollection`1
+  commentId: T:System.Collections.Generic.IReadOnlyCollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  name: IReadOnlyCollection<T>
+  nameWithType: IReadOnlyCollection<T>
+  fullName: System.Collections.Generic.IReadOnlyCollection<T>
+  nameWithType.vb: IReadOnlyCollection(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of T)
+  name.vb: IReadOnlyCollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

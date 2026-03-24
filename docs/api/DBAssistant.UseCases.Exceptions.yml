@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.UseCases.Exceptions
+  commentId: N:DBAssistant.UseCases.Exceptions
+  id: DBAssistant.UseCases.Exceptions
+  children:
+  - DBAssistant.UseCases.Exceptions.ApplicationValidationException
+  - DBAssistant.UseCases.Exceptions.ExternalServiceUnavailableException
+  - DBAssistant.UseCases.Exceptions.QueryExecutionException
+  langs:
+  - csharp
+  - vb
+  name: DBAssistant.UseCases.Exceptions
+  nameWithType: DBAssistant.UseCases.Exceptions
+  fullName: DBAssistant.UseCases.Exceptions
+  type: Namespace
+  assemblies:
+  - DBAssistant.UseCases
+references:
+- uid: DBAssistant.UseCases.Exceptions.ApplicationValidationException
+  commentId: T:DBAssistant.UseCases.Exceptions.ApplicationValidationException
+  href: DBAssistant.UseCases.Exceptions.ApplicationValidationException.html
+  name: ApplicationValidationException
+  nameWithType: ApplicationValidationException
+  fullName: DBAssistant.UseCases.Exceptions.ApplicationValidationException
+- uid: DBAssistant.UseCases.Exceptions.ExternalServiceUnavailableException
+  commentId: T:DBAssistant.UseCases.Exceptions.ExternalServiceUnavailableException
+  href: DBAssistant.UseCases.Exceptions.ExternalServiceUnavailableException.html
+  name: ExternalServiceUnavailableException
+  nameWithType: ExternalServiceUnavailableException
+  fullName: DBAssistant.UseCases.Exceptions.ExternalServiceUnavailableException
+- uid: DBAssistant.UseCases.Exceptions.QueryExecutionException
+  commentId: T:DBAssistant.UseCases.Exceptions.QueryExecutionException
+  href: DBAssistant.UseCases.Exceptions.QueryExecutionException.html
+  name: QueryExecutionException
+  nameWithType: QueryExecutionException
+  fullName: DBAssistant.UseCases.Exceptions.QueryExecutionException

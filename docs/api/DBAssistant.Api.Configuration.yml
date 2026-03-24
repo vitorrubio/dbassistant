@@ -1,0 +1,54 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.Api.Configuration
+  commentId: N:DBAssistant.Api.Configuration
+  id: DBAssistant.Api.Configuration
+  children:
+  - DBAssistant.Api.Configuration.ApiKeyOptions
+  langs:
+  - csharp
+  - vb
+  name: DBAssistant.Api.Configuration
+  nameWithType: DBAssistant.Api.Configuration
+  fullName: DBAssistant.Api.Configuration
+  type: Namespace
+  assemblies:
+  - DBAssistant.Api
+references:
+- uid: DBAssistant.Api.Configuration.ApiKeyOptions
+  commentId: T:DBAssistant.Api.Configuration.ApiKeyOptions
+  parent: DBAssistant.Api.Configuration
+  href: DBAssistant.Api.Configuration.ApiKeyOptions.html
+  name: ApiKeyOptions
+  nameWithType: ApiKeyOptions
+  fullName: DBAssistant.Api.Configuration.ApiKeyOptions
+- uid: DBAssistant.Api.Configuration
+  commentId: N:DBAssistant.Api.Configuration
+  href: DBAssistant.html
+  name: DBAssistant.Api.Configuration
+  nameWithType: DBAssistant.Api.Configuration
+  fullName: DBAssistant.Api.Configuration
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Api
+    name: Api
+    href: DBAssistant.Api.html
+  - name: .
+  - uid: DBAssistant.Api.Configuration
+    name: Configuration
+    href: DBAssistant.Api.Configuration.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Api
+    name: Api
+    href: DBAssistant.Api.html
+  - name: .
+  - uid: DBAssistant.Api.Configuration
+    name: Configuration
+    href: DBAssistant.Api.Configuration.html

@@ -1,0 +1,61 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.Services.OpenAI
+  commentId: N:DBAssistant.Services.OpenAI
+  id: DBAssistant.Services.OpenAI
+  children:
+  - DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway
+  - DBAssistant.Services.OpenAI.OpenAiTransportClient
+  langs:
+  - csharp
+  - vb
+  name: DBAssistant.Services.OpenAI
+  nameWithType: DBAssistant.Services.OpenAI
+  fullName: DBAssistant.Services.OpenAI
+  type: Namespace
+  assemblies:
+  - DBAssistant.Services
+references:
+- uid: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway
+  commentId: T:DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway
+  href: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.html
+  name: OpenAiSqlGenerationGateway
+  nameWithType: OpenAiSqlGenerationGateway
+  fullName: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway
+- uid: DBAssistant.Services.OpenAI.OpenAiTransportClient
+  commentId: T:DBAssistant.Services.OpenAI.OpenAiTransportClient
+  parent: DBAssistant.Services.OpenAI
+  href: DBAssistant.Services.OpenAI.OpenAiTransportClient.html
+  name: OpenAiTransportClient
+  nameWithType: OpenAiTransportClient
+  fullName: DBAssistant.Services.OpenAI.OpenAiTransportClient
+- uid: DBAssistant.Services.OpenAI
+  commentId: N:DBAssistant.Services.OpenAI
+  href: DBAssistant.html
+  name: DBAssistant.Services.OpenAI
+  nameWithType: DBAssistant.Services.OpenAI
+  fullName: DBAssistant.Services.OpenAI
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Services
+    name: Services
+    href: DBAssistant.Services.html
+  - name: .
+  - uid: DBAssistant.Services.OpenAI
+    name: OpenAI
+    href: DBAssistant.Services.OpenAI.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Services
+    name: Services
+    href: DBAssistant.Services.html
+  - name: .
+  - uid: DBAssistant.Services.OpenAI
+    name: OpenAI
+    href: DBAssistant.Services.OpenAI.html

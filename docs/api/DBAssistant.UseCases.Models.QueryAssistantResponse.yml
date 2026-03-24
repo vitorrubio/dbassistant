@@ -1,0 +1,828 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.UseCases.Models.QueryAssistantResponse
+  commentId: T:DBAssistant.UseCases.Models.QueryAssistantResponse
+  id: QueryAssistantResponse
+  parent: DBAssistant.UseCases.Models
+  children:
+  - DBAssistant.UseCases.Models.QueryAssistantResponse.Columns
+  - DBAssistant.UseCases.Models.QueryAssistantResponse.Executed
+  - DBAssistant.UseCases.Models.QueryAssistantResponse.Explanation
+  - DBAssistant.UseCases.Models.QueryAssistantResponse.ResultsAsText
+  - DBAssistant.UseCases.Models.QueryAssistantResponse.Rows
+  - DBAssistant.UseCases.Models.QueryAssistantResponse.SchemaContextSource
+  - DBAssistant.UseCases.Models.QueryAssistantResponse.Sql
+  langs:
+  - csharp
+  - vb
+  name: QueryAssistantResponse
+  nameWithType: QueryAssistantResponse
+  fullName: DBAssistant.UseCases.Models.QueryAssistantResponse
+  type: Class
+  source:
+    remote:
+      path: src/UseCases/DBAssistant.UseCases/Models/QueryAssistantResponse.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: QueryAssistantResponse
+    path: ../src/UseCases/DBAssistant.UseCases/Models/QueryAssistantResponse.cs
+    startLine: 7
+  assemblies:
+  - DBAssistant.UseCases
+  namespace: DBAssistant.UseCases.Models
+  summary: Represents the HTTP response payload returned by the assistant query endpoint.
+  example: []
+  syntax:
+    content: public sealed class QueryAssistantResponse
+    content.vb: Public NotInheritable Class QueryAssistantResponse
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: DBAssistant.UseCases.Models.QueryAssistantResponse.Sql
+  commentId: P:DBAssistant.UseCases.Models.QueryAssistantResponse.Sql
+  id: Sql
+  parent: DBAssistant.UseCases.Models.QueryAssistantResponse
+  langs:
+  - csharp
+  - vb
+  name: Sql
+  nameWithType: QueryAssistantResponse.Sql
+  fullName: DBAssistant.UseCases.Models.QueryAssistantResponse.Sql
+  type: Property
+  source:
+    remote:
+      path: src/UseCases/DBAssistant.UseCases/Models/QueryAssistantResponse.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: Sql
+    path: ../src/UseCases/DBAssistant.UseCases/Models/QueryAssistantResponse.cs
+    startLine: 12
+  assemblies:
+  - DBAssistant.UseCases
+  namespace: DBAssistant.UseCases.Models
+  summary: Gets or sets the validated SQL generated for the request.
+  example: []
+  syntax:
+    content: >-
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? Sql { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Sql As String
+  overload: DBAssistant.UseCases.Models.QueryAssistantResponse.Sql*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
+- uid: DBAssistant.UseCases.Models.QueryAssistantResponse.Explanation
+  commentId: P:DBAssistant.UseCases.Models.QueryAssistantResponse.Explanation
+  id: Explanation
+  parent: DBAssistant.UseCases.Models.QueryAssistantResponse
+  langs:
+  - csharp
+  - vb
+  name: Explanation
+  nameWithType: QueryAssistantResponse.Explanation
+  fullName: DBAssistant.UseCases.Models.QueryAssistantResponse.Explanation
+  type: Property
+  source:
+    remote:
+      path: src/UseCases/DBAssistant.UseCases/Models/QueryAssistantResponse.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: Explanation
+    path: ../src/UseCases/DBAssistant.UseCases/Models/QueryAssistantResponse.cs
+    startLine: 18
+  assemblies:
+  - DBAssistant.UseCases
+  namespace: DBAssistant.UseCases.Models
+  summary: Gets or sets the explanation describing how the SQL was generated.
+  example: []
+  syntax:
+    content: >-
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? Explanation { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Explanation As String
+  overload: DBAssistant.UseCases.Models.QueryAssistantResponse.Explanation*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
+- uid: DBAssistant.UseCases.Models.QueryAssistantResponse.SchemaContextSource
+  commentId: P:DBAssistant.UseCases.Models.QueryAssistantResponse.SchemaContextSource
+  id: SchemaContextSource
+  parent: DBAssistant.UseCases.Models.QueryAssistantResponse
+  langs:
+  - csharp
+  - vb
+  name: SchemaContextSource
+  nameWithType: QueryAssistantResponse.SchemaContextSource
+  fullName: DBAssistant.UseCases.Models.QueryAssistantResponse.SchemaContextSource
+  type: Property
+  source:
+    remote:
+      path: src/UseCases/DBAssistant.UseCases/Models/QueryAssistantResponse.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: SchemaContextSource
+    path: ../src/UseCases/DBAssistant.UseCases/Models/QueryAssistantResponse.cs
+    startLine: 24
+  assemblies:
+  - DBAssistant.UseCases
+  namespace: DBAssistant.UseCases.Models
+  summary: Gets or sets the identifier that describes where the schema context came from.
+  example: []
+  syntax:
+    content: >-
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? SchemaContextSource { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property SchemaContextSource As String
+  overload: DBAssistant.UseCases.Models.QueryAssistantResponse.SchemaContextSource*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
+- uid: DBAssistant.UseCases.Models.QueryAssistantResponse.Executed
+  commentId: P:DBAssistant.UseCases.Models.QueryAssistantResponse.Executed
+  id: Executed
+  parent: DBAssistant.UseCases.Models.QueryAssistantResponse
+  langs:
+  - csharp
+  - vb
+  name: Executed
+  nameWithType: QueryAssistantResponse.Executed
+  fullName: DBAssistant.UseCases.Models.QueryAssistantResponse.Executed
+  type: Property
+  source:
+    remote:
+      path: src/UseCases/DBAssistant.UseCases/Models/QueryAssistantResponse.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: Executed
+    path: ../src/UseCases/DBAssistant.UseCases/Models/QueryAssistantResponse.cs
+    startLine: 30
+  assemblies:
+  - DBAssistant.UseCases
+  namespace: DBAssistant.UseCases.Models
+  summary: Gets or sets a value indicating whether the SQL was executed.
+  example: []
+  syntax:
+    content: >-
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public bool? Executed { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: >-
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Executed As Boolean?
+  overload: DBAssistant.UseCases.Models.QueryAssistantResponse.Executed*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
+- uid: DBAssistant.UseCases.Models.QueryAssistantResponse.Columns
+  commentId: P:DBAssistant.UseCases.Models.QueryAssistantResponse.Columns
+  id: Columns
+  parent: DBAssistant.UseCases.Models.QueryAssistantResponse
+  langs:
+  - csharp
+  - vb
+  name: Columns
+  nameWithType: QueryAssistantResponse.Columns
+  fullName: DBAssistant.UseCases.Models.QueryAssistantResponse.Columns
+  type: Property
+  source:
+    remote:
+      path: src/UseCases/DBAssistant.UseCases/Models/QueryAssistantResponse.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: Columns
+    path: ../src/UseCases/DBAssistant.UseCases/Models/QueryAssistantResponse.cs
+    startLine: 36
+  assemblies:
+  - DBAssistant.UseCases
+  namespace: DBAssistant.UseCases.Models
+  summary: Gets or sets the ordered list of returned column names.
+  example: []
+  syntax:
+    content: public IReadOnlyCollection<string> Columns { get; init; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyCollection{System.String}
+    content.vb: Public Property Columns As IReadOnlyCollection(Of String)
+  overload: DBAssistant.UseCases.Models.QueryAssistantResponse.Columns*
+- uid: DBAssistant.UseCases.Models.QueryAssistantResponse.Rows
+  commentId: P:DBAssistant.UseCases.Models.QueryAssistantResponse.Rows
+  id: Rows
+  parent: DBAssistant.UseCases.Models.QueryAssistantResponse
+  langs:
+  - csharp
+  - vb
+  name: Rows
+  nameWithType: QueryAssistantResponse.Rows
+  fullName: DBAssistant.UseCases.Models.QueryAssistantResponse.Rows
+  type: Property
+  source:
+    remote:
+      path: src/UseCases/DBAssistant.UseCases/Models/QueryAssistantResponse.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: Rows
+    path: ../src/UseCases/DBAssistant.UseCases/Models/QueryAssistantResponse.cs
+    startLine: 41
+  assemblies:
+  - DBAssistant.UseCases
+  namespace: DBAssistant.UseCases.Models
+  summary: Gets or sets the returned rows using column-name dictionaries.
+  example: []
+  syntax:
+    content: public IReadOnlyCollection<IReadOnlyDictionary<string, object?>> Rows { get; init; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyCollection{System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object}}
+    content.vb: Public Property Rows As IReadOnlyCollection(Of IReadOnlyDictionary(Of String, Object))
+  overload: DBAssistant.UseCases.Models.QueryAssistantResponse.Rows*
+- uid: DBAssistant.UseCases.Models.QueryAssistantResponse.ResultsAsText
+  commentId: P:DBAssistant.UseCases.Models.QueryAssistantResponse.ResultsAsText
+  id: ResultsAsText
+  parent: DBAssistant.UseCases.Models.QueryAssistantResponse
+  langs:
+  - csharp
+  - vb
+  name: ResultsAsText
+  nameWithType: QueryAssistantResponse.ResultsAsText
+  fullName: DBAssistant.UseCases.Models.QueryAssistantResponse.ResultsAsText
+  type: Property
+  source:
+    remote:
+      path: src/UseCases/DBAssistant.UseCases/Models/QueryAssistantResponse.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: ResultsAsText
+    path: ../src/UseCases/DBAssistant.UseCases/Models/QueryAssistantResponse.cs
+    startLine: 46
+  assemblies:
+  - DBAssistant.UseCases
+  namespace: DBAssistant.UseCases.Models
+  summary: Gets or sets the short natural-language or Markdown summary generated for the query result.
+  example: []
+  syntax:
+    content: public string ResultsAsText { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ResultsAsText As String
+  overload: DBAssistant.UseCases.Models.QueryAssistantResponse.ResultsAsText*
+references:
+- uid: DBAssistant.UseCases.Models
+  commentId: N:DBAssistant.UseCases.Models
+  href: DBAssistant.html
+  name: DBAssistant.UseCases.Models
+  nameWithType: DBAssistant.UseCases.Models
+  fullName: DBAssistant.UseCases.Models
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.UseCases
+    name: UseCases
+    href: DBAssistant.UseCases.html
+  - name: .
+  - uid: DBAssistant.UseCases.Models
+    name: Models
+    href: DBAssistant.UseCases.Models.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.UseCases
+    name: UseCases
+    href: DBAssistant.UseCases.html
+  - name: .
+  - uid: DBAssistant.UseCases.Models
+    name: Models
+    href: DBAssistant.UseCases.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DBAssistant.UseCases.Models.QueryAssistantResponse.Sql*
+  commentId: Overload:DBAssistant.UseCases.Models.QueryAssistantResponse.Sql
+  href: DBAssistant.UseCases.Models.QueryAssistantResponse.html#DBAssistant_UseCases_Models_QueryAssistantResponse_Sql
+  name: Sql
+  nameWithType: QueryAssistantResponse.Sql
+  fullName: DBAssistant.UseCases.Models.QueryAssistantResponse.Sql
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: DBAssistant.UseCases.Models.QueryAssistantResponse.Explanation*
+  commentId: Overload:DBAssistant.UseCases.Models.QueryAssistantResponse.Explanation
+  href: DBAssistant.UseCases.Models.QueryAssistantResponse.html#DBAssistant_UseCases_Models_QueryAssistantResponse_Explanation
+  name: Explanation
+  nameWithType: QueryAssistantResponse.Explanation
+  fullName: DBAssistant.UseCases.Models.QueryAssistantResponse.Explanation
+- uid: DBAssistant.UseCases.Models.QueryAssistantResponse.SchemaContextSource*
+  commentId: Overload:DBAssistant.UseCases.Models.QueryAssistantResponse.SchemaContextSource
+  href: DBAssistant.UseCases.Models.QueryAssistantResponse.html#DBAssistant_UseCases_Models_QueryAssistantResponse_SchemaContextSource
+  name: SchemaContextSource
+  nameWithType: QueryAssistantResponse.SchemaContextSource
+  fullName: DBAssistant.UseCases.Models.QueryAssistantResponse.SchemaContextSource
+- uid: DBAssistant.UseCases.Models.QueryAssistantResponse.Executed*
+  commentId: Overload:DBAssistant.UseCases.Models.QueryAssistantResponse.Executed
+  href: DBAssistant.UseCases.Models.QueryAssistantResponse.html#DBAssistant_UseCases_Models_QueryAssistantResponse_Executed
+  name: Executed
+  nameWithType: QueryAssistantResponse.Executed
+  fullName: DBAssistant.UseCases.Models.QueryAssistantResponse.Executed
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool?
+  nameWithType: bool?
+  fullName: bool?
+  nameWithType.vb: Boolean?
+  fullName.vb: Boolean?
+  name.vb: Boolean?
+  spec.csharp:
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+  spec.vb:
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: DBAssistant.UseCases.Models.QueryAssistantResponse.Columns*
+  commentId: Overload:DBAssistant.UseCases.Models.QueryAssistantResponse.Columns
+  href: DBAssistant.UseCases.Models.QueryAssistantResponse.html#DBAssistant_UseCases_Models_QueryAssistantResponse_Columns
+  name: Columns
+  nameWithType: QueryAssistantResponse.Columns
+  fullName: DBAssistant.UseCases.Models.QueryAssistantResponse.Columns
+- uid: System.Collections.Generic.IReadOnlyCollection{System.String}
+  commentId: T:System.Collections.Generic.IReadOnlyCollection{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyCollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  name: IReadOnlyCollection<string>
+  nameWithType: IReadOnlyCollection<string>
+  fullName: System.Collections.Generic.IReadOnlyCollection<string>
+  nameWithType.vb: IReadOnlyCollection(Of String)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of String)
+  name.vb: IReadOnlyCollection(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyCollection`1
+  commentId: T:System.Collections.Generic.IReadOnlyCollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  name: IReadOnlyCollection<T>
+  nameWithType: IReadOnlyCollection<T>
+  fullName: System.Collections.Generic.IReadOnlyCollection<T>
+  nameWithType.vb: IReadOnlyCollection(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of T)
+  name.vb: IReadOnlyCollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: DBAssistant.UseCases.Models.QueryAssistantResponse.Rows*
+  commentId: Overload:DBAssistant.UseCases.Models.QueryAssistantResponse.Rows
+  href: DBAssistant.UseCases.Models.QueryAssistantResponse.html#DBAssistant_UseCases_Models_QueryAssistantResponse_Rows
+  name: Rows
+  nameWithType: QueryAssistantResponse.Rows
+  fullName: DBAssistant.UseCases.Models.QueryAssistantResponse.Rows
+- uid: System.Collections.Generic.IReadOnlyCollection{System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object}}
+  commentId: T:System.Collections.Generic.IReadOnlyCollection{System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyCollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  name: IReadOnlyCollection<IReadOnlyDictionary<string, object>>
+  nameWithType: IReadOnlyCollection<IReadOnlyDictionary<string, object>>
+  fullName: System.Collections.Generic.IReadOnlyCollection<System.Collections.Generic.IReadOnlyDictionary<string, object>>
+  nameWithType.vb: IReadOnlyCollection(Of IReadOnlyDictionary(Of String, Object))
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of System.Collections.Generic.IReadOnlyDictionary(Of String, Object))
+  name.vb: IReadOnlyCollection(Of IReadOnlyDictionary(Of String, Object))
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: <
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  - name: )
+- uid: DBAssistant.UseCases.Models.QueryAssistantResponse.ResultsAsText*
+  commentId: Overload:DBAssistant.UseCases.Models.QueryAssistantResponse.ResultsAsText
+  href: DBAssistant.UseCases.Models.QueryAssistantResponse.html#DBAssistant_UseCases_Models_QueryAssistantResponse_ResultsAsText
+  name: ResultsAsText
+  nameWithType: QueryAssistantResponse.ResultsAsText
+  fullName: DBAssistant.UseCases.Models.QueryAssistantResponse.ResultsAsText

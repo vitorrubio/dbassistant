@@ -1,0 +1,56 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "src": "..",
+          "files": [
+            "src/Api/DBAssistant.Api/DBAssistant.Api.csproj",
+            "src/Data/DBAssistant.Data/DBAssistant.Data.csproj",
+            "src/Domain/DBAssistant.Domain/DBAssistant.Domain.csproj",
+            "src/Services/DBAssistant.Services/DBAssistant.Services.csproj",
+            "src/UseCases/DBAssistant.UseCases/DBAssistant.UseCases.csproj"
+          ],
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**"
+          ]
+        }
+      ],
+      "dest": "api"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "index.md",
+          "toc.yml",
+          "architecture/**/*.md",
+          "api/**/*.yml",
+          "api/**/toc.yml",
+          "swagger/**/*.swagger.json"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "architecture/assets/**",
+          "architecture/**/*.mmd"
+        ]
+      }
+    ],
+    "output": "_site",
+    "template": [
+      "default",
+      "modern"
+    ],
+    "globalMetadata": {
+      "_appTitle": "DB Assistant Documentation",
+      "_appName": "DB Assistant",
+      "_enableSearch": true,
+      "_disableContribution": true
+    }
+  }
+}

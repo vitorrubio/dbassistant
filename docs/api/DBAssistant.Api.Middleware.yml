@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.Api.Middleware
+  commentId: N:DBAssistant.Api.Middleware
+  id: DBAssistant.Api.Middleware
+  children:
+  - DBAssistant.Api.Middleware.ApiKeyAuthenticationMiddleware
+  langs:
+  - csharp
+  - vb
+  name: DBAssistant.Api.Middleware
+  nameWithType: DBAssistant.Api.Middleware
+  fullName: DBAssistant.Api.Middleware
+  type: Namespace
+  assemblies:
+  - DBAssistant.Api
+references:
+- uid: DBAssistant.Api.Middleware.ApiKeyAuthenticationMiddleware
+  commentId: T:DBAssistant.Api.Middleware.ApiKeyAuthenticationMiddleware
+  href: DBAssistant.Api.Middleware.ApiKeyAuthenticationMiddleware.html
+  name: ApiKeyAuthenticationMiddleware
+  nameWithType: ApiKeyAuthenticationMiddleware
+  fullName: DBAssistant.Api.Middleware.ApiKeyAuthenticationMiddleware

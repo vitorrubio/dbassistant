@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.Data.Services
+  commentId: N:DBAssistant.Data.Services
+  id: DBAssistant.Data.Services
+  children:
+  - DBAssistant.Data.Services.MySqlQueryExecutor
+  - DBAssistant.Data.Services.MySqlSchemaResolver
+  langs:
+  - csharp
+  - vb
+  name: DBAssistant.Data.Services
+  nameWithType: DBAssistant.Data.Services
+  fullName: DBAssistant.Data.Services
+  type: Namespace
+  assemblies:
+  - DBAssistant.Data
+references:
+- uid: DBAssistant.Data.Services.MySqlQueryExecutor
+  commentId: T:DBAssistant.Data.Services.MySqlQueryExecutor
+  href: DBAssistant.Data.Services.MySqlQueryExecutor.html
+  name: MySqlQueryExecutor
+  nameWithType: MySqlQueryExecutor
+  fullName: DBAssistant.Data.Services.MySqlQueryExecutor
+- uid: DBAssistant.Data.Services.MySqlSchemaResolver
+  commentId: T:DBAssistant.Data.Services.MySqlSchemaResolver
+  href: DBAssistant.Data.Services.MySqlSchemaResolver.html
+  name: MySqlSchemaResolver
+  nameWithType: MySqlSchemaResolver
+  fullName: DBAssistant.Data.Services.MySqlSchemaResolver

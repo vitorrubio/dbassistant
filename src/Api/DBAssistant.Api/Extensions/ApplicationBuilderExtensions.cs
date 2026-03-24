@@ -14,7 +14,10 @@ public static class ApplicationBuilderExtensions
     /// <returns>The same web application instance for chaining.</returns>
     public static WebApplication UseApiConfiguration(this WebApplication app)
     {
-        app.UseSwagger();
+        app.UseSwagger(options =>
+        {
+            options.SerializeAsV2 = true;
+        });
         app.UseSwaggerUI();
         app.UseMiddleware<ApiKeyAuthenticationMiddleware>();
         app.UseAuthorization();

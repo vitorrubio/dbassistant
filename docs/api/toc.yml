@@ -1,0 +1,265 @@
+### YamlMime:TableOfContent
+items:
+- uid: DBAssistant.Api.Configuration
+  name: DBAssistant.Api.Configuration
+  type: Namespace
+  items:
+  - uid: DBAssistant.Api.Configuration.ApiKeyOptions
+    name: ApiKeyOptions
+    type: Class
+- uid: DBAssistant.Api.Controllers
+  name: DBAssistant.Api.Controllers
+  type: Namespace
+  items:
+  - uid: DBAssistant.Api.Controllers.AssistantController
+    name: AssistantController
+    type: Class
+- uid: DBAssistant.Api.Extensions
+  name: DBAssistant.Api.Extensions
+  type: Namespace
+  items:
+  - uid: DBAssistant.Api.Extensions.ApplicationBuilderExtensions
+    name: ApplicationBuilderExtensions
+    type: Class
+  - uid: DBAssistant.Api.Extensions.DotEnvLoader
+    name: DotEnvLoader
+    type: Class
+  - uid: DBAssistant.Api.Extensions.ServiceCollectionExtensions
+    name: ServiceCollectionExtensions
+    type: Class
+- uid: DBAssistant.Api.Middleware
+  name: DBAssistant.Api.Middleware
+  type: Namespace
+  items:
+  - uid: DBAssistant.Api.Middleware.ApiKeyAuthenticationMiddleware
+    name: ApiKeyAuthenticationMiddleware
+    type: Class
+- uid: DBAssistant.Api.SwaggerExamples
+  name: DBAssistant.Api.SwaggerExamples
+  type: Namespace
+  items:
+  - uid: DBAssistant.Api.SwaggerExamples.AssistantQueryRequestExample
+    name: AssistantQueryRequestExample
+    type: Class
+  - uid: DBAssistant.Api.SwaggerExamples.AssistantQueryResponseExample
+    name: AssistantQueryResponseExample
+    type: Class
+  - uid: DBAssistant.Api.SwaggerExamples.ServiceUnavailableProblemDetailsExample
+    name: ServiceUnavailableProblemDetailsExample
+    type: Class
+  - uid: DBAssistant.Api.SwaggerExamples.ValidationProblemDetailsExample
+    name: ValidationProblemDetailsExample
+    type: Class
+- uid: DBAssistant.Data.Configuration
+  name: DBAssistant.Data.Configuration
+  type: Namespace
+  items:
+  - uid: DBAssistant.Data.Configuration.DatabaseOptions
+    name: DatabaseOptions
+    type: Class
+- uid: DBAssistant.Data.DependencyInjection
+  name: DBAssistant.Data.DependencyInjection
+  type: Namespace
+  items:
+  - uid: DBAssistant.Data.DependencyInjection.ServiceCollectionExtensions
+    name: ServiceCollectionExtensions
+    type: Class
+- uid: DBAssistant.Data.Repositories
+  name: DBAssistant.Data.Repositories
+  type: Namespace
+  items:
+  - uid: DBAssistant.Data.Repositories.InformationSchemaReader
+    name: InformationSchemaReader
+    type: Class
+- uid: DBAssistant.Data.Services
+  name: DBAssistant.Data.Services
+  type: Namespace
+  items:
+  - uid: DBAssistant.Data.Services.MySqlQueryExecutor
+    name: MySqlQueryExecutor
+    type: Class
+  - uid: DBAssistant.Data.Services.MySqlSchemaResolver
+    name: MySqlSchemaResolver
+    type: Class
+- uid: DBAssistant.Domain.Entities
+  name: DBAssistant.Domain.Entities
+  type: Namespace
+  items:
+  - uid: DBAssistant.Domain.Entities.SqlStatement
+    name: SqlStatement
+    type: Class
+- uid: DBAssistant.Domain.Exceptions
+  name: DBAssistant.Domain.Exceptions
+  type: Namespace
+  items:
+  - uid: DBAssistant.Domain.Exceptions.DomainValidationException
+    name: DomainValidationException
+    type: Class
+- uid: DBAssistant.Domain.Repositories
+  name: DBAssistant.Domain.Repositories
+  type: Namespace
+  items:
+  - uid: DBAssistant.Domain.Repositories.IInformationSchemaReader
+    name: IInformationSchemaReader
+    type: Interface
+- uid: DBAssistant.Services.Configuration
+  name: DBAssistant.Services.Configuration
+  type: Namespace
+  items:
+  - uid: DBAssistant.Services.Configuration.CacheOptions
+    name: CacheOptions
+    type: Class
+  - uid: DBAssistant.Services.Configuration.OpenAiOptions
+    name: OpenAiOptions
+    type: Class
+  - uid: DBAssistant.Services.Configuration.SchemaKnowledgeOptions
+    name: SchemaKnowledgeOptions
+    type: Class
+- uid: DBAssistant.Services.DependencyInjection
+  name: DBAssistant.Services.DependencyInjection
+  type: Namespace
+  items:
+  - uid: DBAssistant.Services.DependencyInjection.ServiceCollectionExtensions
+    name: ServiceCollectionExtensions
+    type: Class
+- uid: DBAssistant.Services.OpenAI
+  name: DBAssistant.Services.OpenAI
+  type: Namespace
+  items:
+  - uid: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway
+    name: OpenAiSqlGenerationGateway
+    type: Class
+  - uid: DBAssistant.Services.OpenAI.OpenAiTransportClient
+    name: OpenAiTransportClient
+    type: Class
+- uid: DBAssistant.Services.OpenAI.Contracts
+  name: DBAssistant.Services.OpenAI.Contracts
+  type: Namespace
+  items:
+  - uid: DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingItem
+    name: OpenAiEmbeddingItem
+    type: Class
+  - uid: DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingsRequest
+    name: OpenAiEmbeddingsRequest
+    type: Class
+  - uid: DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingsResponse
+    name: OpenAiEmbeddingsResponse
+    type: Class
+  - uid: DBAssistant.Services.OpenAI.Contracts.OpenAiInputContent
+    name: OpenAiInputContent
+    type: Class
+  - uid: DBAssistant.Services.OpenAI.Contracts.OpenAiInputMessage
+    name: OpenAiInputMessage
+    type: Class
+  - uid: DBAssistant.Services.OpenAI.Contracts.OpenAiJsonSchemaFormat
+    name: OpenAiJsonSchemaFormat
+    type: Class
+  - uid: DBAssistant.Services.OpenAI.Contracts.OpenAiResponseContentItem
+    name: OpenAiResponseContentItem
+    type: Class
+  - uid: DBAssistant.Services.OpenAI.Contracts.OpenAiResponseOutputItem
+    name: OpenAiResponseOutputItem
+    type: Class
+  - uid: DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesRequest
+    name: OpenAiResponsesRequest
+    type: Class
+  - uid: DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesResponse
+    name: OpenAiResponsesResponse
+    type: Class
+  - uid: DBAssistant.Services.OpenAI.Contracts.OpenAiTextOptions
+    name: OpenAiTextOptions
+    type: Class
+  - uid: DBAssistant.Services.OpenAI.Contracts.OpenAiToolDefinition
+    name: OpenAiToolDefinition
+    type: Class
+- uid: DBAssistant.Services.SchemaKnowledge
+  name: DBAssistant.Services.SchemaKnowledge
+  type: Namespace
+  items:
+  - uid: DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway
+    name: JsonSchemaKnowledgeSearchGateway
+    type: Class
+  - uid: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact
+    name: SchemaKnowledgeArtifact
+    type: Class
+  - uid: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeEmbeddingDocument
+    name: SchemaKnowledgeEmbeddingDocument
+    type: Class
+  - uid: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeEmbeddingsArtifact
+    name: SchemaKnowledgeEmbeddingsArtifact
+    type: Class
+- uid: DBAssistant.UseCases.DependencyInjection
+  name: DBAssistant.UseCases.DependencyInjection
+  type: Namespace
+  items:
+  - uid: DBAssistant.UseCases.DependencyInjection.ServiceCollectionExtensions
+    name: ServiceCollectionExtensions
+    type: Class
+- uid: DBAssistant.UseCases.Exceptions
+  name: DBAssistant.UseCases.Exceptions
+  type: Namespace
+  items:
+  - uid: DBAssistant.UseCases.Exceptions.ApplicationValidationException
+    name: ApplicationValidationException
+    type: Class
+  - uid: DBAssistant.UseCases.Exceptions.ExternalServiceUnavailableException
+    name: ExternalServiceUnavailableException
+    type: Class
+  - uid: DBAssistant.UseCases.Exceptions.QueryExecutionException
+    name: QueryExecutionException
+    type: Class
+- uid: DBAssistant.UseCases.Models
+  name: DBAssistant.UseCases.Models
+  type: Namespace
+  items:
+  - uid: DBAssistant.UseCases.Models.GeneratedSqlResult
+    name: GeneratedSqlResult
+    type: Class
+  - uid: DBAssistant.UseCases.Models.QueryAssistantRequest
+    name: QueryAssistantRequest
+    type: Class
+  - uid: DBAssistant.UseCases.Models.QueryAssistantResponse
+    name: QueryAssistantResponse
+    type: Class
+  - uid: DBAssistant.UseCases.Models.QueryExecutionResult
+    name: QueryExecutionResult
+    type: Class
+  - uid: DBAssistant.UseCases.Models.QueryResultNarration
+    name: QueryResultNarration
+    type: Class
+  - uid: DBAssistant.UseCases.Models.SchemaContextEnvelope
+    name: SchemaContextEnvelope
+    type: Class
+  - uid: DBAssistant.UseCases.Models.SchemaKnowledgeDocument
+    name: SchemaKnowledgeDocument
+    type: Class
+- uid: DBAssistant.UseCases.Ports
+  name: DBAssistant.UseCases.Ports
+  type: Namespace
+  items:
+  - uid: DBAssistant.UseCases.Ports.IProcessNaturalLanguageQueryUseCase
+    name: IProcessNaturalLanguageQueryUseCase
+    type: Interface
+  - uid: DBAssistant.UseCases.Ports.ISchemaContextAssembler
+    name: ISchemaContextAssembler
+    type: Interface
+  - uid: DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway
+    name: ISchemaKnowledgeSearchGateway
+    type: Interface
+  - uid: DBAssistant.UseCases.Ports.ISqlGenerationGateway
+    name: ISqlGenerationGateway
+    type: Interface
+  - uid: DBAssistant.UseCases.Ports.ISqlQueryExecutor
+    name: ISqlQueryExecutor
+    type: Interface
+- uid: DBAssistant.UseCases.UseCases
+  name: DBAssistant.UseCases.UseCases
+  type: Namespace
+  items:
+  - uid: DBAssistant.UseCases.UseCases.ProcessNaturalLanguageQueryUseCase
+    name: ProcessNaturalLanguageQueryUseCase
+    type: Class
+  - uid: DBAssistant.UseCases.UseCases.SchemaContextAssembler
+    name: SchemaContextAssembler
+    type: Class
+memberLayout: SamePage

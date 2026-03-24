@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.Data.Repositories
+  commentId: N:DBAssistant.Data.Repositories
+  id: DBAssistant.Data.Repositories
+  children:
+  - DBAssistant.Data.Repositories.InformationSchemaReader
+  langs:
+  - csharp
+  - vb
+  name: DBAssistant.Data.Repositories
+  nameWithType: DBAssistant.Data.Repositories
+  fullName: DBAssistant.Data.Repositories
+  type: Namespace
+  assemblies:
+  - DBAssistant.Data
+references:
+- uid: DBAssistant.Data.Repositories.InformationSchemaReader
+  commentId: T:DBAssistant.Data.Repositories.InformationSchemaReader
+  href: DBAssistant.Data.Repositories.InformationSchemaReader.html
+  name: InformationSchemaReader
+  nameWithType: InformationSchemaReader
+  fullName: DBAssistant.Data.Repositories.InformationSchemaReader

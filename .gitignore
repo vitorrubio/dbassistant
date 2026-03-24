@@ -36,6 +36,10 @@ logs/
 .memory-local/
 .localPrompts/
 
+# Documentation outputs
+docs/_site/
+docs/swagger/
+
 # OS files
 .DS_Store
 Thumbs.db

@@ -65,8 +65,19 @@ public static class ServiceCollectionExtensions
             });
             options.EnableAnnotations();
             options.ExampleFilters();
+            IncludeXmlComments(options);
         });
 
         return services;
+    }
+
+    private static void IncludeXmlComments(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions options)
+    {
+        var xmlDocumentationFiles = Directory.EnumerateFiles(AppContext.BaseDirectory, "DBAssistant*.xml", SearchOption.TopDirectoryOnly);
+
+        foreach (var xmlDocumentationFile in xmlDocumentationFiles)
+        {
+            options.IncludeXmlComments(xmlDocumentationFile, includeControllerXmlComments: true);
+        }
     }
 }

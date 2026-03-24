@@ -1,0 +1,78 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.Api.SwaggerExamples
+  commentId: N:DBAssistant.Api.SwaggerExamples
+  id: DBAssistant.Api.SwaggerExamples
+  children:
+  - DBAssistant.Api.SwaggerExamples.AssistantQueryRequestExample
+  - DBAssistant.Api.SwaggerExamples.AssistantQueryResponseExample
+  - DBAssistant.Api.SwaggerExamples.ServiceUnavailableProblemDetailsExample
+  - DBAssistant.Api.SwaggerExamples.ValidationProblemDetailsExample
+  langs:
+  - csharp
+  - vb
+  name: DBAssistant.Api.SwaggerExamples
+  nameWithType: DBAssistant.Api.SwaggerExamples
+  fullName: DBAssistant.Api.SwaggerExamples
+  type: Namespace
+  assemblies:
+  - DBAssistant.Api
+references:
+- uid: DBAssistant.Api.SwaggerExamples.AssistantQueryRequestExample
+  commentId: T:DBAssistant.Api.SwaggerExamples.AssistantQueryRequestExample
+  parent: DBAssistant.Api.SwaggerExamples
+  href: DBAssistant.Api.SwaggerExamples.AssistantQueryRequestExample.html
+  name: AssistantQueryRequestExample
+  nameWithType: AssistantQueryRequestExample
+  fullName: DBAssistant.Api.SwaggerExamples.AssistantQueryRequestExample
+- uid: DBAssistant.Api.SwaggerExamples.AssistantQueryResponseExample
+  commentId: T:DBAssistant.Api.SwaggerExamples.AssistantQueryResponseExample
+  parent: DBAssistant.Api.SwaggerExamples
+  href: DBAssistant.Api.SwaggerExamples.AssistantQueryResponseExample.html
+  name: AssistantQueryResponseExample
+  nameWithType: AssistantQueryResponseExample
+  fullName: DBAssistant.Api.SwaggerExamples.AssistantQueryResponseExample
+- uid: DBAssistant.Api.SwaggerExamples.ServiceUnavailableProblemDetailsExample
+  commentId: T:DBAssistant.Api.SwaggerExamples.ServiceUnavailableProblemDetailsExample
+  parent: DBAssistant.Api.SwaggerExamples
+  href: DBAssistant.Api.SwaggerExamples.ServiceUnavailableProblemDetailsExample.html
+  name: ServiceUnavailableProblemDetailsExample
+  nameWithType: ServiceUnavailableProblemDetailsExample
+  fullName: DBAssistant.Api.SwaggerExamples.ServiceUnavailableProblemDetailsExample
+- uid: DBAssistant.Api.SwaggerExamples.ValidationProblemDetailsExample
+  commentId: T:DBAssistant.Api.SwaggerExamples.ValidationProblemDetailsExample
+  parent: DBAssistant.Api.SwaggerExamples
+  href: DBAssistant.Api.SwaggerExamples.ValidationProblemDetailsExample.html
+  name: ValidationProblemDetailsExample
+  nameWithType: ValidationProblemDetailsExample
+  fullName: DBAssistant.Api.SwaggerExamples.ValidationProblemDetailsExample
+- uid: DBAssistant.Api.SwaggerExamples
+  commentId: N:DBAssistant.Api.SwaggerExamples
+  href: DBAssistant.html
+  name: DBAssistant.Api.SwaggerExamples
+  nameWithType: DBAssistant.Api.SwaggerExamples
+  fullName: DBAssistant.Api.SwaggerExamples
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Api
+    name: Api
+    href: DBAssistant.Api.html
+  - name: .
+  - uid: DBAssistant.Api.SwaggerExamples
+    name: SwaggerExamples
+    href: DBAssistant.Api.SwaggerExamples.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Api
+    name: Api
+    href: DBAssistant.Api.html
+  - name: .
+  - uid: DBAssistant.Api.SwaggerExamples
+    name: SwaggerExamples
+    href: DBAssistant.Api.SwaggerExamples.html

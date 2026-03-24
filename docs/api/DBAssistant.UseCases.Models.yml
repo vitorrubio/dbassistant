@@ -1,0 +1,98 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.UseCases.Models
+  commentId: N:DBAssistant.UseCases.Models
+  id: DBAssistant.UseCases.Models
+  children:
+  - DBAssistant.UseCases.Models.GeneratedSqlResult
+  - DBAssistant.UseCases.Models.QueryAssistantRequest
+  - DBAssistant.UseCases.Models.QueryAssistantResponse
+  - DBAssistant.UseCases.Models.QueryExecutionResult
+  - DBAssistant.UseCases.Models.QueryResultNarration
+  - DBAssistant.UseCases.Models.SchemaContextEnvelope
+  - DBAssistant.UseCases.Models.SchemaKnowledgeDocument
+  langs:
+  - csharp
+  - vb
+  name: DBAssistant.UseCases.Models
+  nameWithType: DBAssistant.UseCases.Models
+  fullName: DBAssistant.UseCases.Models
+  type: Namespace
+  assemblies:
+  - DBAssistant.UseCases
+references:
+- uid: DBAssistant.UseCases.Models.GeneratedSqlResult
+  commentId: T:DBAssistant.UseCases.Models.GeneratedSqlResult
+  href: DBAssistant.UseCases.Models.GeneratedSqlResult.html
+  name: GeneratedSqlResult
+  nameWithType: GeneratedSqlResult
+  fullName: DBAssistant.UseCases.Models.GeneratedSqlResult
+- uid: DBAssistant.UseCases.Models.QueryAssistantRequest
+  commentId: T:DBAssistant.UseCases.Models.QueryAssistantRequest
+  parent: DBAssistant.UseCases.Models
+  href: DBAssistant.UseCases.Models.QueryAssistantRequest.html
+  name: QueryAssistantRequest
+  nameWithType: QueryAssistantRequest
+  fullName: DBAssistant.UseCases.Models.QueryAssistantRequest
+- uid: DBAssistant.UseCases.Models.QueryAssistantResponse
+  commentId: T:DBAssistant.UseCases.Models.QueryAssistantResponse
+  parent: DBAssistant.UseCases.Models
+  href: DBAssistant.UseCases.Models.QueryAssistantResponse.html
+  name: QueryAssistantResponse
+  nameWithType: QueryAssistantResponse
+  fullName: DBAssistant.UseCases.Models.QueryAssistantResponse
+- uid: DBAssistant.UseCases.Models.QueryExecutionResult
+  commentId: T:DBAssistant.UseCases.Models.QueryExecutionResult
+  parent: DBAssistant.UseCases.Models
+  href: DBAssistant.UseCases.Models.QueryExecutionResult.html
+  name: QueryExecutionResult
+  nameWithType: QueryExecutionResult
+  fullName: DBAssistant.UseCases.Models.QueryExecutionResult
+- uid: DBAssistant.UseCases.Models.QueryResultNarration
+  commentId: T:DBAssistant.UseCases.Models.QueryResultNarration
+  href: DBAssistant.UseCases.Models.QueryResultNarration.html
+  name: QueryResultNarration
+  nameWithType: QueryResultNarration
+  fullName: DBAssistant.UseCases.Models.QueryResultNarration
+- uid: DBAssistant.UseCases.Models.SchemaContextEnvelope
+  commentId: T:DBAssistant.UseCases.Models.SchemaContextEnvelope
+  href: DBAssistant.UseCases.Models.SchemaContextEnvelope.html
+  name: SchemaContextEnvelope
+  nameWithType: SchemaContextEnvelope
+  fullName: DBAssistant.UseCases.Models.SchemaContextEnvelope
+- uid: DBAssistant.UseCases.Models.SchemaKnowledgeDocument
+  commentId: T:DBAssistant.UseCases.Models.SchemaKnowledgeDocument
+  href: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.html
+  name: SchemaKnowledgeDocument
+  nameWithType: SchemaKnowledgeDocument
+  fullName: DBAssistant.UseCases.Models.SchemaKnowledgeDocument
+- uid: DBAssistant.UseCases.Models
+  commentId: N:DBAssistant.UseCases.Models
+  href: DBAssistant.html
+  name: DBAssistant.UseCases.Models
+  nameWithType: DBAssistant.UseCases.Models
+  fullName: DBAssistant.UseCases.Models
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.UseCases
+    name: UseCases
+    href: DBAssistant.UseCases.html
+  - name: .
+  - uid: DBAssistant.UseCases.Models
+    name: Models
+    href: DBAssistant.UseCases.Models.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.UseCases
+    name: UseCases
+    href: DBAssistant.UseCases.html
+  - name: .
+  - uid: DBAssistant.UseCases.Models
+    name: Models
+    href: DBAssistant.UseCases.Models.html

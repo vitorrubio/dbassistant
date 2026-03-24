@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.Api.Extensions
+  commentId: N:DBAssistant.Api.Extensions
+  id: DBAssistant.Api.Extensions
+  children:
+  - DBAssistant.Api.Extensions.ApplicationBuilderExtensions
+  - DBAssistant.Api.Extensions.DotEnvLoader
+  - DBAssistant.Api.Extensions.ServiceCollectionExtensions
+  langs:
+  - csharp
+  - vb
+  name: DBAssistant.Api.Extensions
+  nameWithType: DBAssistant.Api.Extensions
+  fullName: DBAssistant.Api.Extensions
+  type: Namespace
+  assemblies:
+  - DBAssistant.Api
+references:
+- uid: DBAssistant.Api.Extensions.ApplicationBuilderExtensions
+  commentId: T:DBAssistant.Api.Extensions.ApplicationBuilderExtensions
+  href: DBAssistant.Api.Extensions.ApplicationBuilderExtensions.html
+  name: ApplicationBuilderExtensions
+  nameWithType: ApplicationBuilderExtensions
+  fullName: DBAssistant.Api.Extensions.ApplicationBuilderExtensions
+- uid: DBAssistant.Api.Extensions.DotEnvLoader
+  commentId: T:DBAssistant.Api.Extensions.DotEnvLoader
+  href: DBAssistant.Api.Extensions.DotEnvLoader.html
+  name: DotEnvLoader
+  nameWithType: DotEnvLoader
+  fullName: DBAssistant.Api.Extensions.DotEnvLoader
+- uid: DBAssistant.Api.Extensions.ServiceCollectionExtensions
+  commentId: T:DBAssistant.Api.Extensions.ServiceCollectionExtensions
+  href: DBAssistant.Api.Extensions.ServiceCollectionExtensions.html
+  name: ServiceCollectionExtensions
+  nameWithType: ServiceCollectionExtensions
+  fullName: DBAssistant.Api.Extensions.ServiceCollectionExtensions

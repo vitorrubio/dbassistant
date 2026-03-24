@@ -1,0 +1,541 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.Data.Services.MySqlSchemaResolver
+  commentId: T:DBAssistant.Data.Services.MySqlSchemaResolver
+  id: MySqlSchemaResolver
+  parent: DBAssistant.Data.Services
+  children:
+  - DBAssistant.Data.Services.MySqlSchemaResolver.ResolveAndChangeDatabaseAsync(MySqlConnector.MySqlConnection,DBAssistant.Data.Configuration.DatabaseOptions,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: MySqlSchemaResolver
+  nameWithType: MySqlSchemaResolver
+  fullName: DBAssistant.Data.Services.MySqlSchemaResolver
+  type: Class
+  source:
+    remote:
+      path: src/Data/DBAssistant.Data/Services/MySqlSchemaResolver.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: MySqlSchemaResolver
+    path: ../src/Data/DBAssistant.Data/Services/MySqlSchemaResolver.cs
+    startLine: 8
+  assemblies:
+  - DBAssistant.Data
+  namespace: DBAssistant.Data.Services
+  summary: Resolves the actual schema name available on the server using a case-insensitive lookup.
+  example: []
+  syntax:
+    content: public static class MySqlSchemaResolver
+    content.vb: Public Module MySqlSchemaResolver
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: DBAssistant.Data.Services.MySqlSchemaResolver.ResolveAndChangeDatabaseAsync(MySqlConnector.MySqlConnection,DBAssistant.Data.Configuration.DatabaseOptions,System.Threading.CancellationToken)
+  commentId: M:DBAssistant.Data.Services.MySqlSchemaResolver.ResolveAndChangeDatabaseAsync(MySqlConnector.MySqlConnection,DBAssistant.Data.Configuration.DatabaseOptions,System.Threading.CancellationToken)
+  id: ResolveAndChangeDatabaseAsync(MySqlConnector.MySqlConnection,DBAssistant.Data.Configuration.DatabaseOptions,System.Threading.CancellationToken)
+  parent: DBAssistant.Data.Services.MySqlSchemaResolver
+  langs:
+  - csharp
+  - vb
+  name: ResolveAndChangeDatabaseAsync(MySqlConnection, DatabaseOptions, CancellationToken)
+  nameWithType: MySqlSchemaResolver.ResolveAndChangeDatabaseAsync(MySqlConnection, DatabaseOptions, CancellationToken)
+  fullName: DBAssistant.Data.Services.MySqlSchemaResolver.ResolveAndChangeDatabaseAsync(MySqlConnector.MySqlConnection, DBAssistant.Data.Configuration.DatabaseOptions, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Data/DBAssistant.Data/Services/MySqlSchemaResolver.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: ResolveAndChangeDatabaseAsync
+    path: ../src/Data/DBAssistant.Data/Services/MySqlSchemaResolver.cs
+    startLine: 17
+  assemblies:
+  - DBAssistant.Data
+  namespace: DBAssistant.Data.Services
+  summary: Resolves the target schema and switches the open connection to it.
+  example: []
+  syntax:
+    content: public static Task<string> ResolveAndChangeDatabaseAsync(MySqlConnection connection, DatabaseOptions databaseOptions, CancellationToken cancellationToken)
+    parameters:
+    - id: connection
+      type: MySqlConnector.MySqlConnection
+      description: The open MySQL connection.
+    - id: databaseOptions
+      type: DBAssistant.Data.Configuration.DatabaseOptions
+      description: The configured database options.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token used to stop the operation.
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+      description: The resolved schema name.
+    content.vb: Public Shared Function ResolveAndChangeDatabaseAsync(connection As MySqlConnection, databaseOptions As DatabaseOptions, cancellationToken As CancellationToken) As Task(Of String)
+  overload: DBAssistant.Data.Services.MySqlSchemaResolver.ResolveAndChangeDatabaseAsync*
+references:
+- uid: DBAssistant.Data.Services
+  commentId: N:DBAssistant.Data.Services
+  href: DBAssistant.html
+  name: DBAssistant.Data.Services
+  nameWithType: DBAssistant.Data.Services
+  fullName: DBAssistant.Data.Services
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Data
+    name: Data
+    href: DBAssistant.Data.html
+  - name: .
+  - uid: DBAssistant.Data.Services
+    name: Services
+    href: DBAssistant.Data.Services.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Data
+    name: Data
+    href: DBAssistant.Data.html
+  - name: .
+  - uid: DBAssistant.Data.Services
+    name: Services
+    href: DBAssistant.Data.Services.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DBAssistant.Data.Services.MySqlSchemaResolver.ResolveAndChangeDatabaseAsync*
+  commentId: Overload:DBAssistant.Data.Services.MySqlSchemaResolver.ResolveAndChangeDatabaseAsync
+  href: DBAssistant.Data.Services.MySqlSchemaResolver.html#DBAssistant_Data_Services_MySqlSchemaResolver_ResolveAndChangeDatabaseAsync_MySqlConnector_MySqlConnection_DBAssistant_Data_Configuration_DatabaseOptions_System_Threading_CancellationToken_
+  name: ResolveAndChangeDatabaseAsync
+  nameWithType: MySqlSchemaResolver.ResolveAndChangeDatabaseAsync
+  fullName: DBAssistant.Data.Services.MySqlSchemaResolver.ResolveAndChangeDatabaseAsync
+- uid: MySqlConnector.MySqlConnection
+  commentId: T:MySqlConnector.MySqlConnection
+  parent: MySqlConnector
+  isExternal: true
+  name: MySqlConnection
+  nameWithType: MySqlConnection
+  fullName: MySqlConnector.MySqlConnection
+- uid: DBAssistant.Data.Configuration.DatabaseOptions
+  commentId: T:DBAssistant.Data.Configuration.DatabaseOptions
+  parent: DBAssistant.Data.Configuration
+  href: DBAssistant.Data.Configuration.DatabaseOptions.html
+  name: DatabaseOptions
+  nameWithType: DatabaseOptions
+  fullName: DBAssistant.Data.Configuration.DatabaseOptions
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{System.String}
+  commentId: T:System.Threading.Tasks.Task{System.String}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<string>
+  nameWithType: Task<string>
+  fullName: System.Threading.Tasks.Task<string>
+  nameWithType.vb: Task(Of String)
+  fullName.vb: System.Threading.Tasks.Task(Of String)
+  name.vb: Task(Of String)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: MySqlConnector
+  commentId: N:MySqlConnector
+  isExternal: true
+  name: MySqlConnector
+  nameWithType: MySqlConnector
+  fullName: MySqlConnector
+- uid: DBAssistant.Data.Configuration
+  commentId: N:DBAssistant.Data.Configuration
+  href: DBAssistant.html
+  name: DBAssistant.Data.Configuration
+  nameWithType: DBAssistant.Data.Configuration
+  fullName: DBAssistant.Data.Configuration
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Data
+    name: Data
+    href: DBAssistant.Data.html
+  - name: .
+  - uid: DBAssistant.Data.Configuration
+    name: Configuration
+    href: DBAssistant.Data.Configuration.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Data
+    name: Data
+    href: DBAssistant.Data.html
+  - name: .
+  - uid: DBAssistant.Data.Configuration
+    name: Configuration
+    href: DBAssistant.Data.Configuration.html
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

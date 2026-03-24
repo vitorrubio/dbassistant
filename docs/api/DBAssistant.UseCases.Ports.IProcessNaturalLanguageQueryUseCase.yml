@@ -1,0 +1,278 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.UseCases.Ports.IProcessNaturalLanguageQueryUseCase
+  commentId: T:DBAssistant.UseCases.Ports.IProcessNaturalLanguageQueryUseCase
+  id: IProcessNaturalLanguageQueryUseCase
+  parent: DBAssistant.UseCases.Ports
+  children:
+  - DBAssistant.UseCases.Ports.IProcessNaturalLanguageQueryUseCase.ExecuteAsync(DBAssistant.UseCases.Models.QueryAssistantRequest,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IProcessNaturalLanguageQueryUseCase
+  nameWithType: IProcessNaturalLanguageQueryUseCase
+  fullName: DBAssistant.UseCases.Ports.IProcessNaturalLanguageQueryUseCase
+  type: Interface
+  source:
+    remote:
+      path: src/UseCases/DBAssistant.UseCases/Ports/IProcessNaturalLanguageQueryUseCase.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: IProcessNaturalLanguageQueryUseCase
+    path: ../src/UseCases/DBAssistant.UseCases/Ports/IProcessNaturalLanguageQueryUseCase.cs
+    startLine: 7
+  assemblies:
+  - DBAssistant.UseCases
+  namespace: DBAssistant.UseCases.Ports
+  summary: Defines the application use case responsible for translating a natural-language question into SQL and optionally executing it.
+  example: []
+  syntax:
+    content: public interface IProcessNaturalLanguageQueryUseCase
+    content.vb: Public Interface IProcessNaturalLanguageQueryUseCase
+  derivedClasses:
+  - DBAssistant.UseCases.UseCases.ProcessNaturalLanguageQueryUseCase
+- uid: DBAssistant.UseCases.Ports.IProcessNaturalLanguageQueryUseCase.ExecuteAsync(DBAssistant.UseCases.Models.QueryAssistantRequest,System.Threading.CancellationToken)
+  commentId: M:DBAssistant.UseCases.Ports.IProcessNaturalLanguageQueryUseCase.ExecuteAsync(DBAssistant.UseCases.Models.QueryAssistantRequest,System.Threading.CancellationToken)
+  id: ExecuteAsync(DBAssistant.UseCases.Models.QueryAssistantRequest,System.Threading.CancellationToken)
+  parent: DBAssistant.UseCases.Ports.IProcessNaturalLanguageQueryUseCase
+  langs:
+  - csharp
+  - vb
+  name: ExecuteAsync(QueryAssistantRequest, CancellationToken)
+  nameWithType: IProcessNaturalLanguageQueryUseCase.ExecuteAsync(QueryAssistantRequest, CancellationToken)
+  fullName: DBAssistant.UseCases.Ports.IProcessNaturalLanguageQueryUseCase.ExecuteAsync(DBAssistant.UseCases.Models.QueryAssistantRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/UseCases/DBAssistant.UseCases/Ports/IProcessNaturalLanguageQueryUseCase.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: ExecuteAsync
+    path: ../src/UseCases/DBAssistant.UseCases/Ports/IProcessNaturalLanguageQueryUseCase.cs
+    startLine: 15
+  assemblies:
+  - DBAssistant.UseCases
+  namespace: DBAssistant.UseCases.Ports
+  summary: Executes the end-to-end natural-language query flow for the supplied request.
+  example: []
+  syntax:
+    content: Task<QueryAssistantResponse> ExecuteAsync(QueryAssistantRequest request, CancellationToken cancellationToken)
+    parameters:
+    - id: request
+      type: DBAssistant.UseCases.Models.QueryAssistantRequest
+      description: The request describing the user question and execution intent.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token used to stop the operation.
+    return:
+      type: System.Threading.Tasks.Task{DBAssistant.UseCases.Models.QueryAssistantResponse}
+      description: The generated SQL, execution metadata, and optional result set.
+    content.vb: Function ExecuteAsync(request As QueryAssistantRequest, cancellationToken As CancellationToken) As Task(Of QueryAssistantResponse)
+  overload: DBAssistant.UseCases.Ports.IProcessNaturalLanguageQueryUseCase.ExecuteAsync*
+references:
+- uid: DBAssistant.UseCases.Ports
+  commentId: N:DBAssistant.UseCases.Ports
+  href: DBAssistant.html
+  name: DBAssistant.UseCases.Ports
+  nameWithType: DBAssistant.UseCases.Ports
+  fullName: DBAssistant.UseCases.Ports
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.UseCases
+    name: UseCases
+    href: DBAssistant.UseCases.html
+  - name: .
+  - uid: DBAssistant.UseCases.Ports
+    name: Ports
+    href: DBAssistant.UseCases.Ports.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.UseCases
+    name: UseCases
+    href: DBAssistant.UseCases.html
+  - name: .
+  - uid: DBAssistant.UseCases.Ports
+    name: Ports
+    href: DBAssistant.UseCases.Ports.html
+- uid: DBAssistant.UseCases.Ports.IProcessNaturalLanguageQueryUseCase.ExecuteAsync*
+  commentId: Overload:DBAssistant.UseCases.Ports.IProcessNaturalLanguageQueryUseCase.ExecuteAsync
+  href: DBAssistant.UseCases.Ports.IProcessNaturalLanguageQueryUseCase.html#DBAssistant_UseCases_Ports_IProcessNaturalLanguageQueryUseCase_ExecuteAsync_DBAssistant_UseCases_Models_QueryAssistantRequest_System_Threading_CancellationToken_
+  name: ExecuteAsync
+  nameWithType: IProcessNaturalLanguageQueryUseCase.ExecuteAsync
+  fullName: DBAssistant.UseCases.Ports.IProcessNaturalLanguageQueryUseCase.ExecuteAsync
+- uid: DBAssistant.UseCases.Models.QueryAssistantRequest
+  commentId: T:DBAssistant.UseCases.Models.QueryAssistantRequest
+  parent: DBAssistant.UseCases.Models
+  href: DBAssistant.UseCases.Models.QueryAssistantRequest.html
+  name: QueryAssistantRequest
+  nameWithType: QueryAssistantRequest
+  fullName: DBAssistant.UseCases.Models.QueryAssistantRequest
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{DBAssistant.UseCases.Models.QueryAssistantResponse}
+  commentId: T:System.Threading.Tasks.Task{DBAssistant.UseCases.Models.QueryAssistantResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<QueryAssistantResponse>
+  nameWithType: Task<QueryAssistantResponse>
+  fullName: System.Threading.Tasks.Task<DBAssistant.UseCases.Models.QueryAssistantResponse>
+  nameWithType.vb: Task(Of QueryAssistantResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of DBAssistant.UseCases.Models.QueryAssistantResponse)
+  name.vb: Task(Of QueryAssistantResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: DBAssistant.UseCases.Models.QueryAssistantResponse
+    name: QueryAssistantResponse
+    href: DBAssistant.UseCases.Models.QueryAssistantResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: DBAssistant.UseCases.Models.QueryAssistantResponse
+    name: QueryAssistantResponse
+    href: DBAssistant.UseCases.Models.QueryAssistantResponse.html
+  - name: )
+- uid: DBAssistant.UseCases.Models
+  commentId: N:DBAssistant.UseCases.Models
+  href: DBAssistant.html
+  name: DBAssistant.UseCases.Models
+  nameWithType: DBAssistant.UseCases.Models
+  fullName: DBAssistant.UseCases.Models
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.UseCases
+    name: UseCases
+    href: DBAssistant.UseCases.html
+  - name: .
+  - uid: DBAssistant.UseCases.Models
+    name: Models
+    href: DBAssistant.UseCases.Models.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.UseCases
+    name: UseCases
+    href: DBAssistant.UseCases.html
+  - name: .
+  - uid: DBAssistant.UseCases.Models
+    name: Models
+    href: DBAssistant.UseCases.Models.html
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

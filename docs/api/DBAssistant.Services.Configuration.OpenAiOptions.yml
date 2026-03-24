@@ -1,0 +1,446 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.Services.Configuration.OpenAiOptions
+  commentId: T:DBAssistant.Services.Configuration.OpenAiOptions
+  id: OpenAiOptions
+  parent: DBAssistant.Services.Configuration
+  children:
+  - DBAssistant.Services.Configuration.OpenAiOptions.ApiKey
+  - DBAssistant.Services.Configuration.OpenAiOptions.BaseUrl
+  - DBAssistant.Services.Configuration.OpenAiOptions.EmbeddingModel
+  - DBAssistant.Services.Configuration.OpenAiOptions.Model
+  langs:
+  - csharp
+  - vb
+  name: OpenAiOptions
+  nameWithType: OpenAiOptions
+  fullName: DBAssistant.Services.Configuration.OpenAiOptions
+  type: Class
+  source:
+    remote:
+      path: src/Services/DBAssistant.Services/Configuration/OpenAiOptions.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: OpenAiOptions
+    path: ../src/Services/DBAssistant.Services/Configuration/OpenAiOptions.cs
+    startLine: 5
+  assemblies:
+  - DBAssistant.Services
+  namespace: DBAssistant.Services.Configuration
+  summary: Stores the OpenAI configuration required to generate SQL from natural-language questions.
+  example: []
+  syntax:
+    content: public sealed class OpenAiOptions
+    content.vb: Public NotInheritable Class OpenAiOptions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: DBAssistant.Services.Configuration.OpenAiOptions.ApiKey
+  commentId: P:DBAssistant.Services.Configuration.OpenAiOptions.ApiKey
+  id: ApiKey
+  parent: DBAssistant.Services.Configuration.OpenAiOptions
+  langs:
+  - csharp
+  - vb
+  name: ApiKey
+  nameWithType: OpenAiOptions.ApiKey
+  fullName: DBAssistant.Services.Configuration.OpenAiOptions.ApiKey
+  type: Property
+  source:
+    remote:
+      path: src/Services/DBAssistant.Services/Configuration/OpenAiOptions.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: ApiKey
+    path: ../src/Services/DBAssistant.Services/Configuration/OpenAiOptions.cs
+    startLine: 10
+  assemblies:
+  - DBAssistant.Services
+  namespace: DBAssistant.Services.Configuration
+  summary: Gets or sets the API key used to authenticate against OpenAI.
+  example: []
+  syntax:
+    content: public string ApiKey { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ApiKey As String
+  overload: DBAssistant.Services.Configuration.OpenAiOptions.ApiKey*
+- uid: DBAssistant.Services.Configuration.OpenAiOptions.BaseUrl
+  commentId: P:DBAssistant.Services.Configuration.OpenAiOptions.BaseUrl
+  id: BaseUrl
+  parent: DBAssistant.Services.Configuration.OpenAiOptions
+  langs:
+  - csharp
+  - vb
+  name: BaseUrl
+  nameWithType: OpenAiOptions.BaseUrl
+  fullName: DBAssistant.Services.Configuration.OpenAiOptions.BaseUrl
+  type: Property
+  source:
+    remote:
+      path: src/Services/DBAssistant.Services/Configuration/OpenAiOptions.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: BaseUrl
+    path: ../src/Services/DBAssistant.Services/Configuration/OpenAiOptions.cs
+    startLine: 15
+  assemblies:
+  - DBAssistant.Services
+  namespace: DBAssistant.Services.Configuration
+  summary: Gets or sets the base URL of the OpenAI-compatible API endpoint.
+  example: []
+  syntax:
+    content: public string BaseUrl { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property BaseUrl As String
+  overload: DBAssistant.Services.Configuration.OpenAiOptions.BaseUrl*
+- uid: DBAssistant.Services.Configuration.OpenAiOptions.Model
+  commentId: P:DBAssistant.Services.Configuration.OpenAiOptions.Model
+  id: Model
+  parent: DBAssistant.Services.Configuration.OpenAiOptions
+  langs:
+  - csharp
+  - vb
+  name: Model
+  nameWithType: OpenAiOptions.Model
+  fullName: DBAssistant.Services.Configuration.OpenAiOptions.Model
+  type: Property
+  source:
+    remote:
+      path: src/Services/DBAssistant.Services/Configuration/OpenAiOptions.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: Model
+    path: ../src/Services/DBAssistant.Services/Configuration/OpenAiOptions.cs
+    startLine: 20
+  assemblies:
+  - DBAssistant.Services
+  namespace: DBAssistant.Services.Configuration
+  summary: Gets or sets the model identifier used for SQL generation.
+  example: []
+  syntax:
+    content: public string Model { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Model As String
+  overload: DBAssistant.Services.Configuration.OpenAiOptions.Model*
+- uid: DBAssistant.Services.Configuration.OpenAiOptions.EmbeddingModel
+  commentId: P:DBAssistant.Services.Configuration.OpenAiOptions.EmbeddingModel
+  id: EmbeddingModel
+  parent: DBAssistant.Services.Configuration.OpenAiOptions
+  langs:
+  - csharp
+  - vb
+  name: EmbeddingModel
+  nameWithType: OpenAiOptions.EmbeddingModel
+  fullName: DBAssistant.Services.Configuration.OpenAiOptions.EmbeddingModel
+  type: Property
+  source:
+    remote:
+      path: src/Services/DBAssistant.Services/Configuration/OpenAiOptions.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: EmbeddingModel
+    path: ../src/Services/DBAssistant.Services/Configuration/OpenAiOptions.cs
+    startLine: 25
+  assemblies:
+  - DBAssistant.Services
+  namespace: DBAssistant.Services.Configuration
+  summary: Gets or sets the model identifier used for embeddings.
+  example: []
+  syntax:
+    content: public string EmbeddingModel { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property EmbeddingModel As String
+  overload: DBAssistant.Services.Configuration.OpenAiOptions.EmbeddingModel*
+references:
+- uid: DBAssistant.Services.Configuration
+  commentId: N:DBAssistant.Services.Configuration
+  href: DBAssistant.html
+  name: DBAssistant.Services.Configuration
+  nameWithType: DBAssistant.Services.Configuration
+  fullName: DBAssistant.Services.Configuration
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Services
+    name: Services
+    href: DBAssistant.Services.html
+  - name: .
+  - uid: DBAssistant.Services.Configuration
+    name: Configuration
+    href: DBAssistant.Services.Configuration.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Services
+    name: Services
+    href: DBAssistant.Services.html
+  - name: .
+  - uid: DBAssistant.Services.Configuration
+    name: Configuration
+    href: DBAssistant.Services.Configuration.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DBAssistant.Services.Configuration.OpenAiOptions.ApiKey*
+  commentId: Overload:DBAssistant.Services.Configuration.OpenAiOptions.ApiKey
+  href: DBAssistant.Services.Configuration.OpenAiOptions.html#DBAssistant_Services_Configuration_OpenAiOptions_ApiKey
+  name: ApiKey
+  nameWithType: OpenAiOptions.ApiKey
+  fullName: DBAssistant.Services.Configuration.OpenAiOptions.ApiKey
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: DBAssistant.Services.Configuration.OpenAiOptions.BaseUrl*
+  commentId: Overload:DBAssistant.Services.Configuration.OpenAiOptions.BaseUrl
+  href: DBAssistant.Services.Configuration.OpenAiOptions.html#DBAssistant_Services_Configuration_OpenAiOptions_BaseUrl
+  name: BaseUrl
+  nameWithType: OpenAiOptions.BaseUrl
+  fullName: DBAssistant.Services.Configuration.OpenAiOptions.BaseUrl
+- uid: DBAssistant.Services.Configuration.OpenAiOptions.Model*
+  commentId: Overload:DBAssistant.Services.Configuration.OpenAiOptions.Model
+  href: DBAssistant.Services.Configuration.OpenAiOptions.html#DBAssistant_Services_Configuration_OpenAiOptions_Model
+  name: Model
+  nameWithType: OpenAiOptions.Model
+  fullName: DBAssistant.Services.Configuration.OpenAiOptions.Model
+- uid: DBAssistant.Services.Configuration.OpenAiOptions.EmbeddingModel*
+  commentId: Overload:DBAssistant.Services.Configuration.OpenAiOptions.EmbeddingModel
+  href: DBAssistant.Services.Configuration.OpenAiOptions.html#DBAssistant_Services_Configuration_OpenAiOptions_EmbeddingModel
+  name: EmbeddingModel
+  nameWithType: OpenAiOptions.EmbeddingModel
+  fullName: DBAssistant.Services.Configuration.OpenAiOptions.EmbeddingModel

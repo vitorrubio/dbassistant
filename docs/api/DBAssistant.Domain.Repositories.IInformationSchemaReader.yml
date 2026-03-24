@@ -1,0 +1,240 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.Domain.Repositories.IInformationSchemaReader
+  commentId: T:DBAssistant.Domain.Repositories.IInformationSchemaReader
+  id: IInformationSchemaReader
+  parent: DBAssistant.Domain.Repositories
+  children:
+  - DBAssistant.Domain.Repositories.IInformationSchemaReader.ReadSchemaAsync(System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IInformationSchemaReader
+  nameWithType: IInformationSchemaReader
+  fullName: DBAssistant.Domain.Repositories.IInformationSchemaReader
+  type: Interface
+  source:
+    remote:
+      path: src/Domain/DBAssistant.Domain/Repositories/IInformationSchemaReader.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: IInformationSchemaReader
+    path: ../src/Domain/DBAssistant.Domain/Repositories/IInformationSchemaReader.cs
+    startLine: 5
+  assemblies:
+  - DBAssistant.Domain
+  namespace: DBAssistant.Domain.Repositories
+  summary: Defines the contract for reading database structure metadata from the authoritative information schema.
+  example: []
+  syntax:
+    content: public interface IInformationSchemaReader
+    content.vb: Public Interface IInformationSchemaReader
+  derivedClasses:
+  - DBAssistant.Data.Repositories.InformationSchemaReader
+- uid: DBAssistant.Domain.Repositories.IInformationSchemaReader.ReadSchemaAsync(System.Threading.CancellationToken)
+  commentId: M:DBAssistant.Domain.Repositories.IInformationSchemaReader.ReadSchemaAsync(System.Threading.CancellationToken)
+  id: ReadSchemaAsync(System.Threading.CancellationToken)
+  parent: DBAssistant.Domain.Repositories.IInformationSchemaReader
+  langs:
+  - csharp
+  - vb
+  name: ReadSchemaAsync(CancellationToken)
+  nameWithType: IInformationSchemaReader.ReadSchemaAsync(CancellationToken)
+  fullName: DBAssistant.Domain.Repositories.IInformationSchemaReader.ReadSchemaAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Domain/DBAssistant.Domain/Repositories/IInformationSchemaReader.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: ReadSchemaAsync
+    path: ../src/Domain/DBAssistant.Domain/Repositories/IInformationSchemaReader.cs
+    startLine: 12
+  assemblies:
+  - DBAssistant.Domain
+  namespace: DBAssistant.Domain.Repositories
+  summary: Reads the current database schema and returns it in a prompt-friendly text format.
+  example: []
+  syntax:
+    content: Task<string> ReadSchemaAsync(CancellationToken cancellationToken)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token used to stop the metadata query.
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+      description: A readable schema snapshot produced from the connected database.
+    content.vb: Function ReadSchemaAsync(cancellationToken As CancellationToken) As Task(Of String)
+  overload: DBAssistant.Domain.Repositories.IInformationSchemaReader.ReadSchemaAsync*
+references:
+- uid: DBAssistant.Domain.Repositories
+  commentId: N:DBAssistant.Domain.Repositories
+  href: DBAssistant.html
+  name: DBAssistant.Domain.Repositories
+  nameWithType: DBAssistant.Domain.Repositories
+  fullName: DBAssistant.Domain.Repositories
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Domain
+    name: Domain
+    href: DBAssistant.Domain.html
+  - name: .
+  - uid: DBAssistant.Domain.Repositories
+    name: Repositories
+    href: DBAssistant.Domain.Repositories.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Domain
+    name: Domain
+    href: DBAssistant.Domain.html
+  - name: .
+  - uid: DBAssistant.Domain.Repositories
+    name: Repositories
+    href: DBAssistant.Domain.Repositories.html
+- uid: DBAssistant.Domain.Repositories.IInformationSchemaReader.ReadSchemaAsync*
+  commentId: Overload:DBAssistant.Domain.Repositories.IInformationSchemaReader.ReadSchemaAsync
+  href: DBAssistant.Domain.Repositories.IInformationSchemaReader.html#DBAssistant_Domain_Repositories_IInformationSchemaReader_ReadSchemaAsync_System_Threading_CancellationToken_
+  name: ReadSchemaAsync
+  nameWithType: IInformationSchemaReader.ReadSchemaAsync
+  fullName: DBAssistant.Domain.Repositories.IInformationSchemaReader.ReadSchemaAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{System.String}
+  commentId: T:System.Threading.Tasks.Task{System.String}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<string>
+  nameWithType: Task<string>
+  fullName: System.Threading.Tasks.Task<string>
+  nameWithType.vb: Task(Of String)
+  fullName.vb: System.Threading.Tasks.Task(Of String)
+  name.vb: Task(Of String)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

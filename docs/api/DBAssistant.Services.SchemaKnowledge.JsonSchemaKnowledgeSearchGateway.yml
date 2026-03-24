@@ -1,0 +1,887 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway
+  commentId: T:DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway
+  id: JsonSchemaKnowledgeSearchGateway
+  parent: DBAssistant.Services.SchemaKnowledge
+  children:
+  - DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache,DBAssistant.Services.OpenAI.OpenAiTransportClient,Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.OpenAiOptions},Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.CacheOptions},Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.SchemaKnowledgeOptions})
+  - DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway.SearchAsync(System.String,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: JsonSchemaKnowledgeSearchGateway
+  nameWithType: JsonSchemaKnowledgeSearchGateway
+  fullName: DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway
+  type: Class
+  source:
+    remote:
+      path: src/Services/DBAssistant.Services/OpenAI/JsonSchemaKnowledgeSearchGateway.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: JsonSchemaKnowledgeSearchGateway
+    path: ../src/Services/DBAssistant.Services/OpenAI/JsonSchemaKnowledgeSearchGateway.cs
+    startLine: 16
+  assemblies:
+  - DBAssistant.Services
+  namespace: DBAssistant.Services.SchemaKnowledge
+  summary: Provides vector-based retrieval over the local schema knowledge artifact using OpenAI embeddings plus a persisted local cache.
+  example: []
+  syntax:
+    content: 'public sealed class JsonSchemaKnowledgeSearchGateway : ISchemaKnowledgeSearchGateway'
+    content.vb: Public NotInheritable Class JsonSchemaKnowledgeSearchGateway Implements ISchemaKnowledgeSearchGateway
+  inheritance:
+  - System.Object
+  implements:
+  - DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache,DBAssistant.Services.OpenAI.OpenAiTransportClient,Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.OpenAiOptions},Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.CacheOptions},Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.SchemaKnowledgeOptions})
+  commentId: M:DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache,DBAssistant.Services.OpenAI.OpenAiTransportClient,Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.OpenAiOptions},Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.CacheOptions},Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.SchemaKnowledgeOptions})
+  id: '#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache,DBAssistant.Services.OpenAI.OpenAiTransportClient,Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.OpenAiOptions},Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.CacheOptions},Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.SchemaKnowledgeOptions})'
+  parent: DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway
+  langs:
+  - csharp
+  - vb
+  name: JsonSchemaKnowledgeSearchGateway(IMemoryCache, OpenAiTransportClient, IOptions<OpenAiOptions>, IOptions<CacheOptions>, IOptions<SchemaKnowledgeOptions>)
+  nameWithType: JsonSchemaKnowledgeSearchGateway.JsonSchemaKnowledgeSearchGateway(IMemoryCache, OpenAiTransportClient, IOptions<OpenAiOptions>, IOptions<CacheOptions>, IOptions<SchemaKnowledgeOptions>)
+  fullName: DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway.JsonSchemaKnowledgeSearchGateway(Microsoft.Extensions.Caching.Memory.IMemoryCache, DBAssistant.Services.OpenAI.OpenAiTransportClient, Microsoft.Extensions.Options.IOptions<DBAssistant.Services.Configuration.OpenAiOptions>, Microsoft.Extensions.Options.IOptions<DBAssistant.Services.Configuration.CacheOptions>, Microsoft.Extensions.Options.IOptions<DBAssistant.Services.Configuration.SchemaKnowledgeOptions>)
+  type: Constructor
+  source:
+    remote:
+      path: src/Services/DBAssistant.Services/OpenAI/JsonSchemaKnowledgeSearchGateway.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: .ctor
+    path: ../src/Services/DBAssistant.Services/OpenAI/JsonSchemaKnowledgeSearchGateway.cs
+    startLine: 28
+  assemblies:
+  - DBAssistant.Services
+  namespace: DBAssistant.Services.SchemaKnowledge
+  summary: Initializes a new instance of the <xref href="DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public JsonSchemaKnowledgeSearchGateway(IMemoryCache memoryCache, OpenAiTransportClient openAiTransportClient, IOptions<OpenAiOptions> openAiOptions, IOptions<CacheOptions> cacheOptions, IOptions<SchemaKnowledgeOptions> schemaKnowledgeOptions)
+    parameters:
+    - id: memoryCache
+      type: Microsoft.Extensions.Caching.Memory.IMemoryCache
+    - id: openAiTransportClient
+      type: DBAssistant.Services.OpenAI.OpenAiTransportClient
+    - id: openAiOptions
+      type: Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.OpenAiOptions}
+    - id: cacheOptions
+      type: Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.CacheOptions}
+    - id: schemaKnowledgeOptions
+      type: Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.SchemaKnowledgeOptions}
+    content.vb: Public Sub New(memoryCache As IMemoryCache, openAiTransportClient As OpenAiTransportClient, openAiOptions As IOptions(Of OpenAiOptions), cacheOptions As IOptions(Of CacheOptions), schemaKnowledgeOptions As IOptions(Of SchemaKnowledgeOptions))
+  overload: DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway.#ctor*
+  nameWithType.vb: JsonSchemaKnowledgeSearchGateway.New(IMemoryCache, OpenAiTransportClient, IOptions(Of OpenAiOptions), IOptions(Of CacheOptions), IOptions(Of SchemaKnowledgeOptions))
+  fullName.vb: DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway.New(Microsoft.Extensions.Caching.Memory.IMemoryCache, DBAssistant.Services.OpenAI.OpenAiTransportClient, Microsoft.Extensions.Options.IOptions(Of DBAssistant.Services.Configuration.OpenAiOptions), Microsoft.Extensions.Options.IOptions(Of DBAssistant.Services.Configuration.CacheOptions), Microsoft.Extensions.Options.IOptions(Of DBAssistant.Services.Configuration.SchemaKnowledgeOptions))
+  name.vb: New(IMemoryCache, OpenAiTransportClient, IOptions(Of OpenAiOptions), IOptions(Of CacheOptions), IOptions(Of SchemaKnowledgeOptions))
+- uid: DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway.SearchAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway.SearchAsync(System.String,System.Threading.CancellationToken)
+  id: SearchAsync(System.String,System.Threading.CancellationToken)
+  parent: DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway
+  langs:
+  - csharp
+  - vb
+  name: SearchAsync(string, CancellationToken)
+  nameWithType: JsonSchemaKnowledgeSearchGateway.SearchAsync(string, CancellationToken)
+  fullName: DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway.SearchAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Services/DBAssistant.Services/OpenAI/JsonSchemaKnowledgeSearchGateway.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: SearchAsync
+    path: ../src/Services/DBAssistant.Services/OpenAI/JsonSchemaKnowledgeSearchGateway.cs
+    startLine: 43
+  assemblies:
+  - DBAssistant.Services
+  namespace: DBAssistant.Services.SchemaKnowledge
+  summary: Searches the schema knowledge index for documents that are relevant to the supplied question.
+  example: []
+  syntax:
+    content: public Task<IReadOnlyCollection<SchemaKnowledgeDocument>> SearchAsync(string question, CancellationToken cancellationToken)
+    parameters:
+    - id: question
+      type: System.String
+      description: The user question used as the retrieval query.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token used to stop the search.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{DBAssistant.UseCases.Models.SchemaKnowledgeDocument}}
+      description: A collection of schema knowledge documents ranked as relevant to the query.
+    content.vb: Public Function SearchAsync(question As String, cancellationToken As CancellationToken) As Task(Of IReadOnlyCollection(Of SchemaKnowledgeDocument))
+  overload: DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway.SearchAsync*
+  implements:
+  - DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway.SearchAsync(System.String,System.Threading.CancellationToken)
+  nameWithType.vb: JsonSchemaKnowledgeSearchGateway.SearchAsync(String, CancellationToken)
+  fullName.vb: DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway.SearchAsync(String, System.Threading.CancellationToken)
+  name.vb: SearchAsync(String, CancellationToken)
+references:
+- uid: DBAssistant.Services.SchemaKnowledge
+  commentId: N:DBAssistant.Services.SchemaKnowledge
+  href: DBAssistant.html
+  name: DBAssistant.Services.SchemaKnowledge
+  nameWithType: DBAssistant.Services.SchemaKnowledge
+  fullName: DBAssistant.Services.SchemaKnowledge
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Services
+    name: Services
+    href: DBAssistant.Services.html
+  - name: .
+  - uid: DBAssistant.Services.SchemaKnowledge
+    name: SchemaKnowledge
+    href: DBAssistant.Services.SchemaKnowledge.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Services
+    name: Services
+    href: DBAssistant.Services.html
+  - name: .
+  - uid: DBAssistant.Services.SchemaKnowledge
+    name: SchemaKnowledge
+    href: DBAssistant.Services.SchemaKnowledge.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway
+  commentId: T:DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway
+  parent: DBAssistant.UseCases.Ports
+  href: DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway.html
+  name: ISchemaKnowledgeSearchGateway
+  nameWithType: ISchemaKnowledgeSearchGateway
+  fullName: DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DBAssistant.UseCases.Ports
+  commentId: N:DBAssistant.UseCases.Ports
+  href: DBAssistant.html
+  name: DBAssistant.UseCases.Ports
+  nameWithType: DBAssistant.UseCases.Ports
+  fullName: DBAssistant.UseCases.Ports
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.UseCases
+    name: UseCases
+    href: DBAssistant.UseCases.html
+  - name: .
+  - uid: DBAssistant.UseCases.Ports
+    name: Ports
+    href: DBAssistant.UseCases.Ports.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.UseCases
+    name: UseCases
+    href: DBAssistant.UseCases.html
+  - name: .
+  - uid: DBAssistant.UseCases.Ports
+    name: Ports
+    href: DBAssistant.UseCases.Ports.html
+- uid: DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway
+  commentId: T:DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway
+  href: DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway.html
+  name: JsonSchemaKnowledgeSearchGateway
+  nameWithType: JsonSchemaKnowledgeSearchGateway
+  fullName: DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway
+- uid: DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway.#ctor*
+  commentId: Overload:DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway.#ctor
+  href: DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway.html#DBAssistant_Services_SchemaKnowledge_JsonSchemaKnowledgeSearchGateway__ctor_Microsoft_Extensions_Caching_Memory_IMemoryCache_DBAssistant_Services_OpenAI_OpenAiTransportClient_Microsoft_Extensions_Options_IOptions_DBAssistant_Services_Configuration_OpenAiOptions__Microsoft_Extensions_Options_IOptions_DBAssistant_Services_Configuration_CacheOptions__Microsoft_Extensions_Options_IOptions_DBAssistant_Services_Configuration_SchemaKnowledgeOptions__
+  name: JsonSchemaKnowledgeSearchGateway
+  nameWithType: JsonSchemaKnowledgeSearchGateway.JsonSchemaKnowledgeSearchGateway
+  fullName: DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway.JsonSchemaKnowledgeSearchGateway
+  nameWithType.vb: JsonSchemaKnowledgeSearchGateway.New
+  fullName.vb: DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway.New
+  name.vb: New
+- uid: Microsoft.Extensions.Caching.Memory.IMemoryCache
+  commentId: T:Microsoft.Extensions.Caching.Memory.IMemoryCache
+  parent: Microsoft.Extensions.Caching.Memory
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.caching.memory.imemorycache
+  name: IMemoryCache
+  nameWithType: IMemoryCache
+  fullName: Microsoft.Extensions.Caching.Memory.IMemoryCache
+- uid: DBAssistant.Services.OpenAI.OpenAiTransportClient
+  commentId: T:DBAssistant.Services.OpenAI.OpenAiTransportClient
+  parent: DBAssistant.Services.OpenAI
+  href: DBAssistant.Services.OpenAI.OpenAiTransportClient.html
+  name: OpenAiTransportClient
+  nameWithType: OpenAiTransportClient
+  fullName: DBAssistant.Services.OpenAI.OpenAiTransportClient
+- uid: Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.OpenAiOptions}
+  commentId: T:Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.OpenAiOptions}
+  parent: Microsoft.Extensions.Options
+  definition: Microsoft.Extensions.Options.IOptions`1
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1
+  name: IOptions<OpenAiOptions>
+  nameWithType: IOptions<OpenAiOptions>
+  fullName: Microsoft.Extensions.Options.IOptions<DBAssistant.Services.Configuration.OpenAiOptions>
+  nameWithType.vb: IOptions(Of OpenAiOptions)
+  fullName.vb: Microsoft.Extensions.Options.IOptions(Of DBAssistant.Services.Configuration.OpenAiOptions)
+  name.vb: IOptions(Of OpenAiOptions)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1
+  - name: <
+  - uid: DBAssistant.Services.Configuration.OpenAiOptions
+    name: OpenAiOptions
+    href: DBAssistant.Services.Configuration.OpenAiOptions.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: DBAssistant.Services.Configuration.OpenAiOptions
+    name: OpenAiOptions
+    href: DBAssistant.Services.Configuration.OpenAiOptions.html
+  - name: )
+- uid: Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.CacheOptions}
+  commentId: T:Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.CacheOptions}
+  parent: Microsoft.Extensions.Options
+  definition: Microsoft.Extensions.Options.IOptions`1
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1
+  name: IOptions<CacheOptions>
+  nameWithType: IOptions<CacheOptions>
+  fullName: Microsoft.Extensions.Options.IOptions<DBAssistant.Services.Configuration.CacheOptions>
+  nameWithType.vb: IOptions(Of CacheOptions)
+  fullName.vb: Microsoft.Extensions.Options.IOptions(Of DBAssistant.Services.Configuration.CacheOptions)
+  name.vb: IOptions(Of CacheOptions)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1
+  - name: <
+  - uid: DBAssistant.Services.Configuration.CacheOptions
+    name: CacheOptions
+    href: DBAssistant.Services.Configuration.CacheOptions.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: DBAssistant.Services.Configuration.CacheOptions
+    name: CacheOptions
+    href: DBAssistant.Services.Configuration.CacheOptions.html
+  - name: )
+- uid: Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.SchemaKnowledgeOptions}
+  commentId: T:Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.SchemaKnowledgeOptions}
+  parent: Microsoft.Extensions.Options
+  definition: Microsoft.Extensions.Options.IOptions`1
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1
+  name: IOptions<SchemaKnowledgeOptions>
+  nameWithType: IOptions<SchemaKnowledgeOptions>
+  fullName: Microsoft.Extensions.Options.IOptions<DBAssistant.Services.Configuration.SchemaKnowledgeOptions>
+  nameWithType.vb: IOptions(Of SchemaKnowledgeOptions)
+  fullName.vb: Microsoft.Extensions.Options.IOptions(Of DBAssistant.Services.Configuration.SchemaKnowledgeOptions)
+  name.vb: IOptions(Of SchemaKnowledgeOptions)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1
+  - name: <
+  - uid: DBAssistant.Services.Configuration.SchemaKnowledgeOptions
+    name: SchemaKnowledgeOptions
+    href: DBAssistant.Services.Configuration.SchemaKnowledgeOptions.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: DBAssistant.Services.Configuration.SchemaKnowledgeOptions
+    name: SchemaKnowledgeOptions
+    href: DBAssistant.Services.Configuration.SchemaKnowledgeOptions.html
+  - name: )
+- uid: Microsoft.Extensions.Caching.Memory
+  commentId: N:Microsoft.Extensions.Caching.Memory
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Caching.Memory
+  nameWithType: Microsoft.Extensions.Caching.Memory
+  fullName: Microsoft.Extensions.Caching.Memory
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Caching
+    name: Caching
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.caching
+  - name: .
+  - uid: Microsoft.Extensions.Caching.Memory
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.caching.memory
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Caching
+    name: Caching
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.caching
+  - name: .
+  - uid: Microsoft.Extensions.Caching.Memory
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.caching.memory
+- uid: DBAssistant.Services.OpenAI
+  commentId: N:DBAssistant.Services.OpenAI
+  href: DBAssistant.html
+  name: DBAssistant.Services.OpenAI
+  nameWithType: DBAssistant.Services.OpenAI
+  fullName: DBAssistant.Services.OpenAI
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Services
+    name: Services
+    href: DBAssistant.Services.html
+  - name: .
+  - uid: DBAssistant.Services.OpenAI
+    name: OpenAI
+    href: DBAssistant.Services.OpenAI.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Services
+    name: Services
+    href: DBAssistant.Services.html
+  - name: .
+  - uid: DBAssistant.Services.OpenAI
+    name: OpenAI
+    href: DBAssistant.Services.OpenAI.html
+- uid: Microsoft.Extensions.Options.IOptions`1
+  commentId: T:Microsoft.Extensions.Options.IOptions`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1
+  name: IOptions<TOptions>
+  nameWithType: IOptions<TOptions>
+  fullName: Microsoft.Extensions.Options.IOptions<TOptions>
+  nameWithType.vb: IOptions(Of TOptions)
+  fullName.vb: Microsoft.Extensions.Options.IOptions(Of TOptions)
+  name.vb: IOptions(Of TOptions)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1
+  - name: <
+  - name: TOptions
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TOptions
+  - name: )
+- uid: Microsoft.Extensions.Options
+  commentId: N:Microsoft.Extensions.Options
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Options
+  nameWithType: Microsoft.Extensions.Options
+  fullName: Microsoft.Extensions.Options
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Options
+    name: Options
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Options
+    name: Options
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options
+- uid: DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway.SearchAsync*
+  commentId: Overload:DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway.SearchAsync
+  href: DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway.html#DBAssistant_Services_SchemaKnowledge_JsonSchemaKnowledgeSearchGateway_SearchAsync_System_String_System_Threading_CancellationToken_
+  name: SearchAsync
+  nameWithType: JsonSchemaKnowledgeSearchGateway.SearchAsync
+  fullName: DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway.SearchAsync
+- uid: DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway.SearchAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway.SearchAsync(System.String,System.Threading.CancellationToken)
+  parent: DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway
+  isExternal: true
+  href: DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway.html#DBAssistant_UseCases_Ports_ISchemaKnowledgeSearchGateway_SearchAsync_System_String_System_Threading_CancellationToken_
+  name: SearchAsync(string, CancellationToken)
+  nameWithType: ISchemaKnowledgeSearchGateway.SearchAsync(string, CancellationToken)
+  fullName: DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway.SearchAsync(string, System.Threading.CancellationToken)
+  nameWithType.vb: ISchemaKnowledgeSearchGateway.SearchAsync(String, CancellationToken)
+  fullName.vb: DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway.SearchAsync(String, System.Threading.CancellationToken)
+  name.vb: SearchAsync(String, CancellationToken)
+  spec.csharp:
+  - uid: DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway.SearchAsync(System.String,System.Threading.CancellationToken)
+    name: SearchAsync
+    href: DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway.html#DBAssistant_UseCases_Ports_ISchemaKnowledgeSearchGateway_SearchAsync_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway.SearchAsync(System.String,System.Threading.CancellationToken)
+    name: SearchAsync
+    href: DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway.html#DBAssistant_UseCases_Ports_ISchemaKnowledgeSearchGateway_SearchAsync_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{DBAssistant.UseCases.Models.SchemaKnowledgeDocument}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{DBAssistant.UseCases.Models.SchemaKnowledgeDocument}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IReadOnlyCollection<SchemaKnowledgeDocument>>
+  nameWithType: Task<IReadOnlyCollection<SchemaKnowledgeDocument>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyCollection<DBAssistant.UseCases.Models.SchemaKnowledgeDocument>>
+  nameWithType.vb: Task(Of IReadOnlyCollection(Of SchemaKnowledgeDocument))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyCollection(Of DBAssistant.UseCases.Models.SchemaKnowledgeDocument))
+  name.vb: Task(Of IReadOnlyCollection(Of SchemaKnowledgeDocument))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: <
+  - uid: DBAssistant.UseCases.Models.SchemaKnowledgeDocument
+    name: SchemaKnowledgeDocument
+    href: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: DBAssistant.UseCases.Models.SchemaKnowledgeDocument
+    name: SchemaKnowledgeDocument
+    href: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.html
+  - name: )
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

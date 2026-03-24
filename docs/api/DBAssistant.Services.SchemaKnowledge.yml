@@ -1,0 +1,44 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.Services.SchemaKnowledge
+  commentId: N:DBAssistant.Services.SchemaKnowledge
+  id: DBAssistant.Services.SchemaKnowledge
+  children:
+  - DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway
+  - DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact
+  - DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeEmbeddingDocument
+  - DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeEmbeddingsArtifact
+  langs:
+  - csharp
+  - vb
+  name: DBAssistant.Services.SchemaKnowledge
+  nameWithType: DBAssistant.Services.SchemaKnowledge
+  fullName: DBAssistant.Services.SchemaKnowledge
+  type: Namespace
+  assemblies:
+  - DBAssistant.Services
+references:
+- uid: DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway
+  commentId: T:DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway
+  href: DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway.html
+  name: JsonSchemaKnowledgeSearchGateway
+  nameWithType: JsonSchemaKnowledgeSearchGateway
+  fullName: DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway
+- uid: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact
+  commentId: T:DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact
+  href: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.html
+  name: SchemaKnowledgeArtifact
+  nameWithType: SchemaKnowledgeArtifact
+  fullName: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact
+- uid: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeEmbeddingsArtifact
+  commentId: T:DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeEmbeddingsArtifact
+  href: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeEmbeddingsArtifact.html
+  name: SchemaKnowledgeEmbeddingsArtifact
+  nameWithType: SchemaKnowledgeEmbeddingsArtifact
+  fullName: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeEmbeddingsArtifact
+- uid: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeEmbeddingDocument
+  commentId: T:DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeEmbeddingDocument
+  href: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeEmbeddingDocument.html
+  name: SchemaKnowledgeEmbeddingDocument
+  nameWithType: SchemaKnowledgeEmbeddingDocument
+  fullName: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeEmbeddingDocument

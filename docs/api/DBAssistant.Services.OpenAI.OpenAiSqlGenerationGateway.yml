@@ -1,0 +1,1014 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway
+  commentId: T:DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway
+  id: OpenAiSqlGenerationGateway
+  parent: DBAssistant.Services.OpenAI
+  children:
+  - DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache,Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.CacheOptions},Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.OpenAiOptions},DBAssistant.Services.OpenAI.OpenAiTransportClient)
+  - DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.GenerateResultsAsTextAsync(System.String,System.String,DBAssistant.UseCases.Models.QueryExecutionResult,System.Threading.CancellationToken)
+  - DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.GenerateSqlAsync(System.String,System.String,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: OpenAiSqlGenerationGateway
+  nameWithType: OpenAiSqlGenerationGateway
+  fullName: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway
+  type: Class
+  source:
+    remote:
+      path: src/Services/DBAssistant.Services/OpenAI/OpenAiSqlGenerationGateway.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: OpenAiSqlGenerationGateway
+    path: ../src/Services/DBAssistant.Services/OpenAI/OpenAiSqlGenerationGateway.cs
+    startLine: 16
+  assemblies:
+  - DBAssistant.Services
+  namespace: DBAssistant.Services.OpenAI
+  summary: Calls the OpenAI Responses API to generate SQL plans and human-friendly result summaries.
+  example: []
+  syntax:
+    content: 'public sealed class OpenAiSqlGenerationGateway : ISqlGenerationGateway'
+    content.vb: Public NotInheritable Class OpenAiSqlGenerationGateway Implements ISqlGenerationGateway
+  inheritance:
+  - System.Object
+  implements:
+  - DBAssistant.UseCases.Ports.ISqlGenerationGateway
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache,Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.CacheOptions},Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.OpenAiOptions},DBAssistant.Services.OpenAI.OpenAiTransportClient)
+  commentId: M:DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache,Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.CacheOptions},Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.OpenAiOptions},DBAssistant.Services.OpenAI.OpenAiTransportClient)
+  id: '#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache,Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.CacheOptions},Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.OpenAiOptions},DBAssistant.Services.OpenAI.OpenAiTransportClient)'
+  parent: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway
+  langs:
+  - csharp
+  - vb
+  name: OpenAiSqlGenerationGateway(IMemoryCache, IOptions<CacheOptions>, IOptions<OpenAiOptions>, OpenAiTransportClient)
+  nameWithType: OpenAiSqlGenerationGateway.OpenAiSqlGenerationGateway(IMemoryCache, IOptions<CacheOptions>, IOptions<OpenAiOptions>, OpenAiTransportClient)
+  fullName: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.OpenAiSqlGenerationGateway(Microsoft.Extensions.Caching.Memory.IMemoryCache, Microsoft.Extensions.Options.IOptions<DBAssistant.Services.Configuration.CacheOptions>, Microsoft.Extensions.Options.IOptions<DBAssistant.Services.Configuration.OpenAiOptions>, DBAssistant.Services.OpenAI.OpenAiTransportClient)
+  type: Constructor
+  source:
+    remote:
+      path: src/Services/DBAssistant.Services/OpenAI/OpenAiSqlGenerationGateway.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: .ctor
+    path: ../src/Services/DBAssistant.Services/OpenAI/OpenAiSqlGenerationGateway.cs
+    startLine: 54
+  assemblies:
+  - DBAssistant.Services
+  namespace: DBAssistant.Services.OpenAI
+  summary: Initializes a new instance of the <xref href="DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public OpenAiSqlGenerationGateway(IMemoryCache memoryCache, IOptions<CacheOptions> cacheOptions, IOptions<OpenAiOptions> openAiOptions, OpenAiTransportClient openAiTransportClient)
+    parameters:
+    - id: memoryCache
+      type: Microsoft.Extensions.Caching.Memory.IMemoryCache
+    - id: cacheOptions
+      type: Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.CacheOptions}
+    - id: openAiOptions
+      type: Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.OpenAiOptions}
+    - id: openAiTransportClient
+      type: DBAssistant.Services.OpenAI.OpenAiTransportClient
+    content.vb: Public Sub New(memoryCache As IMemoryCache, cacheOptions As IOptions(Of CacheOptions), openAiOptions As IOptions(Of OpenAiOptions), openAiTransportClient As OpenAiTransportClient)
+  overload: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.#ctor*
+  nameWithType.vb: OpenAiSqlGenerationGateway.New(IMemoryCache, IOptions(Of CacheOptions), IOptions(Of OpenAiOptions), OpenAiTransportClient)
+  fullName.vb: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.New(Microsoft.Extensions.Caching.Memory.IMemoryCache, Microsoft.Extensions.Options.IOptions(Of DBAssistant.Services.Configuration.CacheOptions), Microsoft.Extensions.Options.IOptions(Of DBAssistant.Services.Configuration.OpenAiOptions), DBAssistant.Services.OpenAI.OpenAiTransportClient)
+  name.vb: New(IMemoryCache, IOptions(Of CacheOptions), IOptions(Of OpenAiOptions), OpenAiTransportClient)
+- uid: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.GenerateSqlAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.GenerateSqlAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: GenerateSqlAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway
+  langs:
+  - csharp
+  - vb
+  name: GenerateSqlAsync(string, string, CancellationToken)
+  nameWithType: OpenAiSqlGenerationGateway.GenerateSqlAsync(string, string, CancellationToken)
+  fullName: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.GenerateSqlAsync(string, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Services/DBAssistant.Services/OpenAI/OpenAiSqlGenerationGateway.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: GenerateSqlAsync
+    path: ../src/Services/DBAssistant.Services/OpenAI/OpenAiSqlGenerationGateway.cs
+    startLine: 67
+  assemblies:
+  - DBAssistant.Services
+  namespace: DBAssistant.Services.OpenAI
+  summary: Generates SQL for the provided question using the supplied schema context.
+  example: []
+  syntax:
+    content: public Task<GeneratedSqlResult> GenerateSqlAsync(string question, string schemaContext, CancellationToken cancellationToken)
+    parameters:
+    - id: question
+      type: System.String
+      description: The natural-language question asked by the user.
+    - id: schemaContext
+      type: System.String
+      description: The schema context assembled for the model prompt.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token used to stop the generation request.
+    return:
+      type: System.Threading.Tasks.Task{DBAssistant.UseCases.Models.GeneratedSqlResult}
+      description: The generated SQL statement and its explanation.
+    content.vb: Public Function GenerateSqlAsync(question As String, schemaContext As String, cancellationToken As CancellationToken) As Task(Of GeneratedSqlResult)
+  overload: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.GenerateSqlAsync*
+  implements:
+  - DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateSqlAsync(System.String,System.String,System.Threading.CancellationToken)
+  nameWithType.vb: OpenAiSqlGenerationGateway.GenerateSqlAsync(String, String, CancellationToken)
+  fullName.vb: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.GenerateSqlAsync(String, String, System.Threading.CancellationToken)
+  name.vb: GenerateSqlAsync(String, String, CancellationToken)
+- uid: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.GenerateResultsAsTextAsync(System.String,System.String,DBAssistant.UseCases.Models.QueryExecutionResult,System.Threading.CancellationToken)
+  commentId: M:DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.GenerateResultsAsTextAsync(System.String,System.String,DBAssistant.UseCases.Models.QueryExecutionResult,System.Threading.CancellationToken)
+  id: GenerateResultsAsTextAsync(System.String,System.String,DBAssistant.UseCases.Models.QueryExecutionResult,System.Threading.CancellationToken)
+  parent: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway
+  langs:
+  - csharp
+  - vb
+  name: GenerateResultsAsTextAsync(string, string, QueryExecutionResult, CancellationToken)
+  nameWithType: OpenAiSqlGenerationGateway.GenerateResultsAsTextAsync(string, string, QueryExecutionResult, CancellationToken)
+  fullName: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.GenerateResultsAsTextAsync(string, string, DBAssistant.UseCases.Models.QueryExecutionResult, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Services/DBAssistant.Services/OpenAI/OpenAiSqlGenerationGateway.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: GenerateResultsAsTextAsync
+    path: ../src/Services/DBAssistant.Services/OpenAI/OpenAiSqlGenerationGateway.cs
+    startLine: 165
+  assemblies:
+  - DBAssistant.Services
+  namespace: DBAssistant.Services.OpenAI
+  summary: Generates a short human-friendly Markdown summary for the SQL execution output.
+  example: []
+  syntax:
+    content: public Task<QueryResultNarration> GenerateResultsAsTextAsync(string question, string sql, QueryExecutionResult executionResult, CancellationToken cancellationToken)
+    parameters:
+    - id: question
+      type: System.String
+      description: The original natural-language question.
+    - id: sql
+      type: System.String
+      description: The validated SQL that was executed.
+    - id: executionResult
+      type: DBAssistant.UseCases.Models.QueryExecutionResult
+      description: The tabular execution result returned by the database.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token used to stop the generation request.
+    return:
+      type: System.Threading.Tasks.Task{DBAssistant.UseCases.Models.QueryResultNarration}
+      description: A short text or Markdown table describing the query result.
+    content.vb: Public Function GenerateResultsAsTextAsync(question As String, sql As String, executionResult As QueryExecutionResult, cancellationToken As CancellationToken) As Task(Of QueryResultNarration)
+  overload: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.GenerateResultsAsTextAsync*
+  implements:
+  - DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateResultsAsTextAsync(System.String,System.String,DBAssistant.UseCases.Models.QueryExecutionResult,System.Threading.CancellationToken)
+  nameWithType.vb: OpenAiSqlGenerationGateway.GenerateResultsAsTextAsync(String, String, QueryExecutionResult, CancellationToken)
+  fullName.vb: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.GenerateResultsAsTextAsync(String, String, DBAssistant.UseCases.Models.QueryExecutionResult, System.Threading.CancellationToken)
+  name.vb: GenerateResultsAsTextAsync(String, String, QueryExecutionResult, CancellationToken)
+references:
+- uid: DBAssistant.Services.OpenAI
+  commentId: N:DBAssistant.Services.OpenAI
+  href: DBAssistant.html
+  name: DBAssistant.Services.OpenAI
+  nameWithType: DBAssistant.Services.OpenAI
+  fullName: DBAssistant.Services.OpenAI
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Services
+    name: Services
+    href: DBAssistant.Services.html
+  - name: .
+  - uid: DBAssistant.Services.OpenAI
+    name: OpenAI
+    href: DBAssistant.Services.OpenAI.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Services
+    name: Services
+    href: DBAssistant.Services.html
+  - name: .
+  - uid: DBAssistant.Services.OpenAI
+    name: OpenAI
+    href: DBAssistant.Services.OpenAI.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: DBAssistant.UseCases.Ports.ISqlGenerationGateway
+  commentId: T:DBAssistant.UseCases.Ports.ISqlGenerationGateway
+  parent: DBAssistant.UseCases.Ports
+  href: DBAssistant.UseCases.Ports.ISqlGenerationGateway.html
+  name: ISqlGenerationGateway
+  nameWithType: ISqlGenerationGateway
+  fullName: DBAssistant.UseCases.Ports.ISqlGenerationGateway
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DBAssistant.UseCases.Ports
+  commentId: N:DBAssistant.UseCases.Ports
+  href: DBAssistant.html
+  name: DBAssistant.UseCases.Ports
+  nameWithType: DBAssistant.UseCases.Ports
+  fullName: DBAssistant.UseCases.Ports
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.UseCases
+    name: UseCases
+    href: DBAssistant.UseCases.html
+  - name: .
+  - uid: DBAssistant.UseCases.Ports
+    name: Ports
+    href: DBAssistant.UseCases.Ports.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.UseCases
+    name: UseCases
+    href: DBAssistant.UseCases.html
+  - name: .
+  - uid: DBAssistant.UseCases.Ports
+    name: Ports
+    href: DBAssistant.UseCases.Ports.html
+- uid: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway
+  commentId: T:DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway
+  href: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.html
+  name: OpenAiSqlGenerationGateway
+  nameWithType: OpenAiSqlGenerationGateway
+  fullName: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway
+- uid: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.#ctor*
+  commentId: Overload:DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.#ctor
+  href: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.html#DBAssistant_Services_OpenAI_OpenAiSqlGenerationGateway__ctor_Microsoft_Extensions_Caching_Memory_IMemoryCache_Microsoft_Extensions_Options_IOptions_DBAssistant_Services_Configuration_CacheOptions__Microsoft_Extensions_Options_IOptions_DBAssistant_Services_Configuration_OpenAiOptions__DBAssistant_Services_OpenAI_OpenAiTransportClient_
+  name: OpenAiSqlGenerationGateway
+  nameWithType: OpenAiSqlGenerationGateway.OpenAiSqlGenerationGateway
+  fullName: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.OpenAiSqlGenerationGateway
+  nameWithType.vb: OpenAiSqlGenerationGateway.New
+  fullName.vb: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.New
+  name.vb: New
+- uid: Microsoft.Extensions.Caching.Memory.IMemoryCache
+  commentId: T:Microsoft.Extensions.Caching.Memory.IMemoryCache
+  parent: Microsoft.Extensions.Caching.Memory
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.caching.memory.imemorycache
+  name: IMemoryCache
+  nameWithType: IMemoryCache
+  fullName: Microsoft.Extensions.Caching.Memory.IMemoryCache
+- uid: Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.CacheOptions}
+  commentId: T:Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.CacheOptions}
+  parent: Microsoft.Extensions.Options
+  definition: Microsoft.Extensions.Options.IOptions`1
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1
+  name: IOptions<CacheOptions>
+  nameWithType: IOptions<CacheOptions>
+  fullName: Microsoft.Extensions.Options.IOptions<DBAssistant.Services.Configuration.CacheOptions>
+  nameWithType.vb: IOptions(Of CacheOptions)
+  fullName.vb: Microsoft.Extensions.Options.IOptions(Of DBAssistant.Services.Configuration.CacheOptions)
+  name.vb: IOptions(Of CacheOptions)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1
+  - name: <
+  - uid: DBAssistant.Services.Configuration.CacheOptions
+    name: CacheOptions
+    href: DBAssistant.Services.Configuration.CacheOptions.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: DBAssistant.Services.Configuration.CacheOptions
+    name: CacheOptions
+    href: DBAssistant.Services.Configuration.CacheOptions.html
+  - name: )
+- uid: Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.OpenAiOptions}
+  commentId: T:Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.OpenAiOptions}
+  parent: Microsoft.Extensions.Options
+  definition: Microsoft.Extensions.Options.IOptions`1
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1
+  name: IOptions<OpenAiOptions>
+  nameWithType: IOptions<OpenAiOptions>
+  fullName: Microsoft.Extensions.Options.IOptions<DBAssistant.Services.Configuration.OpenAiOptions>
+  nameWithType.vb: IOptions(Of OpenAiOptions)
+  fullName.vb: Microsoft.Extensions.Options.IOptions(Of DBAssistant.Services.Configuration.OpenAiOptions)
+  name.vb: IOptions(Of OpenAiOptions)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1
+  - name: <
+  - uid: DBAssistant.Services.Configuration.OpenAiOptions
+    name: OpenAiOptions
+    href: DBAssistant.Services.Configuration.OpenAiOptions.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: DBAssistant.Services.Configuration.OpenAiOptions
+    name: OpenAiOptions
+    href: DBAssistant.Services.Configuration.OpenAiOptions.html
+  - name: )
+- uid: DBAssistant.Services.OpenAI.OpenAiTransportClient
+  commentId: T:DBAssistant.Services.OpenAI.OpenAiTransportClient
+  parent: DBAssistant.Services.OpenAI
+  href: DBAssistant.Services.OpenAI.OpenAiTransportClient.html
+  name: OpenAiTransportClient
+  nameWithType: OpenAiTransportClient
+  fullName: DBAssistant.Services.OpenAI.OpenAiTransportClient
+- uid: Microsoft.Extensions.Caching.Memory
+  commentId: N:Microsoft.Extensions.Caching.Memory
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Caching.Memory
+  nameWithType: Microsoft.Extensions.Caching.Memory
+  fullName: Microsoft.Extensions.Caching.Memory
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Caching
+    name: Caching
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.caching
+  - name: .
+  - uid: Microsoft.Extensions.Caching.Memory
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.caching.memory
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Caching
+    name: Caching
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.caching
+  - name: .
+  - uid: Microsoft.Extensions.Caching.Memory
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.caching.memory
+- uid: Microsoft.Extensions.Options.IOptions`1
+  commentId: T:Microsoft.Extensions.Options.IOptions`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1
+  name: IOptions<TOptions>
+  nameWithType: IOptions<TOptions>
+  fullName: Microsoft.Extensions.Options.IOptions<TOptions>
+  nameWithType.vb: IOptions(Of TOptions)
+  fullName.vb: Microsoft.Extensions.Options.IOptions(Of TOptions)
+  name.vb: IOptions(Of TOptions)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1
+  - name: <
+  - name: TOptions
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TOptions
+  - name: )
+- uid: Microsoft.Extensions.Options
+  commentId: N:Microsoft.Extensions.Options
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Options
+  nameWithType: Microsoft.Extensions.Options
+  fullName: Microsoft.Extensions.Options
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Options
+    name: Options
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Options
+    name: Options
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options
+- uid: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.GenerateSqlAsync*
+  commentId: Overload:DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.GenerateSqlAsync
+  href: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.html#DBAssistant_Services_OpenAI_OpenAiSqlGenerationGateway_GenerateSqlAsync_System_String_System_String_System_Threading_CancellationToken_
+  name: GenerateSqlAsync
+  nameWithType: OpenAiSqlGenerationGateway.GenerateSqlAsync
+  fullName: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.GenerateSqlAsync
+- uid: DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateSqlAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateSqlAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: DBAssistant.UseCases.Ports.ISqlGenerationGateway
+  isExternal: true
+  href: DBAssistant.UseCases.Ports.ISqlGenerationGateway.html#DBAssistant_UseCases_Ports_ISqlGenerationGateway_GenerateSqlAsync_System_String_System_String_System_Threading_CancellationToken_
+  name: GenerateSqlAsync(string, string, CancellationToken)
+  nameWithType: ISqlGenerationGateway.GenerateSqlAsync(string, string, CancellationToken)
+  fullName: DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateSqlAsync(string, string, System.Threading.CancellationToken)
+  nameWithType.vb: ISqlGenerationGateway.GenerateSqlAsync(String, String, CancellationToken)
+  fullName.vb: DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateSqlAsync(String, String, System.Threading.CancellationToken)
+  name.vb: GenerateSqlAsync(String, String, CancellationToken)
+  spec.csharp:
+  - uid: DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateSqlAsync(System.String,System.String,System.Threading.CancellationToken)
+    name: GenerateSqlAsync
+    href: DBAssistant.UseCases.Ports.ISqlGenerationGateway.html#DBAssistant_UseCases_Ports_ISqlGenerationGateway_GenerateSqlAsync_System_String_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateSqlAsync(System.String,System.String,System.Threading.CancellationToken)
+    name: GenerateSqlAsync
+    href: DBAssistant.UseCases.Ports.ISqlGenerationGateway.html#DBAssistant_UseCases_Ports_ISqlGenerationGateway_GenerateSqlAsync_System_String_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{DBAssistant.UseCases.Models.GeneratedSqlResult}
+  commentId: T:System.Threading.Tasks.Task{DBAssistant.UseCases.Models.GeneratedSqlResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<GeneratedSqlResult>
+  nameWithType: Task<GeneratedSqlResult>
+  fullName: System.Threading.Tasks.Task<DBAssistant.UseCases.Models.GeneratedSqlResult>
+  nameWithType.vb: Task(Of GeneratedSqlResult)
+  fullName.vb: System.Threading.Tasks.Task(Of DBAssistant.UseCases.Models.GeneratedSqlResult)
+  name.vb: Task(Of GeneratedSqlResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: DBAssistant.UseCases.Models.GeneratedSqlResult
+    name: GeneratedSqlResult
+    href: DBAssistant.UseCases.Models.GeneratedSqlResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: DBAssistant.UseCases.Models.GeneratedSqlResult
+    name: GeneratedSqlResult
+    href: DBAssistant.UseCases.Models.GeneratedSqlResult.html
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.GenerateResultsAsTextAsync*
+  commentId: Overload:DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.GenerateResultsAsTextAsync
+  href: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.html#DBAssistant_Services_OpenAI_OpenAiSqlGenerationGateway_GenerateResultsAsTextAsync_System_String_System_String_DBAssistant_UseCases_Models_QueryExecutionResult_System_Threading_CancellationToken_
+  name: GenerateResultsAsTextAsync
+  nameWithType: OpenAiSqlGenerationGateway.GenerateResultsAsTextAsync
+  fullName: DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway.GenerateResultsAsTextAsync
+- uid: DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateResultsAsTextAsync(System.String,System.String,DBAssistant.UseCases.Models.QueryExecutionResult,System.Threading.CancellationToken)
+  commentId: M:DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateResultsAsTextAsync(System.String,System.String,DBAssistant.UseCases.Models.QueryExecutionResult,System.Threading.CancellationToken)
+  parent: DBAssistant.UseCases.Ports.ISqlGenerationGateway
+  isExternal: true
+  href: DBAssistant.UseCases.Ports.ISqlGenerationGateway.html#DBAssistant_UseCases_Ports_ISqlGenerationGateway_GenerateResultsAsTextAsync_System_String_System_String_DBAssistant_UseCases_Models_QueryExecutionResult_System_Threading_CancellationToken_
+  name: GenerateResultsAsTextAsync(string, string, QueryExecutionResult, CancellationToken)
+  nameWithType: ISqlGenerationGateway.GenerateResultsAsTextAsync(string, string, QueryExecutionResult, CancellationToken)
+  fullName: DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateResultsAsTextAsync(string, string, DBAssistant.UseCases.Models.QueryExecutionResult, System.Threading.CancellationToken)
+  nameWithType.vb: ISqlGenerationGateway.GenerateResultsAsTextAsync(String, String, QueryExecutionResult, CancellationToken)
+  fullName.vb: DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateResultsAsTextAsync(String, String, DBAssistant.UseCases.Models.QueryExecutionResult, System.Threading.CancellationToken)
+  name.vb: GenerateResultsAsTextAsync(String, String, QueryExecutionResult, CancellationToken)
+  spec.csharp:
+  - uid: DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateResultsAsTextAsync(System.String,System.String,DBAssistant.UseCases.Models.QueryExecutionResult,System.Threading.CancellationToken)
+    name: GenerateResultsAsTextAsync
+    href: DBAssistant.UseCases.Ports.ISqlGenerationGateway.html#DBAssistant_UseCases_Ports_ISqlGenerationGateway_GenerateResultsAsTextAsync_System_String_System_String_DBAssistant_UseCases_Models_QueryExecutionResult_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: DBAssistant.UseCases.Models.QueryExecutionResult
+    name: QueryExecutionResult
+    href: DBAssistant.UseCases.Models.QueryExecutionResult.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateResultsAsTextAsync(System.String,System.String,DBAssistant.UseCases.Models.QueryExecutionResult,System.Threading.CancellationToken)
+    name: GenerateResultsAsTextAsync
+    href: DBAssistant.UseCases.Ports.ISqlGenerationGateway.html#DBAssistant_UseCases_Ports_ISqlGenerationGateway_GenerateResultsAsTextAsync_System_String_System_String_DBAssistant_UseCases_Models_QueryExecutionResult_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: DBAssistant.UseCases.Models.QueryExecutionResult
+    name: QueryExecutionResult
+    href: DBAssistant.UseCases.Models.QueryExecutionResult.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: DBAssistant.UseCases.Models.QueryExecutionResult
+  commentId: T:DBAssistant.UseCases.Models.QueryExecutionResult
+  parent: DBAssistant.UseCases.Models
+  href: DBAssistant.UseCases.Models.QueryExecutionResult.html
+  name: QueryExecutionResult
+  nameWithType: QueryExecutionResult
+  fullName: DBAssistant.UseCases.Models.QueryExecutionResult
+- uid: System.Threading.Tasks.Task{DBAssistant.UseCases.Models.QueryResultNarration}
+  commentId: T:System.Threading.Tasks.Task{DBAssistant.UseCases.Models.QueryResultNarration}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<QueryResultNarration>
+  nameWithType: Task<QueryResultNarration>
+  fullName: System.Threading.Tasks.Task<DBAssistant.UseCases.Models.QueryResultNarration>
+  nameWithType.vb: Task(Of QueryResultNarration)
+  fullName.vb: System.Threading.Tasks.Task(Of DBAssistant.UseCases.Models.QueryResultNarration)
+  name.vb: Task(Of QueryResultNarration)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: DBAssistant.UseCases.Models.QueryResultNarration
+    name: QueryResultNarration
+    href: DBAssistant.UseCases.Models.QueryResultNarration.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: DBAssistant.UseCases.Models.QueryResultNarration
+    name: QueryResultNarration
+    href: DBAssistant.UseCases.Models.QueryResultNarration.html
+  - name: )
+- uid: DBAssistant.UseCases.Models
+  commentId: N:DBAssistant.UseCases.Models
+  href: DBAssistant.html
+  name: DBAssistant.UseCases.Models
+  nameWithType: DBAssistant.UseCases.Models
+  fullName: DBAssistant.UseCases.Models
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.UseCases
+    name: UseCases
+    href: DBAssistant.UseCases.html
+  - name: .
+  - uid: DBAssistant.UseCases.Models
+    name: Models
+    href: DBAssistant.UseCases.Models.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.UseCases
+    name: UseCases
+    href: DBAssistant.UseCases.html
+  - name: .
+  - uid: DBAssistant.UseCases.Models
+    name: Models
+    href: DBAssistant.UseCases.Models.html

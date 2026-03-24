@@ -1,0 +1,278 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.UseCases.Ports.ISqlQueryExecutor
+  commentId: T:DBAssistant.UseCases.Ports.ISqlQueryExecutor
+  id: ISqlQueryExecutor
+  parent: DBAssistant.UseCases.Ports
+  children:
+  - DBAssistant.UseCases.Ports.ISqlQueryExecutor.ExecuteReadOnlyAsync(DBAssistant.Domain.Entities.SqlStatement,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: ISqlQueryExecutor
+  nameWithType: ISqlQueryExecutor
+  fullName: DBAssistant.UseCases.Ports.ISqlQueryExecutor
+  type: Interface
+  source:
+    remote:
+      path: src/UseCases/DBAssistant.UseCases/Ports/ISqlQueryExecutor.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: ISqlQueryExecutor
+    path: ../src/UseCases/DBAssistant.UseCases/Ports/ISqlQueryExecutor.cs
+    startLine: 8
+  assemblies:
+  - DBAssistant.UseCases
+  namespace: DBAssistant.UseCases.Ports
+  summary: Defines the contract for executing validated read-only SQL statements.
+  example: []
+  syntax:
+    content: public interface ISqlQueryExecutor
+    content.vb: Public Interface ISqlQueryExecutor
+  derivedClasses:
+  - DBAssistant.Data.Services.MySqlQueryExecutor
+- uid: DBAssistant.UseCases.Ports.ISqlQueryExecutor.ExecuteReadOnlyAsync(DBAssistant.Domain.Entities.SqlStatement,System.Threading.CancellationToken)
+  commentId: M:DBAssistant.UseCases.Ports.ISqlQueryExecutor.ExecuteReadOnlyAsync(DBAssistant.Domain.Entities.SqlStatement,System.Threading.CancellationToken)
+  id: ExecuteReadOnlyAsync(DBAssistant.Domain.Entities.SqlStatement,System.Threading.CancellationToken)
+  parent: DBAssistant.UseCases.Ports.ISqlQueryExecutor
+  langs:
+  - csharp
+  - vb
+  name: ExecuteReadOnlyAsync(SqlStatement, CancellationToken)
+  nameWithType: ISqlQueryExecutor.ExecuteReadOnlyAsync(SqlStatement, CancellationToken)
+  fullName: DBAssistant.UseCases.Ports.ISqlQueryExecutor.ExecuteReadOnlyAsync(DBAssistant.Domain.Entities.SqlStatement, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/UseCases/DBAssistant.UseCases/Ports/ISqlQueryExecutor.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: ExecuteReadOnlyAsync
+    path: ../src/UseCases/DBAssistant.UseCases/Ports/ISqlQueryExecutor.cs
+    startLine: 16
+  assemblies:
+  - DBAssistant.UseCases
+  namespace: DBAssistant.UseCases.Ports
+  summary: Executes a validated read-only SQL statement and returns a tabular result set.
+  example: []
+  syntax:
+    content: Task<QueryExecutionResult> ExecuteReadOnlyAsync(SqlStatement sqlStatement, CancellationToken cancellationToken)
+    parameters:
+    - id: sqlStatement
+      type: DBAssistant.Domain.Entities.SqlStatement
+      description: The validated SQL statement to execute.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token used to stop the database command.
+    return:
+      type: System.Threading.Tasks.Task{DBAssistant.UseCases.Models.QueryExecutionResult}
+      description: The tabular data returned by the connected database.
+    content.vb: Function ExecuteReadOnlyAsync(sqlStatement As SqlStatement, cancellationToken As CancellationToken) As Task(Of QueryExecutionResult)
+  overload: DBAssistant.UseCases.Ports.ISqlQueryExecutor.ExecuteReadOnlyAsync*
+references:
+- uid: DBAssistant.UseCases.Ports
+  commentId: N:DBAssistant.UseCases.Ports
+  href: DBAssistant.html
+  name: DBAssistant.UseCases.Ports
+  nameWithType: DBAssistant.UseCases.Ports
+  fullName: DBAssistant.UseCases.Ports
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.UseCases
+    name: UseCases
+    href: DBAssistant.UseCases.html
+  - name: .
+  - uid: DBAssistant.UseCases.Ports
+    name: Ports
+    href: DBAssistant.UseCases.Ports.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.UseCases
+    name: UseCases
+    href: DBAssistant.UseCases.html
+  - name: .
+  - uid: DBAssistant.UseCases.Ports
+    name: Ports
+    href: DBAssistant.UseCases.Ports.html
+- uid: DBAssistant.UseCases.Ports.ISqlQueryExecutor.ExecuteReadOnlyAsync*
+  commentId: Overload:DBAssistant.UseCases.Ports.ISqlQueryExecutor.ExecuteReadOnlyAsync
+  href: DBAssistant.UseCases.Ports.ISqlQueryExecutor.html#DBAssistant_UseCases_Ports_ISqlQueryExecutor_ExecuteReadOnlyAsync_DBAssistant_Domain_Entities_SqlStatement_System_Threading_CancellationToken_
+  name: ExecuteReadOnlyAsync
+  nameWithType: ISqlQueryExecutor.ExecuteReadOnlyAsync
+  fullName: DBAssistant.UseCases.Ports.ISqlQueryExecutor.ExecuteReadOnlyAsync
+- uid: DBAssistant.Domain.Entities.SqlStatement
+  commentId: T:DBAssistant.Domain.Entities.SqlStatement
+  parent: DBAssistant.Domain.Entities
+  href: DBAssistant.Domain.Entities.SqlStatement.html
+  name: SqlStatement
+  nameWithType: SqlStatement
+  fullName: DBAssistant.Domain.Entities.SqlStatement
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{DBAssistant.UseCases.Models.QueryExecutionResult}
+  commentId: T:System.Threading.Tasks.Task{DBAssistant.UseCases.Models.QueryExecutionResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<QueryExecutionResult>
+  nameWithType: Task<QueryExecutionResult>
+  fullName: System.Threading.Tasks.Task<DBAssistant.UseCases.Models.QueryExecutionResult>
+  nameWithType.vb: Task(Of QueryExecutionResult)
+  fullName.vb: System.Threading.Tasks.Task(Of DBAssistant.UseCases.Models.QueryExecutionResult)
+  name.vb: Task(Of QueryExecutionResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: DBAssistant.UseCases.Models.QueryExecutionResult
+    name: QueryExecutionResult
+    href: DBAssistant.UseCases.Models.QueryExecutionResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: DBAssistant.UseCases.Models.QueryExecutionResult
+    name: QueryExecutionResult
+    href: DBAssistant.UseCases.Models.QueryExecutionResult.html
+  - name: )
+- uid: DBAssistant.Domain.Entities
+  commentId: N:DBAssistant.Domain.Entities
+  href: DBAssistant.html
+  name: DBAssistant.Domain.Entities
+  nameWithType: DBAssistant.Domain.Entities
+  fullName: DBAssistant.Domain.Entities
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Domain
+    name: Domain
+    href: DBAssistant.Domain.html
+  - name: .
+  - uid: DBAssistant.Domain.Entities
+    name: Entities
+    href: DBAssistant.Domain.Entities.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Domain
+    name: Domain
+    href: DBAssistant.Domain.html
+  - name: .
+  - uid: DBAssistant.Domain.Entities
+    name: Entities
+    href: DBAssistant.Domain.Entities.html
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

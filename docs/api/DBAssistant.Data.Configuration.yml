@@ -1,0 +1,54 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.Data.Configuration
+  commentId: N:DBAssistant.Data.Configuration
+  id: DBAssistant.Data.Configuration
+  children:
+  - DBAssistant.Data.Configuration.DatabaseOptions
+  langs:
+  - csharp
+  - vb
+  name: DBAssistant.Data.Configuration
+  nameWithType: DBAssistant.Data.Configuration
+  fullName: DBAssistant.Data.Configuration
+  type: Namespace
+  assemblies:
+  - DBAssistant.Data
+references:
+- uid: DBAssistant.Data.Configuration.DatabaseOptions
+  commentId: T:DBAssistant.Data.Configuration.DatabaseOptions
+  parent: DBAssistant.Data.Configuration
+  href: DBAssistant.Data.Configuration.DatabaseOptions.html
+  name: DatabaseOptions
+  nameWithType: DatabaseOptions
+  fullName: DBAssistant.Data.Configuration.DatabaseOptions
+- uid: DBAssistant.Data.Configuration
+  commentId: N:DBAssistant.Data.Configuration
+  href: DBAssistant.html
+  name: DBAssistant.Data.Configuration
+  nameWithType: DBAssistant.Data.Configuration
+  fullName: DBAssistant.Data.Configuration
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Data
+    name: Data
+    href: DBAssistant.Data.html
+  - name: .
+  - uid: DBAssistant.Data.Configuration
+    name: Configuration
+    href: DBAssistant.Data.Configuration.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Data
+    name: Data
+    href: DBAssistant.Data.html
+  - name: .
+  - uid: DBAssistant.Data.Configuration
+    name: Configuration
+    href: DBAssistant.Data.Configuration.html

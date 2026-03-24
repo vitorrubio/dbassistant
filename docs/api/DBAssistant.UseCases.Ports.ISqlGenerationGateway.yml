@@ -1,0 +1,389 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.UseCases.Ports.ISqlGenerationGateway
+  commentId: T:DBAssistant.UseCases.Ports.ISqlGenerationGateway
+  id: ISqlGenerationGateway
+  parent: DBAssistant.UseCases.Ports
+  children:
+  - DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateResultsAsTextAsync(System.String,System.String,DBAssistant.UseCases.Models.QueryExecutionResult,System.Threading.CancellationToken)
+  - DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateSqlAsync(System.String,System.String,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: ISqlGenerationGateway
+  nameWithType: ISqlGenerationGateway
+  fullName: DBAssistant.UseCases.Ports.ISqlGenerationGateway
+  type: Interface
+  source:
+    remote:
+      path: src/UseCases/DBAssistant.UseCases/Ports/ISqlGenerationGateway.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: ISqlGenerationGateway
+    path: ../src/UseCases/DBAssistant.UseCases/Ports/ISqlGenerationGateway.cs
+    startLine: 7
+  assemblies:
+  - DBAssistant.UseCases
+  namespace: DBAssistant.UseCases.Ports
+  summary: Defines the contract for generating SQL from a natural-language question and schema context.
+  example: []
+  syntax:
+    content: public interface ISqlGenerationGateway
+    content.vb: Public Interface ISqlGenerationGateway
+  derivedClasses:
+  - DBAssistant.Services.OpenAI.OpenAiSqlGenerationGateway
+- uid: DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateSqlAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateSqlAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: GenerateSqlAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: DBAssistant.UseCases.Ports.ISqlGenerationGateway
+  langs:
+  - csharp
+  - vb
+  name: GenerateSqlAsync(string, string, CancellationToken)
+  nameWithType: ISqlGenerationGateway.GenerateSqlAsync(string, string, CancellationToken)
+  fullName: DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateSqlAsync(string, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/UseCases/DBAssistant.UseCases/Ports/ISqlGenerationGateway.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: GenerateSqlAsync
+    path: ../src/UseCases/DBAssistant.UseCases/Ports/ISqlGenerationGateway.cs
+    startLine: 16
+  assemblies:
+  - DBAssistant.UseCases
+  namespace: DBAssistant.UseCases.Ports
+  summary: Generates SQL for the provided question using the supplied schema context.
+  example: []
+  syntax:
+    content: Task<GeneratedSqlResult> GenerateSqlAsync(string question, string schemaContext, CancellationToken cancellationToken)
+    parameters:
+    - id: question
+      type: System.String
+      description: The natural-language question asked by the user.
+    - id: schemaContext
+      type: System.String
+      description: The schema context assembled for the model prompt.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token used to stop the generation request.
+    return:
+      type: System.Threading.Tasks.Task{DBAssistant.UseCases.Models.GeneratedSqlResult}
+      description: The generated SQL statement and its explanation.
+    content.vb: Function GenerateSqlAsync(question As String, schemaContext As String, cancellationToken As CancellationToken) As Task(Of GeneratedSqlResult)
+  overload: DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateSqlAsync*
+  nameWithType.vb: ISqlGenerationGateway.GenerateSqlAsync(String, String, CancellationToken)
+  fullName.vb: DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateSqlAsync(String, String, System.Threading.CancellationToken)
+  name.vb: GenerateSqlAsync(String, String, CancellationToken)
+- uid: DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateResultsAsTextAsync(System.String,System.String,DBAssistant.UseCases.Models.QueryExecutionResult,System.Threading.CancellationToken)
+  commentId: M:DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateResultsAsTextAsync(System.String,System.String,DBAssistant.UseCases.Models.QueryExecutionResult,System.Threading.CancellationToken)
+  id: GenerateResultsAsTextAsync(System.String,System.String,DBAssistant.UseCases.Models.QueryExecutionResult,System.Threading.CancellationToken)
+  parent: DBAssistant.UseCases.Ports.ISqlGenerationGateway
+  langs:
+  - csharp
+  - vb
+  name: GenerateResultsAsTextAsync(string, string, QueryExecutionResult, CancellationToken)
+  nameWithType: ISqlGenerationGateway.GenerateResultsAsTextAsync(string, string, QueryExecutionResult, CancellationToken)
+  fullName: DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateResultsAsTextAsync(string, string, DBAssistant.UseCases.Models.QueryExecutionResult, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/UseCases/DBAssistant.UseCases/Ports/ISqlGenerationGateway.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: GenerateResultsAsTextAsync
+    path: ../src/UseCases/DBAssistant.UseCases/Ports/ISqlGenerationGateway.cs
+    startLine: 26
+  assemblies:
+  - DBAssistant.UseCases
+  namespace: DBAssistant.UseCases.Ports
+  summary: Generates a short human-friendly Markdown summary for the SQL execution output.
+  example: []
+  syntax:
+    content: Task<QueryResultNarration> GenerateResultsAsTextAsync(string question, string sql, QueryExecutionResult executionResult, CancellationToken cancellationToken)
+    parameters:
+    - id: question
+      type: System.String
+      description: The original natural-language question.
+    - id: sql
+      type: System.String
+      description: The validated SQL that was executed.
+    - id: executionResult
+      type: DBAssistant.UseCases.Models.QueryExecutionResult
+      description: The tabular execution result returned by the database.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token used to stop the generation request.
+    return:
+      type: System.Threading.Tasks.Task{DBAssistant.UseCases.Models.QueryResultNarration}
+      description: A short text or Markdown table describing the query result.
+    content.vb: Function GenerateResultsAsTextAsync(question As String, sql As String, executionResult As QueryExecutionResult, cancellationToken As CancellationToken) As Task(Of QueryResultNarration)
+  overload: DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateResultsAsTextAsync*
+  nameWithType.vb: ISqlGenerationGateway.GenerateResultsAsTextAsync(String, String, QueryExecutionResult, CancellationToken)
+  fullName.vb: DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateResultsAsTextAsync(String, String, DBAssistant.UseCases.Models.QueryExecutionResult, System.Threading.CancellationToken)
+  name.vb: GenerateResultsAsTextAsync(String, String, QueryExecutionResult, CancellationToken)
+references:
+- uid: DBAssistant.UseCases.Ports
+  commentId: N:DBAssistant.UseCases.Ports
+  href: DBAssistant.html
+  name: DBAssistant.UseCases.Ports
+  nameWithType: DBAssistant.UseCases.Ports
+  fullName: DBAssistant.UseCases.Ports
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.UseCases
+    name: UseCases
+    href: DBAssistant.UseCases.html
+  - name: .
+  - uid: DBAssistant.UseCases.Ports
+    name: Ports
+    href: DBAssistant.UseCases.Ports.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.UseCases
+    name: UseCases
+    href: DBAssistant.UseCases.html
+  - name: .
+  - uid: DBAssistant.UseCases.Ports
+    name: Ports
+    href: DBAssistant.UseCases.Ports.html
+- uid: DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateSqlAsync*
+  commentId: Overload:DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateSqlAsync
+  href: DBAssistant.UseCases.Ports.ISqlGenerationGateway.html#DBAssistant_UseCases_Ports_ISqlGenerationGateway_GenerateSqlAsync_System_String_System_String_System_Threading_CancellationToken_
+  name: GenerateSqlAsync
+  nameWithType: ISqlGenerationGateway.GenerateSqlAsync
+  fullName: DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateSqlAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{DBAssistant.UseCases.Models.GeneratedSqlResult}
+  commentId: T:System.Threading.Tasks.Task{DBAssistant.UseCases.Models.GeneratedSqlResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<GeneratedSqlResult>
+  nameWithType: Task<GeneratedSqlResult>
+  fullName: System.Threading.Tasks.Task<DBAssistant.UseCases.Models.GeneratedSqlResult>
+  nameWithType.vb: Task(Of GeneratedSqlResult)
+  fullName.vb: System.Threading.Tasks.Task(Of DBAssistant.UseCases.Models.GeneratedSqlResult)
+  name.vb: Task(Of GeneratedSqlResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: DBAssistant.UseCases.Models.GeneratedSqlResult
+    name: GeneratedSqlResult
+    href: DBAssistant.UseCases.Models.GeneratedSqlResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: DBAssistant.UseCases.Models.GeneratedSqlResult
+    name: GeneratedSqlResult
+    href: DBAssistant.UseCases.Models.GeneratedSqlResult.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateResultsAsTextAsync*
+  commentId: Overload:DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateResultsAsTextAsync
+  href: DBAssistant.UseCases.Ports.ISqlGenerationGateway.html#DBAssistant_UseCases_Ports_ISqlGenerationGateway_GenerateResultsAsTextAsync_System_String_System_String_DBAssistant_UseCases_Models_QueryExecutionResult_System_Threading_CancellationToken_
+  name: GenerateResultsAsTextAsync
+  nameWithType: ISqlGenerationGateway.GenerateResultsAsTextAsync
+  fullName: DBAssistant.UseCases.Ports.ISqlGenerationGateway.GenerateResultsAsTextAsync
+- uid: DBAssistant.UseCases.Models.QueryExecutionResult
+  commentId: T:DBAssistant.UseCases.Models.QueryExecutionResult
+  parent: DBAssistant.UseCases.Models
+  href: DBAssistant.UseCases.Models.QueryExecutionResult.html
+  name: QueryExecutionResult
+  nameWithType: QueryExecutionResult
+  fullName: DBAssistant.UseCases.Models.QueryExecutionResult
+- uid: System.Threading.Tasks.Task{DBAssistant.UseCases.Models.QueryResultNarration}
+  commentId: T:System.Threading.Tasks.Task{DBAssistant.UseCases.Models.QueryResultNarration}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<QueryResultNarration>
+  nameWithType: Task<QueryResultNarration>
+  fullName: System.Threading.Tasks.Task<DBAssistant.UseCases.Models.QueryResultNarration>
+  nameWithType.vb: Task(Of QueryResultNarration)
+  fullName.vb: System.Threading.Tasks.Task(Of DBAssistant.UseCases.Models.QueryResultNarration)
+  name.vb: Task(Of QueryResultNarration)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: DBAssistant.UseCases.Models.QueryResultNarration
+    name: QueryResultNarration
+    href: DBAssistant.UseCases.Models.QueryResultNarration.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: DBAssistant.UseCases.Models.QueryResultNarration
+    name: QueryResultNarration
+    href: DBAssistant.UseCases.Models.QueryResultNarration.html
+  - name: )
+- uid: DBAssistant.UseCases.Models
+  commentId: N:DBAssistant.UseCases.Models
+  href: DBAssistant.html
+  name: DBAssistant.UseCases.Models
+  nameWithType: DBAssistant.UseCases.Models
+  fullName: DBAssistant.UseCases.Models
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.UseCases
+    name: UseCases
+    href: DBAssistant.UseCases.html
+  - name: .
+  - uid: DBAssistant.UseCases.Models
+    name: Models
+    href: DBAssistant.UseCases.Models.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.UseCases
+    name: UseCases
+    href: DBAssistant.UseCases.html
+  - name: .
+  - uid: DBAssistant.UseCases.Models
+    name: Models
+    href: DBAssistant.UseCases.Models.html

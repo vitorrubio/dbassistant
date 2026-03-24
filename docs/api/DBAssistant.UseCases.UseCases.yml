@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.UseCases.UseCases
+  commentId: N:DBAssistant.UseCases.UseCases
+  id: DBAssistant.UseCases.UseCases
+  children:
+  - DBAssistant.UseCases.UseCases.ProcessNaturalLanguageQueryUseCase
+  - DBAssistant.UseCases.UseCases.SchemaContextAssembler
+  langs:
+  - csharp
+  - vb
+  name: DBAssistant.UseCases.UseCases
+  nameWithType: DBAssistant.UseCases.UseCases
+  fullName: DBAssistant.UseCases.UseCases
+  type: Namespace
+  assemblies:
+  - DBAssistant.UseCases
+references:
+- uid: DBAssistant.UseCases.UseCases.ProcessNaturalLanguageQueryUseCase
+  commentId: T:DBAssistant.UseCases.UseCases.ProcessNaturalLanguageQueryUseCase
+  href: DBAssistant.UseCases.UseCases.ProcessNaturalLanguageQueryUseCase.html
+  name: ProcessNaturalLanguageQueryUseCase
+  nameWithType: ProcessNaturalLanguageQueryUseCase
+  fullName: DBAssistant.UseCases.UseCases.ProcessNaturalLanguageQueryUseCase
+- uid: DBAssistant.UseCases.UseCases.SchemaContextAssembler
+  commentId: T:DBAssistant.UseCases.UseCases.SchemaContextAssembler
+  href: DBAssistant.UseCases.UseCases.SchemaContextAssembler.html
+  name: SchemaContextAssembler
+  nameWithType: SchemaContextAssembler
+  fullName: DBAssistant.UseCases.UseCases.SchemaContextAssembler

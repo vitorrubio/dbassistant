@@ -1,0 +1,54 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.Domain.Entities
+  commentId: N:DBAssistant.Domain.Entities
+  id: DBAssistant.Domain.Entities
+  children:
+  - DBAssistant.Domain.Entities.SqlStatement
+  langs:
+  - csharp
+  - vb
+  name: DBAssistant.Domain.Entities
+  nameWithType: DBAssistant.Domain.Entities
+  fullName: DBAssistant.Domain.Entities
+  type: Namespace
+  assemblies:
+  - DBAssistant.Domain
+references:
+- uid: DBAssistant.Domain.Entities.SqlStatement
+  commentId: T:DBAssistant.Domain.Entities.SqlStatement
+  parent: DBAssistant.Domain.Entities
+  href: DBAssistant.Domain.Entities.SqlStatement.html
+  name: SqlStatement
+  nameWithType: SqlStatement
+  fullName: DBAssistant.Domain.Entities.SqlStatement
+- uid: DBAssistant.Domain.Entities
+  commentId: N:DBAssistant.Domain.Entities
+  href: DBAssistant.html
+  name: DBAssistant.Domain.Entities
+  nameWithType: DBAssistant.Domain.Entities
+  fullName: DBAssistant.Domain.Entities
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Domain
+    name: Domain
+    href: DBAssistant.Domain.html
+  - name: .
+  - uid: DBAssistant.Domain.Entities
+    name: Entities
+    href: DBAssistant.Domain.Entities.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Domain
+    name: Domain
+    href: DBAssistant.Domain.html
+  - name: .
+  - uid: DBAssistant.Domain.Entities
+    name: Entities
+    href: DBAssistant.Domain.Entities.html

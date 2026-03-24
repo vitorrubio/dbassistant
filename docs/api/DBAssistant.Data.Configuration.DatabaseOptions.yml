@@ -1,0 +1,609 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.Data.Configuration.DatabaseOptions
+  commentId: T:DBAssistant.Data.Configuration.DatabaseOptions
+  id: DatabaseOptions
+  parent: DBAssistant.Data.Configuration
+  children:
+  - DBAssistant.Data.Configuration.DatabaseOptions.Database
+  - DBAssistant.Data.Configuration.DatabaseOptions.GetConnectionString
+  - DBAssistant.Data.Configuration.DatabaseOptions.GetServerConnectionString
+  - DBAssistant.Data.Configuration.DatabaseOptions.Host
+  - DBAssistant.Data.Configuration.DatabaseOptions.Password
+  - DBAssistant.Data.Configuration.DatabaseOptions.Port
+  - DBAssistant.Data.Configuration.DatabaseOptions.SchemaName
+  - DBAssistant.Data.Configuration.DatabaseOptions.Username
+  langs:
+  - csharp
+  - vb
+  name: DatabaseOptions
+  nameWithType: DatabaseOptions
+  fullName: DBAssistant.Data.Configuration.DatabaseOptions
+  type: Class
+  source:
+    remote:
+      path: src/Data/DBAssistant.Data/Configuration/DatabaseOptions.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: DatabaseOptions
+    path: ../src/Data/DBAssistant.Data/Configuration/DatabaseOptions.cs
+    startLine: 5
+  assemblies:
+  - DBAssistant.Data
+  namespace: DBAssistant.Data.Configuration
+  summary: Stores the database connection settings used to reach the target MySQL instance.
+  example: []
+  syntax:
+    content: public sealed class DatabaseOptions
+    content.vb: Public NotInheritable Class DatabaseOptions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: DBAssistant.Data.Configuration.DatabaseOptions.Host
+  commentId: P:DBAssistant.Data.Configuration.DatabaseOptions.Host
+  id: Host
+  parent: DBAssistant.Data.Configuration.DatabaseOptions
+  langs:
+  - csharp
+  - vb
+  name: Host
+  nameWithType: DatabaseOptions.Host
+  fullName: DBAssistant.Data.Configuration.DatabaseOptions.Host
+  type: Property
+  source:
+    remote:
+      path: src/Data/DBAssistant.Data/Configuration/DatabaseOptions.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: Host
+    path: ../src/Data/DBAssistant.Data/Configuration/DatabaseOptions.cs
+    startLine: 10
+  assemblies:
+  - DBAssistant.Data
+  namespace: DBAssistant.Data.Configuration
+  summary: Gets or sets the database server host name or IP address.
+  example: []
+  syntax:
+    content: public string Host { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Host As String
+  overload: DBAssistant.Data.Configuration.DatabaseOptions.Host*
+- uid: DBAssistant.Data.Configuration.DatabaseOptions.Port
+  commentId: P:DBAssistant.Data.Configuration.DatabaseOptions.Port
+  id: Port
+  parent: DBAssistant.Data.Configuration.DatabaseOptions
+  langs:
+  - csharp
+  - vb
+  name: Port
+  nameWithType: DatabaseOptions.Port
+  fullName: DBAssistant.Data.Configuration.DatabaseOptions.Port
+  type: Property
+  source:
+    remote:
+      path: src/Data/DBAssistant.Data/Configuration/DatabaseOptions.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: Port
+    path: ../src/Data/DBAssistant.Data/Configuration/DatabaseOptions.cs
+    startLine: 15
+  assemblies:
+  - DBAssistant.Data
+  namespace: DBAssistant.Data.Configuration
+  summary: Gets or sets the TCP port used to connect to the MySQL server.
+  example: []
+  syntax:
+    content: public int Port { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Port As Integer
+  overload: DBAssistant.Data.Configuration.DatabaseOptions.Port*
+- uid: DBAssistant.Data.Configuration.DatabaseOptions.Database
+  commentId: P:DBAssistant.Data.Configuration.DatabaseOptions.Database
+  id: Database
+  parent: DBAssistant.Data.Configuration.DatabaseOptions
+  langs:
+  - csharp
+  - vb
+  name: Database
+  nameWithType: DatabaseOptions.Database
+  fullName: DBAssistant.Data.Configuration.DatabaseOptions.Database
+  type: Property
+  source:
+    remote:
+      path: src/Data/DBAssistant.Data/Configuration/DatabaseOptions.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: Database
+    path: ../src/Data/DBAssistant.Data/Configuration/DatabaseOptions.cs
+    startLine: 20
+  assemblies:
+  - DBAssistant.Data
+  namespace: DBAssistant.Data.Configuration
+  summary: Gets or sets the target database name used for direct SQL access and metadata reading.
+  example: []
+  syntax:
+    content: public string Database { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Database As String
+  overload: DBAssistant.Data.Configuration.DatabaseOptions.Database*
+- uid: DBAssistant.Data.Configuration.DatabaseOptions.Username
+  commentId: P:DBAssistant.Data.Configuration.DatabaseOptions.Username
+  id: Username
+  parent: DBAssistant.Data.Configuration.DatabaseOptions
+  langs:
+  - csharp
+  - vb
+  name: Username
+  nameWithType: DatabaseOptions.Username
+  fullName: DBAssistant.Data.Configuration.DatabaseOptions.Username
+  type: Property
+  source:
+    remote:
+      path: src/Data/DBAssistant.Data/Configuration/DatabaseOptions.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: Username
+    path: ../src/Data/DBAssistant.Data/Configuration/DatabaseOptions.cs
+    startLine: 25
+  assemblies:
+  - DBAssistant.Data
+  namespace: DBAssistant.Data.Configuration
+  summary: Gets or sets the database user name used for authentication.
+  example: []
+  syntax:
+    content: public string Username { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Username As String
+  overload: DBAssistant.Data.Configuration.DatabaseOptions.Username*
+- uid: DBAssistant.Data.Configuration.DatabaseOptions.Password
+  commentId: P:DBAssistant.Data.Configuration.DatabaseOptions.Password
+  id: Password
+  parent: DBAssistant.Data.Configuration.DatabaseOptions
+  langs:
+  - csharp
+  - vb
+  name: Password
+  nameWithType: DatabaseOptions.Password
+  fullName: DBAssistant.Data.Configuration.DatabaseOptions.Password
+  type: Property
+  source:
+    remote:
+      path: src/Data/DBAssistant.Data/Configuration/DatabaseOptions.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: Password
+    path: ../src/Data/DBAssistant.Data/Configuration/DatabaseOptions.cs
+    startLine: 30
+  assemblies:
+  - DBAssistant.Data
+  namespace: DBAssistant.Data.Configuration
+  summary: Gets or sets the database password used for authentication.
+  example: []
+  syntax:
+    content: public string Password { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Password As String
+  overload: DBAssistant.Data.Configuration.DatabaseOptions.Password*
+- uid: DBAssistant.Data.Configuration.DatabaseOptions.SchemaName
+  commentId: P:DBAssistant.Data.Configuration.DatabaseOptions.SchemaName
+  id: SchemaName
+  parent: DBAssistant.Data.Configuration.DatabaseOptions
+  langs:
+  - csharp
+  - vb
+  name: SchemaName
+  nameWithType: DatabaseOptions.SchemaName
+  fullName: DBAssistant.Data.Configuration.DatabaseOptions.SchemaName
+  type: Property
+  source:
+    remote:
+      path: src/Data/DBAssistant.Data/Configuration/DatabaseOptions.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: SchemaName
+    path: ../src/Data/DBAssistant.Data/Configuration/DatabaseOptions.cs
+    startLine: 35
+  assemblies:
+  - DBAssistant.Data
+  namespace: DBAssistant.Data.Configuration
+  summary: Gets or sets the schema name used while querying the information schema tables.
+  example: []
+  syntax:
+    content: public string SchemaName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SchemaName As String
+  overload: DBAssistant.Data.Configuration.DatabaseOptions.SchemaName*
+- uid: DBAssistant.Data.Configuration.DatabaseOptions.GetConnectionString
+  commentId: M:DBAssistant.Data.Configuration.DatabaseOptions.GetConnectionString
+  id: GetConnectionString
+  parent: DBAssistant.Data.Configuration.DatabaseOptions
+  langs:
+  - csharp
+  - vb
+  name: GetConnectionString()
+  nameWithType: DatabaseOptions.GetConnectionString()
+  fullName: DBAssistant.Data.Configuration.DatabaseOptions.GetConnectionString()
+  type: Method
+  source:
+    remote:
+      path: src/Data/DBAssistant.Data/Configuration/DatabaseOptions.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: GetConnectionString
+    path: ../src/Data/DBAssistant.Data/Configuration/DatabaseOptions.cs
+    startLine: 41
+  assemblies:
+  - DBAssistant.Data
+  namespace: DBAssistant.Data.Configuration
+  summary: Builds a MySQL connection string from the configured connection fragments.
+  example: []
+  syntax:
+    content: public string GetConnectionString()
+    return:
+      type: System.String
+      description: A connection string ready to be consumed by <code>MySqlConnection</code>.
+    content.vb: Public Function GetConnectionString() As String
+  overload: DBAssistant.Data.Configuration.DatabaseOptions.GetConnectionString*
+- uid: DBAssistant.Data.Configuration.DatabaseOptions.GetServerConnectionString
+  commentId: M:DBAssistant.Data.Configuration.DatabaseOptions.GetServerConnectionString
+  id: GetServerConnectionString
+  parent: DBAssistant.Data.Configuration.DatabaseOptions
+  langs:
+  - csharp
+  - vb
+  name: GetServerConnectionString()
+  nameWithType: DatabaseOptions.GetServerConnectionString()
+  fullName: DBAssistant.Data.Configuration.DatabaseOptions.GetServerConnectionString()
+  type: Method
+  source:
+    remote:
+      path: src/Data/DBAssistant.Data/Configuration/DatabaseOptions.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: GetServerConnectionString
+    path: ../src/Data/DBAssistant.Data/Configuration/DatabaseOptions.cs
+    startLine: 50
+  assemblies:
+  - DBAssistant.Data
+  namespace: DBAssistant.Data.Configuration
+  summary: Builds a server-level MySQL connection string without selecting a default database.
+  example: []
+  syntax:
+    content: public string GetServerConnectionString()
+    return:
+      type: System.String
+      description: A connection string that connects to the server only.
+    content.vb: Public Function GetServerConnectionString() As String
+  overload: DBAssistant.Data.Configuration.DatabaseOptions.GetServerConnectionString*
+references:
+- uid: DBAssistant.Data.Configuration
+  commentId: N:DBAssistant.Data.Configuration
+  href: DBAssistant.html
+  name: DBAssistant.Data.Configuration
+  nameWithType: DBAssistant.Data.Configuration
+  fullName: DBAssistant.Data.Configuration
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Data
+    name: Data
+    href: DBAssistant.Data.html
+  - name: .
+  - uid: DBAssistant.Data.Configuration
+    name: Configuration
+    href: DBAssistant.Data.Configuration.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Data
+    name: Data
+    href: DBAssistant.Data.html
+  - name: .
+  - uid: DBAssistant.Data.Configuration
+    name: Configuration
+    href: DBAssistant.Data.Configuration.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DBAssistant.Data.Configuration.DatabaseOptions.Host*
+  commentId: Overload:DBAssistant.Data.Configuration.DatabaseOptions.Host
+  href: DBAssistant.Data.Configuration.DatabaseOptions.html#DBAssistant_Data_Configuration_DatabaseOptions_Host
+  name: Host
+  nameWithType: DatabaseOptions.Host
+  fullName: DBAssistant.Data.Configuration.DatabaseOptions.Host
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: DBAssistant.Data.Configuration.DatabaseOptions.Port*
+  commentId: Overload:DBAssistant.Data.Configuration.DatabaseOptions.Port
+  href: DBAssistant.Data.Configuration.DatabaseOptions.html#DBAssistant_Data_Configuration_DatabaseOptions_Port
+  name: Port
+  nameWithType: DatabaseOptions.Port
+  fullName: DBAssistant.Data.Configuration.DatabaseOptions.Port
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: DBAssistant.Data.Configuration.DatabaseOptions.Database*
+  commentId: Overload:DBAssistant.Data.Configuration.DatabaseOptions.Database
+  href: DBAssistant.Data.Configuration.DatabaseOptions.html#DBAssistant_Data_Configuration_DatabaseOptions_Database
+  name: Database
+  nameWithType: DatabaseOptions.Database
+  fullName: DBAssistant.Data.Configuration.DatabaseOptions.Database
+- uid: DBAssistant.Data.Configuration.DatabaseOptions.Username*
+  commentId: Overload:DBAssistant.Data.Configuration.DatabaseOptions.Username
+  href: DBAssistant.Data.Configuration.DatabaseOptions.html#DBAssistant_Data_Configuration_DatabaseOptions_Username
+  name: Username
+  nameWithType: DatabaseOptions.Username
+  fullName: DBAssistant.Data.Configuration.DatabaseOptions.Username
+- uid: DBAssistant.Data.Configuration.DatabaseOptions.Password*
+  commentId: Overload:DBAssistant.Data.Configuration.DatabaseOptions.Password
+  href: DBAssistant.Data.Configuration.DatabaseOptions.html#DBAssistant_Data_Configuration_DatabaseOptions_Password
+  name: Password
+  nameWithType: DatabaseOptions.Password
+  fullName: DBAssistant.Data.Configuration.DatabaseOptions.Password
+- uid: DBAssistant.Data.Configuration.DatabaseOptions.SchemaName*
+  commentId: Overload:DBAssistant.Data.Configuration.DatabaseOptions.SchemaName
+  href: DBAssistant.Data.Configuration.DatabaseOptions.html#DBAssistant_Data_Configuration_DatabaseOptions_SchemaName
+  name: SchemaName
+  nameWithType: DatabaseOptions.SchemaName
+  fullName: DBAssistant.Data.Configuration.DatabaseOptions.SchemaName
+- uid: DBAssistant.Data.Configuration.DatabaseOptions.GetConnectionString*
+  commentId: Overload:DBAssistant.Data.Configuration.DatabaseOptions.GetConnectionString
+  href: DBAssistant.Data.Configuration.DatabaseOptions.html#DBAssistant_Data_Configuration_DatabaseOptions_GetConnectionString
+  name: GetConnectionString
+  nameWithType: DatabaseOptions.GetConnectionString
+  fullName: DBAssistant.Data.Configuration.DatabaseOptions.GetConnectionString
+- uid: DBAssistant.Data.Configuration.DatabaseOptions.GetServerConnectionString*
+  commentId: Overload:DBAssistant.Data.Configuration.DatabaseOptions.GetServerConnectionString
+  href: DBAssistant.Data.Configuration.DatabaseOptions.html#DBAssistant_Data_Configuration_DatabaseOptions_GetServerConnectionString
+  name: GetServerConnectionString
+  nameWithType: DatabaseOptions.GetServerConnectionString
+  fullName: DBAssistant.Data.Configuration.DatabaseOptions.GetServerConnectionString

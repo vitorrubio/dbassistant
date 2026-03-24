@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.Data.DependencyInjection
+  commentId: N:DBAssistant.Data.DependencyInjection
+  id: DBAssistant.Data.DependencyInjection
+  children:
+  - DBAssistant.Data.DependencyInjection.ServiceCollectionExtensions
+  langs:
+  - csharp
+  - vb
+  name: DBAssistant.Data.DependencyInjection
+  nameWithType: DBAssistant.Data.DependencyInjection
+  fullName: DBAssistant.Data.DependencyInjection
+  type: Namespace
+  assemblies:
+  - DBAssistant.Data
+references:
+- uid: DBAssistant.Data.DependencyInjection.ServiceCollectionExtensions
+  commentId: T:DBAssistant.Data.DependencyInjection.ServiceCollectionExtensions
+  href: DBAssistant.Data.DependencyInjection.ServiceCollectionExtensions.html
+  name: ServiceCollectionExtensions
+  nameWithType: ServiceCollectionExtensions
+  fullName: DBAssistant.Data.DependencyInjection.ServiceCollectionExtensions

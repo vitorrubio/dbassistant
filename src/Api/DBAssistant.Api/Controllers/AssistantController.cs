@@ -9,11 +9,11 @@ using DBAssistant.Api.SwaggerExamples;
 
 namespace DBAssistant.Api.Controllers;
 
-[ApiController]
-[Route("api/[controller]")]
 /// <summary>
 /// Exposes the HTTP endpoint that translates natural-language questions into read-only SQL and optional result sets.
 /// </summary>
+[ApiController]
+[Route("api/[controller]")]
 public sealed class AssistantController : ControllerBase
 {
     private readonly IProcessNaturalLanguageQueryUseCase _processNaturalLanguageQueryUseCase;
@@ -27,8 +27,15 @@ public sealed class AssistantController : ControllerBase
         _processNaturalLanguageQueryUseCase = processNaturalLanguageQueryUseCase;
     }
 
-    [HttpPost("query")]
+    /// <summary>
+    /// Processes a natural-language question, generates read-only SQL, and optionally executes it.
+    /// </summary>
+    /// <param name="request">The request payload containing the user question and execution intent.</param>
+    /// <param name="cancellationToken">The cancellation token used to stop the request.</param>
+    /// <returns>An HTTP response with the generated SQL and optional execution results.</returns>
+    [HttpPost("query", Name = "QueryAssistant")]
     [SwaggerOperation(
+        OperationId = "QueryAssistant",
         Summary = "Translate natural language into safe read-only SQL",
         Description = "Builds schema context, asks the LLM for a safe SQL plan, optionally executes the query, and returns both raw rows and a short business-friendly summary.")]
     [SwaggerRequestExample(typeof(QueryAssistantRequest), typeof(AssistantQueryRequestExample))]
@@ -41,12 +48,6 @@ public sealed class AssistantController : ControllerBase
     [ProducesResponseType(StatusCodes.Status503ServiceUnavailable)]
     [SwaggerResponse(StatusCodes.Status503ServiceUnavailable, "The LLM provider or another external dependency is unavailable.", typeof(ProblemDetails))]
     [SwaggerResponseExample(StatusCodes.Status503ServiceUnavailable, typeof(ServiceUnavailableProblemDetailsExample))]
-    /// <summary>
-    /// Processes a natural-language question, generates read-only SQL, and optionally executes it.
-    /// </summary>
-    /// <param name="request">The request payload containing the user question and execution intent.</param>
-    /// <param name="cancellationToken">The cancellation token used to stop the request.</param>
-    /// <returns>An HTTP response with the generated SQL and optional execution results.</returns>
     public async Task<IActionResult> QueryAsync(
         [FromBody] QueryAssistantRequest request,
         CancellationToken cancellationToken)

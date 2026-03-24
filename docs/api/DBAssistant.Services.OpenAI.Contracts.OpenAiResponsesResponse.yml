@@ -1,0 +1,488 @@
+### YamlMime:ManagedReference
+items:
+- uid: DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesResponse
+  commentId: T:DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesResponse
+  id: OpenAiResponsesResponse
+  parent: DBAssistant.Services.OpenAI.Contracts
+  children:
+  - DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesResponse.Output
+  - DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesResponse.OutputText
+  langs:
+  - csharp
+  - vb
+  name: OpenAiResponsesResponse
+  nameWithType: OpenAiResponsesResponse
+  fullName: DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesResponse
+  type: Class
+  source:
+    remote:
+      path: src/Services/DBAssistant.Services/OpenAI/Contracts/OpenAiResponsesResponse.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: OpenAiResponsesResponse
+    path: ../src/Services/DBAssistant.Services/OpenAI/Contracts/OpenAiResponsesResponse.cs
+    startLine: 7
+  assemblies:
+  - DBAssistant.Services
+  namespace: DBAssistant.Services.OpenAI.Contracts
+  summary: Represents the typed envelope returned by the OpenAI Responses API.
+  example: []
+  syntax:
+    content: public sealed class OpenAiResponsesResponse
+    content.vb: Public NotInheritable Class OpenAiResponsesResponse
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesResponse.OutputText
+  commentId: P:DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesResponse.OutputText
+  id: OutputText
+  parent: DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesResponse
+  langs:
+  - csharp
+  - vb
+  name: OutputText
+  nameWithType: OpenAiResponsesResponse.OutputText
+  fullName: DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesResponse.OutputText
+  type: Property
+  source:
+    remote:
+      path: src/Services/DBAssistant.Services/OpenAI/Contracts/OpenAiResponsesResponse.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: OutputText
+    path: ../src/Services/DBAssistant.Services/OpenAI/Contracts/OpenAiResponsesResponse.cs
+    startLine: 12
+  assemblies:
+  - DBAssistant.Services
+  namespace: DBAssistant.Services.OpenAI.Contracts
+  summary: Gets or sets the optional direct output text.
+  example: []
+  syntax:
+    content: >-
+      [JsonPropertyName("output_text")]
+
+      public string? OutputText { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonPropertyName("output_text")>
+
+      Public Property OutputText As String
+  overload: DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesResponse.OutputText*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: output_text
+- uid: DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesResponse.Output
+  commentId: P:DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesResponse.Output
+  id: Output
+  parent: DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesResponse
+  langs:
+  - csharp
+  - vb
+  name: Output
+  nameWithType: OpenAiResponsesResponse.Output
+  fullName: DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesResponse.Output
+  type: Property
+  source:
+    remote:
+      path: src/Services/DBAssistant.Services/OpenAI/Contracts/OpenAiResponsesResponse.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: Output
+    path: ../src/Services/DBAssistant.Services/OpenAI/Contracts/OpenAiResponsesResponse.cs
+    startLine: 18
+  assemblies:
+  - DBAssistant.Services
+  namespace: DBAssistant.Services.OpenAI.Contracts
+  summary: Gets or sets the structured output items.
+  example: []
+  syntax:
+    content: public IReadOnlyCollection<OpenAiResponseOutputItem> Output { get; init; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyCollection{DBAssistant.Services.OpenAI.Contracts.OpenAiResponseOutputItem}
+    content.vb: Public Property Output As IReadOnlyCollection(Of OpenAiResponseOutputItem)
+  overload: DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesResponse.Output*
+references:
+- uid: DBAssistant.Services.OpenAI.Contracts
+  commentId: N:DBAssistant.Services.OpenAI.Contracts
+  href: DBAssistant.html
+  name: DBAssistant.Services.OpenAI.Contracts
+  nameWithType: DBAssistant.Services.OpenAI.Contracts
+  fullName: DBAssistant.Services.OpenAI.Contracts
+  spec.csharp:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Services
+    name: Services
+    href: DBAssistant.Services.html
+  - name: .
+  - uid: DBAssistant.Services.OpenAI
+    name: OpenAI
+    href: DBAssistant.Services.OpenAI.html
+  - name: .
+  - uid: DBAssistant.Services.OpenAI.Contracts
+    name: Contracts
+    href: DBAssistant.Services.OpenAI.Contracts.html
+  spec.vb:
+  - uid: DBAssistant
+    name: DBAssistant
+    href: DBAssistant.html
+  - name: .
+  - uid: DBAssistant.Services
+    name: Services
+    href: DBAssistant.Services.html
+  - name: .
+  - uid: DBAssistant.Services.OpenAI
+    name: OpenAI
+    href: DBAssistant.Services.OpenAI.html
+  - name: .
+  - uid: DBAssistant.Services.OpenAI.Contracts
+    name: Contracts
+    href: DBAssistant.Services.OpenAI.Contracts.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesResponse.OutputText*
+  commentId: Overload:DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesResponse.OutputText
+  href: DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesResponse.html#DBAssistant_Services_OpenAI_Contracts_OpenAiResponsesResponse_OutputText
+  name: OutputText
+  nameWithType: OpenAiResponsesResponse.OutputText
+  fullName: DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesResponse.OutputText
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesResponse.Output*
+  commentId: Overload:DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesResponse.Output
+  href: DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesResponse.html#DBAssistant_Services_OpenAI_Contracts_OpenAiResponsesResponse_Output
+  name: Output
+  nameWithType: OpenAiResponsesResponse.Output
+  fullName: DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesResponse.Output
+- uid: System.Collections.Generic.IReadOnlyCollection{DBAssistant.Services.OpenAI.Contracts.OpenAiResponseOutputItem}
+  commentId: T:System.Collections.Generic.IReadOnlyCollection{DBAssistant.Services.OpenAI.Contracts.OpenAiResponseOutputItem}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyCollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  name: IReadOnlyCollection<OpenAiResponseOutputItem>
+  nameWithType: IReadOnlyCollection<OpenAiResponseOutputItem>
+  fullName: System.Collections.Generic.IReadOnlyCollection<DBAssistant.Services.OpenAI.Contracts.OpenAiResponseOutputItem>
+  nameWithType.vb: IReadOnlyCollection(Of OpenAiResponseOutputItem)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of DBAssistant.Services.OpenAI.Contracts.OpenAiResponseOutputItem)
+  name.vb: IReadOnlyCollection(Of OpenAiResponseOutputItem)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: <
+  - uid: DBAssistant.Services.OpenAI.Contracts.OpenAiResponseOutputItem
+    name: OpenAiResponseOutputItem
+    href: DBAssistant.Services.OpenAI.Contracts.OpenAiResponseOutputItem.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: DBAssistant.Services.OpenAI.Contracts.OpenAiResponseOutputItem
+    name: OpenAiResponseOutputItem
+    href: DBAssistant.Services.OpenAI.Contracts.OpenAiResponseOutputItem.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyCollection`1
+  commentId: T:System.Collections.Generic.IReadOnlyCollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  name: IReadOnlyCollection<T>
+  nameWithType: IReadOnlyCollection<T>
+  fullName: System.Collections.Generic.IReadOnlyCollection<T>
+  nameWithType.vb: IReadOnlyCollection(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of T)
+  name.vb: IReadOnlyCollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
