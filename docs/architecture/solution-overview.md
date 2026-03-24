@@ -1,29 +1,25 @@
 # Solution Overview
 
-## Architecture
-The solution follows a layered structure aligned with Clean Architecture and DDD:
+DB Assistant is a layered .NET 10 solution that turns natural-language questions into safe read-only MySQL queries. The architecture follows a pragmatic Clean Architecture and DDD style, keeping domain rules and use-case orchestration isolated from infrastructure details such as OpenAI integration, schema discovery, and SQL execution.
 
-- `Domain`: core validation and repository contracts.
-- `UseCases`: orchestration of natural-language-to-SQL workflows.
-- `Data`: schema discovery and read-only MySQL execution.
-- `Services`: OpenAI integration.
-- `Api`: REST controllers and Swagger surface.
+## Layer Summary
+- `Domain`: domain entities, validation guards, and repository or service contracts.
+- `UseCases`: orchestration of the natural-language-to-SQL workflow.
+- `Data`: live schema discovery and read-only query execution against MySQL.
+- `Services`: OpenAI integration and schema-knowledge search.
+- `Api`: HTTP controllers, middleware, and Swagger surface.
 
-```mermaid
-flowchart LR
-    Client[Client Application] --> Api[API Layer]
-    Api --> UseCases[UseCases Layer]
-    UseCases --> Domain[Domain Layer]
-    UseCases --> Services[Services Layer]
-    UseCases --> Data[Data Layer]
-    Data --> MySql[(Connected MySQL Database)]
-    Services --> OpenAI[OpenAI API]
-```
+## Request Flow
+1. A client sends `POST /api/assistant/query` with a natural-language question.
+2. The API key middleware validates access before the controller is reached.
+3. The use case assembles hybrid schema context from the local knowledge index and `INFORMATION_SCHEMA`.
+4. The OpenAI gateway generates read-only SQL and, after execution, summarizes the result as `resultsAsText`.
+5. The domain guard validates that only safe read-only SQL is accepted.
+6. When execution is enabled, the data layer returns tabular results from MySQL.
 
-## First Flow
-1. The client sends a natural language question to the API.
-2. The use case searches the schema knowledge index (RAG) for relevant business hints, joins, and table guidance.
-3. The use case appends the live `INFORMATION_SCHEMA` snapshot as authoritative fallback context, covering tables that are not yet indexed.
-4. The OpenAI gateway converts the question into read-only MySQL SQL using the hybrid context.
-5. The domain guard validates that only `SELECT` or CTE-based read-only SQL is accepted.
-6. When requested, the data layer executes the SQL and returns tabular data.
+## Documentation Set
+- `architecture-diagrams.md`: rendered architecture diagrams and Mermaid source links.
+- `technical-document.md`: request flow, architectural decisions, scalability, and security.
+- `technical-decisions.md`: rationale for cache, RAG, deployment, secrets, and costs.
+
+The Mermaid source files are stored alongside the English documentation so the diagrams can be reviewed and regenerated when the architecture changes.

@@ -1,9 +1,9 @@
 flowchart LR
-    Client[Cliente / Consumidor da API] --> Api[API\nController + Middleware API Key]
+    Client[Client / API Consumer] --> Api[API\nController + API Key Middleware]
     Api --> UseCases[UseCases\nProcessNaturalLanguageQueryUseCase]
-    UseCases --> Domain[Domain\nEntidades e Contratos]
-    UseCases --> Services[Services\nOpenAI + Busca de Conhecimento]
-    UseCases --> Data[Data\nINFORMATION_SCHEMA + Executor SQL]
+    UseCases --> Domain[Domain\nEntities and Contracts]
+    UseCases --> Services[Services\nOpenAI + Knowledge Search]
+    UseCases --> Data[Data\nINFORMATION_SCHEMA + SQL Executor]
 
     Data --> MySql[(MySQL)]
     Services --> OpenAI[(OpenAI API)]
