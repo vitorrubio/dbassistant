@@ -8,6 +8,10 @@ RUN dotnet publish src/Api/DBAssistant.Api/DBAssistant.Api.csproj -c Release -o 
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS runtime
 WORKDIR /app
 
+LABEL org.opencontainers.image.source="https://github.com/vitorrubio/dbassistant"
+LABEL org.opencontainers.image.description="DBAssistant API for natural-language querying over connected MySQL databases."
+LABEL org.opencontainers.image.licenses="MIT"
+
 COPY --from=build /app/publish .
 
 ENV ASPNETCORE_URLS=http://+:8080

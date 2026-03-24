@@ -17,6 +17,19 @@ namespace DBAssistant.Api.IntegrationTests.Acceptance;
 /// </summary>
 public sealed class AssistantAcceptanceTests
 {
+    private static readonly string[] RequiredEnvironmentKeys =
+    [
+        "MYSQL_HOST",
+        "MYSQL_PORT",
+        "MYSQL_DATABASE",
+        "MYSQL_USERNAME",
+        "MYSQL_PASSWORD",
+        "OPENAI_API_KEY",
+        "OPENAI_BASE_URL",
+        "OPENAI_MODEL",
+        "SCHEMA_KNOWLEDGE_FILE_PATH"
+    ];
+
     private static readonly AcceptanceScenario[] ScenarioItems =
     [
         new AcceptanceScenario
@@ -223,7 +236,13 @@ public sealed class AssistantAcceptanceTests
     public async Task QueryAsync_ShouldReturnSameResultsAsDirectDatabaseExecution(AcceptanceScenario scenario)
     {
         var repositoryRoot = ResolveRepositoryRoot();
-        var envValues = AcceptanceEnvFileReader.Read(Path.Combine(repositoryRoot, ".env"));
+        var envValues = ResolveEnvironmentValues(repositoryRoot);
+
+        if (HasRequiredConfiguration(envValues) is false)
+        {
+            return;
+        }
+
         var configuration = new ConfigurationBuilder()
             .AddInMemoryCollection(envValues.Select(pair => new KeyValuePair<string, string?>(pair.Key, pair.Value)))
             .Build();
@@ -283,5 +302,50 @@ public sealed class AssistantAcceptanceTests
     private static string BuildConnectionString(IReadOnlyDictionary<string, string> envValues)
     {
         return $"Server={envValues["MYSQL_HOST"]};Port={envValues["MYSQL_PORT"]};User ID={envValues["MYSQL_USERNAME"]};Password={envValues["MYSQL_PASSWORD"]};";
+    }
+
+    /// <summary>
+    /// Resolves the acceptance-test environment values from the repository dotenv file and process environment variables.
+    /// </summary>
+    /// <param name="repositoryRoot">The resolved repository root path.</param>
+    /// <returns>The merged environment values used by the acceptance test setup.</returns>
+    private static IReadOnlyDictionary<string, string> ResolveEnvironmentValues(string repositoryRoot)
+    {
+        var values = new Dictionary<string, string>(
+            AcceptanceEnvFileReader.ReadOptional(Path.Combine(repositoryRoot, ".env")),
+            StringComparer.OrdinalIgnoreCase);
+
+        foreach (var key in RequiredEnvironmentKeys)
+        {
+            var environmentValue = Environment.GetEnvironmentVariable(key);
+
+            if (string.IsNullOrWhiteSpace(environmentValue) is false)
+            {
+                values[key] = environmentValue;
+            }
+        }
+
+        return values;
+    }
+
+    /// <summary>
+    /// Determines whether the acceptance tests have the required runtime configuration to query the real database and OpenAI.
+    /// </summary>
+    /// <param name="envValues">The merged environment values collected for the tests.</param>
+    /// <returns><see langword="true"/> when all required keys are present with non-placeholder values; otherwise, <see langword="false"/>.</returns>
+    private static bool HasRequiredConfiguration(IReadOnlyDictionary<string, string> envValues)
+    {
+        foreach (var key in RequiredEnvironmentKeys)
+        {
+            if (envValues.TryGetValue(key, out var value) is false ||
+                string.IsNullOrWhiteSpace(value) ||
+                value.Contains("placeholder", StringComparison.OrdinalIgnoreCase) ||
+                value.Contains("your_", StringComparison.OrdinalIgnoreCase))
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
