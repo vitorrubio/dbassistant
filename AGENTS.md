@@ -73,3 +73,4 @@ Você é um programador Sr. desenvolvendo um sistema.
 ### Início
 1. Leia o arquivo @DBASSISTANT.md
 2. Mantenha na pasta .agents todos os arquivos para suas memórias, todo-list, internal chores e marque as tasks já terminadas para não desperdiçar tokens voltando nelas. 
+3. Leia o arquivo @ACCEPTANCE.md e crie uma bateria de testes de integração que execute todos esses testes. 
