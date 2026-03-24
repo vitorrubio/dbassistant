@@ -1,5 +1,7 @@
 using DBAssistant.Api.Configuration;
+using DBAssistant.Api.SwaggerExamples;
 using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.Filters;
 
 namespace DBAssistant.Api.Extensions;
 
@@ -31,6 +33,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton(apiKeyOptions);
         services.AddControllers();
         services.AddEndpointsApiExplorer();
+        services.AddSwaggerExamplesFromAssemblyOf<AssistantQueryRequestExample>();
         services.AddSwaggerGen(options =>
         {
             options.SwaggerDoc("v1", new OpenApiInfo
@@ -60,6 +63,8 @@ public static class ServiceCollectionExtensions
                     []
                 }
             });
+            options.EnableAnnotations();
+            options.ExampleFilters();
         });
 
         return services;

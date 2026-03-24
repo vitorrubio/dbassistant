@@ -51,6 +51,19 @@ public sealed class ProcessNaturalLanguageQueryUseCase : IProcessNaturalLanguage
             request.Question.Trim(),
             schemaContextEnvelope.Context,
             cancellationToken);
+        if (generatedSql.CanAnswer is false)
+        {
+            throw new ApplicationValidationException(
+                string.IsNullOrWhiteSpace(generatedSql.UnavailableDataReason)
+                    ? "The question cannot be answered from the available database schema."
+                    : generatedSql.UnavailableDataReason);
+        }
+
+        if (string.IsNullOrWhiteSpace(generatedSql.Sql))
+        {
+            throw new ApplicationValidationException("The generated SQL was empty.");
+        }
+
         var sqlStatement = SqlStatement.CreateReadOnly(generatedSql.Sql);
         var shouldExecuteSql = request.ExecuteSql ?? true;
         var shouldShowDetails = request.ShowDetails ?? false;
@@ -67,6 +80,13 @@ public sealed class ProcessNaturalLanguageQueryUseCase : IProcessNaturalLanguage
         }
 
         var executionResult = await _sqlQueryExecutor.ExecuteReadOnlyAsync(sqlStatement, cancellationToken);
+
+        if (executionResult.Warnings.Count > 0)
+        {
+            throw new ApplicationValidationException(
+                $"The generated SQL produced database warnings and was rejected: {string.Join(" | ", executionResult.Warnings)}");
+        }
+
         var narration = await _sqlGenerationGateway.GenerateResultsAsTextAsync(
             request.Question.Trim(),
             sqlStatement.Value,

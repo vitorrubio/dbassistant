@@ -1,35 +1,46 @@
+using System.Security.Cryptography;
+using System.Text;
 using System.Text.Json;
 using DBAssistant.Services.Configuration;
+using DBAssistant.Services.OpenAI;
 using DBAssistant.Services.SchemaKnowledge;
 using DBAssistant.UseCases.Models;
 using DBAssistant.UseCases.Ports;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;
 
 namespace DBAssistant.Services.SchemaKnowledge;
 
 /// <summary>
-/// Provides a lightweight JSON-backed schema knowledge search implementation used as the bootstrap RAG source.
+/// Provides vector-based retrieval over the local schema knowledge artifact using OpenAI embeddings plus a persisted local cache.
 /// </summary>
 public sealed class JsonSchemaKnowledgeSearchGateway : ISchemaKnowledgeSearchGateway
 {
     private static readonly JsonSerializerOptions JsonSerializerOptions = new(JsonSerializerDefaults.Web);
+    private readonly IMemoryCache _memoryCache;
+    private readonly OpenAiTransportClient _openAiTransportClient;
+    private readonly OpenAiOptions _openAiOptions;
+    private readonly CacheOptions _cacheOptions;
     private readonly SchemaKnowledgeOptions _schemaKnowledgeOptions;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="JsonSchemaKnowledgeSearchGateway"/> class.
     /// </summary>
-    /// <param name="schemaKnowledgeOptions">The configuration that points to the JSON knowledge index.</param>
-    public JsonSchemaKnowledgeSearchGateway(IOptions<SchemaKnowledgeOptions> schemaKnowledgeOptions)
+    public JsonSchemaKnowledgeSearchGateway(
+        IMemoryCache memoryCache,
+        OpenAiTransportClient openAiTransportClient,
+        IOptions<OpenAiOptions> openAiOptions,
+        IOptions<CacheOptions> cacheOptions,
+        IOptions<SchemaKnowledgeOptions> schemaKnowledgeOptions)
     {
+        _memoryCache = memoryCache;
+        _openAiTransportClient = openAiTransportClient;
+        _openAiOptions = openAiOptions.Value;
+        _cacheOptions = cacheOptions.Value;
         _schemaKnowledgeOptions = schemaKnowledgeOptions.Value;
     }
 
-    /// <summary>
-    /// Searches the JSON knowledge index and returns the highest-scoring schema documents for the supplied question.
-    /// </summary>
-    /// <param name="question">The natural-language question used to score indexed schema documents.</param>
-    /// <param name="cancellationToken">The cancellation token used to stop the file read.</param>
-    /// <returns>A collection of the most relevant schema knowledge documents.</returns>
+    /// <inheritdoc />
     public async Task<IReadOnlyCollection<SchemaKnowledgeDocument>> SearchAsync(string question, CancellationToken cancellationToken)
     {
         if (File.Exists(_schemaKnowledgeOptions.FilePath) is false)
@@ -37,71 +48,143 @@ public sealed class JsonSchemaKnowledgeSearchGateway : ISchemaKnowledgeSearchGat
             return [];
         }
 
-        await using var stream = File.OpenRead(_schemaKnowledgeOptions.FilePath);
-        var artifact = await JsonSerializer.DeserializeAsync<SchemaKnowledgeArtifact>(
-            stream,
-            JsonSerializerOptions,
-            cancellationToken);
+        var cacheKey = $"schema-search::{Normalize(question)}";
 
-        var documents = artifact?.Documents?.ToArray();
+        if (_memoryCache.TryGetValue(cacheKey, out IReadOnlyCollection<SchemaKnowledgeDocument>? cachedDocuments))
+        {
+            return cachedDocuments ?? [];
+        }
 
-        if (documents is null || documents.Length == 0)
+        var artifact = await LoadKnowledgeArtifactAsync(cancellationToken);
+
+        if (artifact.Documents.Count == 0)
         {
             return [];
         }
 
-        var keywords = question
-            .Split([' ', '\n', '\r', '\t', ',', '.', ';', ':', '?', '!'], StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
-            .Where(keyword => keyword.Length >= 3)
-            .Distinct(StringComparer.OrdinalIgnoreCase)
-            .ToArray();
+        var embeddingsArtifact = await LoadOrBuildEmbeddingsArtifactAsync(artifact, cancellationToken);
+        var queryEmbedding = await _openAiTransportClient.CreateEmbeddingAsync(question, cancellationToken);
+        var embeddingsById = embeddingsArtifact.Documents.ToDictionary(item => item.Id, StringComparer.Ordinal);
 
-        return documents
+        var documents = artifact.Documents
             .Select(document => new
             {
                 Document = document,
-                Score = CalculateScore(document, keywords)
+                Score = embeddingsById.TryGetValue(document.Id, out var embeddingDocument)
+                    ? CosineSimilarity(queryEmbedding, embeddingDocument.Embedding)
+                    : double.MinValue
             })
-            .Where(result => result.Score > 0)
-            .OrderByDescending(result => result.Score)
+            .Where(item => item.Score > 0)
+            .OrderByDescending(item => item.Score)
             .Take(Math.Max(1, _schemaKnowledgeOptions.MaxDocuments))
-            .Select(result => result.Document)
+            .Select(item => item.Document)
             .ToArray();
+
+        _memoryCache.Set(
+            cacheKey,
+            documents,
+            TimeSpan.FromMinutes(Math.Max(1, _cacheOptions.SchemaSearchMinutes)));
+
+        return documents;
     }
 
-    /// <summary>
-    /// Computes a naive relevance score based on keyword matches against the indexed schema document.
-    /// </summary>
-    /// <param name="document">The indexed schema document being evaluated.</param>
-    /// <param name="keywords">The extracted keywords from the user question.</param>
-    /// <returns>An integer score used to rank the document.</returns>
-    private static int CalculateScore(SchemaKnowledgeDocument document, IReadOnlyCollection<string> keywords)
+    private async Task<SchemaKnowledgeArtifact> LoadKnowledgeArtifactAsync(CancellationToken cancellationToken)
     {
-        var score = 0;
+        await using var stream = File.OpenRead(_schemaKnowledgeOptions.FilePath);
+        var artifact = await JsonSerializer.DeserializeAsync<SchemaKnowledgeArtifact>(stream, JsonSerializerOptions, cancellationToken);
+        return artifact ?? new SchemaKnowledgeArtifact();
+    }
 
-        foreach (var keyword in keywords)
+    private async Task<SchemaKnowledgeEmbeddingsArtifact> LoadOrBuildEmbeddingsArtifactAsync(
+        SchemaKnowledgeArtifact artifact,
+        CancellationToken cancellationToken)
+    {
+        if (File.Exists(_schemaKnowledgeOptions.EmbeddingsFilePath))
         {
-            if (document.Title.Contains(keyword, StringComparison.OrdinalIgnoreCase))
-            {
-                score += 3;
-            }
+            await using var stream = File.OpenRead(_schemaKnowledgeOptions.EmbeddingsFilePath);
+            var existingArtifact = await JsonSerializer.DeserializeAsync<SchemaKnowledgeEmbeddingsArtifact>(stream, JsonSerializerOptions, cancellationToken);
 
-            if (document.Content.Contains(keyword, StringComparison.OrdinalIgnoreCase))
+            if (existingArtifact is not null &&
+                string.Equals(existingArtifact.FormatVersion, artifact.FormatVersion, StringComparison.Ordinal) &&
+                existingArtifact.KnowledgeGeneratedAtUtc == artifact.GeneratedAtUtc &&
+                string.Equals(existingArtifact.EmbeddingModel, _openAiOptions.EmbeddingModel, StringComparison.Ordinal))
             {
-                score += 2;
-            }
-
-            if (document.Keywords.Any(documentKeyword => documentKeyword.Contains(keyword, StringComparison.OrdinalIgnoreCase)))
-            {
-                score += 5;
-            }
-
-            if (document.TableNames.Any(tableName => tableName.Contains(keyword, StringComparison.OrdinalIgnoreCase)))
-            {
-                score += 4;
+                return existingArtifact;
             }
         }
 
-        return score;
+        var embeddedDocuments = new List<SchemaKnowledgeEmbeddingDocument>();
+
+        foreach (var document in artifact.Documents)
+        {
+            var embedding = await _openAiTransportClient.CreateEmbeddingAsync(BuildEmbeddingInput(document), cancellationToken);
+            embeddedDocuments.Add(new SchemaKnowledgeEmbeddingDocument
+            {
+                Id = document.Id,
+                Embedding = embedding.ToArray()
+            });
+        }
+
+        var newArtifact = new SchemaKnowledgeEmbeddingsArtifact
+        {
+            FormatVersion = artifact.FormatVersion,
+            KnowledgeGeneratedAtUtc = artifact.GeneratedAtUtc,
+            EmbeddingModel = _openAiOptions.EmbeddingModel,
+            Documents = embeddedDocuments
+        };
+
+        var embeddingsDirectory = Path.GetDirectoryName(_schemaKnowledgeOptions.EmbeddingsFilePath);
+
+        if (string.IsNullOrWhiteSpace(embeddingsDirectory) is false)
+        {
+            Directory.CreateDirectory(embeddingsDirectory);
+        }
+
+        await File.WriteAllTextAsync(
+            _schemaKnowledgeOptions.EmbeddingsFilePath,
+            JsonSerializer.Serialize(newArtifact, JsonSerializerOptions),
+            cancellationToken);
+
+        return newArtifact;
+    }
+
+    private static string BuildEmbeddingInput(SchemaKnowledgeDocument document)
+    {
+        return $"{document.Title}\n{document.Content}\nKeywords: {string.Join(", ", document.Keywords)}";
+    }
+
+    private static double CosineSimilarity(IReadOnlyCollection<float> left, IReadOnlyCollection<float> right)
+    {
+        if (left.Count == 0 || right.Count == 0 || left.Count != right.Count)
+        {
+            return double.MinValue;
+        }
+
+        var leftArray = left as float[] ?? left.ToArray();
+        var rightArray = right as float[] ?? right.ToArray();
+
+        double dot = 0;
+        double leftMagnitude = 0;
+        double rightMagnitude = 0;
+
+        for (var index = 0; index < leftArray.Length; index++)
+        {
+            dot += leftArray[index] * rightArray[index];
+            leftMagnitude += leftArray[index] * leftArray[index];
+            rightMagnitude += rightArray[index] * rightArray[index];
+        }
+
+        if (leftMagnitude <= 0 || rightMagnitude <= 0)
+        {
+            return double.MinValue;
+        }
+
+        return dot / (Math.Sqrt(leftMagnitude) * Math.Sqrt(rightMagnitude));
+    }
+
+    private static string Normalize(string value)
+    {
+        var bytes = SHA256.HashData(Encoding.UTF8.GetBytes(value.Trim().ToLowerInvariant()));
+        return Convert.ToHexString(bytes);
     }
 }

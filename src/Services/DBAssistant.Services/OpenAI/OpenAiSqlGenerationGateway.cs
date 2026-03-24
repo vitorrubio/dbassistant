@@ -1,30 +1,33 @@
-using System.Net.Http.Headers;
-using System.Net.Http.Json;
-using System.Text.Json;
+using System.Security.Cryptography;
 using System.Text;
+using System.Text.Json;
 using DBAssistant.Services.Configuration;
+using DBAssistant.Services.OpenAI.Contracts;
 using DBAssistant.UseCases.Exceptions;
 using DBAssistant.UseCases.Models;
 using DBAssistant.UseCases.Ports;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;
 
 namespace DBAssistant.Services.OpenAI;
 
 /// <summary>
-/// Calls the OpenAI Responses API to transform a natural-language question into structured SQL output.
+/// Calls the OpenAI Responses API to generate SQL plans and human-friendly result summaries.
 /// </summary>
 public sealed class OpenAiSqlGenerationGateway : ISqlGenerationGateway
 {
     private const string SQL_SYSTEM_INSTRUCTIONS = """
         You are a MySQL SQL assistant for a connected business database.
-        Convert the user question into a single read-only SQL statement.
+        You must decide whether the question can be answered correctly from the provided schema.
         Rules:
         - Use MySQL syntax.
         - Never generate INSERT, UPDATE, DELETE, DROP, ALTER, TRUNCATE, MERGE, EXEC, CALL, CREATE, GRANT, or REVOKE.
-        - Only answer using tables and columns present in the provided schema.
-        - Prefer explicit joins and aliases when helpful.
-        - Return strict JSON with properties: sql, explanation.
-        - Do not wrap the JSON in markdown.
+        - Only use tables and columns present in the provided schema.
+        - Never invent columns, business facts, or semantics that are not explicitly supported by the schema.
+        - Never reinterpret free-text fields such as notes or descriptions as dates or structured business facts unless the schema explicitly states that meaning.
+        - If the schema is insufficient, mark the question as unanswerable and explain why.
+        - When the schema is sufficient, call the function with canAnswer=true and provide one read-only SQL statement plus a brief explanation.
+        - When the schema is insufficient, call the function with canAnswer=false, sql='', and unavailableDataReason filled.
         """;
 
     private const string RESULTS_AS_TEXT_SYSTEM_INSTRUCTIONS = """
@@ -41,184 +44,179 @@ public sealed class OpenAiSqlGenerationGateway : ISqlGenerationGateway
         """;
 
     private static readonly JsonSerializerOptions JsonSerializerOptions = new(JsonSerializerDefaults.Web);
-    private readonly HttpClient _httpClient;
+    private readonly IMemoryCache _memoryCache;
+    private readonly CacheOptions _cacheOptions;
     private readonly OpenAiOptions _openAiOptions;
+    private readonly OpenAiTransportClient _openAiTransportClient;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="OpenAiSqlGenerationGateway"/> class.
     /// </summary>
-    /// <param name="httpClient">The HTTP client configured for the OpenAI endpoint.</param>
-    /// <param name="openAiOptions">The OpenAI settings used by the gateway.</param>
-    public OpenAiSqlGenerationGateway(HttpClient httpClient, IOptions<OpenAiOptions> openAiOptions)
+    public OpenAiSqlGenerationGateway(
+        IMemoryCache memoryCache,
+        IOptions<CacheOptions> cacheOptions,
+        IOptions<OpenAiOptions> openAiOptions,
+        OpenAiTransportClient openAiTransportClient)
     {
-        _httpClient = httpClient;
+        _memoryCache = memoryCache;
+        _cacheOptions = cacheOptions.Value;
         _openAiOptions = openAiOptions.Value;
+        _openAiTransportClient = openAiTransportClient;
     }
 
-    /// <summary>
-    /// Sends the question and schema context to OpenAI and parses the generated SQL response.
-    /// </summary>
-    /// <param name="question">The user question expressed in natural language.</param>
-    /// <param name="schemaContext">The schema context injected into the prompt.</param>
-    /// <param name="cancellationToken">The cancellation token used to stop the HTTP request.</param>
-    /// <returns>The SQL and explanation returned by the model.</returns>
-    /// <exception cref="ExternalServiceUnavailableException">Thrown when configuration is incomplete or the OpenAI response is invalid.</exception>
+    /// <inheritdoc />
     public async Task<GeneratedSqlResult> GenerateSqlAsync(
         string question,
         string schemaContext,
         CancellationToken cancellationToken)
     {
-        ValidateConfiguration();
+        var cacheKey = $"sql-plan::{Normalize(question)}::{Normalize(schemaContext)}";
 
-        using var request = new HttpRequestMessage(HttpMethod.Post, "responses");
-        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _openAiOptions.ApiKey);
-        request.Content = JsonContent.Create(new
+        if (_memoryCache.TryGetValue(cacheKey, out GeneratedSqlResult? cachedResult))
         {
-            model = _openAiOptions.Model,
-            instructions = SQL_SYSTEM_INSTRUCTIONS,
-            text = new
+            return cachedResult ?? new GeneratedSqlResult();
+        }
+
+        var response = await _openAiTransportClient.CreateResponseAsync(
+            new OpenAiResponsesRequest
             {
-                format = new
-                {
-                    type = "json_schema",
-                    name = "generated_sql_result",
-                    strict = true,
-                    schema = new
+                Model = _openAiOptions.Model,
+                Instructions = SQL_SYSTEM_INSTRUCTIONS,
+                Tools =
+                [
+                    new OpenAiToolDefinition
                     {
-                        type = "object",
-                        additionalProperties = false,
-                        required = new[] { "sql", "explanation" },
-                        properties = new
+                        Name = "submit_query_plan",
+                        Description = "Submit the final SQL execution plan or explain why the question cannot be answered from the schema.",
+                        Strict = true,
+                        Parameters = new
                         {
-                            sql = new
+                            type = "object",
+                            additionalProperties = false,
+                            required = new[] { "canAnswer", "sql", "explanation", "unavailableDataReason" },
+                            properties = new
                             {
-                                type = "string",
-                                description = "A single read-only MySQL SELECT statement that answers the question."
-                            },
-                            explanation = new
-                            {
-                                type = "string",
-                                description = "A brief explanation of how the SQL answers the question."
+                                canAnswer = new
+                                {
+                                    type = "boolean"
+                                },
+                                sql = new
+                                {
+                                    type = "string"
+                                },
+                                explanation = new
+                                {
+                                    type = "string"
+                                },
+                                unavailableDataReason = new
+                                {
+                                    type = "string"
+                                }
                             }
                         }
                     }
-                }
-            },
-            input = new[]
-            {
-                new
+                ],
+                ToolChoice = new
                 {
-                    role = "user",
-                    content = new[]
+                    type = "function",
+                    name = "submit_query_plan"
+                },
+                Input =
+                [
+                    new OpenAiInputMessage
                     {
-                        new
-                        {
-                            type = "input_text",
-                            text = BuildUserPrompt(question, schemaContext)
-                        }
+                        Role = "user",
+                        Content =
+                        [
+                            new OpenAiInputContent
+                            {
+                                Text = BuildUserPrompt(question, schemaContext)
+                            }
+                        ]
                     }
-                }
-            }
-        });
+                ]
+            },
+            cancellationToken);
 
-        using var response = await _httpClient.SendAsync(request, cancellationToken);
-        var payload = await response.Content.ReadAsStringAsync(cancellationToken);
+        var toolCall = response.Output.FirstOrDefault(item =>
+            string.Equals(item.Type, "function_call", StringComparison.OrdinalIgnoreCase) &&
+            string.Equals(item.Name, "submit_query_plan", StringComparison.Ordinal));
 
-        if (response.IsSuccessStatusCode is false)
+        if (string.IsNullOrWhiteSpace(toolCall?.Arguments))
         {
-            throw new ExternalServiceUnavailableException($"OpenAI request failed with status code {(int)response.StatusCode}: {payload}");
+            throw new ExternalServiceUnavailableException("OpenAI did not return the expected SQL planning function call.");
         }
 
-        using var document = JsonDocument.Parse(payload);
-        var outputText = TryExtractOutputText(document.RootElement);
+        var result = JsonSerializer.Deserialize<GeneratedSqlResult>(toolCall.Arguments, JsonSerializerOptions);
 
-        if (string.IsNullOrWhiteSpace(outputText))
+        if (result is null)
         {
-            throw new ExternalServiceUnavailableException("OpenAI returned an empty response.");
+            throw new ExternalServiceUnavailableException("OpenAI returned an invalid SQL planning payload.");
         }
 
-        var result = JsonSerializer.Deserialize<GeneratedSqlResult>(outputText, JsonSerializerOptions);
-
-        if (result is null || string.IsNullOrWhiteSpace(result.Sql))
-        {
-            throw new ExternalServiceUnavailableException("OpenAI returned an invalid SQL payload.");
-        }
+        _memoryCache.Set(
+            cacheKey,
+            result,
+            TimeSpan.FromMinutes(Math.Max(1, _cacheOptions.SqlPlanMinutes)));
 
         return result;
     }
 
-    /// <summary>
-    /// Sends executed SQL results to OpenAI so the model can generate a short Markdown explanation or table.
-    /// </summary>
-    /// <param name="question">The original natural-language question.</param>
-    /// <param name="sql">The validated SQL statement that produced the result.</param>
-    /// <param name="executionResult">The tabular data returned by the database.</param>
-    /// <param name="cancellationToken">The cancellation token used to stop the HTTP request.</param>
-    /// <returns>A short natural-language or Markdown-table representation of the result.</returns>
+    /// <inheritdoc />
     public async Task<QueryResultNarration> GenerateResultsAsTextAsync(
         string question,
         string sql,
         QueryExecutionResult executionResult,
         CancellationToken cancellationToken)
     {
-        ValidateConfiguration();
-
-        using var request = new HttpRequestMessage(HttpMethod.Post, "responses");
-        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _openAiOptions.ApiKey);
-        request.Content = JsonContent.Create(new
-        {
-            model = _openAiOptions.Model,
-            instructions = RESULTS_AS_TEXT_SYSTEM_INSTRUCTIONS,
-            text = new
+        var response = await _openAiTransportClient.CreateResponseAsync(
+            new OpenAiResponsesRequest
             {
-                format = new
+                Model = _openAiOptions.Model,
+                Instructions = RESULTS_AS_TEXT_SYSTEM_INSTRUCTIONS,
+                Text = new OpenAiTextOptions
                 {
-                    type = "json_schema",
-                    name = "query_result_narration",
-                    strict = true,
-                    schema = new
+                    Format = new OpenAiJsonSchemaFormat
                     {
-                        type = "object",
-                        additionalProperties = false,
-                        required = new[] { "resultsAsText" },
-                        properties = new
+                        Name = "query_result_narration",
+                        Strict = true,
+                        Schema = new
                         {
-                            resultsAsText = new
+                            type = "object",
+                            additionalProperties = false,
+                            required = new[] { "resultsAsText" },
+                            properties = new
                             {
-                                type = "string",
-                                description = "A short Markdown answer or table that summarizes the SQL results for the user."
+                                resultsAsText = new
+                                {
+                                    type = "string"
+                                }
                             }
                         }
                     }
-                }
-            },
-            input = new[]
-            {
-                new
-                {
-                    role = "user",
-                    content = new[]
+                },
+                Input =
+                [
+                    new OpenAiInputMessage
                     {
-                        new
-                        {
-                            type = "input_text",
-                            text = BuildResultsAsTextPrompt(question, sql, executionResult)
-                        }
+                        Role = "user",
+                        Content =
+                        [
+                            new OpenAiInputContent
+                            {
+                                Text = BuildResultsAsTextPrompt(question, sql, executionResult)
+                            }
+                        ]
                     }
-                }
-            }
-        });
+                ]
+            },
+            cancellationToken);
 
-        using var response = await _httpClient.SendAsync(request, cancellationToken);
-        var payload = await response.Content.ReadAsStringAsync(cancellationToken);
-
-        if (response.IsSuccessStatusCode is false)
-        {
-            throw new ExternalServiceUnavailableException($"OpenAI request failed with status code {(int)response.StatusCode}: {payload}");
-        }
-
-        using var document = JsonDocument.Parse(payload);
-        var outputText = TryExtractOutputText(document.RootElement);
+        var outputText = response.OutputText
+            ?? response.Output
+                .SelectMany(item => item.Content)
+                .FirstOrDefault(item => string.Equals(item.Type, "output_text", StringComparison.OrdinalIgnoreCase))
+                ?.Text;
 
         if (string.IsNullOrWhiteSpace(outputText))
         {
@@ -235,26 +233,6 @@ public sealed class OpenAiSqlGenerationGateway : ISqlGenerationGateway
         return narration;
     }
 
-    /// <summary>
-    /// Validates that the mandatory OpenAI configuration values were provided.
-    /// </summary>
-    /// <exception cref="ExternalServiceUnavailableException">Thrown when one or more required settings are missing.</exception>
-    private void ValidateConfiguration()
-    {
-        if (string.IsNullOrWhiteSpace(_openAiOptions.ApiKey) ||
-            string.IsNullOrWhiteSpace(_openAiOptions.BaseUrl) ||
-            string.IsNullOrWhiteSpace(_openAiOptions.Model))
-        {
-            throw new ExternalServiceUnavailableException("OpenAI configuration is incomplete. Fill the .env placeholders before using this endpoint.");
-        }
-    }
-
-    /// <summary>
-    /// Builds the user-facing prompt block containing the question and assembled schema context.
-    /// </summary>
-    /// <param name="question">The natural-language question asked by the user.</param>
-    /// <param name="schemaContext">The prompt-friendly schema context assembled by the application.</param>
-    /// <returns>A formatted prompt string for the OpenAI request body.</returns>
     private static string BuildUserPrompt(string question, string schemaContext)
     {
         return $"""
@@ -266,13 +244,6 @@ public sealed class OpenAiSqlGenerationGateway : ISqlGenerationGateway
             """;
     }
 
-    /// <summary>
-    /// Builds the prompt that asks the model to summarize the executed SQL result.
-    /// </summary>
-    /// <param name="question">The original user question.</param>
-    /// <param name="sql">The validated SQL that was executed.</param>
-    /// <param name="executionResult">The tabular result returned by the database.</param>
-    /// <returns>A formatted prompt string containing the original question and the SQL result payload.</returns>
     private static string BuildResultsAsTextPrompt(string question, string sql, QueryExecutionResult executionResult)
     {
         var serializedResult = JsonSerializer.Serialize(
@@ -297,54 +268,9 @@ public sealed class OpenAiSqlGenerationGateway : ISqlGenerationGateway
         return builder.ToString();
     }
 
-    /// <summary>
-    /// Extracts the textual model output from the Responses API payload, supporting both top-level and nested message formats.
-    /// </summary>
-    /// <param name="rootElement">The JSON payload returned by the Responses API.</param>
-    /// <returns>The textual content generated by the model, or <see langword="null"/> when no text output is available.</returns>
-    private static string? TryExtractOutputText(JsonElement rootElement)
+    private static string Normalize(string value)
     {
-        if (rootElement.TryGetProperty("output_text", out var outputTextElement) &&
-            outputTextElement.ValueKind == JsonValueKind.String)
-        {
-            return outputTextElement.GetString();
-        }
-
-        if (rootElement.TryGetProperty("output", out var outputElement) is false ||
-            outputElement.ValueKind != JsonValueKind.Array)
-        {
-            return null;
-        }
-
-        foreach (var outputItem in outputElement.EnumerateArray())
-        {
-            if (outputItem.TryGetProperty("content", out var contentElement) is false ||
-                contentElement.ValueKind != JsonValueKind.Array)
-            {
-                continue;
-            }
-
-            foreach (var contentItem in contentElement.EnumerateArray())
-            {
-                if (contentItem.TryGetProperty("type", out var typeElement) is false ||
-                    typeElement.ValueKind != JsonValueKind.String)
-                {
-                    continue;
-                }
-
-                if (string.Equals(typeElement.GetString(), "output_text", StringComparison.OrdinalIgnoreCase) is false)
-                {
-                    continue;
-                }
-
-                if (contentItem.TryGetProperty("text", out var textElement) &&
-                    textElement.ValueKind == JsonValueKind.String)
-                {
-                    return textElement.GetString();
-                }
-            }
-        }
-
-        return null;
+        var bytes = SHA256.HashData(Encoding.UTF8.GetBytes(value.Trim().ToLowerInvariant()));
+        return Convert.ToHexString(bytes);
     }
 }

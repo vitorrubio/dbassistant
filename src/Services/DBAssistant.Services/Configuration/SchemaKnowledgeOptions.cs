@@ -14,4 +14,9 @@ public sealed class SchemaKnowledgeOptions
     /// Gets or sets the maximum number of schema knowledge documents returned for one query.
     /// </summary>
     public int MaxDocuments { get; set; } = 3;
+
+    /// <summary>
+    /// Gets or sets the file path where generated schema-document embeddings are stored.
+    /// </summary>
+    public string EmbeddingsFilePath { get; set; } = "knowledge/schema-index.embeddings.json";
 }

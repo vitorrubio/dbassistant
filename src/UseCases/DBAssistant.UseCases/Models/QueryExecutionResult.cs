@@ -14,4 +14,9 @@ public sealed class QueryExecutionResult
     /// Gets or sets the query rows as dictionaries keyed by column name.
     /// </summary>
     public IReadOnlyCollection<IReadOnlyDictionary<string, object?>> Rows { get; init; } = [];
+
+    /// <summary>
+    /// Gets or sets any warning messages returned by the database while executing the query.
+    /// </summary>
+    public IReadOnlyCollection<string> Warnings { get; init; } = [];
 }

@@ -195,4 +195,60 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
         result.Executed.Should().BeNull();
         result.SchemaContextSource.Should().BeNull();
     }
+
+    /// <summary>
+    /// Ensures the use case rejects questions that require data not present in the schema instead of inventing columns.
+    /// </summary>
+    [Fact]
+    [Trait("Category", "Unit Tests")]
+    public async Task ExecuteAsync_ShouldRejectQuestion_WhenSchemaCannotAnswerIt()
+    {
+        var schemaContextAssembler = new SchemaContextAssembler(
+            new FakeInformationSchemaReader(),
+            new FakeSchemaKnowledgeSearchGateway());
+
+        var useCase = new ProcessNaturalLanguageQueryUseCase(
+            schemaContextAssembler,
+            new FakeSqlGenerationGatewayWithUnavailableData(),
+            new FakeSqlQueryExecutor());
+
+        var action = async () => await useCase.ExecuteAsync(
+            new QueryAssistantRequest
+            {
+                Question = "Which employees have more than one month of tenure?"
+            },
+            CancellationToken.None);
+
+        await action.Should()
+            .ThrowAsync<ApplicationValidationException>()
+            .WithMessage("*does not contain a hire date or tenure field*");
+    }
+
+    /// <summary>
+    /// Ensures database warnings are treated as invalid generated SQL instead of empty data.
+    /// </summary>
+    [Fact]
+    [Trait("Category", "Unit Tests")]
+    public async Task ExecuteAsync_ShouldRejectGeneratedSql_WhenDatabaseReturnsWarnings()
+    {
+        var schemaContextAssembler = new SchemaContextAssembler(
+            new FakeInformationSchemaReader(),
+            new FakeSchemaKnowledgeSearchGateway());
+
+        var useCase = new ProcessNaturalLanguageQueryUseCase(
+            schemaContextAssembler,
+            new FakeSqlGenerationGateway(),
+            new FakeSqlQueryExecutorWithWarnings());
+
+        var action = async () => await useCase.ExecuteAsync(
+            new QueryAssistantRequest
+            {
+                Question = "Show order totals"
+            },
+            CancellationToken.None);
+
+        await action.Should()
+            .ThrowAsync<ApplicationValidationException>()
+            .WithMessage("*produced database warnings*");
+    }
 }

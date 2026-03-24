@@ -19,6 +19,7 @@ public sealed class FakeSqlGenerationGateway : ISqlGenerationGateway
     {
         return Task.FromResult(new GeneratedSqlResult
         {
+            CanAnswer = true,
             Sql = "SELECT Id, Total FROM Orders",
             Explanation = $"Generated for question: {question}"
         });

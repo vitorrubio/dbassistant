@@ -3,6 +3,7 @@ using System.Net.Http.Json;
 using System.Text;
 using DBAssistant.UseCases.Models;
 using DBAssistant.UseCases.Ports;
+using DBAssistant.UseCases.Exceptions;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
@@ -120,6 +121,36 @@ public sealed class AssistantControllerTests : IClassFixture<WebApplicationFacto
         response.StatusCode.Should().Be(HttpStatusCode.Unauthorized);
     }
 
+    /// <summary>
+    /// Ensures execution failures caused by invalid generated SQL are surfaced as HTTP 400 instead of empty results.
+    /// </summary>
+    [Fact]
+    [Trait("Category", "Integration Tests")]
+    public async Task QueryAsync_ShouldReturnBadRequest_WhenGeneratedSqlCannotBeExecuted()
+    {
+        var client = _factory.WithWebHostBuilder(builder =>
+        {
+            builder.ConfigureTestServices(services =>
+            {
+                services.AddScoped<IProcessNaturalLanguageQueryUseCase, FakeFailingProcessNaturalLanguageQueryUseCase>();
+            });
+        }).CreateClient();
+
+        client.DefaultRequestHeaders.Add(GetApiKeyHeaderName(), GetApiKeyHeaderValue());
+
+        var response = await SendQueryAsync(
+            client,
+            new QueryAssistantRequest
+            {
+                Question = "List orders"
+            },
+            includeApiKeyHeader: true);
+
+        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+        var payload = await response.Content.ReadAsStringAsync();
+        payload.Should().Contain("produced database warnings");
+    }
+
     private HttpClient CreateClient(bool includeApiKeyHeader = true)
     {
         var client = _factory.WithWebHostBuilder(builder =>
@@ -209,6 +240,18 @@ public sealed class AssistantControllerTests : IClassFixture<WebApplicationFacto
                 Executed = showDetails ? request.ExecuteSql ?? true : null,
                 ResultsAsText = "Fake summary"
             });
+        }
+    }
+
+    /// <summary>
+    /// Simulates a use case failure caused by invalid generated SQL.
+    /// </summary>
+    private sealed class FakeFailingProcessNaturalLanguageQueryUseCase : IProcessNaturalLanguageQueryUseCase
+    {
+        /// <inheritdoc />
+        public Task<QueryAssistantResponse> ExecuteAsync(QueryAssistantRequest request, CancellationToken cancellationToken)
+        {
+            throw new QueryExecutionException("The generated SQL produced database warnings and was rejected: Warning 1411: Incorrect datetime value.");
         }
     }
 }

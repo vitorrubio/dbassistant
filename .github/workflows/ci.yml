@@ -40,7 +40,7 @@ jobs:
         run: dotnet build DBAssistant.sln --configuration Release --no-restore
 
       - name: Test
-        run: dotnet test DBAssistant.sln --configuration Release --no-build --filter "Category=Unit Tests"
+        run: dotnet test DBAssistant.sln --configuration Release --no-build --filter "Category!=Acceptance Tests&Category!=Evaluation Tests"
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
