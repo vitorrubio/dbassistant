@@ -26,10 +26,12 @@ classDiagram
 
     class ISqlGenerationGateway {
       +GenerateSqlAsync(question, schemaContext, cancellationToken)
+      +GenerateResultsAsTextAsync(question, sql, executionResult, cancellationToken)
     }
 
     class OpenAiSqlGenerationGateway {
       +GenerateSqlAsync(question, schemaContext, cancellationToken)
+      +GenerateResultsAsTextAsync(question, sql, executionResult, cancellationToken)
     }
 
     class ISqlQueryExecutor {

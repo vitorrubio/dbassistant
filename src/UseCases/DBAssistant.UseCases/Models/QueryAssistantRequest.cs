@@ -13,5 +13,10 @@ public sealed class QueryAssistantRequest
     /// <summary>
     /// Gets or sets a value indicating whether the generated SQL should be executed after validation.
     /// </summary>
-    public bool ExecuteSql { get; init; } = true;
+    public bool? ExecuteSql { get; init; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether SQL-generation details should be returned to the caller.
+    /// </summary>
+    public bool? ShowDetails { get; init; }
 }

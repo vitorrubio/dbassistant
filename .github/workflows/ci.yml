@@ -89,10 +89,6 @@ jobs:
           azcliversion: latest
           inlineScript: |
             az extension add --name containerapp --upgrade
-            az containerapp secret set \
-              --name "${{ secrets.AZURE_CONTAINER_APP_NAME }}" \
-              --resource-group "${{ secrets.AZURE_RESOURCE_GROUP }}" \
-              --secrets dbassistant-client-api-key="${{ secrets.DBASSISTANT_API_KEY_VALUE }}"
             az containerapp update \
               --name "${{ secrets.AZURE_CONTAINER_APP_NAME }}" \
               --resource-group "${{ secrets.AZURE_RESOURCE_GROUP }}" \

@@ -22,6 +22,8 @@ dotnet run --project src/Api/DBAssistant.Api/DBAssistant.Api.csproj
 
 The API exposes Swagger at `/swagger` and the first endpoint at `POST /api/assistant/query`.
 
+The current production Swagger URL is `https://dbassistant.icywave-4d743178.brazilsouth.azurecontainerapps.io/swagger/index.html`. This URL is exposed by the Azure Container App named `dbassistant` after the `ci.yml` deployment job completes.
+
 To pull and run the published image:
 
 ```bash
@@ -33,8 +35,6 @@ The response JSON currently contains:
 
 ```json
 {
-  "sql": "SELECT ...",
-  "explanation": "Why the query was generated this way.",
   "schemaContextSource": "rag+information_schema",
   "executed": true,
   "columns": ["ColumnA", "ColumnB"],
@@ -43,9 +43,12 @@ The response JSON currently contains:
       "ColumnA": "value",
       "ColumnB": 10
     }
-  ]
+  ],
+  "resultsAsText": "Short Markdown answer or table generated from the SQL result."
 }
 ```
+
+When `showDetails=true`, the response also includes `sql` and `explanation`. When `showDetails` is omitted or `false`, those fields are hidden. When `executeSql` is omitted, it defaults to `true`.
 
 `OPENAI_MODEL` defaults to `gpt-5.4`. The local RAG bootstrap reads from `knowledge/schema-index.json`; if no relevant schema knowledge is found, the application uses `INFORMATION_SCHEMA` directly.
 

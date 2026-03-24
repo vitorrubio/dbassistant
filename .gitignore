@@ -33,6 +33,7 @@ logs/
 
 # Environment
 .env
+.memory-local/
 
 # OS files
 .DS_Store

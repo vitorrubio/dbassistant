@@ -1,5 +1,4 @@
 using DBAssistant.Domain.Entities;
-using System.Text;
 using DBAssistant.UseCases.Exceptions;
 using DBAssistant.UseCases.Models;
 using DBAssistant.UseCases.Ports;
@@ -11,7 +10,6 @@ namespace DBAssistant.UseCases.UseCases;
 /// </summary>
 public sealed class ProcessNaturalLanguageQueryUseCase : IProcessNaturalLanguageQueryUseCase
 {
-    private const int MAX_RESULTS_AS_TEXT_ROWS = 5;
     private readonly ISchemaContextAssembler _schemaContextAssembler;
     private readonly ISqlGenerationGateway _sqlGenerationGateway;
     private readonly ISqlQueryExecutor _sqlQueryExecutor;
@@ -54,98 +52,36 @@ public sealed class ProcessNaturalLanguageQueryUseCase : IProcessNaturalLanguage
             schemaContextEnvelope.Context,
             cancellationToken);
         var sqlStatement = SqlStatement.CreateReadOnly(generatedSql.Sql);
+        var shouldExecuteSql = request.ExecuteSql ?? true;
+        var shouldShowDetails = request.ShowDetails ?? false;
 
-        if (request.ExecuteSql is false)
+        if (shouldExecuteSql is false)
         {
             return new QueryAssistantResponse
             {
-                Sql = sqlStatement.Value,
-                Explanation = generatedSql.Explanation,
+                Sql = shouldShowDetails ? sqlStatement.Value : null,
+                Explanation = shouldShowDetails ? generatedSql.Explanation : null,
                 SchemaContextSource = schemaContextEnvelope.Source,
                 Executed = false
             };
         }
 
         var executionResult = await _sqlQueryExecutor.ExecuteReadOnlyAsync(sqlStatement, cancellationToken);
+        var narration = await _sqlGenerationGateway.GenerateResultsAsTextAsync(
+            request.Question.Trim(),
+            sqlStatement.Value,
+            executionResult,
+            cancellationToken);
 
         return new QueryAssistantResponse
         {
-            Sql = sqlStatement.Value,
-            Explanation = generatedSql.Explanation,
+            Sql = shouldShowDetails ? sqlStatement.Value : null,
+            Explanation = shouldShowDetails ? generatedSql.Explanation : null,
             SchemaContextSource = schemaContextEnvelope.Source,
             Executed = true,
             Columns = executionResult.Columns,
             Rows = executionResult.Rows,
-            ResultsAsText = BuildResultsAsText(executionResult)
+            ResultsAsText = narration.ResultsAsText
         };
-    }
-
-    /// <summary>
-    /// Formats the first rows of the SQL result as a Markdown table for quick human inspection.
-    /// </summary>
-    /// <param name="executionResult">The tabular SQL execution result.</param>
-    /// <returns>A Markdown table containing up to five rows, followed by an ellipsis when more rows exist.</returns>
-    private static string BuildResultsAsText(QueryExecutionResult executionResult)
-    {
-        if (executionResult.Columns.Count == 0 || executionResult.Rows.Count == 0)
-        {
-            return string.Empty;
-        }
-
-        var columns = executionResult.Columns.ToArray();
-        var rows = executionResult.Rows.Take(MAX_RESULTS_AS_TEXT_ROWS).ToArray();
-        var builder = new StringBuilder();
-
-        builder.Append("| ");
-        builder.Append(string.Join(" | ", columns.Select(EscapeMarkdownCell)));
-        builder.AppendLine(" |");
-
-        builder.Append("| ");
-        builder.Append(string.Join(" | ", columns.Select(_ => "---")));
-        builder.AppendLine(" |");
-
-        foreach (var row in rows)
-        {
-            builder.Append("| ");
-            builder.Append(string.Join(" | ", columns.Select(column => FormatCellValue(row, column))));
-            builder.AppendLine(" |");
-        }
-
-        if (executionResult.Rows.Count > MAX_RESULTS_AS_TEXT_ROWS)
-        {
-            builder.Append("...");
-        }
-
-        return builder.ToString().TrimEnd();
-    }
-
-    /// <summary>
-    /// Formats one cell value from a result row as safe Markdown text.
-    /// </summary>
-    /// <param name="row">The row dictionary containing the SQL result values.</param>
-    /// <param name="column">The column name to render.</param>
-    /// <returns>The formatted cell text.</returns>
-    private static string FormatCellValue(IReadOnlyDictionary<string, object?> row, string column)
-    {
-        if (row.TryGetValue(column, out var value) is false || value is null)
-        {
-            return "(null)";
-        }
-
-        return EscapeMarkdownCell(Convert.ToString(value, System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty);
-    }
-
-    /// <summary>
-    /// Escapes Markdown table control characters and collapses line breaks for safe inline rendering.
-    /// </summary>
-    /// <param name="value">The raw text value to render inside a Markdown table cell.</param>
-    /// <returns>The escaped Markdown-safe text.</returns>
-    private static string EscapeMarkdownCell(string value)
-    {
-        return value
-            .Replace("\r\n", "<br/>", StringComparison.Ordinal)
-            .Replace("\n", "<br/>", StringComparison.Ordinal)
-            .Replace("\r", "<br/>", StringComparison.Ordinal)
-            .Replace("|", "\\|", StringComparison.Ordinal);
     }
 }

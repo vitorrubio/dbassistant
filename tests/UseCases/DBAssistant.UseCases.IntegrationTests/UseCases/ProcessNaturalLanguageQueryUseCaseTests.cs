@@ -17,7 +17,7 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
     /// </summary>
     [Fact]
     [Trait("Category", "Unit Tests")]
-    public async Task ExecuteAsync_ShouldReturnRowsWhenExecutionIsEnabled()
+    public async Task ExecuteAsync_ShouldExecuteByDefault_WhenExecuteSqlIsOmitted()
     {
         var schemaContextAssembler = new SchemaContextAssembler(
             new FakeInformationSchemaReader(),
@@ -37,14 +37,15 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
         var result = await useCase.ExecuteAsync(
             new QueryAssistantRequest
             {
-                Question = "Show order totals",
-                ExecuteSql = true
+                Question = "Show order totals"
             },
             CancellationToken.None);
 
         result.Executed.Should().BeTrue();
         result.Rows.Should().HaveCount(1);
-        result.Sql.Should().Be("SELECT Id, Total FROM Orders");
+        result.Sql.Should().BeNull();
+        result.Explanation.Should().BeNull();
+        result.ResultsAsText.Should().Be("Summary for 'Show order totals' with 1 row(s).");
         result.SchemaContextSource.Should().Be("rag+information_schema");
     }
 
@@ -100,5 +101,96 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
 
         result.Executed.Should().BeFalse();
         result.SchemaContextSource.Should().Be("information_schema");
+    }
+
+    /// <summary>
+    /// Ensures explicit execution disablement preserves the default hidden-details behavior.
+    /// </summary>
+    [Fact]
+    [Trait("Category", "Unit Tests")]
+    public async Task ExecuteAsync_ShouldNotExecute_WhenExecuteSqlIsExplicitlyFalse()
+    {
+        var schemaContextAssembler = new SchemaContextAssembler(
+            new FakeInformationSchemaReader(),
+            new FakeSchemaKnowledgeSearchGateway());
+
+        var useCase = new ProcessNaturalLanguageQueryUseCase(
+            schemaContextAssembler,
+            new FakeSqlGenerationGateway(),
+            new FakeSqlQueryExecutor());
+
+        var result = await useCase.ExecuteAsync(
+            new QueryAssistantRequest
+            {
+                Question = "List orders",
+                ExecuteSql = false
+            },
+            CancellationToken.None);
+
+        result.Executed.Should().BeFalse();
+        result.Sql.Should().BeNull();
+        result.Explanation.Should().BeNull();
+        result.ResultsAsText.Should().BeEmpty();
+    }
+
+    /// <summary>
+    /// Ensures SQL details are returned when the caller explicitly asks for them.
+    /// </summary>
+    [Fact]
+    [Trait("Category", "Unit Tests")]
+    public async Task ExecuteAsync_ShouldReturnSqlAndExplanation_WhenShowDetailsIsTrue()
+    {
+        var schemaContextAssembler = new SchemaContextAssembler(
+            new FakeInformationSchemaReader(),
+            new FakeSchemaKnowledgeSearchGateway());
+
+        var useCase = new ProcessNaturalLanguageQueryUseCase(
+            schemaContextAssembler,
+            new FakeSqlGenerationGateway(),
+            new FakeSqlQueryExecutor());
+
+        var result = await useCase.ExecuteAsync(
+            new QueryAssistantRequest
+            {
+                Question = "Show order totals",
+                ExecuteSql = true,
+                ShowDetails = true
+            },
+            CancellationToken.None);
+
+        result.Executed.Should().BeTrue();
+        result.Sql.Should().Be("SELECT Id, Total FROM Orders");
+        result.Explanation.Should().Be("Generated for question: Show order totals");
+        result.ResultsAsText.Should().Be("Summary for 'Show order totals' with 1 row(s).");
+    }
+
+    /// <summary>
+    /// Ensures omitted show-details keeps SQL metadata hidden even when the query executes.
+    /// </summary>
+    [Fact]
+    [Trait("Category", "Unit Tests")]
+    public async Task ExecuteAsync_ShouldHideDetailsByDefault_WhenShowDetailsIsOmitted()
+    {
+        var schemaContextAssembler = new SchemaContextAssembler(
+            new FakeInformationSchemaReader(),
+            new FakeSchemaKnowledgeSearchGateway());
+
+        var useCase = new ProcessNaturalLanguageQueryUseCase(
+            schemaContextAssembler,
+            new FakeSqlGenerationGateway(),
+            new FakeSqlQueryExecutor());
+
+        var result = await useCase.ExecuteAsync(
+            new QueryAssistantRequest
+            {
+                Question = "Show order totals",
+                ExecuteSql = true,
+                ShowDetails = null
+            },
+            CancellationToken.None);
+
+        result.Sql.Should().BeNull();
+        result.Explanation.Should().BeNull();
+        result.Executed.Should().BeTrue();
     }
 }

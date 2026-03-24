@@ -269,7 +269,8 @@ public sealed class AssistantAcceptanceTests
             new QueryAssistantRequest
             {
                 Question = scenario.Question,
-                ExecuteSql = true
+                ExecuteSql = true,
+                ShowDetails = true
             },
             CancellationToken.None);
 
@@ -279,6 +280,7 @@ public sealed class AssistantAcceptanceTests
 
         response.Sql.Should().Be(scenario.Sql.Trim());
         response.Executed.Should().BeTrue();
+        response.ResultsAsText.Should().NotBeNullOrWhiteSpace();
         response.Columns.Should().BeEquivalentTo(expected.Columns, options => options.WithStrictOrdering());
         response.Rows.Should().BeEquivalentTo(expected.Rows, options => options.WithStrictOrdering());
     }

@@ -6,7 +6,7 @@ O DB Assistant é uma API REST em .NET 10 que transforma perguntas em linguagem 
 O objetivo principal é acelerar análise de dados sem expor usuários finais à complexidade de SQL e sem permitir mutações no banco.
 
 ## 2. Fluxo da Requisição
-1. O cliente envia `POST /api/assistant/query` com pergunta e opção de execução.
+1. O cliente envia `POST /api/assistant/query` com a pergunta e, opcionalmente, `executeSql` e `showDetails`.
 2. O middleware valida a API key (`x-api-key` por padrão) antes de chegar ao controller.
 3. O `AssistantController` delega para `IProcessNaturalLanguageQueryUseCase`.
 4. O caso de uso monta contexto de schema via `ISchemaContextAssembler`:
@@ -14,8 +14,11 @@ O objetivo principal é acelerar análise de dados sem expor usuários finais à
    - Faz fallback para metadados vivos de `INFORMATION_SCHEMA` para cobrir tabelas ainda não indexadas.
 5. O `ISqlGenerationGateway` (OpenAI) gera SQL estruturado com base na pergunta e no contexto.
 6. O domínio valida a instrução SQL e bloqueia comandos não permitidos (somente leitura).
-7. Se `ExecuteQuery=true`, o `ISqlQueryExecutor` executa no MySQL e retorna colunas/linhas.
-8. A API devolve SQL, explicação, origem do contexto (`rag+information_schema`) e resultado tabular quando aplicável.
+7. Se `executeSql` vier omitido, o padrão é `true`; se vier `false`, a consulta não é executada.
+8. Se a consulta executar, o `ISqlQueryExecutor` busca colunas/linhas no MySQL.
+9. Após a execução, o `ISqlGenerationGateway` faz uma segunda chamada ao modelo para transformar `columns` e `rows` em `resultsAsText`, que pode ser texto curto em Markdown ou tabela Markdown quando fizer mais sentido.
+10. Se `showDetails` vier omitido, o padrão é `false`; nesse caso, a API oculta `sql` e `explanation`. Quando `showDetails=true`, esses campos voltam no payload.
+11. A API devolve origem do contexto (`rag+information_schema`), status de execução, resultado tabular bruto e um resumo interpretado do resultado.
 
 ## 3. Decisões Arquiteturais
 - Clean Architecture + DDD leve: regras de domínio e portas no centro, detalhes de infraestrutura nas bordas.

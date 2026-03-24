@@ -1,5 +1,6 @@
 using System.Net;
 using System.Net.Http.Json;
+using System.Text;
 using DBAssistant.UseCases.Models;
 using DBAssistant.UseCases.Ports;
 using FluentAssertions;
@@ -46,6 +47,56 @@ public sealed class AssistantControllerTests : IClassFixture<WebApplicationFacto
             includeApiKeyHeader: true);
 
         response.StatusCode.Should().Be(HttpStatusCode.OK);
+    }
+
+    /// <summary>
+    /// Ensures omitted optional flags are accepted by model binding and still return HTTP 200.
+    /// </summary>
+    [Fact]
+    [Trait("Category", "Integration Tests")]
+    public async Task QueryAsync_ShouldAcceptOmittedOptionalFlags()
+    {
+        var client = CreateClient();
+        var response = await SendRawQueryAsync(
+            client,
+            """
+            {
+              "question": "List orders"
+            }
+            """,
+            includeApiKeyHeader: true);
+
+        response.StatusCode.Should().Be(HttpStatusCode.OK);
+        var payload = await response.Content.ReadAsStringAsync();
+        payload.Should().NotContain("\"sql\"");
+        payload.Should().NotContain("\"explanation\"");
+        payload.Should().Contain("\"executed\":true");
+    }
+
+    /// <summary>
+    /// Ensures explicit optional flags are accepted by model binding and still return HTTP 200.
+    /// </summary>
+    [Fact]
+    [Trait("Category", "Integration Tests")]
+    public async Task QueryAsync_ShouldAcceptExplicitOptionalFlags()
+    {
+        var client = CreateClient();
+        var response = await SendRawQueryAsync(
+            client,
+            """
+            {
+              "question": "List orders",
+              "executeSql": false,
+              "showDetails": true
+            }
+            """,
+            includeApiKeyHeader: true);
+
+        response.StatusCode.Should().Be(HttpStatusCode.OK);
+        var payload = await response.Content.ReadAsStringAsync();
+        payload.Should().Contain("\"sql\":\"SELECT * FROM Orders\"");
+        payload.Should().Contain("\"explanation\":\"Fake response\"");
+        payload.Should().Contain("\"executed\":false");
     }
 
     /// <summary>
@@ -104,6 +155,24 @@ public sealed class AssistantControllerTests : IClassFixture<WebApplicationFacto
         return client.SendAsync(message);
     }
 
+    private static Task<HttpResponseMessage> SendRawQueryAsync(
+        HttpClient client,
+        string jsonPayload,
+        bool includeApiKeyHeader)
+    {
+        var message = new HttpRequestMessage(HttpMethod.Post, "/api/assistant/query")
+        {
+            Content = new StringContent(jsonPayload, Encoding.UTF8, "application/json")
+        };
+
+        if (includeApiKeyHeader)
+        {
+            message.Headers.Add(GetApiKeyHeaderName(), GetApiKeyHeaderValue());
+        }
+
+        return client.SendAsync(message);
+    }
+
     private static string GetApiKeyHeaderName()
     {
         return Environment.GetEnvironmentVariable("API_KEY_HEADER_NAME") ?? DefaultApiKeyHeaderName;
@@ -129,12 +198,15 @@ public sealed class AssistantControllerTests : IClassFixture<WebApplicationFacto
             QueryAssistantRequest request,
             CancellationToken cancellationToken)
         {
+            var showDetails = request.ShowDetails ?? false;
+
             return Task.FromResult(new QueryAssistantResponse
             {
-                Sql = "SELECT * FROM Orders",
-                Explanation = "Fake response",
+                Sql = showDetails ? "SELECT * FROM Orders" : null,
+                Explanation = showDetails ? "Fake response" : null,
                 SchemaContextSource = "information_schema",
-                Executed = false
+                Executed = request.ExecuteSql ?? true,
+                ResultsAsText = "Fake summary"
             });
         }
     }

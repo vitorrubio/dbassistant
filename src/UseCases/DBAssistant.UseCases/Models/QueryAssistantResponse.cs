@@ -1,5 +1,7 @@
 namespace DBAssistant.UseCases.Models;
 
+using System.Text.Json.Serialization;
+
 /// <summary>
 /// Represents the HTTP response payload returned by the assistant query endpoint.
 /// </summary>
@@ -8,12 +10,14 @@ public sealed class QueryAssistantResponse
     /// <summary>
     /// Gets or sets the validated SQL generated for the request.
     /// </summary>
-    public string Sql { get; init; } = string.Empty;
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public string? Sql { get; init; }
 
     /// <summary>
     /// Gets or sets the explanation describing how the SQL was generated.
     /// </summary>
-    public string Explanation { get; init; } = string.Empty;
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public string? Explanation { get; init; }
 
     /// <summary>
     /// Gets or sets the identifier that describes where the schema context came from.
@@ -36,7 +40,7 @@ public sealed class QueryAssistantResponse
     public IReadOnlyCollection<IReadOnlyDictionary<string, object?>> Rows { get; init; } = [];
 
     /// <summary>
-    /// Gets or sets the top query results rendered as a Markdown table for quick display.
+    /// Gets or sets the short natural-language or Markdown summary generated for the query result.
     /// </summary>
     public string ResultsAsText { get; init; } = string.Empty;
 }

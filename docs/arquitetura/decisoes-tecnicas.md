@@ -45,6 +45,7 @@ Fluxo síncrono para geração e execução da consulta dentro da requisição H
 - **Risco de drift de schema**: estratégia híbrida RAG + `INFORMATION_SCHEMA`.
 - **Risco de segredo exposto**: uso de variáveis de ambiente e secret stores (GitHub/Azure).
 - **Risco de regressão**: testes unitários, integração por camada e testes de API com TestServer.
+- **Risco de resposta pouco útil ao usuário final**: segunda etapa com o modelo converte o resultado SQL bruto em `resultsAsText`, permitindo resposta textual curta quando a interpretação for mais importante que uma tabela.
 
 ## 5. GitHub Actions
 ### Por que usamos

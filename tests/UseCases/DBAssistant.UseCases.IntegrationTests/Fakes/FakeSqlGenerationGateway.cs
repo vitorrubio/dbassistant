@@ -23,4 +23,24 @@ public sealed class FakeSqlGenerationGateway : ISqlGenerationGateway
             Explanation = $"Generated for question: {question}"
         });
     }
+
+    /// <summary>
+    /// Returns a deterministic natural-language summary for the executed result set.
+    /// </summary>
+    /// <param name="question">The original user question.</param>
+    /// <param name="sql">The validated SQL executed by the use case.</param>
+    /// <param name="executionResult">The tabular result produced by the fake executor.</param>
+    /// <param name="cancellationToken">The cancellation token used to stop the fake call.</param>
+    /// <returns>A deterministic summary string suitable for test assertions.</returns>
+    public Task<QueryResultNarration> GenerateResultsAsTextAsync(
+        string question,
+        string sql,
+        QueryExecutionResult executionResult,
+        CancellationToken cancellationToken)
+    {
+        return Task.FromResult(new QueryResultNarration
+        {
+            ResultsAsText = $"Summary for '{question}' with {executionResult.Rows.Count} row(s)."
+        });
+    }
 }

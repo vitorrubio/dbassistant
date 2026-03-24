@@ -1,6 +1,7 @@
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text.Json;
+using System.Text;
 using DBAssistant.Services.Configuration;
 using DBAssistant.UseCases.Exceptions;
 using DBAssistant.UseCases.Models;
@@ -14,7 +15,7 @@ namespace DBAssistant.Services.OpenAI;
 /// </summary>
 public sealed class OpenAiSqlGenerationGateway : ISqlGenerationGateway
 {
-    private const string SYSTEM_INSTRUCTIONS = """
+    private const string SQL_SYSTEM_INSTRUCTIONS = """
         You are a MySQL SQL assistant for a connected business database.
         Convert the user question into a single read-only SQL statement.
         Rules:
@@ -23,6 +24,19 @@ public sealed class OpenAiSqlGenerationGateway : ISqlGenerationGateway
         - Only answer using tables and columns present in the provided schema.
         - Prefer explicit joins and aliases when helpful.
         - Return strict JSON with properties: sql, explanation.
+        - Do not wrap the JSON in markdown.
+        """;
+
+    private const string RESULTS_AS_TEXT_SYSTEM_INSTRUCTIONS = """
+        You are a business data analyst assistant.
+        Convert SQL query results into a short Markdown answer for the original user question.
+        Rules:
+        - Base the answer only on the provided SQL result data.
+        - Prefer concise natural language when the answer is primarily explanatory.
+        - Use a Markdown table only when tabular formatting is clearly more useful than prose.
+        - Mention concrete values from the result when they support the conclusion.
+        - If the result set is empty, say that no records were found.
+        - Return strict JSON with property: resultsAsText.
         - Do not wrap the JSON in markdown.
         """;
 
@@ -61,7 +75,7 @@ public sealed class OpenAiSqlGenerationGateway : ISqlGenerationGateway
         request.Content = JsonContent.Create(new
         {
             model = _openAiOptions.Model,
-            instructions = SYSTEM_INSTRUCTIONS,
+            instructions = SQL_SYSTEM_INSTRUCTIONS,
             text = new
             {
                 format = new
@@ -134,6 +148,94 @@ public sealed class OpenAiSqlGenerationGateway : ISqlGenerationGateway
     }
 
     /// <summary>
+    /// Sends executed SQL results to OpenAI so the model can generate a short Markdown explanation or table.
+    /// </summary>
+    /// <param name="question">The original natural-language question.</param>
+    /// <param name="sql">The validated SQL statement that produced the result.</param>
+    /// <param name="executionResult">The tabular data returned by the database.</param>
+    /// <param name="cancellationToken">The cancellation token used to stop the HTTP request.</param>
+    /// <returns>A short natural-language or Markdown-table representation of the result.</returns>
+    public async Task<QueryResultNarration> GenerateResultsAsTextAsync(
+        string question,
+        string sql,
+        QueryExecutionResult executionResult,
+        CancellationToken cancellationToken)
+    {
+        ValidateConfiguration();
+
+        using var request = new HttpRequestMessage(HttpMethod.Post, "responses");
+        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _openAiOptions.ApiKey);
+        request.Content = JsonContent.Create(new
+        {
+            model = _openAiOptions.Model,
+            instructions = RESULTS_AS_TEXT_SYSTEM_INSTRUCTIONS,
+            text = new
+            {
+                format = new
+                {
+                    type = "json_schema",
+                    name = "query_result_narration",
+                    strict = true,
+                    schema = new
+                    {
+                        type = "object",
+                        additionalProperties = false,
+                        required = new[] { "resultsAsText" },
+                        properties = new
+                        {
+                            resultsAsText = new
+                            {
+                                type = "string",
+                                description = "A short Markdown answer or table that summarizes the SQL results for the user."
+                            }
+                        }
+                    }
+                }
+            },
+            input = new[]
+            {
+                new
+                {
+                    role = "user",
+                    content = new[]
+                    {
+                        new
+                        {
+                            type = "input_text",
+                            text = BuildResultsAsTextPrompt(question, sql, executionResult)
+                        }
+                    }
+                }
+            }
+        });
+
+        using var response = await _httpClient.SendAsync(request, cancellationToken);
+        var payload = await response.Content.ReadAsStringAsync(cancellationToken);
+
+        if (response.IsSuccessStatusCode is false)
+        {
+            throw new ExternalServiceUnavailableException($"OpenAI request failed with status code {(int)response.StatusCode}: {payload}");
+        }
+
+        using var document = JsonDocument.Parse(payload);
+        var outputText = TryExtractOutputText(document.RootElement);
+
+        if (string.IsNullOrWhiteSpace(outputText))
+        {
+            throw new ExternalServiceUnavailableException("OpenAI returned an empty response when summarizing the SQL result.");
+        }
+
+        var narration = JsonSerializer.Deserialize<QueryResultNarration>(outputText, JsonSerializerOptions);
+
+        if (narration is null)
+        {
+            throw new ExternalServiceUnavailableException("OpenAI returned an invalid results-as-text payload.");
+        }
+
+        return narration;
+    }
+
+    /// <summary>
     /// Validates that the mandatory OpenAI configuration values were provided.
     /// </summary>
     /// <exception cref="ExternalServiceUnavailableException">Thrown when one or more required settings are missing.</exception>
@@ -162,6 +264,37 @@ public sealed class OpenAiSqlGenerationGateway : ISqlGenerationGateway
             Available schema:
             {schemaContext}
             """;
+    }
+
+    /// <summary>
+    /// Builds the prompt that asks the model to summarize the executed SQL result.
+    /// </summary>
+    /// <param name="question">The original user question.</param>
+    /// <param name="sql">The validated SQL that was executed.</param>
+    /// <param name="executionResult">The tabular result returned by the database.</param>
+    /// <returns>A formatted prompt string containing the original question and the SQL result payload.</returns>
+    private static string BuildResultsAsTextPrompt(string question, string sql, QueryExecutionResult executionResult)
+    {
+        var serializedResult = JsonSerializer.Serialize(
+            new
+            {
+                columns = executionResult.Columns,
+                rows = executionResult.Rows
+            },
+            JsonSerializerOptions);
+
+        var builder = new StringBuilder();
+        builder.AppendLine("Original user question:");
+        builder.AppendLine(question);
+        builder.AppendLine();
+        builder.AppendLine("Executed SQL:");
+        builder.AppendLine(sql);
+        builder.AppendLine();
+        builder.AppendLine("SQL result payload:");
+        builder.AppendLine(serializedResult);
+        builder.AppendLine();
+        builder.Append("Generate the best short Markdown answer for the user. Use prose when that is clearer than a table.");
+        return builder.ToString();
     }
 
     /// <summary>
