@@ -13,4 +13,4 @@ Create architecture documentation assets in Portuguese under `docs/arquitetura` 
 - [x] Read current architecture and CI/CD implementation.
 - [x] Create documentation assets in `docs/arquitetura`.
 - [x] Update `README.md` with links.
-- [ ] Commit and push branch.
+- [x] Commit and push branch.

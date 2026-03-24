@@ -5,4 +5,4 @@
 - [x] Create technical document in Portuguese.
 - [x] Create technical decisions document in Portuguese.
 - [x] Add references in README.
-- [ ] Commit and push.
+- [x] Commit and push.
