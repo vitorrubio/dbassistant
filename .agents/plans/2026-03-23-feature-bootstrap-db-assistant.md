@@ -16,11 +16,11 @@
 - [x] Implement an initial vertical slice for a read-only natural language query contract.
 - [x] Add Docker and Docker Compose files for API and MySQL integration.
 - [x] Add hybrid schema context assembly with RAG-first lookup and `INFORMATION_SCHEMA` fallback.
-- [ ] Run build and tests. Blocked: local .NET runtime is missing, so `dotnet new/build/test` cannot execute in this environment yet.
-- [ ] Summarize pending architecture/business decisions that require user confirmation.
+- [x] Run build and tests.
+- [x] Summarize pending architecture/business decisions that require user confirmation.
 
 ## Initial Assumptions
-- Use the installed .NET SDK `8.0.418`, since that is the latest available in the current environment.
+- Use the installed .NET SDK available in the current environment.
 - Bootstrap a REST API with a minimal first endpoint and placeholders for OpenAI/MySQL integration.
 - Enforce read-only query intent in the application contracts and validation layer from the start.
 - Use the OpenAI Responses API shape for the first gateway implementation, keeping the model configurable in `.env`.
@@ -30,3 +30,8 @@
 - Exact API contract for the first business endpoint beyond the bootstrap version.
 - Preferred OpenAI model family and whether responses should return raw SQL, executed results, natural-language summaries, or all of them.
 - Database schema exposure strategy for prompt/RAG context.
+
+## Validation Notes
+- Confirmed local SDK version: `10.0.105`.
+- `env DOTNET_CLI_HOME=/tmp dotnet build DBAssistant.sln` succeeded with 0 warnings and 0 errors.
+- `env DOTNET_CLI_HOME=/tmp dotnet test DBAssistant.sln --no-build` succeeded with all 19 tests passing, including the 12 API acceptance scenarios against the configured database.

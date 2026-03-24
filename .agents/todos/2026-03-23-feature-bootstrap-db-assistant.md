@@ -9,5 +9,5 @@
 - [x] Implement first API slice
 - [x] Add docker assets
 - [x] Add hybrid schema context flow (RAG + INFORMATION_SCHEMA fallback)
-- [ ] Build and test
-- [ ] Prepare summary and pending questions
+- [x] Build and test
+- [x] Prepare summary and pending questions
