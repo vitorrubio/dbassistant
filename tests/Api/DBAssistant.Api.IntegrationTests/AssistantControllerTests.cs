@@ -70,7 +70,8 @@ public sealed class AssistantControllerTests : IClassFixture<WebApplicationFacto
         var payload = await response.Content.ReadAsStringAsync();
         payload.Should().NotContain("\"sql\"");
         payload.Should().NotContain("\"explanation\"");
-        payload.Should().Contain("\"executed\":true");
+        payload.Should().NotContain("\"executed\"");
+        payload.Should().NotContain("\"schemaContextSource\"");
     }
 
     /// <summary>
@@ -204,8 +205,8 @@ public sealed class AssistantControllerTests : IClassFixture<WebApplicationFacto
             {
                 Sql = showDetails ? "SELECT * FROM Orders" : null,
                 Explanation = showDetails ? "Fake response" : null,
-                SchemaContextSource = "information_schema",
-                Executed = request.ExecuteSql ?? true,
+                SchemaContextSource = showDetails ? "information_schema" : null,
+                Executed = showDetails ? request.ExecuteSql ?? true : null,
                 ResultsAsText = "Fake summary"
             });
         }

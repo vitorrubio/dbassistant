@@ -22,12 +22,14 @@ public sealed class QueryAssistantResponse
     /// <summary>
     /// Gets or sets the identifier that describes where the schema context came from.
     /// </summary>
-    public string SchemaContextSource { get; init; } = string.Empty;
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public string? SchemaContextSource { get; init; }
 
     /// <summary>
     /// Gets or sets a value indicating whether the SQL was executed.
     /// </summary>
-    public bool Executed { get; init; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public bool? Executed { get; init; }
 
     /// <summary>
     /// Gets or sets the ordered list of returned column names.

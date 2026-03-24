@@ -13,7 +13,7 @@ namespace DBAssistant.UseCases.IntegrationTests.UseCases;
 public sealed class ProcessNaturalLanguageQueryUseCaseTests
 {
     /// <summary>
-    /// Ensures the use case returns rows and reports hybrid schema context when execution is enabled.
+    /// Ensures the use case returns rows while keeping metadata hidden by default when execution is enabled.
     /// </summary>
     [Fact]
     [Trait("Category", "Unit Tests")]
@@ -41,12 +41,12 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
             },
             CancellationToken.None);
 
-        result.Executed.Should().BeTrue();
+        result.Executed.Should().BeNull();
         result.Rows.Should().HaveCount(1);
         result.Sql.Should().BeNull();
         result.Explanation.Should().BeNull();
         result.ResultsAsText.Should().Be("Summary for 'Show order totals' with 1 row(s).");
-        result.SchemaContextSource.Should().Be("rag+information_schema");
+        result.SchemaContextSource.Should().BeNull();
     }
 
     /// <summary>
@@ -76,7 +76,7 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
     }
 
     /// <summary>
-    /// Ensures the use case falls back to information-schema metadata when the RAG layer has no match.
+    /// Ensures the use case hides metadata when execution is disabled and details remain hidden.
     /// </summary>
     [Fact]
     [Trait("Category", "Unit Tests")]
@@ -99,8 +99,8 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
             },
             CancellationToken.None);
 
-        result.Executed.Should().BeFalse();
-        result.SchemaContextSource.Should().Be("information_schema");
+        result.Executed.Should().BeNull();
+        result.SchemaContextSource.Should().BeNull();
     }
 
     /// <summary>
@@ -127,7 +127,7 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
             },
             CancellationToken.None);
 
-        result.Executed.Should().BeFalse();
+        result.Executed.Should().BeNull();
         result.Sql.Should().BeNull();
         result.Explanation.Should().BeNull();
         result.ResultsAsText.Should().BeEmpty();
@@ -162,6 +162,7 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
         result.Sql.Should().Be("SELECT Id, Total FROM Orders");
         result.Explanation.Should().Be("Generated for question: Show order totals");
         result.ResultsAsText.Should().Be("Summary for 'Show order totals' with 1 row(s).");
+        result.SchemaContextSource.Should().Be("information_schema");
     }
 
     /// <summary>
@@ -191,6 +192,7 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
 
         result.Sql.Should().BeNull();
         result.Explanation.Should().BeNull();
-        result.Executed.Should().BeTrue();
+        result.Executed.Should().BeNull();
+        result.SchemaContextSource.Should().BeNull();
     }
 }

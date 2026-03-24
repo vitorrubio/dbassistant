@@ -61,8 +61,8 @@ public sealed class ProcessNaturalLanguageQueryUseCase : IProcessNaturalLanguage
             {
                 Sql = shouldShowDetails ? sqlStatement.Value : null,
                 Explanation = shouldShowDetails ? generatedSql.Explanation : null,
-                SchemaContextSource = schemaContextEnvelope.Source,
-                Executed = false
+                SchemaContextSource = shouldShowDetails ? schemaContextEnvelope.Source : null,
+                Executed = shouldShowDetails ? false : null
             };
         }
 
@@ -77,8 +77,8 @@ public sealed class ProcessNaturalLanguageQueryUseCase : IProcessNaturalLanguage
         {
             Sql = shouldShowDetails ? sqlStatement.Value : null,
             Explanation = shouldShowDetails ? generatedSql.Explanation : null,
-            SchemaContextSource = schemaContextEnvelope.Source,
-            Executed = true,
+            SchemaContextSource = shouldShowDetails ? schemaContextEnvelope.Source : null,
+            Executed = shouldShowDetails ? true : null,
             Columns = executionResult.Columns,
             Rows = executionResult.Rows,
             ResultsAsText = narration.ResultsAsText
