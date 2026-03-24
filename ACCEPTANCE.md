@@ -15,3 +15,4 @@ Crie um integration test que execute o método QueryAsync do AssistantController
 10. Qual o ticket médio por compra?
 11. Qual é o pior vendedor em quantidade de vendas?
 12. Qual é o pior vendedor em valor total de vendas no último mês?
+13. Na nossa empresa de tempos em tempos encaminhamos os 3 vendedores com menor média de vendas mensal para um curso de vendas e uma palestra motivacional. Quais vendedores devem participar do curso dessa vez?
