@@ -14,6 +14,7 @@ public sealed class SqlStatementTests
     /// Ensures that a simple <c>SELECT</c> statement is accepted by the domain guard.
     /// </summary>
     [Fact]
+    [Trait("Category", "Unit Tests")]
     public void CreateReadOnly_ShouldAcceptValidSelectStatement()
     {
         var sqlStatement = SqlStatement.CreateReadOnly("SELECT * FROM Orders");
@@ -25,6 +26,7 @@ public sealed class SqlStatementTests
     /// Ensures that a read-only statement starting with a CTE is accepted by the domain guard.
     /// </summary>
     [Fact]
+    [Trait("Category", "Unit Tests")]
     public void CreateReadOnly_ShouldAcceptValidCteStatement()
     {
         var sqlStatement = SqlStatement.CreateReadOnly(
@@ -42,6 +44,7 @@ public sealed class SqlStatementTests
     /// Ensures that mutation statements embedded in the SQL text are rejected by the domain guard.
     /// </summary>
     [Fact]
+    [Trait("Category", "Unit Tests")]
     public void CreateReadOnly_ShouldRejectMutationStatement()
     {
         var action = () => SqlStatement.CreateReadOnly("SELECT * FROM Orders; DELETE FROM Orders;");

@@ -30,6 +30,7 @@ public sealed class AssistantControllerTests : IClassFixture<WebApplicationFacto
     /// Ensures the query endpoint returns HTTP 200 when the use case completes successfully.
     /// </summary>
     [Fact]
+    [Trait("Category", "Integration Tests")]
     public async Task QueryAsync_ShouldReturnOk()
     {
         var client = _factory.WithWebHostBuilder(builder =>

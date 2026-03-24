@@ -233,6 +233,7 @@ public sealed class AssistantAcceptanceTests
     /// <param name="scenario">The acceptance scenario being executed.</param>
     [Theory]
     [MemberData(nameof(Scenarios))]
+    [Trait("Category", "Integration Tests")]
     public async Task QueryAsync_ShouldReturnSameResultsAsDirectDatabaseExecution(AcceptanceScenario scenario)
     {
         var repositoryRoot = ResolveRepositoryRoot();

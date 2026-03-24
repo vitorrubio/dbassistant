@@ -16,6 +16,7 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
     /// Ensures the use case returns rows and reports hybrid schema context when execution is enabled.
     /// </summary>
     [Fact]
+    [Trait("Category", "Unit Tests")]
     public async Task ExecuteAsync_ShouldReturnRowsWhenExecutionIsEnabled()
     {
         var schemaContextAssembler = new SchemaContextAssembler(
@@ -51,6 +52,7 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
     /// Ensures the use case rejects requests without a question.
     /// </summary>
     [Fact]
+    [Trait("Category", "Unit Tests")]
     public async Task ExecuteAsync_ShouldRejectEmptyQuestion()
     {
         var schemaContextAssembler = new SchemaContextAssembler(
@@ -76,6 +78,7 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
     /// Ensures the use case falls back to information-schema metadata when the RAG layer has no match.
     /// </summary>
     [Fact]
+    [Trait("Category", "Unit Tests")]
     public async Task ExecuteAsync_ShouldFallbackToInformationSchemaWhenRagHasNoMatch()
     {
         var schemaContextAssembler = new SchemaContextAssembler(
