@@ -16,7 +16,7 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
     /// Ensures the use case returns rows while keeping metadata hidden by default when execution is enabled.
     /// </summary>
     [Fact]
-    [Trait("Category", "Unit Tests")]
+    [Trait("Category", "IntegrationTests")]
     public async Task ExecuteAsync_ShouldExecuteByDefault_WhenExecuteSqlIsOmitted()
     {
         var schemaContextAssembler = new SchemaContextAssembler(
@@ -53,7 +53,7 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
     /// Ensures the use case rejects requests without a question.
     /// </summary>
     [Fact]
-    [Trait("Category", "Unit Tests")]
+    [Trait("Category", "IntegrationTests")]
     public async Task ExecuteAsync_ShouldRejectEmptyQuestion()
     {
         var schemaContextAssembler = new SchemaContextAssembler(
@@ -79,7 +79,7 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
     /// Ensures the use case hides metadata when execution is disabled and details remain hidden.
     /// </summary>
     [Fact]
-    [Trait("Category", "Unit Tests")]
+    [Trait("Category", "IntegrationTests")]
     public async Task ExecuteAsync_ShouldFallbackToInformationSchemaWhenRagHasNoMatch()
     {
         var schemaContextAssembler = new SchemaContextAssembler(
@@ -107,7 +107,7 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
     /// Ensures explicit execution disablement preserves the default hidden-details behavior.
     /// </summary>
     [Fact]
-    [Trait("Category", "Unit Tests")]
+    [Trait("Category", "IntegrationTests")]
     public async Task ExecuteAsync_ShouldNotExecute_WhenExecuteSqlIsExplicitlyFalse()
     {
         var schemaContextAssembler = new SchemaContextAssembler(
@@ -137,7 +137,7 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
     /// Ensures SQL details are returned when the caller explicitly asks for them.
     /// </summary>
     [Fact]
-    [Trait("Category", "Unit Tests")]
+    [Trait("Category", "IntegrationTests")]
     public async Task ExecuteAsync_ShouldReturnSqlAndExplanation_WhenShowDetailsIsTrue()
     {
         var schemaContextAssembler = new SchemaContextAssembler(
@@ -169,7 +169,7 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
     /// Ensures omitted show-details keeps SQL metadata hidden even when the query executes.
     /// </summary>
     [Fact]
-    [Trait("Category", "Unit Tests")]
+    [Trait("Category", "IntegrationTests")]
     public async Task ExecuteAsync_ShouldHideDetailsByDefault_WhenShowDetailsIsOmitted()
     {
         var schemaContextAssembler = new SchemaContextAssembler(
@@ -200,7 +200,7 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
     /// Ensures the use case rejects questions that require data not present in the schema instead of inventing columns.
     /// </summary>
     [Fact]
-    [Trait("Category", "Unit Tests")]
+    [Trait("Category", "IntegrationTests")]
     public async Task ExecuteAsync_ShouldRejectQuestion_WhenSchemaCannotAnswerIt()
     {
         var schemaContextAssembler = new SchemaContextAssembler(
@@ -228,7 +228,7 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
     /// Ensures database warnings are treated as invalid generated SQL instead of empty data.
     /// </summary>
     [Fact]
-    [Trait("Category", "Unit Tests")]
+    [Trait("Category", "IntegrationTests")]
     public async Task ExecuteAsync_ShouldRejectGeneratedSql_WhenDatabaseReturnsWarnings()
     {
         var schemaContextAssembler = new SchemaContextAssembler(

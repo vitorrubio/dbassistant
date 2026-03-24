@@ -183,7 +183,7 @@ public sealed class AssistantRealLlmEvaluationTests
 
     [Theory]
     [MemberData(nameof(Scenarios))]
-    [Trait("Category", "Evaluation Tests")]
+    [Trait("Category", "EvaluationTests")]
     public async Task QueryAsync_ShouldMatchDirectDatabaseResult_WhenUsingRealLlm(Acceptance.AcceptanceScenario scenario)
     {
         var repositoryRoot = ResolveRepositoryRoot();

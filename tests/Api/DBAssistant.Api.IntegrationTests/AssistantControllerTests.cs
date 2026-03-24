@@ -34,7 +34,7 @@ public sealed class AssistantControllerTests : IClassFixture<WebApplicationFacto
     /// Ensures the query endpoint returns HTTP 200 when the use case completes successfully.
     /// </summary>
     [Fact]
-    [Trait("Category", "Integration Tests")]
+    [Trait("Category", "IntegrationTests")]
     public async Task QueryAsync_ShouldReturnOk()
     {
         var client = CreateClient();
@@ -54,7 +54,7 @@ public sealed class AssistantControllerTests : IClassFixture<WebApplicationFacto
     /// Ensures omitted optional flags are accepted by model binding and still return HTTP 200.
     /// </summary>
     [Fact]
-    [Trait("Category", "Integration Tests")]
+    [Trait("Category", "IntegrationTests")]
     public async Task QueryAsync_ShouldAcceptOmittedOptionalFlags()
     {
         var client = CreateClient();
@@ -79,7 +79,7 @@ public sealed class AssistantControllerTests : IClassFixture<WebApplicationFacto
     /// Ensures explicit optional flags are accepted by model binding and still return HTTP 200.
     /// </summary>
     [Fact]
-    [Trait("Category", "Integration Tests")]
+    [Trait("Category", "IntegrationTests")]
     public async Task QueryAsync_ShouldAcceptExplicitOptionalFlags()
     {
         var client = CreateClient();
@@ -105,7 +105,7 @@ public sealed class AssistantControllerTests : IClassFixture<WebApplicationFacto
     /// Ensures the query endpoint rejects requests that do not provide the configured API key.
     /// </summary>
     [Fact]
-    [Trait("Category", "Integration Tests")]
+    [Trait("Category", "IntegrationTests")]
     public async Task QueryAsync_ShouldReturnUnauthorized_WhenApiKeyIsMissing()
     {
         var client = CreateClient(includeApiKeyHeader: false);
@@ -125,7 +125,7 @@ public sealed class AssistantControllerTests : IClassFixture<WebApplicationFacto
     /// Ensures execution failures caused by invalid generated SQL are surfaced as HTTP 400 instead of empty results.
     /// </summary>
     [Fact]
-    [Trait("Category", "Integration Tests")]
+    [Trait("Category", "IntegrationTests")]
     public async Task QueryAsync_ShouldReturnBadRequest_WhenGeneratedSqlCannotBeExecuted()
     {
         var client = _factory.WithWebHostBuilder(builder =>
