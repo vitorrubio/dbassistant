@@ -34,4 +34,9 @@ public sealed class QueryAssistantResponse
     /// Gets or sets the returned rows using column-name dictionaries.
     /// </summary>
     public IReadOnlyCollection<IReadOnlyDictionary<string, object?>> Rows { get; init; } = [];
+
+    /// <summary>
+    /// Gets or sets the top query results rendered as a Markdown table for quick display.
+    /// </summary>
+    public string ResultsAsText { get; init; } = string.Empty;
 }
