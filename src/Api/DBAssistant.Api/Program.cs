@@ -4,7 +4,6 @@ using DBAssistant.Services.DependencyInjection;
 using DBAssistant.UseCases.DependencyInjection;
 
 DotEnvLoader.LoadFromRepositoryRoot();
-DevelopmentServerDefaults.Apply();
 
 var builder = WebApplication.CreateBuilder(args);
 
