@@ -89,8 +89,13 @@ jobs:
           azcliversion: latest
           inlineScript: |
             az extension add --name containerapp --upgrade
+            az containerapp secret set \
+              --name "${{ secrets.AZURE_CONTAINER_APP_NAME }}" \
+              --resource-group "${{ secrets.AZURE_RESOURCE_GROUP }}" \
+              --secrets dbassistant-client-api-key="${{ secrets.DBASSISTANT_API_KEY_VALUE }}"
             az containerapp update \
               --name "${{ secrets.AZURE_CONTAINER_APP_NAME }}" \
               --resource-group "${{ secrets.AZURE_RESOURCE_GROUP }}" \
               --image "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:sha-${{ github.sha }}" \
+              --set-env-vars API_KEY_HEADER_NAME=apiKey API_KEY_HEADER_VALUE=secretref:dbassistant-client-api-key \
               --output none

@@ -1,3 +1,5 @@
+using DBAssistant.Api.Middleware;
+
 namespace DBAssistant.Api.Extensions;
 
 /// <summary>
@@ -14,6 +16,7 @@ public static class ApplicationBuilderExtensions
     {
         app.UseSwagger();
         app.UseSwaggerUI();
+        app.UseMiddleware<ApiKeyAuthenticationMiddleware>();
         app.UseAuthorization();
         app.MapControllers();
         return app;
