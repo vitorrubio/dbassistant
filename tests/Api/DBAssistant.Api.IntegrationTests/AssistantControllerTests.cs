@@ -15,7 +15,7 @@ namespace DBAssistant.Api.IntegrationTests;
 /// </summary>
 public sealed class AssistantControllerTests : IClassFixture<WebApplicationFactory<Program>>
 {
-    private const string DefaultApiKeyHeaderName = "apiKey";
+    private const string DefaultApiKeyHeaderName = "x-api-key";
     private const string DefaultApiKeyHeaderValue = "test-api-key";
     private readonly WebApplicationFactory<Program> _factory;
 

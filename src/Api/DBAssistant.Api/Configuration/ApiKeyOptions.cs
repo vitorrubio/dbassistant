@@ -8,7 +8,7 @@ public sealed class ApiKeyOptions
     /// <summary>
     /// The default header name expected by the API.
     /// </summary>
-    public const string DefaultHeaderName = "apiKey";
+    public const string DefaultHeaderName = "x-api-key";
 
     /// <summary>
     /// The environment-variable name that defines the header name.

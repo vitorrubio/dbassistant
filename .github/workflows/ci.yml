@@ -97,5 +97,5 @@ jobs:
               --name "${{ secrets.AZURE_CONTAINER_APP_NAME }}" \
               --resource-group "${{ secrets.AZURE_RESOURCE_GROUP }}" \
               --image "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:sha-${{ github.sha }}" \
-              --set-env-vars API_KEY_HEADER_NAME=apiKey API_KEY_HEADER_VALUE=secretref:dbassistant-client-api-key \
+              --set-env-vars API_KEY_HEADER_NAME=x-api-key API_KEY_HEADER_VALUE=secretref:dbassistant-client-api-key \
               --output none

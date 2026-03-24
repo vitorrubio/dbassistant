@@ -37,9 +37,9 @@ public sealed class ApiKeyAuthenticationMiddleware
             return;
         }
 
-        if (context.Request.Headers.TryGetValue(_options.HeaderName, out var providedHeaderValues) is false ||
-            string.IsNullOrWhiteSpace(providedHeaderValues.ToString()) ||
-            MatchesExpectedValue(providedHeaderValues.ToString()) is false)
+        var providedValue = ResolveProvidedApiKey(context.Request);
+
+        if (string.IsNullOrWhiteSpace(providedValue) || MatchesExpectedValue(providedValue) is false)
         {
             context.Response.StatusCode = StatusCodes.Status401Unauthorized;
             await context.Response.WriteAsJsonAsync(new ProblemDetails
@@ -64,5 +64,44 @@ public sealed class ApiKeyAuthenticationMiddleware
 
         return providedBytes.Length == expectedBytes.Length &&
                CryptographicOperations.FixedTimeEquals(providedBytes, expectedBytes);
+    }
+
+    private string? ResolveProvidedApiKey(HttpRequest request)
+    {
+        if (TryReadHeaderValue(request, _options.HeaderName, out var configuredHeaderValue))
+        {
+            return configuredHeaderValue;
+        }
+
+        if (TryReadHeaderValue(request, "apiKey", out var legacyHeaderValue))
+        {
+            return legacyHeaderValue;
+        }
+
+        if (TryReadHeaderValue(request, "x-api-key", out var standardHeaderValue))
+        {
+            return standardHeaderValue;
+        }
+
+        if (request.Headers.Authorization.ToString() is { Length: > 7 } authorizationHeaderValue &&
+            authorizationHeaderValue.StartsWith("Bearer ", StringComparison.OrdinalIgnoreCase))
+        {
+            return authorizationHeaderValue["Bearer ".Length..];
+        }
+
+        return null;
+    }
+
+    private static bool TryReadHeaderValue(HttpRequest request, string headerName, out string? value)
+    {
+        if (request.Headers.TryGetValue(headerName, out var headerValues) &&
+            string.IsNullOrWhiteSpace(headerValues.ToString()) is false)
+        {
+            value = headerValues.ToString();
+            return true;
+        }
+
+        value = null;
+        return false;
     }
 }
