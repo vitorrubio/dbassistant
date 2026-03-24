@@ -5,7 +5,6 @@ using DBAssistant.UseCases.Ports;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
@@ -16,8 +15,8 @@ namespace DBAssistant.Api.IntegrationTests;
 /// </summary>
 public sealed class AssistantControllerTests : IClassFixture<WebApplicationFactory<Program>>
 {
-    private const string ApiKeyHeaderName = "apiKey";
-    private const string ApiKeyHeaderValue = "test-api-key";
+    private const string DefaultApiKeyHeaderName = "apiKey";
+    private const string DefaultApiKeyHeaderValue = "test-api-key";
     private readonly WebApplicationFactory<Program> _factory;
 
     /// <summary>
@@ -37,14 +36,14 @@ public sealed class AssistantControllerTests : IClassFixture<WebApplicationFacto
     public async Task QueryAsync_ShouldReturnOk()
     {
         var client = CreateClient();
-
-        var response = await client.PostAsJsonAsync(
-            "/api/assistant/query",
+        var response = await SendQueryAsync(
+            client,
             new QueryAssistantRequest
             {
                 Question = "List orders",
                 ExecuteSql = false
-            });
+            },
+            includeApiKeyHeader: true);
 
         response.StatusCode.Should().Be(HttpStatusCode.OK);
     }
@@ -57,14 +56,14 @@ public sealed class AssistantControllerTests : IClassFixture<WebApplicationFacto
     public async Task QueryAsync_ShouldReturnUnauthorized_WhenApiKeyIsMissing()
     {
         var client = CreateClient(includeApiKeyHeader: false);
-
-        var response = await client.PostAsJsonAsync(
-            "/api/assistant/query",
+        var response = await SendQueryAsync(
+            client,
             new QueryAssistantRequest
             {
                 Question = "List orders",
                 ExecuteSql = false
-            });
+            },
+            includeApiKeyHeader: false);
 
         response.StatusCode.Should().Be(HttpStatusCode.Unauthorized);
     }
@@ -73,15 +72,6 @@ public sealed class AssistantControllerTests : IClassFixture<WebApplicationFacto
     {
         var client = _factory.WithWebHostBuilder(builder =>
         {
-            builder.ConfigureAppConfiguration((_, configurationBuilder) =>
-            {
-                configurationBuilder.AddInMemoryCollection(new Dictionary<string, string?>
-                {
-                    ["API_KEY_HEADER_NAME"] = ApiKeyHeaderName,
-                    ["API_KEY_HEADER_VALUE"] = ApiKeyHeaderValue
-                });
-            });
-
             builder.ConfigureTestServices(services =>
             {
                 services.AddScoped<IProcessNaturalLanguageQueryUseCase, FakeProcessNaturalLanguageQueryUseCase>();
@@ -90,10 +80,38 @@ public sealed class AssistantControllerTests : IClassFixture<WebApplicationFacto
 
         if (includeApiKeyHeader)
         {
-            client.DefaultRequestHeaders.Add(ApiKeyHeaderName, ApiKeyHeaderValue);
+            client.DefaultRequestHeaders.Add(GetApiKeyHeaderName(), GetApiKeyHeaderValue());
         }
 
         return client;
+    }
+
+    private static Task<HttpResponseMessage> SendQueryAsync(
+        HttpClient client,
+        QueryAssistantRequest request,
+        bool includeApiKeyHeader)
+    {
+        var message = new HttpRequestMessage(HttpMethod.Post, "/api/assistant/query")
+        {
+            Content = JsonContent.Create(request)
+        };
+
+        if (includeApiKeyHeader)
+        {
+            message.Headers.Add(GetApiKeyHeaderName(), GetApiKeyHeaderValue());
+        }
+
+        return client.SendAsync(message);
+    }
+
+    private static string GetApiKeyHeaderName()
+    {
+        return Environment.GetEnvironmentVariable("API_KEY_HEADER_NAME") ?? DefaultApiKeyHeaderName;
+    }
+
+    private static string GetApiKeyHeaderValue()
+    {
+        return Environment.GetEnvironmentVariable("API_KEY_HEADER_VALUE") ?? DefaultApiKeyHeaderValue;
     }
 
     /// <summary>

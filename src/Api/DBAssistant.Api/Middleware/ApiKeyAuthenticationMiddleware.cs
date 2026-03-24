@@ -57,8 +57,10 @@ public sealed class ApiKeyAuthenticationMiddleware
 
     private bool MatchesExpectedValue(string providedValue)
     {
-        var providedBytes = Encoding.UTF8.GetBytes(providedValue);
-        var expectedBytes = Encoding.UTF8.GetBytes(_options.HeaderValue);
+        var normalizedProvidedValue = providedValue.Trim();
+        var normalizedExpectedValue = _options.HeaderValue.Trim();
+        var providedBytes = Encoding.UTF8.GetBytes(normalizedProvidedValue);
+        var expectedBytes = Encoding.UTF8.GetBytes(normalizedExpectedValue);
 
         return providedBytes.Length == expectedBytes.Length &&
                CryptographicOperations.FixedTimeEquals(providedBytes, expectedBytes);
