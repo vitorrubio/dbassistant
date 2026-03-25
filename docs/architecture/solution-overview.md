@@ -21,7 +21,6 @@ DB Assistant is a layered .NET 10 solution that turns natural-language questions
 - [Architecture Diagrams](architecture-diagrams.md): rendered architecture diagrams and Mermaid source links.
 - [Technical Document](technical-document.md): request flow, architectural decisions, scalability, and security.
 - [Technical Decisions](technical-decisions.md): rationale for cache, RAG, deployment, secrets, and costs.
-- [Assessment Compliance](assessment-compliance.md): mapping between the delivered solution and the original assessment requirements.
 
 The Mermaid source files are stored alongside the English documentation so the diagrams can be reviewed and regenerated when the architecture changes.
 

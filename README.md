@@ -69,7 +69,6 @@ The automatic project documentation is built with DocFX from the repository sour
 - [docs/architecture/architecture-diagrams.md](docs/architecture/architecture-diagrams.md): rendered component and class diagrams, plus Mermaid source links.
 - [docs/architecture/technical-document.md](docs/architecture/technical-document.md): technical flow, architectural decisions, scalability, and security.
 - [docs/architecture/technical-decisions.md](docs/architecture/technical-decisions.md): rationale for cache, RAG, sync/async processing, CI/CD platform, secrets strategy, and costs.
-- [docs/architecture/assessment-compliance.md](docs/architecture/assessment-compliance.md): direct mapping between the original assessment requirements and the implemented solution.
 
 ## Changelog
 ### 2026-03-24

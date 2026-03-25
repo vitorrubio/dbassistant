@@ -10,8 +10,6 @@
       href: architecture/technical-document.md
     - name: Technical Decisions
       href: architecture/technical-decisions.md
-    - name: Assessment Compliance
-      href: architecture/assessment-compliance.md
 - name: REST API
   href: swagger/dbassistant-api.swagger.json
 - name: .NET API Reference
