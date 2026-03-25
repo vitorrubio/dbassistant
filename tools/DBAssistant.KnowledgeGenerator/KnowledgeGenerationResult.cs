@@ -14,4 +14,9 @@ public sealed class KnowledgeGenerationResult
     /// Gets or sets the embedding input JSONL path.
     /// </summary>
     public string EmbeddingInputPath { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Gets or sets the schema embeddings JSON path when the artifact was generated.
+    /// </summary>
+    public string? EmbeddingsPath { get; set; }
 }

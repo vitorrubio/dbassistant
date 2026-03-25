@@ -9,6 +9,8 @@ var schemaDocumentsPath = GetOptionalValue(environmentValues, "SCHEMA_KNOWLEDGE_
     ?? Path.Combine(outputDirectory, "schema-documents.json");
 var embeddingInputPath = GetOptionalValue(environmentValues, "SCHEMA_KNOWLEDGE_EMBEDDING_INPUT_FILE_PATH")
     ?? Path.Combine(outputDirectory, "schema-embedding-input.jsonl");
+var embeddingsPath = GetOptionalValue(environmentValues, "SCHEMA_KNOWLEDGE_EMBEDDINGS_FILE_PATH")
+    ?? Path.Combine(outputDirectory, "schema-embeddings.json");
 
 var options = new KnowledgeGenerationOptions
 {
@@ -19,7 +21,11 @@ var options = new KnowledgeGenerationOptions
     Password = GetRequiredValue(environmentValues, "MYSQL_PASSWORD"),
     OutputDirectory = ResolveAbsolutePath(executionRoot, outputDirectory),
     SchemaDocumentsPath = ResolveAbsolutePath(executionRoot, schemaDocumentsPath),
-    EmbeddingInputPath = ResolveAbsolutePath(executionRoot, embeddingInputPath)
+    EmbeddingInputPath = ResolveAbsolutePath(executionRoot, embeddingInputPath),
+    EmbeddingsPath = ResolveAbsolutePath(executionRoot, embeddingsPath),
+    OpenAiApiKey = GetOptionalValue(environmentValues, "OPENAI_API_KEY") ?? string.Empty,
+    OpenAiBaseUrl = GetOptionalValue(environmentValues, "OPENAI_BASE_URL") ?? "https://api.openai.com/v1",
+    OpenAiEmbeddingModel = GetOptionalValue(environmentValues, "OPENAI_EMBEDDING_MODEL") ?? "text-embedding-3-small"
 };
 
 var generator = new SchemaKnowledgeGenerator();
@@ -27,6 +33,11 @@ var result = await generator.GenerateAsync(options, CancellationToken.None);
 
 Console.WriteLine($"Schema documents generated at {result.SchemaDocumentsPath}");
 Console.WriteLine($"Embedding input generated at {result.EmbeddingInputPath}");
+
+if (string.IsNullOrWhiteSpace(result.EmbeddingsPath) is false)
+{
+    Console.WriteLine($"Schema embeddings generated at {result.EmbeddingsPath}");
+}
 
 static string ResolveExecutionRoot()
 {

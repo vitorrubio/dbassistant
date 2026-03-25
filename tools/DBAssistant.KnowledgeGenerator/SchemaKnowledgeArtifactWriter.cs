@@ -25,6 +25,7 @@ public sealed class SchemaKnowledgeArtifactWriter
         KnowledgeGenerationOptions options,
         SchemaKnowledgeArtifact artifact,
         IReadOnlyCollection<SchemaEmbeddingInputRecord> embeddingRecords,
+        SchemaKnowledgeEmbeddingsArtifact? embeddingsArtifact,
         CancellationToken cancellationToken)
     {
         Directory.CreateDirectory(options.OutputDirectory);
@@ -43,10 +44,19 @@ public sealed class SchemaKnowledgeArtifactWriter
             embeddingJsonl + Environment.NewLine,
             cancellationToken);
 
+        if (embeddingsArtifact is not null)
+        {
+            await File.WriteAllTextAsync(
+                options.EmbeddingsPath,
+                JsonSerializer.Serialize(embeddingsArtifact, ArtifactJsonSerializerOptions),
+                cancellationToken);
+        }
+
         return new KnowledgeGenerationResult
         {
             SchemaDocumentsPath = options.SchemaDocumentsPath,
-            EmbeddingInputPath = options.EmbeddingInputPath
+            EmbeddingInputPath = options.EmbeddingInputPath,
+            EmbeddingsPath = embeddingsArtifact is null ? null : options.EmbeddingsPath
         };
     }
 }

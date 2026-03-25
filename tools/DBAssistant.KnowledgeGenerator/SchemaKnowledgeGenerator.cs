@@ -9,6 +9,7 @@ public sealed class SchemaKnowledgeGenerator
 {
     private readonly SchemaKnowledgeCorpusBuilder _corpusBuilder = new();
     private readonly SchemaKnowledgeArtifactWriter _artifactWriter = new();
+    private readonly SchemaKnowledgeEmbeddingsBuilder _embeddingsBuilder = new();
 
     /// <summary>
     /// Connects to the source database, reads schema metadata, and writes the generated knowledge artifact to disk.
@@ -27,8 +28,11 @@ public sealed class SchemaKnowledgeGenerator
             schemaMetadata.SchemaName,
             schemaMetadata.Tables,
             generatedAtUtc);
+        var embeddingsArtifact = options.CanGenerateEmbeddings()
+            ? await _embeddingsBuilder.BuildAsync(options, artifact, cancellationToken)
+            : null;
 
-        return await _artifactWriter.WriteAsync(options, artifact, embeddingRecords, cancellationToken);
+        return await _artifactWriter.WriteAsync(options, artifact, embeddingRecords, embeddingsArtifact, cancellationToken);
     }
 
     private static async Task<SchemaMetadataSnapshot> ReadTableMetadataAsync(

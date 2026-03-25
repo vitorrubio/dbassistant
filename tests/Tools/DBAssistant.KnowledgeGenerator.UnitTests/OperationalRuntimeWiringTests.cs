@@ -33,6 +33,7 @@ public sealed class OperationalRuntimeWiringTests
 
         entrypoint.Should().Contain("dotnet /app/knowledge-generator/DBAssistant.KnowledgeGenerator.dll");
         entrypoint.Should().Contain("Continuing with INFORMATION_SCHEMA fallback");
+        entrypoint.Should().Contain("SCHEMA_KNOWLEDGE_EMBEDDINGS_FILE_PATH");
         entrypoint.IndexOf("dotnet /app/knowledge-generator/DBAssistant.KnowledgeGenerator.dll", StringComparison.Ordinal)
             .Should().BeLessThan(entrypoint.IndexOf("exec dotnet /app/DBAssistant.Api.dll", StringComparison.Ordinal));
     }

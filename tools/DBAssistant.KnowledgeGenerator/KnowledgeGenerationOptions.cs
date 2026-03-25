@@ -46,6 +46,26 @@ public sealed class KnowledgeGenerationOptions
     public string EmbeddingInputPath { get; set; } = string.Empty;
 
     /// <summary>
+    /// Gets or sets the JSON artifact path that stores the generated schema embeddings.
+    /// </summary>
+    public string EmbeddingsPath { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Gets or sets the OpenAI API key used to precompute schema embeddings.
+    /// </summary>
+    public string OpenAiApiKey { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Gets or sets the base URL of the OpenAI-compatible API endpoint.
+    /// </summary>
+    public string OpenAiBaseUrl { get; set; } = "https://api.openai.com/v1";
+
+    /// <summary>
+    /// Gets or sets the model identifier used to generate schema embeddings.
+    /// </summary>
+    public string OpenAiEmbeddingModel { get; set; } = "text-embedding-3-small";
+
+    /// <summary>
     /// Builds the runtime MySQL connection string from the configured parts.
     /// </summary>
     /// <returns>A MySQL connection string.</returns>
@@ -61,5 +81,17 @@ public sealed class KnowledgeGenerationOptions
     public string BuildServerConnectionString()
     {
         return $"Server={Host};Port={Port};User ID={Username};Password={Password};";
+    }
+
+    /// <summary>
+    /// Determines whether runtime schema embeddings can be generated from the configured OpenAI settings.
+    /// </summary>
+    /// <returns><see langword="true"/> when embedding generation is configured; otherwise, <see langword="false"/>.</returns>
+    public bool CanGenerateEmbeddings()
+    {
+        return string.IsNullOrWhiteSpace(OpenAiApiKey) is false &&
+               string.IsNullOrWhiteSpace(OpenAiBaseUrl) is false &&
+               string.IsNullOrWhiteSpace(OpenAiEmbeddingModel) is false &&
+               string.IsNullOrWhiteSpace(EmbeddingsPath) is false;
     }
 }
