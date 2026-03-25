@@ -10,6 +10,9 @@ namespace DBAssistant.UseCases.UseCases;
 public sealed class SchemaContextAssembler : ISchemaContextAssembler
 {
     private const string INFORMATION_SCHEMA_ONLY = "information_schema";
+    private const string CUSTOMERS_COMPANY_MARKER = "Table: customers";
+    private const string SUPPLIERS_COMPANY_MARKER = "Table: suppliers";
+    private const string COMPANY_COLUMN_MARKER = "  - company (";
     private readonly IInformationSchemaReader _informationSchemaReader;
 
     /// <summary>
@@ -30,11 +33,41 @@ public sealed class SchemaContextAssembler : ISchemaContextAssembler
     public async Task<SchemaContextEnvelope> BuildAsync(string question, CancellationToken cancellationToken)
     {
         var readableSchema = await _informationSchemaReader.ReadSchemaAsync(cancellationToken);
+        var enrichedContext = BuildEnrichedContext(readableSchema);
 
         return new SchemaContextEnvelope
         {
-            Context = readableSchema,
+            Context = enrichedContext,
             Source = INFORMATION_SCHEMA_ONLY
         };
+    }
+
+    private static string BuildEnrichedContext(string readableSchema)
+    {
+        if (string.IsNullOrWhiteSpace(readableSchema))
+        {
+            return readableSchema;
+        }
+
+        if (ContainsCompanyBackedBusinessEntity(readableSchema) is false)
+        {
+            return readableSchema;
+        }
+
+        return $$"""
+            {{readableSchema}}
+
+            Interpretation hints:
+              - In customer-like or supplier-like tables, a non-empty company column represents an organization or business-account name.
+              - If a question refers to corporate or business customers and there is no separate corporate flag, do not reject the question for that reason alone.
+              - Prefer company as the customer or supplier display name when it is populated.
+            """;
+    }
+
+    private static bool ContainsCompanyBackedBusinessEntity(string readableSchema)
+    {
+        return (readableSchema.Contains(CUSTOMERS_COMPANY_MARKER, StringComparison.OrdinalIgnoreCase) ||
+                readableSchema.Contains(SUPPLIERS_COMPANY_MARKER, StringComparison.OrdinalIgnoreCase)) &&
+               readableSchema.Contains(COMPANY_COLUMN_MARKER, StringComparison.OrdinalIgnoreCase);
     }
 }

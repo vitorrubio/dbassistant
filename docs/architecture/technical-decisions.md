@@ -24,6 +24,7 @@ RAG was removed from the solution. Schema context is now built directly from liv
 
 ### Risk Mitigation
 - Keep schema assembly simple and authoritative by reading directly from `INFORMATION_SCHEMA`.
+- Add only narrow interpretation hints derived from explicit schema fields such as `company`, instead of restoring a secondary retrieval pipeline.
 - Monitor prompt size and latency; if schema scale grows materially, reassess targeted schema summarization from measured evidence rather than reintroducing full RAG by default.
 - Keep the real-LLM evaluation suite opt-in through `RUN_REAL_LLM_EVALUATION_TESTS=true` so the default local and CI test run remains deterministic.
 

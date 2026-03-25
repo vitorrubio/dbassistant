@@ -60,7 +60,7 @@ items:
       repo: https://github.com/vitorrubio/dbassistant.git
     id: .ctor
     path: ../src/Services/DBAssistant.Services/OpenAI/OpenAiSqlGenerationGateway.cs
-    startLine: 54
+    startLine: 57
   assemblies:
   - DBAssistant.Services
   namespace: DBAssistant.Services.OpenAI
@@ -100,7 +100,7 @@ items:
       repo: https://github.com/vitorrubio/dbassistant.git
     id: GenerateSqlAsync
     path: ../src/Services/DBAssistant.Services/OpenAI/OpenAiSqlGenerationGateway.cs
-    startLine: 67
+    startLine: 70
   assemblies:
   - DBAssistant.Services
   namespace: DBAssistant.Services.OpenAI
@@ -146,7 +146,7 @@ items:
       repo: https://github.com/vitorrubio/dbassistant.git
     id: GenerateResultsAsTextAsync
     path: ../src/Services/DBAssistant.Services/OpenAI/OpenAiSqlGenerationGateway.cs
-    startLine: 165
+    startLine: 168
   assemblies:
   - DBAssistant.Services
   namespace: DBAssistant.Services.OpenAI

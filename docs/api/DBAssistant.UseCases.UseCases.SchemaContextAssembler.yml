@@ -59,7 +59,7 @@ items:
       repo: https://github.com/vitorrubio/dbassistant.git
     id: .ctor
     path: ../src/UseCases/DBAssistant.UseCases/UseCases/SchemaContextAssembler.cs
-    startLine: 18
+    startLine: 21
   assemblies:
   - DBAssistant.UseCases
   namespace: DBAssistant.UseCases.UseCases
@@ -94,7 +94,7 @@ items:
       repo: https://github.com/vitorrubio/dbassistant.git
     id: BuildAsync
     path: ../src/UseCases/DBAssistant.UseCases/UseCases/SchemaContextAssembler.cs
-    startLine: 29
+    startLine: 32
   assemblies:
   - DBAssistant.UseCases
   namespace: DBAssistant.UseCases.UseCases

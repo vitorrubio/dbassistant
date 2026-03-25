@@ -23,6 +23,7 @@ The main goal is to accelerate data analysis without exposing end users to raw S
 - Direct SQL access is preferred over an ORM because the product depends on dynamic analytical queries.
 - Interface-driven contracts make it easier to test each layer and swap external gateways.
 - Live schema metadata keeps the prompt grounded in the authoritative database state without maintaining a secondary retrieval index.
+- The schema-context assembler appends a small set of conservative interpretation hints when the schema exposes organization-style fields such as `company`, so the model can answer business-account questions without inventing unsupported flags.
 
 ## 4. Scalability Strategy
 ### 4.1 Horizontal API Scalability

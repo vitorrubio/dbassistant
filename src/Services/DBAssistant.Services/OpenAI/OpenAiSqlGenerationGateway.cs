@@ -25,6 +25,9 @@ public sealed class OpenAiSqlGenerationGateway : ISqlGenerationGateway
         - Only use tables and columns present in the provided schema.
         - Never invent columns, business facts, or semantics that are not explicitly supported by the schema.
         - Never reinterpret free-text fields such as notes or descriptions as dates or structured business facts unless the schema explicitly states that meaning.
+        - Prefer the closest faithful interpretation that the schema supports instead of rejecting a question too early.
+        - If a customer-like or supplier-like table exposes a non-empty company column, treat it as an organization or business-account name when the question refers to corporate, business, or company customers and the schema has no separate corporate flag.
+        - Do not reject a question only because there is no explicit corporate-vs-individual classifier when the requested analysis can still be answered from the available joins and measures.
         - If the schema is insufficient, mark the question as unanswerable and explain why.
         - When the schema is sufficient, call the function with canAnswer=true and provide one read-only SQL statement plus a brief explanation.
         - When the schema is insufficient, call the function with canAnswer=false, sql='', and unavailableDataReason filled.
