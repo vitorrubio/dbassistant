@@ -20,8 +20,4 @@ public sealed class OpenAiOptions
     /// </summary>
     public string Model { get; set; } = string.Empty;
 
-    /// <summary>
-    /// Gets or sets the model identifier used for embeddings.
-    /// </summary>
-    public string EmbeddingModel { get; set; } = "text-embedding-3-small";
 }

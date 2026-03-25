@@ -4,9 +4,6 @@ items:
   commentId: N:DBAssistant.Services.OpenAI.Contracts
   id: DBAssistant.Services.OpenAI.Contracts
   children:
-  - DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingItem
-  - DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingsRequest
-  - DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingsResponse
   - DBAssistant.Services.OpenAI.Contracts.OpenAiInputContent
   - DBAssistant.Services.OpenAI.Contracts.OpenAiInputMessage
   - DBAssistant.Services.OpenAI.Contracts.OpenAiJsonSchemaFormat
@@ -26,24 +23,6 @@ items:
   assemblies:
   - DBAssistant.Services
 references:
-- uid: DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingsRequest
-  commentId: T:DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingsRequest
-  href: DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingsRequest.html
-  name: OpenAiEmbeddingsRequest
-  nameWithType: OpenAiEmbeddingsRequest
-  fullName: DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingsRequest
-- uid: DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingsResponse
-  commentId: T:DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingsResponse
-  href: DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingsResponse.html
-  name: OpenAiEmbeddingsResponse
-  nameWithType: OpenAiEmbeddingsResponse
-  fullName: DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingsResponse
-- uid: DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingItem
-  commentId: T:DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingItem
-  href: DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingItem.html
-  name: OpenAiEmbeddingItem
-  nameWithType: OpenAiEmbeddingItem
-  fullName: DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingItem
 - uid: DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesRequest
   commentId: T:DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesRequest
   parent: DBAssistant.Services.OpenAI.Contracts

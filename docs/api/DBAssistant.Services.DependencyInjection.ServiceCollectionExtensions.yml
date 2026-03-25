@@ -20,11 +20,11 @@ items:
       repo: https://github.com/vitorrubio/dbassistant.git
     id: ServiceCollectionExtensions
     path: ../src/Services/DBAssistant.Services/DependencyInjection/ServiceCollectionExtensions.cs
-    startLine: 12
+    startLine: 11
   assemblies:
   - DBAssistant.Services
   namespace: DBAssistant.Services.DependencyInjection
-  summary: Registers service-layer dependencies such as the OpenAI gateway and schema-knowledge retrieval.
+  summary: Registers service-layer dependencies such as the OpenAI gateway.
   example: []
   syntax:
     content: public static class ServiceCollectionExtensions
@@ -58,7 +58,7 @@ items:
       repo: https://github.com/vitorrubio/dbassistant.git
     id: AddExternalServices
     path: ../src/Services/DBAssistant.Services/DependencyInjection/ServiceCollectionExtensions.cs
-    startLine: 20
+    startLine: 19
   assemblies:
   - DBAssistant.Services
   namespace: DBAssistant.Services.DependencyInjection

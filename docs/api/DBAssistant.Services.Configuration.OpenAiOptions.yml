@@ -7,7 +7,6 @@ items:
   children:
   - DBAssistant.Services.Configuration.OpenAiOptions.ApiKey
   - DBAssistant.Services.Configuration.OpenAiOptions.BaseUrl
-  - DBAssistant.Services.Configuration.OpenAiOptions.EmbeddingModel
   - DBAssistant.Services.Configuration.OpenAiOptions.Model
   langs:
   - csharp
@@ -134,37 +133,6 @@ items:
       type: System.String
     content.vb: Public Property Model As String
   overload: DBAssistant.Services.Configuration.OpenAiOptions.Model*
-- uid: DBAssistant.Services.Configuration.OpenAiOptions.EmbeddingModel
-  commentId: P:DBAssistant.Services.Configuration.OpenAiOptions.EmbeddingModel
-  id: EmbeddingModel
-  parent: DBAssistant.Services.Configuration.OpenAiOptions
-  langs:
-  - csharp
-  - vb
-  name: EmbeddingModel
-  nameWithType: OpenAiOptions.EmbeddingModel
-  fullName: DBAssistant.Services.Configuration.OpenAiOptions.EmbeddingModel
-  type: Property
-  source:
-    remote:
-      path: src/Services/DBAssistant.Services/Configuration/OpenAiOptions.cs
-      branch: master
-      repo: https://github.com/vitorrubio/dbassistant.git
-    id: EmbeddingModel
-    path: ../src/Services/DBAssistant.Services/Configuration/OpenAiOptions.cs
-    startLine: 25
-  assemblies:
-  - DBAssistant.Services
-  namespace: DBAssistant.Services.Configuration
-  summary: Gets or sets the model identifier used for embeddings.
-  example: []
-  syntax:
-    content: public string EmbeddingModel { get; set; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public Property EmbeddingModel As String
-  overload: DBAssistant.Services.Configuration.OpenAiOptions.EmbeddingModel*
 references:
 - uid: DBAssistant.Services.Configuration
   commentId: N:DBAssistant.Services.Configuration
@@ -438,9 +406,3 @@ references:
   name: Model
   nameWithType: OpenAiOptions.Model
   fullName: DBAssistant.Services.Configuration.OpenAiOptions.Model
-- uid: DBAssistant.Services.Configuration.OpenAiOptions.EmbeddingModel*
-  commentId: Overload:DBAssistant.Services.Configuration.OpenAiOptions.EmbeddingModel
-  href: DBAssistant.Services.Configuration.OpenAiOptions.html#DBAssistant_Services_Configuration_OpenAiOptions_EmbeddingModel
-  name: EmbeddingModel
-  nameWithType: OpenAiOptions.EmbeddingModel
-  fullName: DBAssistant.Services.Configuration.OpenAiOptions.EmbeddingModel

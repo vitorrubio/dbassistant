@@ -18,6 +18,18 @@ export ASPNETCORE_URLS="$APP_URLS"
 
 mkdir -p "$SWAGGER_OUTPUT_DIR"
 
+python3 - <<'PY' "$ROOT_DIR"
+from pathlib import Path
+import shutil
+import sys
+
+root = Path(sys.argv[1])
+
+for path in [root / "docs" / "api", root / "docs" / "_site"]:
+    if path.exists():
+        shutil.rmtree(path)
+PY
+
 dotnet tool restore
 dotnet restore "$ROOT_DIR/DBAssistant.sln"
 dotnet build "$ROOT_DIR/DBAssistant.sln" --configuration "$CONFIGURATION" --no-restore

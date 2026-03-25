@@ -14,16 +14,18 @@ Introduce selective caching for low-volatility repeated questions with a short T
 
 ## 2. RAG (Retrieval-Augmented Generation)
 ### Decision
-The solution uses a local file-based RAG artifact in `knowledge/runtime/schema-documents.json`, with fallback to live `INFORMATION_SCHEMA`.
+RAG was removed from the solution. Schema context is now built directly from live `INFORMATION_SCHEMA` metadata for every request.
 
 ### Rationale
-- RAG reduces token usage and improves prompt precision without scanning the full schema on every request.
-- The fallback avoids blind spots when new tables exist in the database but are not yet indexed.
-- Keeping the artifact in Git improves reviewability and auditability.
+- A local benchmark executed all 13 prompts from `ACCEPTANCE.md` twice, once with RAG and once without it.
+- The non-RAG path was faster in 11 of 13 prompts, with average latency around 6.84 seconds versus 9.50 seconds with RAG.
+- RAG introduced an extra OpenAI embeddings call and a second operational artifact pipeline with little practical benefit for this schema size.
+- RAG also changed model behavior in undesirable ways by over-shaping the prompt context, which made some answers less faithful to the intended business interpretation.
 
 ### Risk Mitigation
-- Regenerate the runtime artifacts through `tools/DBAssistant.KnowledgeGenerator`.
-- Monitor fallback frequency to detect drift between the artifact and the real schema.
+- Keep schema assembly simple and authoritative by reading directly from `INFORMATION_SCHEMA`.
+- Monitor prompt size and latency; if schema scale grows materially, reassess targeted schema summarization from measured evidence rather than reintroducing full RAG by default.
+- Keep the real-LLM evaluation suite opt-in through `RUN_REAL_LLM_EVALUATION_TESTS=true` so the default local and CI test run remains deterministic.
 
 ## 3. Synchronous vs. Asynchronous Processing
 ### Decision
@@ -42,7 +44,7 @@ The current flow is synchronous from SQL generation through optional execution.
 ## 4. Risk Mitigation
 - **SQL safety risk**: domain validation accepts read-only SQL only.
 - **OpenAI availability risk**: external-service failures are handled in the gateway and use-case layers.
-- **Schema drift risk**: hybrid RAG plus `INFORMATION_SCHEMA` keeps the assistant accurate as schemas evolve.
+- **Schema drift risk**: direct `INFORMATION_SCHEMA` reads keep the assistant aligned with the live schema at request time.
 - **Secret exposure risk**: environment variables and managed secret stores keep sensitive values out of the codebase.
 - **Regression risk**: unit tests, layer-specific integration tests, and API integration tests with TestServer are in place.
 - **Low-value answer risk**: a second model call transforms raw SQL results into `resultsAsText` when interpretation matters more than the raw table.
@@ -111,7 +113,7 @@ The exact billing SKU should be confirmed in the organization Azure subscription
 - GitHub Actions CI minutes.
 
 ### 10.2 Cost-Control Strategies
-- Keep model context small through selective RAG.
+- Keep model context small through focused prompt construction and question-specific SQL planning.
 - Define token and timeout boundaries.
 - Prefer autoscaling and on-demand compute behavior.
 - Reuse immutable SHA-tagged images and avoid unnecessary rebuilds.

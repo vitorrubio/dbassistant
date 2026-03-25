@@ -19,4 +19,5 @@ public sealed class QueryAssistantRequest
     /// Gets or sets a value indicating whether SQL-generation details should be returned to the caller.
     /// </summary>
     public bool? ShowDetails { get; init; }
+
 }

@@ -1,6 +1,5 @@
 using DBAssistant.Services.Configuration;
 using DBAssistant.Services.OpenAI;
-using DBAssistant.Services.SchemaKnowledge;
 using DBAssistant.UseCases.Ports;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 namespace DBAssistant.Services.DependencyInjection;
 
 /// <summary>
-/// Registers service-layer dependencies such as the OpenAI gateway and schema-knowledge retrieval.
+/// Registers service-layer dependencies such as the OpenAI gateway.
 /// </summary>
 public static class ServiceCollectionExtensions
 {
@@ -27,7 +26,6 @@ public static class ServiceCollectionExtensions
             options.ApiKey = configuration["OPENAI_API_KEY"] ?? string.Empty;
             options.BaseUrl = configuration["OPENAI_BASE_URL"] ?? "https://api.openai.com/v1";
             options.Model = configuration["OPENAI_MODEL"] ?? "gpt-5.4";
-            options.EmbeddingModel = configuration["OPENAI_EMBEDDING_MODEL"] ?? "text-embedding-3-small";
         });
 
         services.Configure<CacheOptions>(options =>
@@ -35,22 +33,6 @@ public static class ServiceCollectionExtensions
             if (int.TryParse(configuration["CACHE_SQL_PLAN_MINUTES"], out var sqlPlanMinutes))
             {
                 options.SqlPlanMinutes = sqlPlanMinutes;
-            }
-
-            if (int.TryParse(configuration["CACHE_SCHEMA_SEARCH_MINUTES"], out var schemaSearchMinutes))
-            {
-                options.SchemaSearchMinutes = schemaSearchMinutes;
-            }
-        });
-
-        services.Configure<SchemaKnowledgeOptions>(options =>
-        {
-            options.FilePath = configuration["SCHEMA_KNOWLEDGE_FILE_PATH"] ?? "knowledge/runtime/schema-documents.json";
-            options.EmbeddingsFilePath = configuration["SCHEMA_KNOWLEDGE_EMBEDDINGS_FILE_PATH"] ?? "knowledge/runtime/schema-embeddings.json";
-
-            if (int.TryParse(configuration["SCHEMA_KNOWLEDGE_MAX_DOCUMENTS"], out var maxDocuments))
-            {
-                options.MaxDocuments = maxDocuments;
             }
         });
 
@@ -64,7 +46,6 @@ public static class ServiceCollectionExtensions
             client.Timeout = TimeSpan.FromSeconds(90);
         });
         services.AddScoped<ISqlGenerationGateway, OpenAiSqlGenerationGateway>();
-        services.AddScoped<ISchemaKnowledgeSearchGateway, JsonSchemaKnowledgeSearchGateway>();
 
         return services;
     }

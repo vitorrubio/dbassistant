@@ -6,7 +6,6 @@ items:
   children:
   - DBAssistant.UseCases.Ports.IProcessNaturalLanguageQueryUseCase
   - DBAssistant.UseCases.Ports.ISchemaContextAssembler
-  - DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway
   - DBAssistant.UseCases.Ports.ISqlGenerationGateway
   - DBAssistant.UseCases.Ports.ISqlQueryExecutor
   langs:
@@ -33,13 +32,6 @@ references:
   name: ISchemaContextAssembler
   nameWithType: ISchemaContextAssembler
   fullName: DBAssistant.UseCases.Ports.ISchemaContextAssembler
-- uid: DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway
-  commentId: T:DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway
-  parent: DBAssistant.UseCases.Ports
-  href: DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway.html
-  name: ISchemaKnowledgeSearchGateway
-  nameWithType: ISchemaKnowledgeSearchGateway
-  fullName: DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway
 - uid: DBAssistant.UseCases.Ports.ISqlGenerationGateway
   commentId: T:DBAssistant.UseCases.Ports.ISqlGenerationGateway
   parent: DBAssistant.UseCases.Ports

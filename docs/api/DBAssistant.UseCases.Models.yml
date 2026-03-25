@@ -10,7 +10,6 @@ items:
   - DBAssistant.UseCases.Models.QueryExecutionResult
   - DBAssistant.UseCases.Models.QueryResultNarration
   - DBAssistant.UseCases.Models.SchemaContextEnvelope
-  - DBAssistant.UseCases.Models.SchemaKnowledgeDocument
   langs:
   - csharp
   - vb
@@ -60,12 +59,6 @@ references:
   name: SchemaContextEnvelope
   nameWithType: SchemaContextEnvelope
   fullName: DBAssistant.UseCases.Models.SchemaContextEnvelope
-- uid: DBAssistant.UseCases.Models.SchemaKnowledgeDocument
-  commentId: T:DBAssistant.UseCases.Models.SchemaKnowledgeDocument
-  href: DBAssistant.UseCases.Models.SchemaKnowledgeDocument.html
-  name: SchemaKnowledgeDocument
-  nameWithType: SchemaKnowledgeDocument
-  fullName: DBAssistant.UseCases.Models.SchemaKnowledgeDocument
 - uid: DBAssistant.UseCases.Models
   commentId: N:DBAssistant.UseCases.Models
   href: DBAssistant.html

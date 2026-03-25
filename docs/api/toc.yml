@@ -112,9 +112,6 @@ items:
   - uid: DBAssistant.Services.Configuration.OpenAiOptions
     name: OpenAiOptions
     type: Class
-  - uid: DBAssistant.Services.Configuration.SchemaKnowledgeOptions
-    name: SchemaKnowledgeOptions
-    type: Class
 - uid: DBAssistant.Services.DependencyInjection
   name: DBAssistant.Services.DependencyInjection
   type: Namespace
@@ -136,15 +133,6 @@ items:
   name: DBAssistant.Services.OpenAI.Contracts
   type: Namespace
   items:
-  - uid: DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingItem
-    name: OpenAiEmbeddingItem
-    type: Class
-  - uid: DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingsRequest
-    name: OpenAiEmbeddingsRequest
-    type: Class
-  - uid: DBAssistant.Services.OpenAI.Contracts.OpenAiEmbeddingsResponse
-    name: OpenAiEmbeddingsResponse
-    type: Class
   - uid: DBAssistant.Services.OpenAI.Contracts.OpenAiInputContent
     name: OpenAiInputContent
     type: Class
@@ -171,22 +159,6 @@ items:
     type: Class
   - uid: DBAssistant.Services.OpenAI.Contracts.OpenAiToolDefinition
     name: OpenAiToolDefinition
-    type: Class
-- uid: DBAssistant.Services.SchemaKnowledge
-  name: DBAssistant.Services.SchemaKnowledge
-  type: Namespace
-  items:
-  - uid: DBAssistant.Services.SchemaKnowledge.JsonSchemaKnowledgeSearchGateway
-    name: JsonSchemaKnowledgeSearchGateway
-    type: Class
-  - uid: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact
-    name: SchemaKnowledgeArtifact
-    type: Class
-  - uid: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeEmbeddingDocument
-    name: SchemaKnowledgeEmbeddingDocument
-    type: Class
-  - uid: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeEmbeddingsArtifact
-    name: SchemaKnowledgeEmbeddingsArtifact
     type: Class
 - uid: DBAssistant.UseCases.DependencyInjection
   name: DBAssistant.UseCases.DependencyInjection
@@ -230,9 +202,6 @@ items:
   - uid: DBAssistant.UseCases.Models.SchemaContextEnvelope
     name: SchemaContextEnvelope
     type: Class
-  - uid: DBAssistant.UseCases.Models.SchemaKnowledgeDocument
-    name: SchemaKnowledgeDocument
-    type: Class
 - uid: DBAssistant.UseCases.Ports
   name: DBAssistant.UseCases.Ports
   type: Namespace
@@ -242,9 +211,6 @@ items:
     type: Interface
   - uid: DBAssistant.UseCases.Ports.ISchemaContextAssembler
     name: ISchemaContextAssembler
-    type: Interface
-  - uid: DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway
-    name: ISchemaKnowledgeSearchGateway
     type: Interface
   - uid: DBAssistant.UseCases.Ports.ISqlGenerationGateway
     name: ISqlGenerationGateway

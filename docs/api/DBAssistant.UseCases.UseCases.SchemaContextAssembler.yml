@@ -5,7 +5,7 @@ items:
   id: SchemaContextAssembler
   parent: DBAssistant.UseCases.UseCases
   children:
-  - DBAssistant.UseCases.UseCases.SchemaContextAssembler.#ctor(DBAssistant.Domain.Repositories.IInformationSchemaReader,DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway)
+  - DBAssistant.UseCases.UseCases.SchemaContextAssembler.#ctor(DBAssistant.Domain.Repositories.IInformationSchemaReader)
   - DBAssistant.UseCases.UseCases.SchemaContextAssembler.BuildAsync(System.String,System.Threading.CancellationToken)
   langs:
   - csharp
@@ -21,11 +21,11 @@ items:
       repo: https://github.com/vitorrubio/dbassistant.git
     id: SchemaContextAssembler
     path: ../src/UseCases/DBAssistant.UseCases/UseCases/SchemaContextAssembler.cs
-    startLine: 10
+    startLine: 9
   assemblies:
   - DBAssistant.UseCases
   namespace: DBAssistant.UseCases.UseCases
-  summary: Combines indexed schema knowledge and live information-schema metadata into a prompt-friendly context payload.
+  summary: Formats live information-schema metadata into a prompt-friendly context payload.
   example: []
   syntax:
     content: 'public sealed class SchemaContextAssembler : ISchemaContextAssembler'
@@ -41,16 +41,16 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: DBAssistant.UseCases.UseCases.SchemaContextAssembler.#ctor(DBAssistant.Domain.Repositories.IInformationSchemaReader,DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway)
-  commentId: M:DBAssistant.UseCases.UseCases.SchemaContextAssembler.#ctor(DBAssistant.Domain.Repositories.IInformationSchemaReader,DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway)
-  id: '#ctor(DBAssistant.Domain.Repositories.IInformationSchemaReader,DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway)'
+- uid: DBAssistant.UseCases.UseCases.SchemaContextAssembler.#ctor(DBAssistant.Domain.Repositories.IInformationSchemaReader)
+  commentId: M:DBAssistant.UseCases.UseCases.SchemaContextAssembler.#ctor(DBAssistant.Domain.Repositories.IInformationSchemaReader)
+  id: '#ctor(DBAssistant.Domain.Repositories.IInformationSchemaReader)'
   parent: DBAssistant.UseCases.UseCases.SchemaContextAssembler
   langs:
   - csharp
   - vb
-  name: SchemaContextAssembler(IInformationSchemaReader, ISchemaKnowledgeSearchGateway)
-  nameWithType: SchemaContextAssembler.SchemaContextAssembler(IInformationSchemaReader, ISchemaKnowledgeSearchGateway)
-  fullName: DBAssistant.UseCases.UseCases.SchemaContextAssembler.SchemaContextAssembler(DBAssistant.Domain.Repositories.IInformationSchemaReader, DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway)
+  name: SchemaContextAssembler(IInformationSchemaReader)
+  nameWithType: SchemaContextAssembler.SchemaContextAssembler(IInformationSchemaReader)
+  fullName: DBAssistant.UseCases.UseCases.SchemaContextAssembler.SchemaContextAssembler(DBAssistant.Domain.Repositories.IInformationSchemaReader)
   type: Constructor
   source:
     remote:
@@ -59,26 +59,23 @@ items:
       repo: https://github.com/vitorrubio/dbassistant.git
     id: .ctor
     path: ../src/UseCases/DBAssistant.UseCases/UseCases/SchemaContextAssembler.cs
-    startLine: 22
+    startLine: 18
   assemblies:
   - DBAssistant.UseCases
   namespace: DBAssistant.UseCases.UseCases
   summary: Initializes a new instance of the <xref href="DBAssistant.UseCases.UseCases.SchemaContextAssembler" data-throw-if-not-resolved="false"></xref> class.
   example: []
   syntax:
-    content: public SchemaContextAssembler(IInformationSchemaReader informationSchemaReader, ISchemaKnowledgeSearchGateway schemaKnowledgeSearchGateway)
+    content: public SchemaContextAssembler(IInformationSchemaReader informationSchemaReader)
     parameters:
     - id: informationSchemaReader
       type: DBAssistant.Domain.Repositories.IInformationSchemaReader
       description: The reader that returns live metadata from the connected database.
-    - id: schemaKnowledgeSearchGateway
-      type: DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway
-      description: The gateway that retrieves indexed schema knowledge.
-    content.vb: Public Sub New(informationSchemaReader As IInformationSchemaReader, schemaKnowledgeSearchGateway As ISchemaKnowledgeSearchGateway)
+    content.vb: Public Sub New(informationSchemaReader As IInformationSchemaReader)
   overload: DBAssistant.UseCases.UseCases.SchemaContextAssembler.#ctor*
-  nameWithType.vb: SchemaContextAssembler.New(IInformationSchemaReader, ISchemaKnowledgeSearchGateway)
-  fullName.vb: DBAssistant.UseCases.UseCases.SchemaContextAssembler.New(DBAssistant.Domain.Repositories.IInformationSchemaReader, DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway)
-  name.vb: New(IInformationSchemaReader, ISchemaKnowledgeSearchGateway)
+  nameWithType.vb: SchemaContextAssembler.New(IInformationSchemaReader)
+  fullName.vb: DBAssistant.UseCases.UseCases.SchemaContextAssembler.New(DBAssistant.Domain.Repositories.IInformationSchemaReader)
+  name.vb: New(IInformationSchemaReader)
 - uid: DBAssistant.UseCases.UseCases.SchemaContextAssembler.BuildAsync(System.String,System.Threading.CancellationToken)
   commentId: M:DBAssistant.UseCases.UseCases.SchemaContextAssembler.BuildAsync(System.String,System.Threading.CancellationToken)
   id: BuildAsync(System.String,System.Threading.CancellationToken)
@@ -97,11 +94,11 @@ items:
       repo: https://github.com/vitorrubio/dbassistant.git
     id: BuildAsync
     path: ../src/UseCases/DBAssistant.UseCases/UseCases/SchemaContextAssembler.cs
-    startLine: 36
+    startLine: 29
   assemblies:
   - DBAssistant.UseCases
   namespace: DBAssistant.UseCases.UseCases
-  summary: Builds schema context for a user question by prioritizing indexed knowledge and appending live metadata as fallback.
+  summary: Builds schema context for a user question using live metadata from INFORMATION_SCHEMA.
   example: []
   syntax:
     content: public Task<SchemaContextEnvelope> BuildAsync(string question, CancellationToken cancellationToken)
@@ -114,7 +111,7 @@ items:
       description: The cancellation token used to stop the operation.
     return:
       type: System.Threading.Tasks.Task{DBAssistant.UseCases.Models.SchemaContextEnvelope}
-      description: A schema context envelope that identifies whether RAG and/or live metadata were used.
+      description: A schema context envelope that identifies live metadata as the source.
     content.vb: Public Function BuildAsync(question As String, cancellationToken As CancellationToken) As Task(Of SchemaContextEnvelope)
   overload: DBAssistant.UseCases.UseCases.SchemaContextAssembler.BuildAsync*
   implements:
@@ -411,7 +408,7 @@ references:
   fullName: DBAssistant.UseCases.UseCases.SchemaContextAssembler
 - uid: DBAssistant.UseCases.UseCases.SchemaContextAssembler.#ctor*
   commentId: Overload:DBAssistant.UseCases.UseCases.SchemaContextAssembler.#ctor
-  href: DBAssistant.UseCases.UseCases.SchemaContextAssembler.html#DBAssistant_UseCases_UseCases_SchemaContextAssembler__ctor_DBAssistant_Domain_Repositories_IInformationSchemaReader_DBAssistant_UseCases_Ports_ISchemaKnowledgeSearchGateway_
+  href: DBAssistant.UseCases.UseCases.SchemaContextAssembler.html#DBAssistant_UseCases_UseCases_SchemaContextAssembler__ctor_DBAssistant_Domain_Repositories_IInformationSchemaReader_
   name: SchemaContextAssembler
   nameWithType: SchemaContextAssembler.SchemaContextAssembler
   fullName: DBAssistant.UseCases.UseCases.SchemaContextAssembler.SchemaContextAssembler
@@ -425,13 +422,6 @@ references:
   name: IInformationSchemaReader
   nameWithType: IInformationSchemaReader
   fullName: DBAssistant.Domain.Repositories.IInformationSchemaReader
-- uid: DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway
-  commentId: T:DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway
-  parent: DBAssistant.UseCases.Ports
-  href: DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway.html
-  name: ISchemaKnowledgeSearchGateway
-  nameWithType: ISchemaKnowledgeSearchGateway
-  fullName: DBAssistant.UseCases.Ports.ISchemaKnowledgeSearchGateway
 - uid: DBAssistant.Domain.Repositories
   commentId: N:DBAssistant.Domain.Repositories
   href: DBAssistant.html

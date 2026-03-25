@@ -19,15 +19,7 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
     [Trait("Category", "IntegrationTests")]
     public async Task ExecuteAsync_ShouldExecuteByDefault_WhenExecuteSqlIsOmitted()
     {
-        var schemaContextAssembler = new SchemaContextAssembler(
-            new FakeInformationSchemaReader(),
-            new FakeSchemaKnowledgeSearchGateway(
-                new SchemaKnowledgeDocument
-                {
-                    Title = "Orders document",
-                    Content = "Orders can be joined with customers.",
-                    RelatedTables = ["Orders", "Customers"]
-                }));
+        var schemaContextAssembler = new SchemaContextAssembler(new FakeInformationSchemaReader());
 
         var useCase = new ProcessNaturalLanguageQueryUseCase(
             schemaContextAssembler,
@@ -56,9 +48,7 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
     [Trait("Category", "IntegrationTests")]
     public async Task ExecuteAsync_ShouldRejectEmptyQuestion()
     {
-        var schemaContextAssembler = new SchemaContextAssembler(
-            new FakeInformationSchemaReader(),
-            new FakeSchemaKnowledgeSearchGateway());
+        var schemaContextAssembler = new SchemaContextAssembler(new FakeInformationSchemaReader());
 
         var useCase = new ProcessNaturalLanguageQueryUseCase(
             schemaContextAssembler,
@@ -80,11 +70,9 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
     /// </summary>
     [Fact]
     [Trait("Category", "IntegrationTests")]
-    public async Task ExecuteAsync_ShouldFallbackToInformationSchemaWhenRagHasNoMatch()
+    public async Task ExecuteAsync_ShouldBuildContextFromInformationSchema()
     {
-        var schemaContextAssembler = new SchemaContextAssembler(
-            new FakeInformationSchemaReader(),
-            new FakeSchemaKnowledgeSearchGateway());
+        var schemaContextAssembler = new SchemaContextAssembler(new FakeInformationSchemaReader());
 
         var useCase = new ProcessNaturalLanguageQueryUseCase(
             schemaContextAssembler,
@@ -110,9 +98,7 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
     [Trait("Category", "IntegrationTests")]
     public async Task ExecuteAsync_ShouldNotExecute_WhenExecuteSqlIsExplicitlyFalse()
     {
-        var schemaContextAssembler = new SchemaContextAssembler(
-            new FakeInformationSchemaReader(),
-            new FakeSchemaKnowledgeSearchGateway());
+        var schemaContextAssembler = new SchemaContextAssembler(new FakeInformationSchemaReader());
 
         var useCase = new ProcessNaturalLanguageQueryUseCase(
             schemaContextAssembler,
@@ -140,9 +126,7 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
     [Trait("Category", "IntegrationTests")]
     public async Task ExecuteAsync_ShouldReturnSqlAndExplanation_WhenShowDetailsIsTrue()
     {
-        var schemaContextAssembler = new SchemaContextAssembler(
-            new FakeInformationSchemaReader(),
-            new FakeSchemaKnowledgeSearchGateway());
+        var schemaContextAssembler = new SchemaContextAssembler(new FakeInformationSchemaReader());
 
         var useCase = new ProcessNaturalLanguageQueryUseCase(
             schemaContextAssembler,
@@ -172,9 +156,7 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
     [Trait("Category", "IntegrationTests")]
     public async Task ExecuteAsync_ShouldHideDetailsByDefault_WhenShowDetailsIsOmitted()
     {
-        var schemaContextAssembler = new SchemaContextAssembler(
-            new FakeInformationSchemaReader(),
-            new FakeSchemaKnowledgeSearchGateway());
+        var schemaContextAssembler = new SchemaContextAssembler(new FakeInformationSchemaReader());
 
         var useCase = new ProcessNaturalLanguageQueryUseCase(
             schemaContextAssembler,
@@ -203,9 +185,7 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
     [Trait("Category", "IntegrationTests")]
     public async Task ExecuteAsync_ShouldRejectQuestion_WhenSchemaCannotAnswerIt()
     {
-        var schemaContextAssembler = new SchemaContextAssembler(
-            new FakeInformationSchemaReader(),
-            new FakeSchemaKnowledgeSearchGateway());
+        var schemaContextAssembler = new SchemaContextAssembler(new FakeInformationSchemaReader());
 
         var useCase = new ProcessNaturalLanguageQueryUseCase(
             schemaContextAssembler,
@@ -231,9 +211,7 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
     [Trait("Category", "IntegrationTests")]
     public async Task ExecuteAsync_ShouldRejectGeneratedSql_WhenDatabaseReturnsWarnings()
     {
-        var schemaContextAssembler = new SchemaContextAssembler(
-            new FakeInformationSchemaReader(),
-            new FakeSchemaKnowledgeSearchGateway());
+        var schemaContextAssembler = new SchemaContextAssembler(new FakeInformationSchemaReader());
 
         var useCase = new ProcessNaturalLanguageQueryUseCase(
             schemaContextAssembler,

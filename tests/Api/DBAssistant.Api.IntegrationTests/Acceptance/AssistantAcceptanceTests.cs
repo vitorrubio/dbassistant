@@ -26,8 +26,7 @@ public sealed class AssistantAcceptanceTests
         "MYSQL_PASSWORD",
         "OPENAI_API_KEY",
         "OPENAI_BASE_URL",
-        "OPENAI_MODEL",
-        "SCHEMA_KNOWLEDGE_FILE_PATH"
+        "OPENAI_MODEL"
     ];
 
     private static readonly AcceptanceScenario[] ScenarioItems =

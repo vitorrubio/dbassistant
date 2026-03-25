@@ -25,10 +25,10 @@ public sealed class AssistantRealLlmEvaluationTests
         "MYSQL_PASSWORD",
         "OPENAI_API_KEY",
         "OPENAI_BASE_URL",
-        "OPENAI_MODEL",
-        "OPENAI_EMBEDDING_MODEL",
-        "SCHEMA_KNOWLEDGE_FILE_PATH"
+        "OPENAI_MODEL"
     ];
+
+    private const string RunRealLlmEvaluationTestsKey = "RUN_REAL_LLM_EVALUATION_TESTS";
 
     private static readonly Acceptance.AcceptanceScenario[] ScenarioItems =
     [
@@ -273,6 +273,12 @@ public sealed class AssistantRealLlmEvaluationTests
 
     private static bool HasRequiredConfiguration(IReadOnlyDictionary<string, string> envValues)
     {
+        if (envValues.TryGetValue(RunRealLlmEvaluationTestsKey, out var runRealLlmEvaluationTests) is false ||
+            string.Equals(runRealLlmEvaluationTests, "true", StringComparison.OrdinalIgnoreCase) is false)
+        {
+            return false;
+        }
+
         foreach (var key in RequiredEnvironmentKeys)
         {
             if (envValues.TryGetValue(key, out var value) is false ||

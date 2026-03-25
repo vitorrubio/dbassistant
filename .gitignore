@@ -40,12 +40,6 @@ logs/
 docs/_site/
 docs/swagger/
 
-# Runtime schema knowledge artifacts
-knowledge/runtime/
-knowledge/*.json
-knowledge/*.jsonl
-!knowledge/.gitkeep
-
 # OS files
 .DS_Store
 Thumbs.db

@@ -5,7 +5,6 @@ items:
   id: CacheOptions
   parent: DBAssistant.Services.Configuration
   children:
-  - DBAssistant.Services.Configuration.CacheOptions.SchemaSearchMinutes
   - DBAssistant.Services.Configuration.CacheOptions.SqlPlanMinutes
   langs:
   - csharp
@@ -70,37 +69,6 @@ items:
       type: System.Int32
     content.vb: Public Property SqlPlanMinutes As Integer
   overload: DBAssistant.Services.Configuration.CacheOptions.SqlPlanMinutes*
-- uid: DBAssistant.Services.Configuration.CacheOptions.SchemaSearchMinutes
-  commentId: P:DBAssistant.Services.Configuration.CacheOptions.SchemaSearchMinutes
-  id: SchemaSearchMinutes
-  parent: DBAssistant.Services.Configuration.CacheOptions
-  langs:
-  - csharp
-  - vb
-  name: SchemaSearchMinutes
-  nameWithType: CacheOptions.SchemaSearchMinutes
-  fullName: DBAssistant.Services.Configuration.CacheOptions.SchemaSearchMinutes
-  type: Property
-  source:
-    remote:
-      path: src/Services/DBAssistant.Services/Configuration/CacheOptions.cs
-      branch: master
-      repo: https://github.com/vitorrubio/dbassistant.git
-    id: SchemaSearchMinutes
-    path: ../src/Services/DBAssistant.Services/Configuration/CacheOptions.cs
-    startLine: 15
-  assemblies:
-  - DBAssistant.Services
-  namespace: DBAssistant.Services.Configuration
-  summary: Gets or sets the number of minutes that schema search results stay in memory.
-  example: []
-  syntax:
-    content: public int SchemaSearchMinutes { get; set; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public Property SchemaSearchMinutes As Integer
-  overload: DBAssistant.Services.Configuration.CacheOptions.SchemaSearchMinutes*
 references:
 - uid: DBAssistant.Services.Configuration
   commentId: N:DBAssistant.Services.Configuration
@@ -362,9 +330,3 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: DBAssistant.Services.Configuration.CacheOptions.SchemaSearchMinutes*
-  commentId: Overload:DBAssistant.Services.Configuration.CacheOptions.SchemaSearchMinutes
-  href: DBAssistant.Services.Configuration.CacheOptions.html#DBAssistant_Services_Configuration_CacheOptions_SchemaSearchMinutes
-  name: SchemaSearchMinutes
-  nameWithType: CacheOptions.SchemaSearchMinutes
-  fullName: DBAssistant.Services.Configuration.CacheOptions.SchemaSearchMinutes

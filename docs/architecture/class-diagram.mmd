@@ -19,7 +19,6 @@ classDiagram
     }
 
     class SchemaContextAssembler {
-      -ISchemaKnowledgeSearchGateway _schemaKnowledgeSearchGateway
       -IInformationSchemaReader _informationSchemaReader
       +BuildAsync(question, cancellationToken)
     }
@@ -50,14 +49,6 @@ classDiagram
       +ReadSchemaAsync(cancellationToken)
     }
 
-    class ISchemaKnowledgeSearchGateway {
-      +SearchAsync(question, cancellationToken)
-    }
-
-    class JsonSchemaKnowledgeSearchGateway {
-      +SearchAsync(question, cancellationToken)
-    }
-
     class SqlStatement {
       +Value
       +Create(rawSql)
@@ -70,12 +61,9 @@ classDiagram
     ProcessNaturalLanguageQueryUseCase --> ISqlQueryExecutor
 
     SchemaContextAssembler ..|> ISchemaContextAssembler
-    SchemaContextAssembler --> ISchemaKnowledgeSearchGateway
     SchemaContextAssembler --> IInformationSchemaReader
 
     OpenAiSqlGenerationGateway ..|> ISqlGenerationGateway
     MySqlQueryExecutor ..|> ISqlQueryExecutor
     InformationSchemaReader ..|> IInformationSchemaReader
-    JsonSchemaKnowledgeSearchGateway ..|> ISchemaKnowledgeSearchGateway
-
     MySqlQueryExecutor --> SqlStatement

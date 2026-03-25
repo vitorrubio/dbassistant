@@ -6,7 +6,6 @@ items:
   parent: DBAssistant.Services.OpenAI
   children:
   - DBAssistant.Services.OpenAI.OpenAiTransportClient.#ctor(System.Net.Http.HttpClient,Microsoft.Extensions.Options.IOptions{DBAssistant.Services.Configuration.OpenAiOptions})
-  - DBAssistant.Services.OpenAI.OpenAiTransportClient.CreateEmbeddingAsync(System.String,System.Threading.CancellationToken)
   - DBAssistant.Services.OpenAI.OpenAiTransportClient.CreateResponseAsync(DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesRequest,System.Threading.CancellationToken)
   langs:
   - csharp
@@ -26,7 +25,7 @@ items:
   assemblies:
   - DBAssistant.Services
   namespace: DBAssistant.Services.OpenAI
-  summary: Wraps typed access to the OpenAI Responses and Embeddings APIs.
+  summary: Wraps typed access to the OpenAI Responses API.
   example: []
   syntax:
     content: public sealed class OpenAiTransportClient
@@ -111,44 +110,6 @@ items:
       type: System.Threading.Tasks.Task{DBAssistant.Services.OpenAI.Contracts.OpenAiResponsesResponse}
     content.vb: Public Function CreateResponseAsync(requestPayload As OpenAiResponsesRequest, cancellationToken As CancellationToken) As Task(Of OpenAiResponsesResponse)
   overload: DBAssistant.Services.OpenAI.OpenAiTransportClient.CreateResponseAsync*
-- uid: DBAssistant.Services.OpenAI.OpenAiTransportClient.CreateEmbeddingAsync(System.String,System.Threading.CancellationToken)
-  commentId: M:DBAssistant.Services.OpenAI.OpenAiTransportClient.CreateEmbeddingAsync(System.String,System.Threading.CancellationToken)
-  id: CreateEmbeddingAsync(System.String,System.Threading.CancellationToken)
-  parent: DBAssistant.Services.OpenAI.OpenAiTransportClient
-  langs:
-  - csharp
-  - vb
-  name: CreateEmbeddingAsync(string, CancellationToken)
-  nameWithType: OpenAiTransportClient.CreateEmbeddingAsync(string, CancellationToken)
-  fullName: DBAssistant.Services.OpenAI.OpenAiTransportClient.CreateEmbeddingAsync(string, System.Threading.CancellationToken)
-  type: Method
-  source:
-    remote:
-      path: src/Services/DBAssistant.Services/OpenAI/OpenAiTransportClient.cs
-      branch: master
-      repo: https://github.com/vitorrubio/dbassistant.git
-    id: CreateEmbeddingAsync
-    path: ../src/Services/DBAssistant.Services/OpenAI/OpenAiTransportClient.cs
-    startLine: 60
-  assemblies:
-  - DBAssistant.Services
-  namespace: DBAssistant.Services.OpenAI
-  summary: Sends one text to the embeddings API and returns the vector.
-  example: []
-  syntax:
-    content: public Task<IReadOnlyCollection<float>> CreateEmbeddingAsync(string input, CancellationToken cancellationToken)
-    parameters:
-    - id: input
-      type: System.String
-    - id: cancellationToken
-      type: System.Threading.CancellationToken
-    return:
-      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{System.Single}}
-    content.vb: Public Function CreateEmbeddingAsync(input As String, cancellationToken As CancellationToken) As Task(Of IReadOnlyCollection(Of Single))
-  overload: DBAssistant.Services.OpenAI.OpenAiTransportClient.CreateEmbeddingAsync*
-  nameWithType.vb: OpenAiTransportClient.CreateEmbeddingAsync(String, CancellationToken)
-  fullName.vb: DBAssistant.Services.OpenAI.OpenAiTransportClient.CreateEmbeddingAsync(String, System.Threading.CancellationToken)
-  name.vb: CreateEmbeddingAsync(String, CancellationToken)
 references:
 - uid: DBAssistant.Services.OpenAI
   commentId: N:DBAssistant.Services.OpenAI
@@ -736,69 +697,3 @@ references:
     name: Tasks
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
-- uid: DBAssistant.Services.OpenAI.OpenAiTransportClient.CreateEmbeddingAsync*
-  commentId: Overload:DBAssistant.Services.OpenAI.OpenAiTransportClient.CreateEmbeddingAsync
-  href: DBAssistant.Services.OpenAI.OpenAiTransportClient.html#DBAssistant_Services_OpenAI_OpenAiTransportClient_CreateEmbeddingAsync_System_String_System_Threading_CancellationToken_
-  name: CreateEmbeddingAsync
-  nameWithType: OpenAiTransportClient.CreateEmbeddingAsync
-  fullName: DBAssistant.Services.OpenAI.OpenAiTransportClient.CreateEmbeddingAsync
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string
-  nameWithType: string
-  fullName: string
-  nameWithType.vb: String
-  fullName.vb: String
-  name.vb: String
-- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{System.Single}}
-  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{System.Single}}
-  parent: System.Threading.Tasks
-  definition: System.Threading.Tasks.Task`1
-  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
-  name: Task<IReadOnlyCollection<float>>
-  nameWithType: Task<IReadOnlyCollection<float>>
-  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyCollection<float>>
-  nameWithType.vb: Task(Of IReadOnlyCollection(Of Single))
-  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyCollection(Of Single))
-  name.vb: Task(Of IReadOnlyCollection(Of Single))
-  spec.csharp:
-  - uid: System.Threading.Tasks.Task`1
-    name: Task
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
-  - name: <
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
-    name: IReadOnlyCollection
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
-  - name: <
-  - uid: System.Single
-    name: float
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.single
-  - name: '>'
-  - name: '>'
-  spec.vb:
-  - uid: System.Threading.Tasks.Task`1
-    name: Task
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
-    name: IReadOnlyCollection
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.Single
-    name: Single
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.single
-  - name: )
-  - name: )

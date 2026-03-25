@@ -2,12 +2,11 @@ flowchart LR
     Client[Client / API Consumer] --> Api[API\nController + API Key Middleware]
     Api --> UseCases[UseCases\nProcessNaturalLanguageQueryUseCase]
     UseCases --> Domain[Domain\nEntities and Contracts]
-    UseCases --> Services[Services\nOpenAI + Knowledge Search]
+    UseCases --> Services[Services\nOpenAI]
     UseCases --> Data[Data\nINFORMATION_SCHEMA + SQL Executor]
 
     Data --> MySql[(MySQL)]
     Services --> OpenAI[(OpenAI API)]
-    Services --> Knowledge[(knowledge/runtime/schema-documents.json)]
 
     subgraph CI/CD
         GH[GitHub Actions] --> GHCR[GitHub Container Registry]

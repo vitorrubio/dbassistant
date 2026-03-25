@@ -24,7 +24,7 @@ public sealed class AssistantQueryResponseExample : IExamplesProvider<QueryAssis
                 ORDER BY total_quantity_sold DESC, p.product_name ASC;
                 """.Trim(),
             Explanation = "Aggregates sold quantities per product and orders the result descending by total quantity sold.",
-            SchemaContextSource = "rag+information_schema",
+            SchemaContextSource = "information_schema",
             Executed = true,
             Columns = ["product_id", "product_name", "total_quantity_sold"],
             Rows =

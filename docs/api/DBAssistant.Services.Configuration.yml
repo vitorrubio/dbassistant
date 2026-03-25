@@ -6,7 +6,6 @@ items:
   children:
   - DBAssistant.Services.Configuration.CacheOptions
   - DBAssistant.Services.Configuration.OpenAiOptions
-  - DBAssistant.Services.Configuration.SchemaKnowledgeOptions
   langs:
   - csharp
   - vb
@@ -29,9 +28,3 @@ references:
   name: OpenAiOptions
   nameWithType: OpenAiOptions
   fullName: DBAssistant.Services.Configuration.OpenAiOptions
-- uid: DBAssistant.Services.Configuration.SchemaKnowledgeOptions
-  commentId: T:DBAssistant.Services.Configuration.SchemaKnowledgeOptions
-  href: DBAssistant.Services.Configuration.SchemaKnowledgeOptions.html
-  name: SchemaKnowledgeOptions
-  nameWithType: SchemaKnowledgeOptions
-  fullName: DBAssistant.Services.Configuration.SchemaKnowledgeOptions

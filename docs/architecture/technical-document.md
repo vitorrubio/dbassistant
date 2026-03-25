@@ -9,9 +9,7 @@ The main goal is to accelerate data analysis without exposing end users to raw S
 1. The client sends `POST /api/assistant/query` with the question and, optionally, `executeSql` and `showDetails`.
 2. Middleware validates the API key, using `x-api-key` by default.
 3. `AssistantController` delegates to `IProcessNaturalLanguageQueryUseCase`.
-4. The use case builds schema context through `ISchemaContextAssembler`:
-   - It queries the local runtime knowledge index in `knowledge/runtime/schema-documents.json` together with the persisted vectors in `knowledge/runtime/schema-embeddings.json` for RAG hints.
-   - It falls back to live `INFORMATION_SCHEMA` metadata to cover tables that are not yet indexed.
+4. The use case builds schema context through `ISchemaContextAssembler` using live `INFORMATION_SCHEMA` metadata from the connected database.
 5. `ISqlGenerationGateway` uses OpenAI to generate structured SQL from the question and schema context.
 6. The domain validates the generated statement and blocks forbidden commands, allowing read-only SQL only.
 7. When `executeSql` is omitted, it defaults to `true`. When it is `false`, the SQL is validated but not executed.
@@ -24,7 +22,7 @@ The main goal is to accelerate data analysis without exposing end users to raw S
 - Clean Architecture plus lightweight DDD keeps domain rules and ports in the center and infrastructure details at the edges.
 - Direct SQL access is preferred over an ORM because the product depends on dynamic analytical queries.
 - Interface-driven contracts make it easier to test each layer and swap external gateways.
-- A hybrid RAG plus live-metadata pipeline improves prompt quality without drifting away from the real database state.
+- Live schema metadata keeps the prompt grounded in the authoritative database state without maintaining a secondary retrieval index.
 
 ## 4. Scalability Strategy
 ### 4.1 Horizontal API Scalability
@@ -34,7 +32,7 @@ The API is stateless at runtime, so multiple container replicas can serve reques
 Azure Container Apps can scale replica count based on demand, keeping low-load operating costs under control.
 
 ### 4.3 Context Scalability
-The runtime-generated `schema-documents.json` and `schema-embeddings.json` artifacts reduce the amount of schema context sent to the model for most requests and avoid rebuilding the full semantic index inside the first user request after a restart. `INFORMATION_SCHEMA` preserves functional completeness when the local RAG artifacts are missing, outdated, or unavailable.
+The current implementation prefers live `INFORMATION_SCHEMA` metadata over a secondary retrieval corpus. This keeps the context source authoritative and removes the latency, synchronization, and maintenance costs of a separate schema index.
 
 ### 4.4 Delivery Scalability
 GitHub Actions automates restore, build, test, package, and deployment steps. Immutable `sha-<commit>` image tags improve traceability and rollback safety.
@@ -59,4 +57,4 @@ GitHub Actions automates restore, build, test, package, and deployment steps. Im
 - The workflow injects the client API key through `secretref`, avoiding hardcoded runtime secrets.
 
 ## 6. Observability and Operations
-The current baseline already provides traceability through image tags and automated tests. Recommended next steps are structured logs, per-stage latency metrics for RAG, OpenAI, and database calls, and alerts for authentication failures or external dependency outages.
+The current baseline already provides traceability through image tags and automated tests. Recommended next steps are structured logs, per-stage latency metrics for OpenAI and database calls, and alerts for authentication failures or external dependency outages.

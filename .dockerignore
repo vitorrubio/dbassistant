@@ -10,10 +10,6 @@
 **/obj
 docs/_site
 docs/swagger
-knowledge/runtime
-knowledge/*.json
-knowledge/*.jsonl
-!knowledge/.gitkeep
 TestResults
 coverage
 *.log

@@ -8,7 +8,7 @@ namespace DBAssistant.UseCases.Ports;
 public interface ISchemaContextAssembler
 {
     /// <summary>
-    /// Builds a schema context tailored to the supplied question by combining indexed knowledge and live metadata.
+    /// Builds schema context for the supplied question using live metadata from the connected database.
     /// </summary>
     /// <param name="question">The user question that drives context retrieval.</param>
     /// <param name="cancellationToken">The cancellation token used to stop the operation.</param>

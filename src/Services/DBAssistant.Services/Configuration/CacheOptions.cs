@@ -10,8 +10,4 @@ public sealed class CacheOptions
     /// </summary>
     public int SqlPlanMinutes { get; set; } = 15;
 
-    /// <summary>
-    /// Gets or sets the number of minutes that schema search results stay in memory.
-    /// </summary>
-    public int SchemaSearchMinutes { get; set; } = 30;
 }

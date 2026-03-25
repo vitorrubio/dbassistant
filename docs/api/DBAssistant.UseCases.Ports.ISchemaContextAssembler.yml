@@ -53,7 +53,7 @@ items:
   assemblies:
   - DBAssistant.UseCases
   namespace: DBAssistant.UseCases.Ports
-  summary: Builds a schema context tailored to the supplied question by combining indexed knowledge and live metadata.
+  summary: Builds schema context for the supplied question using live metadata from the connected database.
   example: []
   syntax:
     content: Task<SchemaContextEnvelope> BuildAsync(string question, CancellationToken cancellationToken)
