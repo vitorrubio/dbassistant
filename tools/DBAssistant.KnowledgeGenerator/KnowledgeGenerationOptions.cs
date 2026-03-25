@@ -31,9 +31,19 @@ public sealed class KnowledgeGenerationOptions
     public string Password { get; set; } = string.Empty;
 
     /// <summary>
-    /// Gets or sets the path of the output JSON artifact.
+    /// Gets or sets the output directory where runtime RAG artifacts are written.
     /// </summary>
-    public string OutputPath { get; set; } = string.Empty;
+    public string OutputDirectory { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Gets or sets the JSON artifact path that stores the generated schema documents.
+    /// </summary>
+    public string SchemaDocumentsPath { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Gets or sets the JSONL artifact path that stores one embedding input per document.
+    /// </summary>
+    public string EmbeddingInputPath { get; set; } = string.Empty;
 
     /// <summary>
     /// Builds the runtime MySQL connection string from the configured parts.

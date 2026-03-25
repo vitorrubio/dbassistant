@@ -62,17 +62,29 @@ public sealed class JsonSchemaKnowledgeSearchGateway : ISchemaKnowledgeSearchGat
             return [];
         }
 
-        var embeddingsArtifact = await LoadOrBuildEmbeddingsArtifactAsync(artifact, cancellationToken);
-        var queryEmbedding = await _openAiTransportClient.CreateEmbeddingAsync(question, cancellationToken);
-        var embeddingsById = embeddingsArtifact.Documents.ToDictionary(item => item.Id, StringComparer.Ordinal);
+        SchemaKnowledgeEmbeddingsArtifact? embeddingsArtifact = null;
+        IReadOnlyCollection<float>? queryEmbedding = null;
+
+        try
+        {
+            embeddingsArtifact = await LoadOrBuildEmbeddingsArtifactAsync(artifact, cancellationToken);
+            queryEmbedding = await _openAiTransportClient.CreateEmbeddingAsync(question, cancellationToken);
+        }
+        catch (Exception exception) when (exception is DBAssistant.UseCases.Exceptions.ExternalServiceUnavailableException or IOException or UnauthorizedAccessException)
+        {
+            queryEmbedding = null;
+            embeddingsArtifact = null;
+        }
+
+        var embeddingsById = embeddingsArtifact?.Documents.ToDictionary(item => item.Id, StringComparer.Ordinal)
+            ?? new Dictionary<string, SchemaKnowledgeEmbeddingDocument>(StringComparer.Ordinal);
+        var normalizedQueryTerms = SplitTerms(question).ToArray();
 
         var documents = artifact.Documents
             .Select(document => new
             {
                 Document = document,
-                Score = embeddingsById.TryGetValue(document.Id, out var embeddingDocument)
-                    ? CosineSimilarity(queryEmbedding, embeddingDocument.Embedding)
-                    : double.MinValue
+                Score = CalculateCombinedScore(document, normalizedQueryTerms, queryEmbedding, embeddingsById)
             })
             .Where(item => item.Score > 0)
             .OrderByDescending(item => item.Score)
@@ -117,7 +129,7 @@ public sealed class JsonSchemaKnowledgeSearchGateway : ISchemaKnowledgeSearchGat
 
         foreach (var document in artifact.Documents)
         {
-            var embedding = await _openAiTransportClient.CreateEmbeddingAsync(BuildEmbeddingInput(document), cancellationToken);
+            var embedding = await _openAiTransportClient.CreateEmbeddingAsync(document.EmbeddingInput, cancellationToken);
             embeddedDocuments.Add(new SchemaKnowledgeEmbeddingDocument
             {
                 Id = document.Id,
@@ -148,9 +160,28 @@ public sealed class JsonSchemaKnowledgeSearchGateway : ISchemaKnowledgeSearchGat
         return newArtifact;
     }
 
-    private static string BuildEmbeddingInput(SchemaKnowledgeDocument document)
+    private static double CalculateCombinedScore(
+        SchemaKnowledgeDocument document,
+        IReadOnlyCollection<string> normalizedQueryTerms,
+        IReadOnlyCollection<float>? queryEmbedding,
+        IReadOnlyDictionary<string, SchemaKnowledgeEmbeddingDocument> embeddingsById)
     {
-        return $"{document.Title}\n{document.Content}\nKeywords: {string.Join(", ", document.Keywords)}";
+        var lexicalScore = CalculateLexicalScore(document, normalizedQueryTerms);
+
+        if (queryEmbedding is null ||
+            embeddingsById.TryGetValue(document.Id, out var embeddingDocument) is false)
+        {
+            return lexicalScore;
+        }
+
+        var semanticScore = CosineSimilarity(queryEmbedding, embeddingDocument.Embedding);
+
+        if (semanticScore <= 0)
+        {
+            return lexicalScore;
+        }
+
+        return (semanticScore * 0.7d) + (lexicalScore * 0.3d);
     }
 
     private static double CosineSimilarity(IReadOnlyCollection<float> left, IReadOnlyCollection<float> right)
@@ -186,5 +217,41 @@ public sealed class JsonSchemaKnowledgeSearchGateway : ISchemaKnowledgeSearchGat
     {
         var bytes = SHA256.HashData(Encoding.UTF8.GetBytes(value.Trim().ToLowerInvariant()));
         return Convert.ToHexString(bytes);
+    }
+
+    private static double CalculateLexicalScore(SchemaKnowledgeDocument document, IReadOnlyCollection<string> normalizedQueryTerms)
+    {
+        if (normalizedQueryTerms.Count == 0)
+        {
+            return 0;
+        }
+
+        var lexicalTerms = document.Keywords
+            .Concat(document.SemanticTags)
+            .Concat(document.QuestionPatterns)
+            .Concat(document.JoinHints)
+            .Concat(document.GetAllTableNames())
+            .SelectMany(SplitTerms)
+            .Distinct(StringComparer.OrdinalIgnoreCase)
+            .ToHashSet(StringComparer.OrdinalIgnoreCase);
+
+        if (lexicalTerms.Count == 0)
+        {
+            return 0;
+        }
+
+        var matches = normalizedQueryTerms.Count(lexicalTerms.Contains);
+        return matches == 0
+            ? 0
+            : (double)matches / normalizedQueryTerms.Count;
+    }
+
+    private static IEnumerable<string> SplitTerms(string value)
+    {
+        return value
+            .Replace("_", " ", StringComparison.Ordinal)
+            .Split([' ', '-', '.', ',', ':', ';', '\n', '\r', '(', ')'], StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+            .Where(term => term.Length >= 2)
+            .Select(term => term.ToLowerInvariant());
     }
 }

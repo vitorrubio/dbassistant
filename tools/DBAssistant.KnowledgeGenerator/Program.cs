@@ -1,9 +1,14 @@
 using DBAssistant.KnowledgeGenerator;
 
-var repositoryRoot = ResolveRepositoryRoot();
-var envPath = Path.Combine(repositoryRoot, ".env");
-var outputPath = Path.Combine(repositoryRoot, "knowledge", "schema-index.json");
-var environmentValues = EnvFileReader.Read(envPath);
+var executionRoot = ResolveExecutionRoot();
+var envPath = Path.Combine(executionRoot, ".env");
+var environmentValues = EnvFileReader.ReadOptional(envPath);
+var outputDirectory = GetOptionalValue(environmentValues, "SCHEMA_KNOWLEDGE_DIRECTORY")
+    ?? Path.Combine(executionRoot, "knowledge", "runtime");
+var schemaDocumentsPath = GetOptionalValue(environmentValues, "SCHEMA_KNOWLEDGE_FILE_PATH")
+    ?? Path.Combine(outputDirectory, "schema-documents.json");
+var embeddingInputPath = GetOptionalValue(environmentValues, "SCHEMA_KNOWLEDGE_EMBEDDING_INPUT_FILE_PATH")
+    ?? Path.Combine(outputDirectory, "schema-embedding-input.jsonl");
 
 var options = new KnowledgeGenerationOptions
 {
@@ -12,17 +17,20 @@ var options = new KnowledgeGenerationOptions
     Database = GetRequiredValue(environmentValues, "MYSQL_DATABASE"),
     Username = GetRequiredValue(environmentValues, "MYSQL_USERNAME"),
     Password = GetRequiredValue(environmentValues, "MYSQL_PASSWORD"),
-    OutputPath = outputPath
+    OutputDirectory = ResolveAbsolutePath(executionRoot, outputDirectory),
+    SchemaDocumentsPath = ResolveAbsolutePath(executionRoot, schemaDocumentsPath),
+    EmbeddingInputPath = ResolveAbsolutePath(executionRoot, embeddingInputPath)
 };
 
 var generator = new SchemaKnowledgeGenerator();
-await generator.GenerateAsync(options, CancellationToken.None);
+var result = await generator.GenerateAsync(options, CancellationToken.None);
 
-Console.WriteLine($"Knowledge artifact generated at {outputPath}");
+Console.WriteLine($"Schema documents generated at {result.SchemaDocumentsPath}");
+Console.WriteLine($"Embedding input generated at {result.EmbeddingInputPath}");
 
-static string ResolveRepositoryRoot()
+static string ResolveExecutionRoot()
 {
-    var currentDirectory = AppContext.BaseDirectory;
+    var currentDirectory = Directory.GetCurrentDirectory();
     var directory = new DirectoryInfo(currentDirectory);
 
     while (directory is not null)
@@ -35,15 +43,43 @@ static string ResolveRepositoryRoot()
         directory = directory.Parent;
     }
 
-    throw new InvalidOperationException("Unable to locate the repository root from the tool execution directory.");
+    return currentDirectory;
 }
 
 static string GetRequiredValue(IReadOnlyDictionary<string, string> values, string key)
 {
+    var environmentValue = Environment.GetEnvironmentVariable(key);
+
+    if (string.IsNullOrWhiteSpace(environmentValue) is false)
+    {
+        return environmentValue.Trim();
+    }
+
     if (values.TryGetValue(key, out var value) && string.IsNullOrWhiteSpace(value) is false)
     {
         return value;
     }
 
-    throw new InvalidOperationException($"Missing required environment variable '{key}' in .env.");
+    throw new InvalidOperationException($"Missing required environment variable '{key}' in process environment or .env.");
+}
+
+static string? GetOptionalValue(IReadOnlyDictionary<string, string> values, string key)
+{
+    var environmentValue = Environment.GetEnvironmentVariable(key);
+
+    if (string.IsNullOrWhiteSpace(environmentValue) is false)
+    {
+        return environmentValue.Trim();
+    }
+
+    return values.TryGetValue(key, out var value) && string.IsNullOrWhiteSpace(value) is false
+        ? value
+        : null;
+}
+
+static string ResolveAbsolutePath(string executionRoot, string path)
+{
+    return Path.IsPathRooted(path)
+        ? path
+        : Path.GetFullPath(Path.Combine(executionRoot, path));
 }

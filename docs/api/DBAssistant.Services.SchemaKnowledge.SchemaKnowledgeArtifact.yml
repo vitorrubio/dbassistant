@@ -6,9 +6,11 @@ items:
   parent: DBAssistant.Services.SchemaKnowledge
   children:
   - DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.DatabaseName
+  - DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.DocumentCount
   - DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.Documents
   - DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.FormatVersion
   - DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.GeneratedAtUtc
+  - DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.SchemaName
   langs:
   - csharp
   - vb
@@ -23,7 +25,7 @@ items:
       repo: https://github.com/vitorrubio/dbassistant.git
     id: SchemaKnowledgeArtifact
     path: ../src/Services/DBAssistant.Services/SchemaKnowledge/SchemaKnowledgeArtifact.cs
-    startLine: 7
+    startLine: 8
   assemblies:
   - DBAssistant.Services
   namespace: DBAssistant.Services.SchemaKnowledge
@@ -59,19 +61,74 @@ items:
       repo: https://github.com/vitorrubio/dbassistant.git
     id: DatabaseName
     path: ../src/Services/DBAssistant.Services/SchemaKnowledge/SchemaKnowledgeArtifact.cs
-    startLine: 12
+    startLine: 13
   assemblies:
   - DBAssistant.Services
   namespace: DBAssistant.Services.SchemaKnowledge
   summary: Gets or sets the logical database name represented by the artifact.
   example: []
   syntax:
-    content: public string DatabaseName { get; set; }
+    content: >-
+      [JsonPropertyName("database_name")]
+
+      public string DatabaseName { get; set; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property DatabaseName As String
+    content.vb: >-
+      <JsonPropertyName("database_name")>
+
+      Public Property DatabaseName As String
   overload: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.DatabaseName*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: database_name
+- uid: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.SchemaName
+  commentId: P:DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.SchemaName
+  id: SchemaName
+  parent: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact
+  langs:
+  - csharp
+  - vb
+  name: SchemaName
+  nameWithType: SchemaKnowledgeArtifact.SchemaName
+  fullName: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.SchemaName
+  type: Property
+  source:
+    remote:
+      path: src/Services/DBAssistant.Services/SchemaKnowledge/SchemaKnowledgeArtifact.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: SchemaName
+    path: ../src/Services/DBAssistant.Services/SchemaKnowledge/SchemaKnowledgeArtifact.cs
+    startLine: 19
+  assemblies:
+  - DBAssistant.Services
+  namespace: DBAssistant.Services.SchemaKnowledge
+  summary: Gets or sets the schema name represented by the artifact.
+  example: []
+  syntax:
+    content: >-
+      [JsonPropertyName("schema_name")]
+
+      public string SchemaName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonPropertyName("schema_name")>
+
+      Public Property SchemaName As String
+  overload: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.SchemaName*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: schema_name
 - uid: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.GeneratedAtUtc
   commentId: P:DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.GeneratedAtUtc
   id: GeneratedAtUtc
@@ -90,19 +147,31 @@ items:
       repo: https://github.com/vitorrubio/dbassistant.git
     id: GeneratedAtUtc
     path: ../src/Services/DBAssistant.Services/SchemaKnowledge/SchemaKnowledgeArtifact.cs
-    startLine: 17
+    startLine: 25
   assemblies:
   - DBAssistant.Services
   namespace: DBAssistant.Services.SchemaKnowledge
   summary: Gets or sets the UTC timestamp at which the artifact was generated.
   example: []
   syntax:
-    content: public DateTimeOffset GeneratedAtUtc { get; set; }
+    content: >-
+      [JsonPropertyName("generated_at_utc")]
+
+      public DateTimeOffset GeneratedAtUtc { get; set; }
     parameters: []
     return:
       type: System.DateTimeOffset
-    content.vb: Public Property GeneratedAtUtc As DateTimeOffset
+    content.vb: >-
+      <JsonPropertyName("generated_at_utc")>
+
+      Public Property GeneratedAtUtc As DateTimeOffset
   overload: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.GeneratedAtUtc*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: generated_at_utc
 - uid: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.FormatVersion
   commentId: P:DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.FormatVersion
   id: FormatVersion
@@ -121,19 +190,74 @@ items:
       repo: https://github.com/vitorrubio/dbassistant.git
     id: FormatVersion
     path: ../src/Services/DBAssistant.Services/SchemaKnowledge/SchemaKnowledgeArtifact.cs
-    startLine: 22
+    startLine: 31
   assemblies:
   - DBAssistant.Services
   namespace: DBAssistant.Services.SchemaKnowledge
   summary: Gets or sets the artifact format version.
   example: []
   syntax:
-    content: public string FormatVersion { get; set; }
+    content: >-
+      [JsonPropertyName("format_version")]
+
+      public string FormatVersion { get; set; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property FormatVersion As String
+    content.vb: >-
+      <JsonPropertyName("format_version")>
+
+      Public Property FormatVersion As String
   overload: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.FormatVersion*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: format_version
+- uid: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.DocumentCount
+  commentId: P:DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.DocumentCount
+  id: DocumentCount
+  parent: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact
+  langs:
+  - csharp
+  - vb
+  name: DocumentCount
+  nameWithType: SchemaKnowledgeArtifact.DocumentCount
+  fullName: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.DocumentCount
+  type: Property
+  source:
+    remote:
+      path: src/Services/DBAssistant.Services/SchemaKnowledge/SchemaKnowledgeArtifact.cs
+      branch: master
+      repo: https://github.com/vitorrubio/dbassistant.git
+    id: DocumentCount
+    path: ../src/Services/DBAssistant.Services/SchemaKnowledge/SchemaKnowledgeArtifact.cs
+    startLine: 37
+  assemblies:
+  - DBAssistant.Services
+  namespace: DBAssistant.Services.SchemaKnowledge
+  summary: Gets or sets the number of generated documents.
+  example: []
+  syntax:
+    content: >-
+      [JsonPropertyName("document_count")]
+
+      public int DocumentCount { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <JsonPropertyName("document_count")>
+
+      Public Property DocumentCount As Integer
+  overload: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.DocumentCount*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: document_count
 - uid: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.Documents
   commentId: P:DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.Documents
   id: Documents
@@ -152,19 +276,31 @@ items:
       repo: https://github.com/vitorrubio/dbassistant.git
     id: Documents
     path: ../src/Services/DBAssistant.Services/SchemaKnowledge/SchemaKnowledgeArtifact.cs
-    startLine: 27
+    startLine: 43
   assemblies:
   - DBAssistant.Services
   namespace: DBAssistant.Services.SchemaKnowledge
   summary: Gets or sets the generated schema knowledge documents.
   example: []
   syntax:
-    content: public IReadOnlyCollection<SchemaKnowledgeDocument> Documents { get; set; }
+    content: >-
+      [JsonPropertyName("documents")]
+
+      public IReadOnlyCollection<SchemaKnowledgeDocument> Documents { get; set; }
     parameters: []
     return:
       type: System.Collections.Generic.IReadOnlyCollection{DBAssistant.UseCases.Models.SchemaKnowledgeDocument}
-    content.vb: Public Property Documents As IReadOnlyCollection(Of SchemaKnowledgeDocument)
+    content.vb: >-
+      <JsonPropertyName("documents")>
+
+      Public Property Documents As IReadOnlyCollection(Of SchemaKnowledgeDocument)
   overload: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.Documents*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: documents
 references:
 - uid: DBAssistant.Services.SchemaKnowledge
   commentId: N:DBAssistant.Services.SchemaKnowledge
@@ -426,6 +562,12 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
+- uid: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.SchemaName*
+  commentId: Overload:DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.SchemaName
+  href: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.html#DBAssistant_Services_SchemaKnowledge_SchemaKnowledgeArtifact_SchemaName
+  name: SchemaName
+  nameWithType: SchemaKnowledgeArtifact.SchemaName
+  fullName: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.SchemaName
 - uid: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.GeneratedAtUtc*
   commentId: Overload:DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.GeneratedAtUtc
   href: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.html#DBAssistant_Services_SchemaKnowledge_SchemaKnowledgeArtifact_GeneratedAtUtc
@@ -446,6 +588,23 @@ references:
   name: FormatVersion
   nameWithType: SchemaKnowledgeArtifact.FormatVersion
   fullName: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.FormatVersion
+- uid: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.DocumentCount*
+  commentId: Overload:DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.DocumentCount
+  href: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.html#DBAssistant_Services_SchemaKnowledge_SchemaKnowledgeArtifact_DocumentCount
+  name: DocumentCount
+  nameWithType: SchemaKnowledgeArtifact.DocumentCount
+  fullName: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.DocumentCount
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.Documents*
   commentId: Overload:DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.Documents
   href: DBAssistant.Services.SchemaKnowledge.SchemaKnowledgeArtifact.html#DBAssistant_Services_SchemaKnowledge_SchemaKnowledgeArtifact_Documents

@@ -53,8 +53,24 @@ public sealed class SchemaContextAssembler : ISchemaContextAssembler
 
         foreach (var document in schemaKnowledgeDocuments)
         {
-            builder.AppendLine($"Document: {document.Title}");
+            builder.AppendLine($"Document: {document.Title} [{document.DocType}]");
             builder.AppendLine(document.Content);
+
+            if (document.JoinHints.Count > 0)
+            {
+                builder.AppendLine($"Join hints: {string.Join(" | ", document.JoinHints)}");
+            }
+
+            if (document.QuestionPatterns.Count > 0)
+            {
+                builder.AppendLine($"Question patterns: {string.Join(" | ", document.QuestionPatterns)}");
+            }
+
+            if (document.SemanticTags.Count > 0)
+            {
+                builder.AppendLine($"Semantic tags: {string.Join(", ", document.SemanticTags)}");
+            }
+
             builder.AppendLine();
         }
 

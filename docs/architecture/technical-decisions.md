@@ -14,7 +14,7 @@ Introduce selective caching for low-volatility repeated questions with a short T
 
 ## 2. RAG (Retrieval-Augmented Generation)
 ### Decision
-The solution uses a local file-based RAG artifact in `knowledge/schema-index.json`, with fallback to live `INFORMATION_SCHEMA`.
+The solution uses a local file-based RAG artifact in `knowledge/runtime/schema-documents.json`, with fallback to live `INFORMATION_SCHEMA`.
 
 ### Rationale
 - RAG reduces token usage and improves prompt precision without scanning the full schema on every request.
@@ -22,7 +22,7 @@ The solution uses a local file-based RAG artifact in `knowledge/schema-index.jso
 - Keeping the artifact in Git improves reviewability and auditability.
 
 ### Risk Mitigation
-- Regenerate the artifact regularly through `tools/DBAssistant.KnowledgeGenerator`.
+- Regenerate the runtime artifacts through `tools/DBAssistant.KnowledgeGenerator`.
 - Monitor fallback frequency to detect drift between the artifact and the real schema.
 
 ## 3. Synchronous vs. Asynchronous Processing

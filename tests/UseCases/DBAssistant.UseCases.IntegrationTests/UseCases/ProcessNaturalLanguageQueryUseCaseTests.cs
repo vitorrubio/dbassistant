@@ -26,7 +26,7 @@ public sealed class ProcessNaturalLanguageQueryUseCaseTests
                 {
                     Title = "Orders document",
                     Content = "Orders can be joined with customers.",
-                    TableNames = ["Orders", "Customers"]
+                    RelatedTables = ["Orders", "Customers"]
                 }));
 
         var useCase = new ProcessNaturalLanguageQueryUseCase(

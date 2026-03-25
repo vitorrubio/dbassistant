@@ -7,7 +7,7 @@ flowchart LR
 
     Data --> MySql[(MySQL)]
     Services --> OpenAI[(OpenAI API)]
-    Services --> Knowledge[(knowledge/schema-index.json)]
+    Services --> Knowledge[(knowledge/runtime/schema-documents.json)]
 
     subgraph CI/CD
         GH[GitHub Actions] --> GHCR[GitHub Container Registry]

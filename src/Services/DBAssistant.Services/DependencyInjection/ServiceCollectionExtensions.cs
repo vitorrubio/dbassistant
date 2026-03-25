@@ -45,8 +45,8 @@ public static class ServiceCollectionExtensions
 
         services.Configure<SchemaKnowledgeOptions>(options =>
         {
-            options.FilePath = configuration["SCHEMA_KNOWLEDGE_FILE_PATH"] ?? "knowledge/schema-index.json";
-            options.EmbeddingsFilePath = configuration["SCHEMA_KNOWLEDGE_EMBEDDINGS_FILE_PATH"] ?? "knowledge/schema-index.embeddings.json";
+            options.FilePath = configuration["SCHEMA_KNOWLEDGE_FILE_PATH"] ?? "knowledge/runtime/schema-documents.json";
+            options.EmbeddingsFilePath = configuration["SCHEMA_KNOWLEDGE_EMBEDDINGS_FILE_PATH"] ?? "knowledge/runtime/schema-embeddings.json";
 
             if (int.TryParse(configuration["SCHEMA_KNOWLEDGE_MAX_DOCUMENTS"], out var maxDocuments))
             {

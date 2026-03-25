@@ -10,7 +10,7 @@ The main goal is to accelerate data analysis without exposing end users to raw S
 2. Middleware validates the API key, using `x-api-key` by default.
 3. `AssistantController` delegates to `IProcessNaturalLanguageQueryUseCase`.
 4. The use case builds schema context through `ISchemaContextAssembler`:
-   - It queries the local knowledge index in `knowledge/schema-index.json` for RAG hints.
+   - It queries the local runtime knowledge index in `knowledge/runtime/schema-documents.json` for RAG hints.
    - It falls back to live `INFORMATION_SCHEMA` metadata to cover tables that are not yet indexed.
 5. `ISqlGenerationGateway` uses OpenAI to generate structured SQL from the question and schema context.
 6. The domain validates the generated statement and blocks forbidden commands, allowing read-only SQL only.
@@ -34,7 +34,7 @@ The API is stateless at runtime, so multiple container replicas can serve reques
 Azure Container Apps can scale replica count based on demand, keeping low-load operating costs under control.
 
 ### 4.3 Context Scalability
-The `schema-index.json` knowledge artifact reduces the amount of schema context sent to the model for most requests. `INFORMATION_SCHEMA` preserves functional completeness when the local index is outdated.
+The runtime-generated `schema-documents.json` artifact reduces the amount of schema context sent to the model for most requests. `INFORMATION_SCHEMA` preserves functional completeness when the local RAG artifacts are missing, outdated, or unavailable.
 
 ### 4.4 Delivery Scalability
 GitHub Actions automates restore, build, test, package, and deployment steps. Immutable `sha-<commit>` image tags improve traceability and rollback safety.

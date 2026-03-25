@@ -11,6 +11,11 @@ public sealed class TableMetadata
     public string TableName { get; set; } = string.Empty;
 
     /// <summary>
+    /// Gets or sets the table type reported by MySQL, such as BASE TABLE or VIEW.
+    /// </summary>
+    public string TableType { get; set; } = "BASE TABLE";
+
+    /// <summary>
     /// Gets or sets the estimated row count reported by MySQL metadata.
     /// </summary>
     public long EstimatedRowCount { get; set; }
